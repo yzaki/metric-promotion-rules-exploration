@@ -91,6 +91,8 @@ exactly with the same library versions.
 | Table S21 (what followed a return) | `return_value.py` (needs raw data) | `results*_world/return_value_lead2.csv` |
 | Table S22 (threshold vs committee rules, exploratory) | `stacked_rules.py`, `spain_check.py` | `results_stacked_rules/`, `results*_world_spain/` |
 | Table S23 (academic rank in 2011) | `rank_exposure.py`, `register_split.py` (need the MUR staff register exports and author names; not distributed) | `results*_world_career/rank_exposure.csv`, `register_split.csv` |
+| Table S24 (distance to own sector bar) | `sector_thresholds.py` (needs the register, raw data and ANVUR 2012 medians: roars.it/wp-content/uploads/2012/08/Mediane-ASN-2012-in-formato-Excel.zip) | `results*_world_career/sector_thresholds.csv` |
+| Table S25 (institution type 2009-12) | `fetch_affiliations.py`, `institution_split.py` | `results*_world_career/institution_split.csv` |
 | True career start | `export_author_papers.py`, `jubail/match_career.py` (needs author names and SciSciNet) | `career_start/career_start.tsv.gz` |
 | Economics placebo field | `estimate.py` with `CT_FIELD_ID=20` | `results_field20*/` |
 | All figures / all tables | `paper_figures.py`, `paper_tables.py` | written to `../paper_overleaf/` (adjust `OUT`) |

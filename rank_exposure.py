@@ -40,14 +40,14 @@ def register(snapshot="31122011"):
     rows = []
     for f in sorted(glob.glob(os.path.join(META, "staff_register", f"docenti_area*_{snapshot}.xlsx"))):
         d = pd.read_excel(f)
-        for rank, name, ateneo in zip(d["Fascia"], d["Cognome e Nome"], d["Ateneo"]):
+        for rank, name, ateneo, sc in zip(d["Fascia"], d["Cognome e Nome"], d["Ateneo"], d["SC2015"]):
             parts = str(name).split()
             sur = [p for p in parts if p.isupper() and len(p) > 1]
             given = [p for p in parts if not (p.isupper() and len(p) > 1)]
-            if not sur or not given:
+            if not sur or not given or not norm(given[0]):
                 continue
             rows.append({"key": norm(given[0])[0] + "|" + " ".join(norm(" ".join(sur))),
-                         "rank": str(rank).strip(), "ateneo": ateneo})
+                         "rank": str(rank).strip(), "ateneo": ateneo, "sc": str(sc).strip()})
     r = pd.DataFrame(rows).drop_duplicates(["key", "rank", "ateneo"])
     return r[~r.key.duplicated(keep=False)].set_index("key")   # unique names only
 
@@ -95,7 +95,8 @@ def main():
     rank = hit_keys.map(lambda k: group_of(reg.loc[k, "rank"]))
     print(f"Italian scientists {len(it_ids):,}; matched to the 2011 register {len(rank):,} "
           f"({len(rank) / len(it_ids):.1%}); by rank:\n{rank.value_counts().to_string()}", flush=True)
-    rank.rename("rank_2011").to_csv(os.path.join(args.out, "rank_2011_match.csv"))   # ids and rank only
+    pd.DataFrame({"rank_2011": rank, "sc_2011": hit_keys.map(lambda k: reg.loc[k, "sc"])}).to_csv(
+        os.path.join(args.out, "rank_2011_match.csv"))   # ids, rank and sector only; not distributed
 
     cs = pd.read_csv(os.path.join(META, "career_start.tsv.gz"), sep="\t").set_index("author_id").mag_first_year
     career_2011 = 2011 - cs   # years since first publication (full MAG record), by author_id

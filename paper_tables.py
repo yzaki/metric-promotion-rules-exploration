@@ -534,10 +534,60 @@ def table_rank():
     write("tab_rank.tex", "\n".join(lines))
 
 
+def _group_table(fname, order, labels, header, outname, extra_rows=None):
+    folders = [f + "_career" for _, f in W3]
+    tabs = [pd.read_csv(path(f, fname)).set_index("group") for f in folders]
+    lines = [r"\begin{tabular}{llll}", r"\toprule", header + r" & Physics & Engineering & Biochemistry \\", r"\midrule"]
+    for g in order:
+        cells = []
+        for t in tabs:
+            if g not in t.index:
+                cells.append("--")
+                continue
+            r = t.loc[g]
+            s = _pp(r.irl_near, r.irl_low, r.irl_high, 2)
+            if pd.notna(r.get("lpm_near_pp", np.nan)):
+                s += f"; ${r.lpm_near_pp:+.1f}$ ({int(r.n_italian):,})"
+            cells.append(s)
+        lines.append(f"{labels.get(g, g)} & {' & '.join(cells)} \\\\")
+    for label, fn in (extra_rows or []):
+        lines.append(f"{label} & {' & '.join(fn(t) for t in tabs)} \\\\")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write(outname, "\n".join(lines))
+
+
+def table_sector_bars():
+    _group_table("sector_thresholds.csv", ["met", "one short", "far below", "full professor", "one short minus met",
+                                          "below (0-1) minus met"],
+                 {"met": "Associates and researchers: bar met (2--3 of 3)", "one short": "\\quad one indicator short",
+                  "far below": "\\quad far below (0 of 3)", "full professor": "Full professors (no bar)",
+                  "one short minus met": "One short minus met", "below (0-1) minus met": "Below (0--1) minus met"},
+                 "Group (weight; model-free pp, $n$)", "tab_sector_bars.tex",
+                 [("Validation: Spearman vs ANVUR 2012 medians (articles / citations / h; sectors)",
+                   lambda t: f"{t.validation_spearman_articles.iloc[0]:.2f} / {t.validation_spearman_citations.iloc[0]:.2f} / "
+                             f"{t.validation_spearman_h.iloc[0]:.2f} ({int(t.validation_n_sectors.iloc[0])})")])
+
+
+def table_institutions():
+    _group_table("institution_split.csv",
+                 ["university staff", "university, early career", "university, other", "research institute",
+                  "hospital or company", "university staff minus research institute",
+                  "university, early career minus research institute"],
+                 {"university staff": "University staff (in the 2011 register)",
+                  "university, early career": "University, not in register, $\\le$10 years",
+                  "university, other": "University, not in register, $>$10 years",
+                  "research institute": "Research institute (e.g.\\ INFN, CNR, INAF)",
+                  "hospital or company": "Hospital or company",
+                  "university staff minus research institute": "University staff minus research institute",
+                  "university, early career minus research institute": "Early career minus research institute"},
+                 "Italian group, 2009--12 (weight; model-free pp, $n$)", "tab_institutions.tex")
+
+
 if __name__ == "__main__":
+    import numpy as np
     os.makedirs(OUT, exist_ok=True)
     for fn in (table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries,
-               table_stacked_rules, table_rank):
+               table_stacked_rules, table_rank, table_sector_bars, table_institutions):
         try:
             fn()
         except (FileNotFoundError, KeyError, IndexError) as e:
