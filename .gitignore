@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+# raw OpenAlex downloads and author metadata are not distributed (re-download with the fetch_*.py scripts)
+data*/raw/
+data*/refs/
+data*/world/
+data_meta/
+data_sciscinet/
+# decompressed copies of the distributed .csv.gz files
+data*/trajectories*.csv
+logs/

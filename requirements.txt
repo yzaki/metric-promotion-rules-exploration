@@ -1,0 +1,7 @@
+# Versions used for the paper (Python 3.14.7); earlier versions of these libraries are likely to work.
+numpy==2.5.4
+pandas==3.1.0
+scipy==1.18.1
+matplotlib==3.11.2
+requests==2.34.2
+gender-guesser==0.4.0
