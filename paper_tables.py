@@ -509,10 +509,35 @@ def table_stacked_rules():
     write("tab_stacked_rules.tex", "\n".join(lines))
 
 
+def table_rank():
+    folders = [f + "_career" for _, f in W3]
+    tabs = [pd.read_csv(path(f, "rank_exposure.csv")) for f in folders]
+    splits = [pd.read_csv(path(f, "register_split.csv")).set_index("italian_group") for f in folders]
+    lines = [r"\begin{tabular}{llll}", r"\toprule",
+             r"Italian group (rank at 31 Dec 2011) vs FR+DE & Physics & Engineering & Biochemistry \\", r"\midrule"]
+    for sample in tabs[0]["sample"].unique():
+        lines.append(rf"\multicolumn{{4}}{{l}}{{\emph{{Nearby-move weight, {sample}}}}} \\")
+        for g in ("full professor", "associate professor", "researcher", "needed minus full"):
+            cells = []
+            for t in tabs:
+                r = t[(t["sample"] == sample) & (t.group == g)].iloc[0]
+                n = "" if g == "needed minus full" else f" ({int(r.n_italian):,})"
+                cells.append(_pp(r.irl_near, r.irl_low, r.irl_high, 2) + n)
+            label = "Needed it minus full professors" if g == "needed minus full" else g[0].upper() + g[1:]
+            lines.append(f"\\quad {label} & {' & '.join(cells)} \\\\")
+        lines.append(r"\addlinespace")
+    lines.append(r"\multicolumn{4}{l}{\emph{Model-free, pp}} \\")
+    for g in ("matched to register", "not matched"):
+        cells = [(lambda r: _pp(r.lpm_near_pp, r.ci_low, r.ci_high) + f" ({int(r.n_italian):,})")(s.loc[g]) for s in splits]
+        lines.append(f"\\quad Italian scientists {g} & {' & '.join(cells)} \\\\")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_rank.tex", "\n".join(lines))
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     for fn in (table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries,
-               table_stacked_rules):
+               table_stacked_rules, table_rank):
         try:
             fn()
         except (FileNotFoundError, KeyError, IndexError) as e:

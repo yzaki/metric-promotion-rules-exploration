@@ -10,3 +10,6 @@ data_sciscinet/
 # decompressed copies of the distributed .csv.gz files
 data*/trajectories*.csv
 logs/
+# person-level rank matched by name (re-identifiable); not distributed
+rank_2011_match.csv
+**/rank_2011_match.csv
