@@ -351,8 +351,23 @@ def table_controls():
     write("tab_controls.tex", "\n".join(lines))
 
 
+def table_simulation():
+    f1, f2 = path("results_sim", "did_main.csv"), path("results_sim", "did_placebo_2007.csv")
+    if not (os.path.exists(f1) and os.path.exists(f2)):
+        return
+    a, b = pd.read_csv(f1).set_index("parameter"), pd.read_csv(f2).set_index("parameter")
+    lines = [r"\begin{tabular}{lrlcl}", r"\toprule",
+             r"Weight & Planted effect & Estimated effect [95\% CI] & Covers planted & Placebo 2007 [95\% CI] \\", r"\midrule"]
+    for p in ("theta_cite", "theta_near", "theta_far"):
+        r, q = a.loc[p], b.loc[p]
+        lines.append(f"{PNAME[p]} & ${r.true:+.2f}$ & {ci(r)} & {'yes' if r.covered else 'no'} & {ci(q)} \\\\")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_simulation.tex", "\n".join(lines))
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
+    table_simulation()
     table_heterogeneity()
     table_controls()
     table_validation()
