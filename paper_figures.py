@@ -486,8 +486,64 @@ def main_fig4():
     _save(fig, "Fig4_consequences")
 
 
+def _who_rows(folder):
+    """Rank, own-bar and institution groups (nearby-move weight) for one field, top to bottom."""
+    f = os.path.join(HERE, folder + "_career")
+    rk = pd.read_csv(os.path.join(f, "rank_exposure.csv"))
+    rk = rk[rk["sample"] == "all career ages"].set_index("group")
+    sb = pd.read_csv(os.path.join(f, "sector_thresholds.csv")).set_index("group")
+    ins = pd.read_csv(os.path.join(f, "institution_split.csv")).set_index("group")
+    rows = [("Rank 2011: full professor", rk.loc["full professor"]),
+            ("associate professor", rk.loc["associate professor"]),
+            ("researcher", rk.loc["researcher"]),
+            ("Own sector bar: met", sb.loc["met"]),
+            ("one indicator short", sb.loc["one short"]),
+            ("far below", sb.loc["far below"]),
+            ("Institution: university staff", ins.loc["university staff"]),
+            ("university, early career", ins.loc["university, early career"]),
+            ("research institute", ins.loc["research institute"])]
+    return [(lab, {"did": r.irl_near, "ci_low": r.irl_low, "ci_high": r.irl_high}) for lab, r in rows]
+
+
+def main_fig5():
+    """What declined, and who changed."""
+    fig = plt.figure(figsize=(13, 9.4))
+    gs = fig.add_gridspec(2, 2, height_ratios=[0.55, 1.45], hspace=0.38, wspace=0.75)
+    a = fig.add_subplot(gs[0, :])
+    _zero(a)
+    for i, (name, folder, _) in enumerate(THREE):
+        t = pd.read_csv(os.path.join(HERE, folder, "first_entry.csv"))
+        t = t[t.definition == t.definition.iloc[0]].set_index("outcome")
+        for dy, oc, col, mk in ((0.14, "near_new", BLUE, "o"), (-0.14, "near_return", ORANGE, "s")):
+            r = t.loc[oc]
+            _pointrange(a, len(THREE) - 1 - i + dy, {"did": r.beta_pp, "ci_low": r.ci_low_pp, "ci_high": r.ci_high_pp}, col, mk)
+    a.set_yticks(range(len(THREE)), [t[0] for t in THREE][::-1])
+    a.set_xlabel("Change in yearly probability, percentage points (model-free)")
+    _panel(a, "A", "Nearby moves: first entries and returns")
+    _clean(a)
+    for k, (field, folder) in enumerate((("Engineering", "results_field22_world"), ("Physics", "results_world"))):
+        ax = fig.add_subplot(gs[1, k])
+        _zero(ax)
+        rows = _who_rows(folder)
+        n = len(rows)
+        for i, (lab, r) in enumerate(rows):
+            _pointrange(ax, n - 1 - i, r, [BLUE, ORANGE, AQUA][i // 3], "osD"[i // 3])
+        ax.set_yticks(range(n), [lab for lab, _ in rows][::-1])
+        for yline in (2.5, 5.5):
+            ax.axhline(yline, color=REF, lw=0.8, ls=":")
+        ax.set_xlabel("Change in nearby-move weight\n(Italian group vs control)")
+        _panel(ax, "BC"[k], f"{field}: who changed")
+        _clean(ax)
+    h = [plt.Line2D([], [], color=BLUE, marker="o", ls="none", ms=9, label="A: first entry;  B–C: rank"),
+         plt.Line2D([], [], color=ORANGE, marker="s", ls="none", ms=9, label="A: return;  B–C: own sector bar"),
+         plt.Line2D([], [], color=AQUA, marker="D", ls="none", ms=9, label="B–C: institution 2009–12")]
+    fig.legend(handles=h, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.01), fontsize=11.5)
+    fig.subplots_adjust(bottom=0.1)
+    _save(fig, "Fig5_who_changed")
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
-    for f in (main_fig1, main_fig2, main_fig3, main_fig4):
+    for f in (main_fig1, main_fig2, main_fig3, main_fig4, main_fig5):
         f()
     print("figures written to", os.path.abspath(OUT))

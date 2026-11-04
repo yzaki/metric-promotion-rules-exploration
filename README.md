@@ -84,6 +84,7 @@ exactly with the same library versions.
 | Table S13 (counterfactual rules) | `counterfactual.py` | `results*_world/counterfactual.csv` |
 | Table S14 (gender, region, ORCID) | `heterogeneity.py` (needs `fetch_authors.py`) | `results*_world/heterogeneity.csv` |
 | Table S15 (control countries) | `run_controls.sh` | `results*_world_ctrl_*/` |
+| Fig. 5 (first entries vs returns; who changed) | `paper_figures.py` (`main_fig5`) | `first_entry.csv`, `rank_exposure.csv`, `sector_thresholds.csv`, `institution_split.csv` |
 | Table S17 (within careers vs composition) | `composition_check.py`, `composition_decompose.py` | `results*_world/composition_*.csv` |
 | Table S18 (each country treated as if reformed) | `placebo_space.py` (in `run_career.sh`) | `results*_world_career_placebo_space/` |
 | Table S19 (first entries and returns) | `first_entry.py` (needs raw data) | `results*_world/first_entry.csv` |
