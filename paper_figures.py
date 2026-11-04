@@ -179,7 +179,7 @@ def fig3():
     fig, ax = plt.subplots(figsize=(9, 5))
     _zero(ax)
     for i, (name, folder) in enumerate(WORLD3):
-        t = pd.read_csv(os.path.join(HERE, folder, "did_by_career_main.csv"))
+        t = pd.read_csv(os.path.join(HERE, folder + "_career", "did_by_career_main.csv"))
         t = t[t.parameter == "theta_near"].set_index("career_stage")
         for j, (st, col, mk) in enumerate(stages):
             _pointrange(ax, len(WORLD3) - 1 - i + (0.24 - 0.24 * j), t.loc[st], col, mk)
@@ -408,14 +408,14 @@ def main_fig2():
     d = fig.add_subplot(gs[1, :])
     stages = [("0-5 years", BLUE, "o"), ("6-15 years", ORANGE, "s"), ("16+ years", AQUA, "D")]
     _zero(d)
-    for i, (name, folder, _) in enumerate(THREE):
-        t = pd.read_csv(os.path.join(HERE, folder, "did_by_career_main.csv"))
+    for i, (name, folder, _) in enumerate(THREE):   # true career age (SciSciNet/MAG first publication)
+        t = pd.read_csv(os.path.join(HERE, folder + "_career", "did_by_career_main.csv"))
         t = t[t.parameter == "theta_near"].set_index("career_stage")
         for j, (st, col, mk) in enumerate(stages):
             _pointrange(d, len(THREE) - 1 - i + (0.22 - 0.22 * j), t.loc[st], col, mk)
     d.set_yticks(range(len(THREE)), [t[0] for t in THREE][::-1])
     d.set_xlabel("Change in nearby-move weight, Italy vs control (after − before)")
-    _panel(d, "D", "By career stage (years since first paper)")
+    _panel(d, "D", "By career stage (years since first publication, full record)")
     _clean(d)
     h = [plt.Rectangle((0, 0), 1, 1, color=BAND, label="Reform transition"),
          plt.Line2D([], [], color="#c0392b", ls="--", lw=1.6, label="First habilitation round (2012)")] + \

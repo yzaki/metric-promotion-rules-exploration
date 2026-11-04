@@ -91,20 +91,77 @@ def table_robustness():
 
 
 def table_career():
-    sets = [("Physics", "results_world"), ("Engineering", "results_field22_world"), ("Biochemistry", "results_field13_world")]
+    """Nearby-move effect by true career age (first publication in the full MAG record)."""
+    folders = [f + "_career" for _, f in W3]
     lines = [r"\begin{tabular}{llll}", r"\toprule",
-             r"Field & Career stage & Nearby move & Citation potential \\", r"\midrule"]
-    for name, folder in sets:
-        f = path(folder, "did_by_career_main.csv")
-        if not os.path.exists(f):
-            continue
-        t = pd.read_csv(f)
-        for i, stage in enumerate(t.career_stage.unique()):
-            s = t[t.career_stage == stage].set_index("parameter")
-            lines.append(f"{name if i == 0 else ''} & {stage} & {ci(s.loc['theta_near'])} & {ci(s.loc['theta_cite'])} \\\\")
-        lines.append(r"\addlinespace")
+             r"Nearby-move weight, Italy vs FR+DE & Physics & Engineering & Biochemistry \\", r"\midrule"]
+
+    def cell(fn):
+        out = []
+        for f in folders:
+            try:
+                out.append(fn(f))
+            except (FileNotFoundError, KeyError, IndexError):
+                out.append("--")
+        return " & ".join(out)
+
+    lines.append(f"All matched scientists & {cell(lambda f: ci(pd.read_csv(path(f, 'did_main.csv')).set_index('parameter').loc['theta_near']))} \\\\")
+    lines.append(r"\multicolumn{4}{l}{\emph{Career stage (years since first publication)}} \\")
+    for stage in ("0-5 years", "6-15 years", "16+ years"):
+        lines.append(f"\\quad {stage.replace('-', '--')} & " + cell(lambda f, stage=stage: ci(
+            (lambda t: t[t.career_stage == stage])(pd.read_csv(path(f, "did_by_career_main.csv")))
+            .set_index("parameter").loc["theta_near"])) + r" \\")
+    lines.append(r"\multicolumn{4}{l}{\emph{Finer bands of career age}} \\")
+    for band in ("0-10", "11-20", "21-30", "31+"):
+        lines.append(f"\\quad {band.replace('-', '--')} years & " + cell(lambda f: (lambda r: _pp(r.irl_near, r.irl_low, r.irl_high, 2))(
+            pd.read_csv(path(f, "career_bands.csv")).set_index("band").loc[band])) + r" \\")
+    lines.append(r"\addlinespace")
+    for tag, label in (("main", "Mid-career (6--15) minus senior (16+)"), ("placebo_2007", "\\quad placebo reform 2007")):
+        lines.append(f"{label} & " + cell(lambda f: (lambda r: _pp(r.point, r.ci_low, r.ci_high, 2))(
+            pd.read_csv(path(f, f"italy_ddd_{tag}.csv")).set_index("estimate").loc["ddd"])) + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}"]
     write("tab_career.tex", "\n".join(lines))
+
+
+def table_return_value():
+    lines = [r"\begin{tabular}{lllll}", r"\toprule",
+             r"Outcome two active years later, relative to staying & Choice & Physics & Engineering & Biochemistry \\", r"\midrule"]
+    tabs = [pd.read_csv(path(f, "return_value_lead2.csv")) for _, f in W3]
+    labels = {"near_return": "Nearby, return", "near_new": "Nearby, first entry",
+              "far_return": "Distant, return", "far_new": "Distant, first entry"}
+    for sample in tabs[0]["sample"].unique():
+        for o, olabel in (("log_cites", "Mean log normalised citations"), ("top10", "Share in top 10\\%"), ("papers", "Articles")):
+            for i, c in enumerate(labels):
+                cells = [(lambda r: _pp(r.vs_stay, r.ci_low, r.ci_high, 3))(
+                    t[(t["sample"] == sample) & (t.outcome == o) & (t.choice == c)].iloc[0]) for t in tabs]
+                first = f"{olabel} ({sample})" if i == 0 else ""
+                lines.append(f"{first} & {labels[c]} & {' & '.join(cells)} \\\\")
+            lines.append(r"\addlinespace")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_return_value.tex", "\n".join(lines))
+
+
+def table_new_countries():
+    lines = [r"\begin{tabular}{lllll}", r"\toprule",
+             r"Treated country vs FR+DE & Estimate & Physics & Engineering & Biochemistry \\", r"\midrule"]
+    for c, name in (("IT", "Italy (main)"), ("PL", "Poland"), ("RO", "Romania")):
+        folders = [f if c == "IT" else f"{f}_{c}" for _, f in W3]
+        rows = (("Nearby-move weight", lambda f: ci(pd.read_csv(path(f, "did_main.csv")).set_index("parameter").loc["theta_near"])),
+                ("Placebo 2007", lambda f: ci(pd.read_csv(path(f, "did_placebo_2007.csv")).set_index("parameter").loc["theta_near"])),
+                ("Model-free, pp", lambda f: (lambda r: _pp(r.beta_pp, r.ci_low_pp, r.ci_high_pp))(
+                    pd.read_csv(path(f, "reduced_form.csv")).query("choice == 'near'").iloc[0])),
+                ("Treated-country choices", lambda f: f"{int(pd.read_csv(path(f, 'weights_by_group_main.csv'), index_col=0).loc['n_choices', ['IT_pre', 'IT_post']].sum()):,} choices"))
+        for i, (label, fn) in enumerate(rows):
+            cells = []
+            for f in folders:
+                try:
+                    cells.append(fn(f))
+                except (FileNotFoundError, KeyError, IndexError):
+                    cells.append("--")
+            lines.append(f"{name if i == 0 else ''} & {label} & {' & '.join(cells)} \\\\")
+        lines.append(r"\addlinespace")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_new_countries.tex", "\n".join(lines))
 
 
 def table_effects():
@@ -365,8 +422,86 @@ def table_simulation():
     write("tab_simulation.tex", "\n".join(lines))
 
 
+def table_composition():
+    """Model-free nearby-move DiD on all scientists and on those observed in both periods."""
+    lines = [r"\begin{tabular}{llll}", r"\toprule",
+             r"Nearby-move DiD, pp & Physics & Engineering & Biochemistry \\", r"\midrule"]
+    tabs = [pd.read_csv(path(f, "composition_check.csv")) for _, f in W3]
+    decs = [pd.read_csv(path(f, "composition_decompose.csv")).set_index("contrast") for _, f in W3]
+    for sample, slabel in (("all", "All scientists"), ("balanced", "Observed before and after")):
+        lines.append(rf"\multicolumn{{4}}{{l}}{{\emph{{{slabel}}}}} \\")
+        for spec in ("raw shares", "year FE", "year + state FE", "scientist + year FE", "scientist + year + state FE"):
+            cells = []
+            for t in tabs:
+                r = t[(t["sample"] == sample) & (t.spec == spec)].iloc[0]
+                cells.append(f"${r.beta_pp:+.1f}$" if spec == "raw shares" else _pp(r.beta_pp, r.ci_low_pp, r.ci_high_pp))
+            lines.append(f"\\quad {spec[0].upper() + spec[1:]} & {' & '.join(cells)} \\\\")
+        lines.append(r"\addlinespace")
+    lines.append(r"\multicolumn{4}{l}{\emph{Decomposition of the raw difference}} \\")
+    for key, label in (("stayers: after minus before", "Same scientists, after vs before"),
+                       ("entrants after minus leavers before", "Entrants after vs leavers before")):
+        cells = [_pp(d.loc[key].did_pp, d.loc[key].ci_low, d.loc[key].ci_high) for d in decs]
+        lines.append(f"\\quad {label} & {' & '.join(cells)} \\\\")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_composition.tex", "\n".join(lines))
+
+
+def table_placebo_space():
+    """Each country as the treated unit; Italy's rank (1 = most negative of six)."""
+    names = {"IT": "Italy", "FR": "France", "DE": "Germany", "ES": "Spain", "NL": "Netherlands", "PT": "Portugal"}
+    folders = [f + "_career_placebo_space" for _, f in W3]
+    tabs = [pd.read_csv(path(f, "placebo_space.csv")).set_index("treated") for f in folders]
+    lines = [r"\begin{tabular}{lrrrrrrrrr}", r"\toprule",
+             r" & \multicolumn{3}{c}{Physics} & \multicolumn{3}{c}{Engineering} & \multicolumn{3}{c}{Biochemistry} \\",
+             r"Treated country & Weight & Model-free, pp & Mid $-$ senior & Weight & Model-free, pp & Mid $-$ senior & Weight & Model-free, pp & Mid $-$ senior \\",
+             r"\midrule"]
+    for c in tabs[0].index:
+        cells = []
+        for t in tabs:
+            r = t.loc[c]
+            cells.append(f"${r.irl_near:+.2f}$ & ${r.lpm_near_pp:+.1f}$ & ${r.irl_ddd_mid_minus_senior:+.2f}$")
+        lines.append(f"{names[c]} & {' & '.join(cells)} \\\\")
+    lines.append(r"\addlinespace")
+    cells = []
+    for t in tabs:
+        r = t.loc["IT"]
+        cells.append(f"{int(r.rank_irl_near)} of 6 & {int(r.rank_lpm_near_pp)} of 6 & {int(r.rank_irl_ddd_mid_minus_senior)} of 6")
+    lines.append(f"Italy's rank (1 = most negative) & {' & '.join(cells)} \\\\")
+    cells = []
+    for f in folders:
+        d = pd.read_csv(path(f, "italy_ddd.csv")).set_index("estimate").loc["ddd"]
+        cells.append(f"\\multicolumn{{3}}{{r}}{{{_pp(d.point, d.ci_low, d.ci_high, 2)}}}")
+    lines.append(f"Italy, mid $-$ senior, 95\\% CI & {' & '.join(cells)} \\\\")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_placebo_space.tex", "\n".join(lines))
+
+
+def table_first_entry():
+    lines = [r"\begin{tabular}{llll}", r"\toprule",
+             r"Yearly choice, model-free DiD, pp & Physics & Engineering & Biochemistry \\", r"\midrule"]
+    tabs = [pd.read_csv(path(f, "first_entry.csv")) for _, f in W3]
+    labels = {"near": "Nearby move (all)", "near_new": "Nearby move, new topic", "near_return": "Nearby move, return",
+              "far_new": "Distant jump, new topic", "far_return": "Distant jump, return"}
+    for definition in tabs[0].definition.unique():
+        lines.append(rf"\multicolumn{{4}}{{l}}{{\emph{{New = no article in the topic, {definition}}}}} \\")
+        for o in tabs[0][tabs[0].definition == definition].outcome:
+            cells = []
+            for t in tabs:
+                r = t[(t.definition == definition) & (t.outcome == o)].iloc[0]
+                cells.append(f"{_pp(r.beta_pp, r.ci_low_pp, r.ci_high_pp)} ({r.IT_before_pct:.1f}\\%)")
+            lines.append(f"\\quad {labels[o]} & {' & '.join(cells)} \\\\")
+        lines.append(r"\addlinespace")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_first_entry.tex", "\n".join(lines))
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
+    for fn in (table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries):
+        try:
+            fn()
+        except (FileNotFoundError, KeyError, IndexError) as e:
+            print("skip", fn.__name__, e)
     table_simulation()
     table_heterogeneity()
     table_controls()

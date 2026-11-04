@@ -99,7 +99,7 @@ def author_years(df, country):
     return ay.sort_values(["author_id", "year"]).reset_index(drop=True)
 
 
-def add_state(ay, pot):
+def add_state(ay, pot, career_start=None):
     # Citation potential: topic level, falling back to subfield, then to the year's median
     ay = ay.merge(pot["topic_id"], on=["topic_id", "year"], how="left")
     ay = ay.merge(pot["subfield_id"], on=["subfield_id", "year"], how="left")
@@ -110,8 +110,11 @@ def add_state(ay, pot):
     pct = ay.groupby("year").potential.rank(method="average", pct=True)
     ay["tier"] = np.clip(np.ceil(pct * 3) - 1, 0, 2).fillna(1).astype(int)
 
-    # Career stage: years since the author's first observed paper
+    # Career stage: years since the author's first observed paper, or, with career_start (a Series
+    # author_id -> first publication year from the full MAG record), years since the true first paper
     first = ay.groupby("author_id").year.transform("min")
+    if career_start is not None:
+        first = np.minimum(ay.author_id.map(career_start), first)
     ay["career_years"] = ay.year - first
     ay["career"] = np.select([ay.career_years <= 5, ay.career_years <= 15], [0, 1], 2)
 
@@ -175,8 +178,17 @@ def main():
                     help="citation potential from world-wide counts (fetch_world_citations.py)")
     ap.add_argument("--near-k", type=int, default=None,
                     help="define 'near' as the k most similar topics (author co-occurrence, 1998-2003)")
+    ap.add_argument("--career-start", default=None,
+                    help="career_start.tsv.gz from the SciSciNet match: career age from the true first "
+                         "publication year; unmatched scientists are dropped")
+    ap.add_argument("--treated", default=None,
+                    help="treated country instead of Italy, e.g. PL or RO (Italy is then left out); "
+                         "it is labelled IT in the output so the estimation scripts run unchanged")
     args = ap.parse_args()
     suffix = f"_{args.tag}" if args.tag else ""
+    if args.treated:
+        config.TREATED = args.treated
+        config.COUNTRIES = [config.TREATED] + config.CONTROLS
     if args.controls:
         config.CONTROLS = args.controls
         config.COUNTRIES = [config.TREATED] + args.controls
@@ -198,7 +210,16 @@ def main():
     ay = ay[active >= config.MIN_ACTIVE_YEARS].reset_index(drop=True)
     print(f"Authors with at least {config.MIN_ACTIVE_YEARS} active years: {ay.author_id.nunique():,}")
 
-    ay = add_state(ay, pot)
+    start = None
+    if args.career_start:
+        cs = pd.read_csv(args.career_start, sep="\t").dropna(subset=["mag_first_year"])
+        cs = cs[cs.mag_first_year >= 1960]   # earlier first years are MAG date errors or wrong merges
+        start = cs.set_index("author_id").mag_first_year.astype(int)
+        matched = ay.author_id.isin(start.index)
+        rate = matched.groupby(ay.country).mean()
+        print("Share of author-years matched to a MAG career start, by country:\n", rate.round(3).to_string())
+        ay = ay[matched].reset_index(drop=True)
+    ay = add_state(ay, pot, start)
     choices = make_choices(ay, topic_neighbours(df, args.near_k) if args.near_k else None)
     choices = choices[choices.year >= min(config.PRE_YEARS)]
 

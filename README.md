@@ -1,4 +1,4 @@
-# Replication package: "Metric-based promotion rules reduce scientists' exploration of neighbouring topics"
+# Replication package: "Scientists moved less between neighbouring research topics after Italy introduced metric-based promotion rules"
 
 Nouar AlDahoul. Code, analysis-ready data and result tables for every estimate, figure and table
 in the paper and its Supplementary Materials.
@@ -10,6 +10,8 @@ in the paper and its Supplementary Materials.
 | `*.py`, `*.sh` | All analysis code (Python) |
 | `data/` (Physics), `data_field22/` (Engineering), `data_field13/` (Biochemistry), `data_field20/` (Economics) | Analysis-ready yearly choices of every sampled scientist (`trajectories*.csv.gz`), one file per specification |
 | `results*/` | Every result table (CSV) behind the paper's figures and tables, and diagnostic plots |
+| `career_start/career_start.tsv.gz` | True career start per scientist: first publication year in the matched Microsoft Academic Graph record (`mag_first_year`), with match diagnostics; author identifiers only |
+| `jubail/` | The SciSciNet matching job (`match_career.py`, run on a cluster with the SciSciNet tables) |
 
 **Not included:** raw OpenAlex records (about 1 GB; CC0, re-downloadable with the `fetch_*.py` scripts),
 author names and inferred gender (personal data), and the SciSciNet subset (CC BY; obtainable from
@@ -30,6 +32,13 @@ One row per decision (consecutive active years of a scientist): `author_id` (Ope
 | `_world_near10` | nearby = the ten most similar topics (instead of same subfield) |
 | `_world_ctrl_XX` | one control country (FR, DE, ES, NL, PT) or all five |
 | `_team20` | Physics, articles with at most 20 authors |
+| `_world_career`, `_world_career_ctrl5`, `_career` (Economics) | career stage from the true career start; matched scientists only |
+| `_world_PL`, `_world_RO` | Poland or Romania as the treated country (stored as `group` = IT) vs France + Germany, Italy excluded |
+
+**Career stage.** In the files without `career`, `s_career` counts years since the first article in our
+data, which begin in 1998, so no scientist reaches the 16+ stage before 2014. It is a valid state variable
+(measured identically in every country) but must not be used for career-stage comparisons; use the
+`_career` files for those.
 
 ## Reproduce the estimates
 
@@ -60,7 +69,7 @@ exactly with the same library versions.
 | Fig. 1B, Table S2 (main effects) | `estimate.py` | `results*_world/did_main.csv`, `results*_world_es/` |
 | Fig. 1C, Table S6 (effect in choice shares) | `effect_sizes.py` | `results*_world/effect_sizes.csv` |
 | Fig. 2A–C (event studies) | `estimate.py --event-study` | `results*_world_es/event_study.csv` |
-| Fig. 2D, Table S5 (career stages) | `estimate.py --by-career` | `results*_world/did_by_career_main.csv` |
+| Fig. 2D, Table S5 (career stages, true career start) | `run_career.sh` (`estimate.py --by-career`, `ddd_checks.py`, `career_bands.py`) | `results*_world_career/` |
 | Fig. 3, Tables S2–S3 (citation weight, placebo) | `estimate.py` | `did_main.csv`, `did_placebo_2007.csv` (world and four-country folders) |
 | Table S4 (robustness, Physics) | `estimate.py` (`--gamma`, `--balanced`) | `results_g08/`, `results_g095/`, `results_balanced/`, `results_team20/`, `results_es/` |
 | Fig. 4A, Table S7 (output, citations) | `outcomes_citations.py` | `results*/outcomes_citations.csv` |
@@ -75,6 +84,12 @@ exactly with the same library versions.
 | Table S13 (counterfactual rules) | `counterfactual.py` | `results*_world/counterfactual.csv` |
 | Table S14 (gender, region, ORCID) | `heterogeneity.py` (needs `fetch_authors.py`) | `results*_world/heterogeneity.csv` |
 | Table S15 (control countries) | `run_controls.sh` | `results*_world_ctrl_*/` |
+| Table S17 (within careers vs composition) | `composition_check.py`, `composition_decompose.py` | `results*_world/composition_*.csv` |
+| Table S18 (each country treated as if reformed) | `placebo_space.py` (in `run_career.sh`) | `results*_world_career_placebo_space/` |
+| Table S19 (first entries and returns) | `first_entry.py` (needs raw data) | `results*_world/first_entry.csv` |
+| Table S20 (Poland, Romania) | `run_newcountries.sh` | `results*_world_PL/`, `results*_world_RO/` |
+| Table S21 (what followed a return) | `return_value.py` (needs raw data) | `results*_world/return_value_lead2.csv` |
+| True career start | `export_author_papers.py`, `jubail/match_career.py` (needs author names and SciSciNet) | `career_start/career_start.tsv.gz` |
 | Economics placebo field | `estimate.py` with `CT_FIELD_ID=20` | `results_field20*/` |
 | All figures / all tables | `paper_figures.py`, `paper_tables.py` | written to `../paper_overleaf/` (adjust `OUT`) |
 
@@ -90,6 +105,10 @@ Folder names: `results` = Physics, `results_field22` = Engineering, `results_fie
 4. `python build_trajectories.py --world [--controls FR DE ES] [--tag ...]`.
 5. SciSciNet_Papers (Lin et al. 2023, Figshare collection 6076908, file 38839110), filtered to the
    OpenAlex work ids of the sample (OpenAlex W-ids of MAG-era works equal MAG PaperIDs).
+6. True career start: `python export_author_papers.py`, then run `jubail/match_career.py` next to
+   SciSciNet_PaperAuthorAffiliations (file 36139278), SciSciNet_Authors (file 36139323) and
+   SciSciNet_Papers; then `bash run_career.sh`.
+7. Poland and Romania: `python fetch_openalex.py --countries RO PL` per field, then `bash run_newcountries.sh`.
 
 The raw download used the OpenAlex API in November 2026; OpenAlex updates continuously, so a fresh
 download may differ slightly.
