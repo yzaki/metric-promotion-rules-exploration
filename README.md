@@ -89,6 +89,7 @@ exactly with the same library versions.
 | Table S19 (first entries and returns) | `first_entry.py` (needs raw data) | `results*_world/first_entry.csv` |
 | Table S20 (Poland, Romania) | `run_newcountries.sh` | `results*_world_PL/`, `results*_world_RO/` |
 | Table S21 (what followed a return) | `return_value.py` (needs raw data) | `results*_world/return_value_lead2.csv` |
+| Table S22 (threshold vs committee rules, exploratory) | `stacked_rules.py`, `spain_check.py` | `results_stacked_rules/`, `results*_world_spain/` |
 | True career start | `export_author_papers.py`, `jubail/match_career.py` (needs author names and SciSciNet) | `career_start/career_start.tsv.gz` |
 | Economics placebo field | `estimate.py` with `CT_FIELD_ID=20` | `results_field20*/` |
 | All figures / all tables | `paper_figures.py`, `paper_tables.py` | written to `../paper_overleaf/` (adjust `OUT`) |

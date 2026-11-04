@@ -495,9 +495,24 @@ def table_first_entry():
     write("tab_first_entry.tex", "\n".join(lines))
 
 
+def table_stacked_rules():
+    t = pd.read_csv(path("results_stacked_rules", "stacked_rules.csv"))
+    scopes = ["Physics", "Engineering", "Biochemistry", "All three fields"]
+    lines = [r"\begin{tabular}{lllll}", r"\toprule",
+             r"Nearby moves, model-free DiD, pp & " + " & ".join(scopes) + r" \\", r"\midrule"]
+    for e in t.estimate.unique():
+        cells = [(lambda r: _pp(r.beta_pp, r.ci_low_pp, r.ci_high_pp))(t[(t.scope == s) & (t.estimate == e)].iloc[0]) for s in scopes]
+        lines.append(f"{e} & {' & '.join(cells)} \\\\")
+        if e == "Spain 2008":
+            lines.append(r"\addlinespace")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_stacked_rules.tex", "\n".join(lines))
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
-    for fn in (table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries):
+    for fn in (table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries,
+               table_stacked_rules):
         try:
             fn()
         except (FileNotFoundError, KeyError, IndexError) as e:
