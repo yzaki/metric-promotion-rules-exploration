@@ -1,4 +1,4 @@
-# Replication package: "After Italy's metric promotion thresholds, scientists returned less to past research topics"
+# Replication package: "Metric promotion thresholds made Italian scientists return less to past research topics, but similar policies in India and Russia did not"
 
 Nouar AlDahoul. Code, analysis-ready data and result tables for every estimate, figure and table
 in the paper (prepared for PNAS) and its SI Appendix.
@@ -134,4 +134,4 @@ Code: MIT (see LICENSE). Data derived from OpenAlex (CC0). SciSciNet metrics are
 
 ## Citation
 
-AlDahoul, N. After Italy's metric promotion thresholds, scientists returned less to past research topics (2026).
+AlDahoul, N. Metric promotion thresholds made Italian scientists return less to past research topics, but similar policies in India and Russia did not (2026).
