@@ -32,7 +32,9 @@ def main():
         sys.exit("No API key")
     it = set()
     for f in ("data/trajectories_world_career.csv", "data_field22/trajectories_world_career.csv",
-              "data_field13/trajectories_world_career.csv"):
+              "data_field13/trajectories_world_career.csv", "data_field16/trajectories_world_career.csv"):
+        if not os.path.exists(os.path.join(config.HERE, f)):
+            continue
         d = pd.read_csv(os.path.join(config.HERE, f), usecols=["author_id", "group"])
         it |= set(d.author_id[d.group == "IT"])
     out = os.path.join(META, "affiliations_it.csv.gz")

@@ -583,11 +583,50 @@ def table_institutions():
                  "Italian group, 2009--12 (weight; model-free pp, $n$)", "tab_institutions.tex")
 
 
+def table_chemistry():
+    """Chemistry (field 16): tests specified in advance (PREREGISTRATION_chemistry_2026-11-05.md)."""
+    w, es, c = "results_field16_world", "results_field16_world_es", "results_field16_world_career"
+    near = lambda f, n="did_main.csv": ci(pd.read_csv(path(f, n)).set_index("parameter").loc["theta_near"])
+    ev = pd.read_csv(path(es, "event_study.csv")).query("parameter == 'theta_near'").set_index("window")
+    rf = pd.read_csv(path(w, "reduced_form.csv")).query("choice == 'near'").iloc[0]
+    dec = pd.read_csv(path(w, "composition_decompose.csv")).set_index("contrast")
+    fe = pd.read_csv(path(w, "first_entry.csv"))
+    fe = fe[fe.definition == fe.definition.iloc[0]].set_index("outcome")
+    car = pd.read_csv(path(c, "did_by_career_main.csv")).query("parameter == 'theta_near'").set_index("career_stage")
+    ins = pd.read_csv(path(c, "institution_split.csv")).set_index("group")
+    rk = pd.read_csv(path(c, "rank_exposure.csv")).query("sample == 'all career ages'").set_index("group")
+    sb = pd.read_csv(path(c, "sector_thresholds.csv")).set_index("group")
+    irl = lambda r: _pp(r.irl_near, r.irl_low, r.irl_high, 2)
+    pp = lambda b, lo, hi: _pp(b, lo, hi)
+    rows = [
+        ("C1 Nearby-move weight, FR+DE", near(w), "met"),
+        ("C1 Nearby-move weight, FR+DE+ES (primary under the pre-trend rule)", near(es), "met"),
+        ("C2 Placebo 2007, FR+DE / FR+DE+ES", near(w, "did_placebo_2007.csv") + " / " + near(es, "did_placebo_2007.csv"), "met"),
+        ("Event study vs 2008--09: 2004--05 / 2006--07", " / ".join(_pp(ev.loc[x].it_minus_ctrl_vs_ref, ev.loc[x].ci_low, ev.loc[x].ci_high, 2)
+                                                         for x in ("2004-2005", "2006-2007")), "pre-trend"),
+        ("Event study: 2012--13 / 2014--15 / 2016--17", " / ".join(f"${ev.loc[x].it_minus_ctrl_vs_ref:+.2f}$" for x in ("2012-2013", "2014-2015", "2016-2017")), "no break"),
+        ("Model-free, scientist + year FE, pp", pp(rf.beta_pp, rf.ci_low_pp, rf.ci_high_pp), ""),
+        ("Same scientists / entrants vs leavers, pp", " / ".join(pp(dec.loc[k].did_pp, dec.loc[k].ci_low, dec.loc[k].ci_high)
+                                                          for k in ("stayers: after minus before", "entrants after minus leavers before")), ""),
+        ("Nearby first entries / returns, pp", " / ".join(pp(fe.loc[k].beta_pp, fe.loc[k].ci_low_pp, fe.loc[k].ci_high_pp)
+                                                     for k in ("near_new", "near_return")), ""),
+        ("Career stage 0--5 / 6--15 / 16+", " / ".join(f"${car.loc[s].did:+.2f}$" for s in ("0-5 years", "6-15 years", "16+ years")), ""),
+        ("C3 University staff minus research institute", irl(ins.loc["university staff minus research institute"]), "consistent"),
+        ("C4 Needed it minus full professors", irl(rk.loc["needed minus full"]), "not supported"),
+        ("\\quad full / associate / researcher", " / ".join(f"${rk.loc[g].irl_near:+.2f}$" for g in ("full professor", "associate professor", "researcher")), ""),
+        ("C5 Below own bar (0--1) minus met", irl(sb.loc["below (0-1) minus met"]), "consistent"),
+    ]
+    lines = [r"\begin{tabular}{lll}", r"\toprule", r"Test (chemistry, Italy vs control) & Estimate [95\% CI] & Verdict \\", r"\midrule"]
+    lines += [f"{a} & {b} & {v} \\\\" for a, b, v in rows]
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_chemistry.tex", "\n".join(lines))
+
+
 if __name__ == "__main__":
     import numpy as np
     os.makedirs(OUT, exist_ok=True)
     for fn in (table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries,
-               table_stacked_rules, table_rank, table_sector_bars, table_institutions):
+               table_stacked_rules, table_rank, table_sector_bars, table_institutions, table_chemistry):
         try:
             fn()
         except (FileNotFoundError, KeyError, IndexError) as e:

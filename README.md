@@ -8,7 +8,7 @@ in the paper and its Supplementary Materials.
 | Folder / file | Content |
 |---|---|
 | `*.py`, `*.sh` | All analysis code (Python) |
-| `data/` (Physics), `data_field22/` (Engineering), `data_field13/` (Biochemistry), `data_field20/` (Economics) | Analysis-ready yearly choices of every sampled scientist (`trajectories*.csv.gz`), one file per specification |
+| `data/` (Physics), `data_field22/` (Engineering), `data_field13/` (Biochemistry), `data_field20/` (Economics), `data_field16/` (Chemistry) | Analysis-ready yearly choices of every sampled scientist (`trajectories*.csv.gz`), one file per specification |
 | `results*/` | Every result table (CSV) behind the paper's figures and tables, and diagnostic plots |
 | `career_start/career_start.tsv.gz` | True career start per scientist: first publication year in the matched Microsoft Academic Graph record (`mag_first_year`), with match diagnostics; author identifiers only |
 | `jubail/` | The SciSciNet matching job (`match_career.py`, run on a cluster with the SciSciNet tables) |
@@ -94,6 +94,7 @@ exactly with the same library versions.
 | Table S23 (academic rank in 2011) | `rank_exposure.py`, `register_split.py` (need the MUR staff register exports and author names; not distributed) | `results*_world_career/rank_exposure.csv`, `register_split.csv` |
 | Table S24 (distance to own sector bar) | `sector_thresholds.py` (needs the register, raw data and ANVUR 2012 medians: roars.it/wp-content/uploads/2012/08/Mediane-ASN-2012-in-formato-Excel.zip) | `results*_world_career/sector_thresholds.csv` |
 | Table S25 (institution type 2009-12) | `fetch_affiliations.py`, `institution_split.py` | `results*_world_career/institution_split.csv` |
+| Table S26 (chemistry, specified in advance) | `run_chemistry_a.sh`, `run_chemistry_b.sh`; plan `PREREGISTRATION_chemistry_2026-11-05.md` | `results_field16_world*/` |
 | True career start | `export_author_papers.py`, `jubail/match_career.py` (needs author names and SciSciNet) | `career_start/career_start.tsv.gz` |
 | Economics placebo field | `estimate.py` with `CT_FIELD_ID=20` | `results_field20*/` |
 | All figures / all tables | `paper_figures.py`, `paper_tables.py` | written to `../paper_overleaf/` (adjust `OUT`) |

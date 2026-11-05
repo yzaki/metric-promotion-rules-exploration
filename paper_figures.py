@@ -508,16 +508,17 @@ def _who_rows(folder):
 def main_fig5():
     """What declined, and who changed."""
     fig = plt.figure(figsize=(13, 9.4))
-    gs = fig.add_gridspec(2, 2, height_ratios=[0.55, 1.45], hspace=0.38, wspace=0.75)
+    gs = fig.add_gridspec(2, 2, height_ratios=[0.7, 1.45], hspace=0.38, wspace=0.75)
     a = fig.add_subplot(gs[0, :])
     _zero(a)
-    for i, (name, folder, _) in enumerate(THREE):
+    four = THREE + [("Chemistry\n(specified in advance)", "results_field16_world", None)]
+    for i, (name, folder, _) in enumerate(four):
         t = pd.read_csv(os.path.join(HERE, folder, "first_entry.csv"))
         t = t[t.definition == t.definition.iloc[0]].set_index("outcome")
         for dy, oc, col, mk in ((0.14, "near_new", BLUE, "o"), (-0.14, "near_return", ORANGE, "s")):
             r = t.loc[oc]
-            _pointrange(a, len(THREE) - 1 - i + dy, {"did": r.beta_pp, "ci_low": r.ci_low_pp, "ci_high": r.ci_high_pp}, col, mk)
-    a.set_yticks(range(len(THREE)), [t[0] for t in THREE][::-1])
+            _pointrange(a, len(four) - 1 - i + dy, {"did": r.beta_pp, "ci_low": r.ci_low_pp, "ci_high": r.ci_high_pp}, col, mk)
+    a.set_yticks(range(len(four)), [t[0] for t in four][::-1])
     a.set_xlabel("Change in yearly probability, percentage points (model-free)")
     _panel(a, "A", "Nearby moves: first entries and returns")
     _clean(a)

@@ -14,7 +14,7 @@ import unicodedata
 import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-FIELDS = {"31": "data", "22": "data_field22", "13": "data_field13", "20": "data_field20"}
+FIELDS = {"31": "data", "22": "data_field22", "13": "data_field13", "20": "data_field20", "16": "data_field16"}
 
 
 def norm(s):

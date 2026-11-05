@@ -24,7 +24,8 @@ TRAJ = ["data/trajectories_es.csv", "data_field22/trajectories_es.csv", "data_fi
         "data/trajectories.csv", "data_field22/trajectories.csv", "data_field13/trajectories.csv",
         "data_field20/trajectories.csv", "data_field20/trajectories_es.csv",
         "data/trajectories_world_ctrl_FR_DE_ES_NL_PT.csv", "data_field22/trajectories_world_ctrl_FR_DE_ES_NL_PT.csv",
-        "data_field13/trajectories_world_ctrl_FR_DE_ES_NL_PT.csv"]
+        "data_field13/trajectories_world_ctrl_FR_DE_ES_NL_PT.csv",
+        "data_field16/trajectories_world.csv", "data_field16/trajectories_world_es.csv"]
 
 
 def batches(ids, n=100):
