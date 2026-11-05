@@ -362,8 +362,9 @@ THREE = [("Physics", "results_world", "results_world_es"),
          ("Engineering", "results_field22_world", "results_field22_world_es"),
          ("Biochemistry", "results_field13_world", "results_field13_world_es")]
 LOCAL3 = [("Physics", "results"), ("Engineering", "results_field22"), ("Biochemistry", "results_field13")]
-# chemistry (field 16) was analysed later, with the world-wide citation measure only
+# chemistry (field 16) was analysed later
 FOUR = THREE + [("Chemistry", "results_field16_world", "results_field16_world_es")]
+LOCAL4 = LOCAL3 + [("Chemistry", "results_field16")]
 
 
 def main_fig1():
@@ -433,7 +434,7 @@ def main_fig3():
     gs = fig.add_gridspec(2, 2, hspace=0.45, wspace=0.3)
     a = fig.add_subplot(gs[0, 0])
     _zero(a)
-    for i, ((name, world, _), local) in enumerate(zip(FOUR, [l for _, l in LOCAL3] + [None])):
+    for i, ((name, world, _), local) in enumerate(zip(FOUR, [l for _, l in LOCAL4])):
         y = len(FOUR) - 1 - i
         _pointrange(a, y + (0.14 if local else 0), did(world).loc["theta_cite"], BLUE, "o")
         if local:
@@ -463,24 +464,24 @@ def main_fig4():
     fig = plt.figure(figsize=(13, 8.6))
     gs = fig.add_gridspec(2, 2, hspace=0.45, wspace=0.3)
     a = fig.add_subplot(gs[0, 0])
-    _outcome_rows(a, LOCAL3, "outcomes_citations.csv", "papers", 1, "Articles per scientist-year")
+    _outcome_rows(a, LOCAL4, "outcomes_citations.csv", "papers", 1, "Articles per scientist-year")
     _panel(a, "A", "Output")
     b = fig.add_subplot(gs[0, 1])
-    _outcome_rows(b, LOCAL3, "novelty.csv", "new_share", 100, "Percentage points")
+    _outcome_rows(b, LOCAL4, "novelty.csv", "new_share", 100, "Percentage points")
     _panel(b, "B", "References new to the scientist")
     c = fig.add_subplot(gs[1, 0])
     _zero(c)
-    for i, (name, folder) in enumerate(LOCAL3):
+    for i, (name, folder) in enumerate(LOCAL4):
         t = pd.read_csv(os.path.join(HERE, folder, "reconcile_abramo.csv"))
         for mk, meas, col, dy in (("o", "spec_subfield", BLUE, 0.14), ("s", "spec_topic", ORANGE, -0.14)):
             r = t[t.measure == meas].iloc[0]
-            _pointrange(c, len(LOCAL3) - 1 - i + dy, {k: 100 * float(r[k]) for k in ("did", "ci_low", "ci_high")}, col, mk)
-    c.set_yticks(range(len(LOCAL3)), [t[0] for t in LOCAL3][::-1])
+            _pointrange(c, len(LOCAL4) - 1 - i + dy, {k: 100 * float(r[k]) for k in ("did", "ci_low", "ci_high")}, col, mk)
+    c.set_yticks(range(len(LOCAL4)), [t[0] for t in LOCAL4][::-1])
     c.set_xlabel("Percentage points")
     _panel(c, "C", "Specialisation: subfield vs topic")
     _clean(c)
     d = fig.add_subplot(gs[1, 1])
-    _outcome_rows(d, LOCAL3, "disruption.csv", "disruptive", 100, "Percentage points")
+    _outcome_rows(d, LOCAL4, "disruption.csv", "disruptive", 100, "Percentage points")
     _panel(d, "D", "Share of disruptive articles")
     h = [plt.Line2D([], [], color=BLUE, marker="o", ls="none", ms=9, label="A, B, D; C: main subfield (as Abramo et al.)"),
          plt.Line2D([], [], color=ORANGE, marker="s", ls="none", ms=9, label="C: main topic")]

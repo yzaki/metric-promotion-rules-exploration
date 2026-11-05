@@ -30,17 +30,22 @@ def batches(ids, n=100):
 def main():
     if not config.OPENALEX_API_KEY:
         sys.exit("No API key")
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--suffix", default="career", help="trajectory file suffix, e.g. career or IN")
+    ap.add_argument("--out", default="affiliations_it.csv.gz")
+    args = ap.parse_args()
     it = set()
-    for f in ("data/trajectories_world_career.csv", "data_field22/trajectories_world_career.csv",
-              "data_field13/trajectories_world_career.csv", "data_field16/trajectories_world_career.csv"):
+    for d_ in ("data", "data_field22", "data_field13", "data_field16"):
+        f = f"{d_}/trajectories_world_{args.suffix}.csv"
         if not os.path.exists(os.path.join(config.HERE, f)):
             continue
         d = pd.read_csv(os.path.join(config.HERE, f), usecols=["author_id", "group"])
-        it |= set(d.author_id[d.group == "IT"])
-    out = os.path.join(META, "affiliations_it.csv.gz")
+        it |= set(d.author_id[d.group == "IT"])   # treated country (labelled IT)
+    out = os.path.join(META, args.out)
     done = set(pd.read_csv(out, usecols=["author_id"]).author_id) if os.path.exists(out) else set()
     todo = sorted(it - done)
-    print(f"Italian scientists {len(it):,}; to fetch {len(todo):,}")
+    print(f"Treated-country scientists {len(it):,}; to fetch {len(todo):,}")
     try:
         with gzip.open(out, "at" if done else "wt", newline="", encoding="utf-8") as f:
             w = csv.writer(f)

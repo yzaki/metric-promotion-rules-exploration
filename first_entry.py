@@ -42,7 +42,12 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--lookback", type=int, default=6)
     ap.add_argument("--out", default=None)
+    ap.add_argument("--treated", default=None, help="treated country instead of Italy (labelled IT), e.g. IN")
+    ap.add_argument("--save-choices", default=None, help="write choice-level move types to this .csv.gz")
     args = ap.parse_args()
+    if args.treated:
+        config.TREATED = args.treated
+        config.COUNTRIES = [config.TREATED] + config.CONTROLS
     out_dir = args.out or config.RESULTS_DIR + "_world"
 
     df = bt.load_raw()
@@ -63,6 +68,8 @@ def main():
     ch["seen_window"] = seen_before(df, keys, args.lookback)
     ch["seen_ever"] = seen_before(df, keys, None)
     del df
+    if args.save_choices:
+        ch[["author_id", "group", "year", "action", "seen_window", "seen_ever"]].to_csv(args.save_choices, index=False)
 
     d = ((ch.group == "IT") & ch.year.isin(config.POST_YEARS)).astype(float).to_numpy()
     author = pd.factorize(ch.author_id)[0]

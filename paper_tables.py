@@ -21,6 +21,7 @@ SPECS = [
     ("Biochemistry (world citation measure)", "results_field13_world", "results_field13_world_es"),
     ("Biochemistry (four-country citation measure)", "results_field13", "results_field13_es"),
     ("Chemistry (world citation measure)", "results_field16_world", "results_field16_world_es"),
+    ("Chemistry (four-country citation measure)", "results_field16", "results_field16_es"),
     ("Economics (four-country citation measure)", "results_field20", "results_field20_es"),
 ]
 
@@ -186,8 +187,8 @@ def table_effects():
 
 
 def table_secondary():
-    lines = [r"\begin{tabular}{llll}", r"\toprule",
-             r"Outcome (Italy vs control DiD) & Physics & Engineering & Biochemistry \\", r"\midrule"]
+    lines = [r"\begin{tabular}{lllll}", r"\toprule",
+             r"Outcome (Italy vs control DiD) & Physics & Engineering & Biochemistry & Chemistry \\", r"\midrule"]
     specs = [("Articles per scientist-year", "outcomes_citations.csv", "reform_did", "papers", 2, 1),
              ("Mean log normalised citations", "outcomes_citations.csv", "reform_did", "log_cites", 3, 1),
              ("Share of articles in top 10\\% (pp)", "outcomes_citations.csv", "reform_did", "top10", 1, 100),
@@ -199,7 +200,7 @@ def table_secondary():
              ("Atypicality, 10th-pct $z$", "disruption.csv", None, "atyp_10pct", 2, 1)]
     for label, fname, analysis, outcome, d, scale in specs:
         cells = []
-        for folder in ("results", "results_field22", "results_field13"):
+        for folder in ("results", "results_field22", "results_field13", "results_field16"):
             f = path(folder, fname)
             if not os.path.exists(f):
                 cells.append("--")
