@@ -5,6 +5,7 @@ Tables whose inputs do not exist yet are skipped with a message.
 """
 import os
 
+import numpy as np
 import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -19,6 +20,7 @@ SPECS = [
     ("Engineering (four-country citation measure)", "results_field22", "results_field22_es"),
     ("Biochemistry (world citation measure)", "results_field13_world", "results_field13_world_es"),
     ("Biochemistry (four-country citation measure)", "results_field13", "results_field13_es"),
+    ("Chemistry (world citation measure)", "results_field16_world", "results_field16_world_es"),
     ("Economics (four-country citation measure)", "results_field20", "results_field20_es"),
 ]
 
@@ -166,7 +168,8 @@ def table_new_countries():
 
 def table_effects():
     sets = [("Physics", "results_world"), ("Physics, +ES", "results_world_es"),
-            ("Engineering", "results_field22_world"), ("Biochemistry", "results_field13_world")]
+            ("Engineering", "results_field22_world"), ("Biochemistry", "results_field13_world"),
+            ("Chemistry", "results_field16_world")]
     lines = [r"\begin{tabular}{lllll}", r"\toprule",
              r"Field & Choice & Predicted (actual) & Predicted (no reform) & Change, pp [95\% CI] \\", r"\midrule"]
     for name, folder in sets:
@@ -215,12 +218,14 @@ def table_secondary():
 
 def table_samples():
     sets = [("Physics", "results"), ("Engineering", "results_field22"),
-            ("Biochemistry", "results_field13"), ("Economics", "results_field20")]
+            ("Biochemistry", "results_field13"), ("Chemistry", "results_field16"), ("Economics", "results_field20")]
     lines = [r"\begin{tabular}{llrrrrr}", r"\toprule",
              r"Field & Country & Scientists before & Scientists after & Choices before & Choices after & Nearby share (before$\to$after) \\",
              r"\midrule"]
     for name, folder in sets:
         f = path(folder, "descriptives_es.csv")
+        if not os.path.exists(f):
+            f = path(folder, "descriptives_world_es.csv")   # chemistry: world citation measure only
         if not os.path.exists(f):
             f = path(folder, "descriptives.csv")
         if not os.path.exists(f):
@@ -623,7 +628,6 @@ def table_chemistry():
 
 
 if __name__ == "__main__":
-    import numpy as np
     os.makedirs(OUT, exist_ok=True)
     for fn in (table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries,
                table_stacked_rules, table_rank, table_sector_bars, table_institutions, table_chemistry):

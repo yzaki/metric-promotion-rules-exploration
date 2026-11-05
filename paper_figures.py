@@ -362,6 +362,8 @@ THREE = [("Physics", "results_world", "results_world_es"),
          ("Engineering", "results_field22_world", "results_field22_world_es"),
          ("Biochemistry", "results_field13_world", "results_field13_world_es")]
 LOCAL3 = [("Physics", "results"), ("Engineering", "results_field22"), ("Biochemistry", "results_field13")]
+# chemistry (field 16) was analysed later, with the world-wide citation measure only
+FOUR = THREE + [("Chemistry", "results_field16_world", "results_field16_world_es")]
 
 
 def main_fig1():
@@ -372,18 +374,18 @@ def main_fig1():
     _schematic(a)
     a.set_title("A  Design", loc="left", pad=2)
     b = fig.add_subplot(gs[1, 0])
-    _did_rows(b, "theta_near", THREE, "Change in nearby-move weight\n(Italy vs control, after − before)")
+    _did_rows(b, "theta_near", FOUR, "Change in nearby-move weight\n(Italy vs control, after − before)")
     _panel(b, "B", "Value of moving to a nearby topic")
     c = fig.add_subplot(gs[1, 1])
     choices = [("near", "Nearby move", BLUE, "o"), ("stay", "Stay", ORANGE, "s"), ("far", "Distant jump", AQUA, "D")]
     _zero(c)
-    for i, (name, folder, _) in enumerate(THREE):
+    for i, (name, folder, _) in enumerate(FOUR):
         t = pd.read_csv(os.path.join(HERE, folder, "effect_sizes.csv")).set_index("choice")
         for j, (ch, _, col, mk) in enumerate(choices):
             r = t.loc[ch]
-            _pointrange(c, len(THREE) - 1 - i + (0.22 - 0.22 * j),
+            _pointrange(c, len(FOUR) - 1 - i + (0.22 - 0.22 * j),
                         {"did": r.diff_pp, "ci_low": r.diff_pp_low, "ci_high": r.diff_pp_high}, col, mk)
-    c.set_yticks(range(len(THREE)), [t[0] for t in THREE][::-1])
+    c.set_yticks(range(len(FOUR)), [t[0] for t in FOUR][::-1])
     c.set_xlabel("Change in yearly choice share,\npercentage points (vs no reform)")
     _panel(c, "C", "What Italians chose instead")
     _clean(c)
@@ -398,28 +400,28 @@ def main_fig1():
 def main_fig2():
     """Timing and who."""
     fig = plt.figure(figsize=(13, 8.8))
-    gs = fig.add_gridspec(2, 3, height_ratios=[1, 1.05], hspace=0.45, wspace=0.25)
+    gs = fig.add_gridspec(2, 4, height_ratios=[1, 1.05], hspace=0.45, wspace=0.3)
     first = None
-    for k, (name, _, es) in enumerate(THREE):
+    for k, (name, _, es) in enumerate(FOUR):
         ax = fig.add_subplot(gs[0, k], sharey=first)
         first = first or ax
         _event(ax, es, "theta_near", "Nearby-move weight,\nItaly − control (vs 2008–09)" if k == 0 else None)
-        _panel(ax, "ABC"[k], name)
+        _panel(ax, "ABCD"[k], name)
     d = fig.add_subplot(gs[1, :])
     stages = [("0-5 years", BLUE, "o"), ("6-15 years", ORANGE, "s"), ("16+ years", AQUA, "D")]
     _zero(d)
-    for i, (name, folder, _) in enumerate(THREE):   # true career age (SciSciNet/MAG first publication)
+    for i, (name, folder, _) in enumerate(FOUR):   # true career age (SciSciNet/MAG first publication)
         t = pd.read_csv(os.path.join(HERE, folder + "_career", "did_by_career_main.csv"))
         t = t[t.parameter == "theta_near"].set_index("career_stage")
         for j, (st, col, mk) in enumerate(stages):
-            _pointrange(d, len(THREE) - 1 - i + (0.22 - 0.22 * j), t.loc[st], col, mk)
-    d.set_yticks(range(len(THREE)), [t[0] for t in THREE][::-1])
+            _pointrange(d, len(FOUR) - 1 - i + (0.22 - 0.22 * j), t.loc[st], col, mk)
+    d.set_yticks(range(len(FOUR)), [t[0] for t in FOUR][::-1])
     d.set_xlabel("Change in nearby-move weight, Italy vs control (after − before)")
-    _panel(d, "D", "By career stage (years since first publication, full record)")
+    _panel(d, "E", "By career stage (years since first publication, full record)")
     _clean(d)
     h = [plt.Rectangle((0, 0), 1, 1, color=BAND, label="Reform transition"),
          plt.Line2D([], [], color="#c0392b", ls="--", lw=1.6, label="First habilitation round (2012)")] + \
-        [plt.Line2D([], [], color=c, marker=m, ls="none", ms=9, label="D: " + s.replace("-", "–")) for s, c, m in stages]
+        [plt.Line2D([], [], color=c, marker=m, ls="none", ms=9, label="E: " + s.replace("-", "–")) for s, c, m in stages]
     fig.legend(handles=h, loc="lower center", ncol=5, frameon=False, bbox_to_anchor=(0.5, -0.01), fontsize=11)
     fig.subplots_adjust(bottom=0.13)
     _save(fig, "Fig2_timing_career")
@@ -431,11 +433,12 @@ def main_fig3():
     gs = fig.add_gridspec(2, 2, hspace=0.45, wspace=0.3)
     a = fig.add_subplot(gs[0, 0])
     _zero(a)
-    for i, ((name, world, _), (_, local)) in enumerate(zip(THREE, LOCAL3)):
-        y = len(THREE) - 1 - i
-        _pointrange(a, y + 0.14, did(world).loc["theta_cite"], BLUE, "o")
-        _pointrange(a, y - 0.14, did(local).loc["theta_cite"], ORANGE, "s")
-    a.set_yticks(range(len(THREE)), [t[0] for t in THREE][::-1])
+    for i, ((name, world, _), local) in enumerate(zip(FOUR, [l for _, l in LOCAL3] + [None])):
+        y = len(FOUR) - 1 - i
+        _pointrange(a, y + (0.14 if local else 0), did(world).loc["theta_cite"], BLUE, "o")
+        if local:
+            _pointrange(a, y - 0.14, did(local).loc["theta_cite"], ORANGE, "s")
+    a.set_yticks(range(len(FOUR)), [t[0] for t in FOUR][::-1])
     a.set_xlabel("Change in citation-potential weight")
     _panel(a, "A", "Value of a topic's citation potential")
     _clean(a)
@@ -443,10 +446,10 @@ def main_fig3():
     _event(b, "results_field22_world_es", "theta_cite", "Italy − control (vs 2008–09)")
     _panel(b, "B", "Engineering: citation weight over time")
     c = fig.add_subplot(gs[1, 0])
-    _did_rows(c, "theta_far", THREE, "Change in distant-jump weight")
+    _did_rows(c, "theta_far", FOUR, "Change in distant-jump weight")
     _panel(c, "C", "Value of a distant jump")
     d = fig.add_subplot(gs[1, 1])
-    _did_rows(d, "theta_cite", THREE, "Change in citation-potential weight")
+    _did_rows(d, "theta_cite", FOUR, "Change in citation-potential weight")
     _panel(d, "D", "Citation weight, both control groups")
     h = [plt.Line2D([], [], color=BLUE, marker="o", ls="none", ms=9, label="A: world-wide citation rates;  C–D: control FR + DE"),
          plt.Line2D([], [], color=ORANGE, marker="s", ls="none", ms=9, label="A: four-country citation rates;  C–D: control FR + DE + ES")]
