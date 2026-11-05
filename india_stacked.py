@@ -48,11 +48,13 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--out", default=os.path.join(HERE, "results_india"))
     ap.add_argument("--groups", default=None, help="csv author_id,group for I4")
+    ap.add_argument("--suffix", default="IN", help="treated country of the trajectory files (IN, RU)")
+    ap.add_argument("--covered-label", default="UGC-covered", help="group label of scientists covered by the policy")
     args = ap.parse_args()
     os.makedirs(args.out, exist_ok=True)
     traj, choices = [], []
     for f, d in FIELDS.items():
-        t = pd.read_csv(os.path.join(HERE, d, "trajectories_world_IN.csv"), usecols=["author_id", "group", "year", "action"])
+        t = pd.read_csv(os.path.join(HERE, d, f"trajectories_world_{args.suffix}.csv"), usecols=["author_id", "group", "year", "action"])
         traj.append(t.assign(field=f))
         cf = os.path.join(args.out, f"choices_{d}.csv.gz")
         if os.path.exists(cf):
@@ -86,15 +88,17 @@ def main():
         s["g"] = s.author_id.map(g)
         s = s[(s.group == "CTRL") | s.g.notna()].reset_index(drop=True)
         post = s.year.isin(POST)
-        s["d_ugc"] = ((s.g == "UGC-covered") & post).astype(float)
+        cov = args.covered_label
+        s["d_ugc"] = ((s.g == cov) & post).astype(float)
         s["d_not"] = ((s.g == "not covered") & post).astype(float)
         b, V = fit(s, "near", ["d_ugc", "d_not"])
         c = np.array([1.0, -1.0])
-        for k, lab in enumerate(("UGC-covered", "not covered")):
+        for k, lab in enumerate((cov, "not covered")):
             rows.append(row(f"I4 nearby move, {lab}", "All four fields", b[k], np.sqrt(V[k, k]), int((s.g == lab).groupby(s.author_id).any().sum())))
-        rows.append(row("I4 UGC-covered minus not covered", "All four fields", c @ b, np.sqrt(c @ V @ c), np.nan))
+        rows.append(row(f"I4 {cov} minus not covered", "All four fields", c @ b, np.sqrt(c @ V @ c), np.nan))
     t = pd.DataFrame(rows)
-    t.to_csv(os.path.join(args.out, "india_stacked.csv"), index=False)
+    name = "india" if args.suffix == "IN" else {"RU": "russia"}.get(args.suffix, args.suffix.lower())
+    t.to_csv(os.path.join(args.out, f"{name}_stacked.csv"), index=False)
     print(t.round(2).to_string(index=False))
 
 

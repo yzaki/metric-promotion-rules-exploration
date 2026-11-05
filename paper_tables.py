@@ -628,30 +628,33 @@ def table_chemistry():
     write("tab_chemistry.tex", "\n".join(lines))
 
 
-def table_india():
-    """India (UGC Regulations 2010) vs France + Germany, tested with a plan written before its download."""
+def table_country(code="IN", folder="results_india", name="india", covered="UGC-covered", label="India",
+                  out="tab_india.tex"):
+    """Second and third treated countries (India, Russia) vs France + Germany, each tested with a plan written
+    before its download: per-field weights, placebo, pre-trend windows, model-free and stacked estimates."""
     bases = [("Physics", "results"), ("Engineering", "results_field22"), ("Biochemistry", "results_field13"), ("Chemistry", "results_field16")]
-    st = pd.read_csv(path("results_india", "india_stacked.csv"))
-    mech = pd.read_csv(path("results_india", "india_mechanism.csv"))
+    st = pd.read_csv(path(folder, f"{name}_stacked.csv"))
+    mech = pd.read_csv(path(folder, f"{name}_mechanism.csv"))
     lines = [r"\begin{tabular}{lllll}", r"\toprule",
-             r"India vs control & Physics & Engineering & Biochemistry & Chemistry \\", r"\midrule"]
+             rf"{label} vs control & Physics & Engineering & Biochemistry & Chemistry \\", r"\midrule"]
 
-    def per_field(label, fn):
+    def per_field(lab, fn):
         cells = []
         for _, b in bases:
             try:
                 cells.append(fn(b))
             except (FileNotFoundError, KeyError, IndexError):
                 cells.append("--")
-        lines.append(f"{label} & {' & '.join(cells)} \\\\")
+        lines.append(f"{lab} & {' & '.join(cells)} \\\\")
 
     near = lambda f, n="did_main.csv": ci(pd.read_csv(path(f, n)).set_index("parameter").loc["theta_near"])
-    per_field("Nearby-move weight, FR+DE", lambda b: near(b + "_world_IN"))
-    per_field("Nearby-move weight, FR+DE+ES", lambda b: near(b + "_world_IN_es"))
-    per_field("Placebo 2007, FR+DE", lambda b: near(b + "_world_IN", "did_placebo_2007.csv"))
-    per_field("Event study 2004--05 / 2006--07, FR+DE+ES", lambda b: " / ".join(
-        f"${r.it_minus_ctrl_vs_ref:+.2f}$" for _, r in pd.read_csv(path(b + "_world_IN_es", "event_study.csv"))
-        .query("parameter == 'theta_near' and window in ['2004-2005', '2006-2007']").iterrows()))
+    pre = lambda f: " / ".join(f"${r.it_minus_ctrl_vs_ref:+.2f}$" for _, r in pd.read_csv(path(f, "event_study.csv"))
+                               .query("parameter == 'theta_near' and window in ['2004-2005', '2006-2007']").iterrows())
+    per_field("Nearby-move weight, FR+DE", lambda b: near(f"{b}_world_{code}"))
+    per_field("Nearby-move weight, FR+DE+ES", lambda b: near(f"{b}_world_{code}_es"))
+    per_field("Placebo 2007, FR+DE", lambda b: near(f"{b}_world_{code}", "did_placebo_2007.csv"))
+    per_field("Event study 2004--05 / 2006--07, FR+DE", lambda b: pre(f"{b}_world_{code}"))
+    per_field("Event study 2004--05 / 2006--07, FR+DE+ES", lambda b: pre(f"{b}_world_{code}_es"))
     for test, lab in (("I1 nearby move", "Model-free nearby move, pp"), ("I3 near return", "Model-free nearby return, pp"),
                       ("I3 near new", "Model-free nearby first entry, pp")):
         cells = []
@@ -661,24 +664,68 @@ def table_india():
         lines.append(f"{lab} & {' & '.join(cells)} \\\\")
     cells = []
     for f, _ in bases:
-        r = mech[(mech.field == f) & (mech.group == "UGC-covered minus not covered")].iloc[0]
+        r = mech[(mech.field == f) & (mech.group == f"{covered} minus not covered")].iloc[0]
         cells.append(_pp(r.irl_near, r.irl_low, r.irl_high, 2))
-    lines.append(f"UGC-covered minus not covered, weight & {' & '.join(cells)} \\\\")
+    lines.append(f"{covered} minus not covered, weight & {' & '.join(cells)} \\\\")
     lines.append(r"\addlinespace")
     lines.append(r"\multicolumn{5}{l}{\emph{Stacked over the four fields (model-free, pp)}} \\")
-    for test, lab in (("I1 nearby move", "I1 Nearby move"), ("I2 placebo 2007", "I2 Placebo 2007"),
-                      ("I3 near return", "I3 Nearby return"), ("I3 near new", "\\quad nearby first entry"),
-                      ("I4 UGC-covered minus not covered", "I4 UGC-covered minus not covered")):
+    for test, lab in (("I1 nearby move", "Nearby move"), ("I2 placebo 2007", "Placebo 2007"),
+                      ("I3 near return", "Nearby return"), ("I3 near new", r"\quad nearby first entry"),
+                      (f"I4 {covered} minus not covered", f"{covered} minus not covered")):
         r = st[(st.test == test) & (st.scope == "All four fields")].iloc[0]
-        lines.append(f"{lab} & \\multicolumn{{4}}{{l}}{{{_pp(r.beta_pp, r.ci_low_pp, r.ci_high_pp)}}} \\\\")
+        lines.append(rf"{lab} & \multicolumn{{4}}{{l}}{{{_pp(r.beta_pp, r.ci_low_pp, r.ci_high_pp)}}} \\")
     lines += [r"\bottomrule", r"\end{tabular}"]
-    write("tab_india.tex", "\n".join(lines))
+    write(out, "\n".join(lines))
+
+
+def table_india():
+    table_country()
+
+
+def table_russia():
+    table_country("RU", "results_russia", "russia", "5-100", "Russia", "tab_russia.tex")
+
+
+def table_coauthors():
+    """Co-authorship outcomes C1-C3 (PREREGISTRATION_venues_coauthors_2026-11-05.md), stacked and per field."""
+    names = {"team_size": "Listed authors per article", "log_team": r"Log listed authors, $\times 100$",
+             "international": "Share with a co-author abroad", "new_coauthors": "Share of co-authors new to the scientist"}
+    scopes = ["All four fields", "Physics", "Engineering", "Biochemistry", "Chemistry"]
+    lines = [r"\begin{tabular}{llllll}", r"\toprule",
+             r"Outcome & All four fields & Physics & Engineering & Biochemistry & Chemistry \\", r"\midrule"]
+    for code, lab in (("IT", "Italy"), ("IN", "India"), ("RU", "Russia")):
+        t = pd.read_csv(path("results_coauthors", f"coauthors_{code}.csv")).set_index(["outcome", "scope"])
+        lines.append(rf"\multicolumn{{6}}{{l}}{{\emph{{{lab} vs France + Germany}}}} \\")
+        for oc, on in names.items():
+            k = 1 if oc == "team_size" else 100
+            cells = [_pp(t.loc[(oc, s)].did * k, t.loc[(oc, s)].ci_low * k, t.loc[(oc, s)].ci_high * k, 2 if k == 1 else 1)
+                     for s in scopes]
+            pre = t.loc[(oc, scopes[0])].treated_pre_mean * (1 if oc in ("team_size", "log_team") else 100)
+            lines.append(f"{on} ({pre:.1f}) & {' & '.join(cells)} \\\\")
+        lines.append(r"\addlinespace")
+    # covered vs not-covered institutions (run_coauthor_groups.sh; not in the plan)
+    lines += [r"\midrule", r"Stacked, by institution & Covered & Not covered & Covered minus not covered & & \\", r"\midrule"]
+    for code, lab, cov in (("IN", "India", "UGC-covered"), ("RU", "Russia", "5-100")):
+        f = path("results_coauthors_groups", f"coauthors_{code}.csv")
+        if not os.path.exists(f):
+            continue
+        t = pd.read_csv(f).set_index(["outcome", "scope"])
+        lines.append(rf"\multicolumn{{6}}{{l}}{{\emph{{{lab}: {cov} vs not covered}}}} \\")
+        for oc, on in names.items():
+            k, d = (1, 2) if oc == "team_size" else (100, 1)
+            cells = [_pp(r.did * k, r.ci_low * k, r.ci_high * k, d) for r in
+                     (t.loc[(oc, f"All four fields, {g}")] for g in (cov, "not covered", f"{cov} minus not covered"))]
+            lines.append(f"{on} & {' & '.join(cells)} & & \\\\")
+        lines.append(r"\addlinespace")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_coauthors.tex", "\n".join(lines))
 
 
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     for fn in (table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries,
-               table_stacked_rules, table_rank, table_sector_bars, table_institutions, table_chemistry, table_india):
+               table_stacked_rules, table_rank, table_sector_bars, table_institutions, table_chemistry, table_india, table_russia,
+               table_coauthors):
         try:
             fn()
         except (FileNotFoundError, KeyError, IndexError) as e:
