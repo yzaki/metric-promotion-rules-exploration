@@ -41,6 +41,22 @@ Only article counts per country were queried before the plan. SHA-256:
 Outcome (paper, Table S26): C1 and C2 met; C3 and C5 consistent; C4 not supported. The plan did not anticipate
 pre-trends under both control groups; the paper reports that the chemistry decline began before the reform.
 
+## Third plan: India as a second treated country
+
+`PREREGISTRATION_india_2026-11-05.md` fixes hypotheses I1–I4, a pre-trend rule and decision rules for India
+(University Grants Commission Regulations 2010), chosen after all Italian results were known.
+
+| Event | Time (UTC+4) |
+|---|---|
+| Plan written (file created; never modified since) | 2026-11-05 07:00:10 |
+| Indian download started (`logs/fetch_india.txt`, first line; first file 07:00:27) | 2026-11-05 07:00:24 |
+
+Only article counts per field were queried before the plan. SHA-256:
+`2F6483B083EA70A7BA005A90E06ED724FF92834C822BDE1C04899136BE374E79`.
+Outcome (paper, Table S27): I1 not supported (stacked +0.0 pp [−0.6, +0.7]); I2 met; I3 not supported (returns
+rose, +1.0 pp); I4 not supported (+0.4 pp [−0.8, +1.6]); physics not interpretable under the pre-trend rule.
+India does not replicate the Italian result.
+
 ## Deviations from the plan, reported in the paper
 
 1. **H-R3 (effect larger for early and mid-career than for senior scientists).** The plan measured career

@@ -5,6 +5,8 @@ set -u
 P=.venv/Scripts/python
 export PYTHONIOENCODING=utf-8
 mkdir -p logs results_india
+N=$(ls data/raw/works_IN_*.csv.gz data_field*/raw/works_IN_*.csv.gz 2>/dev/null | wc -l)
+if [ "$N" -lt 88 ]; then echo "only $N of 88 Indian files downloaded; stopping (rerun fetch_openalex.py --countries IN)"; exit 1; fi
 for F in 31 22 13 16; do
   export CT_FIELD_ID=$F
   D=data; [ "$F" != "31" ] && D=data_field$F

@@ -10,7 +10,7 @@ in the paper and its Supplementary Materials.
 | `*.py`, `*.sh` | All analysis code (Python) |
 | `data/` (Physics), `data_field22/` (Engineering), `data_field13/` (Biochemistry), `data_field20/` (Economics), `data_field16/` (Chemistry) | Analysis-ready yearly choices of every sampled scientist (`trajectories*.csv.gz`), one file per specification |
 | `results*/` | Every result table (CSV) behind the paper's figures and tables, and diagnostic plots |
-| `plans/` | Time-stamped analysis plans for biochemistry/economics (4 Nov 2026) and chemistry (5 Nov 2026), with timeline, hashes and deviations |
+| `plans/` | Time-stamped analysis plans for biochemistry/economics (4 Nov 2026), chemistry and India (5 Nov 2026), with timeline, hashes and deviations |
 | `career_start/career_start.tsv.gz` | True career start per scientist: first publication year in the matched Microsoft Academic Graph record (`mag_first_year`), with match diagnostics; author identifiers only |
 | `jubail/` | The SciSciNet matching job (`match_career.py`, run on a cluster with the SciSciNet tables) |
 
@@ -36,6 +36,7 @@ One row per decision (consecutive active years of a scientist): `author_id` (Ope
 | `_world_ctrl_XX` | one control country (FR, DE, ES, NL, PT) or all five |
 | `_team20` | Physics, articles with at most 20 authors |
 | `_world_career`, `_world_career_ctrl5`, `_career` (Economics) | career stage from the true career start; matched scientists only |
+| `_world_IN`, `_world_IN_es` | India as the treated country (stored as `group` = IT) vs France + Germany (+ Spain), Italy excluded |
 | `_world_PL`, `_world_RO` | Poland or Romania as the treated country (stored as `group` = IT) vs France + Germany, Italy excluded |
 
 **Career stage.** In the files without `career`, `s_career` counts years since the first article in our
@@ -98,6 +99,7 @@ exactly with the same library versions.
 | Table S24 (distance to own sector bar) | `sector_thresholds.py` (needs the register, raw data and ANVUR 2012 medians: roars.it/wp-content/uploads/2012/08/Mediane-ASN-2012-in-formato-Excel.zip) | `results*_world_career/sector_thresholds.csv` |
 | Table S25 (institution type 2009-12) | `fetch_affiliations.py`, `institution_split.py` | `results*_world_career/institution_split.csv` |
 | Table S26 (chemistry, specified in advance) | `run_chemistry_a.sh`, `run_chemistry_b.sh`; plan `plans/PREREGISTRATION_chemistry_2026-11-05.md` | `results_field16_world*/` |
+| Table S27 (India, specified in advance) | `run_india.sh` (`india_stacked.py`, `india_mechanism.py`); plan `plans/PREREGISTRATION_india_2026-11-05.md` | `results*_world_IN*/`, `results_india/` |
 | True career start | `export_author_papers.py`, `jubail/match_career.py` (needs author names and SciSciNet) | `career_start/career_start.tsv.gz` |
 | Economics placebo field | `estimate.py` with `CT_FIELD_ID=20` | `results_field20*/` |
 | All figures / all tables | `paper_figures.py`, `paper_tables.py` | written to `../paper_overleaf/` (adjust `OUT`) |
