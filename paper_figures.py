@@ -24,6 +24,7 @@ OUT = os.path.join(HERE, "..", "paper_overleaf", "figures")
 INK = "#000000"
 BLUE, ORANGE, AQUA = "#2a78d6", "#eb6834", "#1baf7a"
 REF = "#9a9a9a"        # zero / reference lines only (never text)
+GREY = "#5a5a5a"       # second measure within one panel (orange is reserved for the alternative control group)
 BAND = "#eeeeee"       # reform-transition shading
 
 plt.rcParams.update({
@@ -244,7 +245,7 @@ def fig5():
                 continue
             t = pd.read_csv(f)
             if outcome is None:
-                for mk, meas, col, dy in (("o", "spec_subfield", BLUE, 0.14), ("s", "spec_topic", ORANGE, -0.14)):
+                for mk, meas, col, dy in (("o", "spec_subfield", BLUE, 0.14), ("s", "spec_topic", GREY, -0.14)):
                     r = t[t.measure == meas].iloc[0]
                     _pointrange(ax, y + dy, {k: scale * float(r[k]) for k in ("did", "ci_low", "ci_high")}, col, mk)
                 continue
@@ -473,7 +474,7 @@ def main_fig4():
     _zero(c)
     for i, (name, folder) in enumerate(LOCAL4):
         t = pd.read_csv(os.path.join(HERE, folder, "reconcile_abramo.csv"))
-        for mk, meas, col, dy in (("o", "spec_subfield", BLUE, 0.14), ("s", "spec_topic", ORANGE, -0.14)):
+        for mk, meas, col, dy in (("o", "spec_subfield", BLUE, 0.14), ("s", "spec_topic", GREY, -0.14)):
             r = t[t.measure == meas].iloc[0]
             _pointrange(c, len(LOCAL4) - 1 - i + dy, {k: 100 * float(r[k]) for k in ("did", "ci_low", "ci_high")}, col, mk)
     c.set_yticks(range(len(LOCAL4)), [t[0] for t in LOCAL4][::-1])
@@ -484,7 +485,7 @@ def main_fig4():
     _outcome_rows(d, LOCAL4, "disruption.csv", "disruptive", 100, "Percentage points")
     _panel(d, "D", "Share of disruptive articles")
     h = [plt.Line2D([], [], color=BLUE, marker="o", ls="none", ms=9, label="A, B, D; C: main subfield (as Abramo et al.)"),
-         plt.Line2D([], [], color=ORANGE, marker="s", ls="none", ms=9, label="C: main topic")]
+         plt.Line2D([], [], color=GREY, marker="s", ls="none", ms=9, label="C: main topic")]
     fig.legend(handles=h, loc="lower center", ncol=2, frameon=False, bbox_to_anchor=(0.5, -0.01), fontsize=11.5)
     fig.subplots_adjust(bottom=0.12)
     _save(fig, "Fig4_consequences")
