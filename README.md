@@ -1,4 +1,4 @@
-# Replication package: "Scientists moved less between neighbouring research topics after Italy introduced metric-based promotion rules"
+# Replication package: "After Italy's metric promotion thresholds, scientists returned less to past research topics"
 
 Nouar AlDahoul. Code, analysis-ready data and result tables for every estimate, figure and table
 in the paper and its Supplementary Materials.
