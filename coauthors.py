@@ -69,6 +69,41 @@ def field_outcomes(field_id, treated):
     return ay
 
 
+def did_rows(A, outcomes, treated, groups=None, covered_label="UGC-covered"):
+    """Difference-in-differences (scientist + year FE, clustered by scientist) of each outcome, stacked over
+    fields and per field; with `groups` (csv author_id,group) also by covered / not covered and the difference."""
+    A["d"] = ((A.group == "IT") & A.year.isin(config.POST_YEARS)).astype(float)
+    rows = []
+    for oc in outcomes:
+        for scope in ["All four fields"] + [v[0] for v in FIELDS.values()]:
+            s = (A if scope == "All four fields" else A[A.field == scope]).dropna(subset=[oc]).reset_index(drop=True)
+            b, V = fit(s, oc, ["d"])
+            se = np.sqrt(V[0, 0])
+            pre = s[(s.group == "IT") & s.year.isin(config.PRE_YEARS)][oc].mean()
+            rows.append({"treated": treated, "outcome": oc, "scope": scope, "did": b[0],
+                         "ci_low": b[0] - 1.96 * se, "ci_high": b[0] + 1.96 * se, "treated_pre_mean": pre,
+                         "n_treated": int(s.author_id[s.group == "IT"].nunique())})
+    if groups:
+        g = pd.read_csv(groups).set_index("author_id").group
+        A["g"] = A.author_id.map(g)
+        B = A[(A.group == "CTRL") | A.g.notna()].reset_index(drop=True)
+        post = B.year.isin(config.POST_YEARS)
+        B["d_cov"] = ((B.g == covered_label) & post).astype(float)
+        B["d_not"] = ((B.g == "not covered") & post).astype(float)
+        c = np.array([1.0, -1.0])
+        for oc in outcomes:
+            s = B.dropna(subset=[oc]).reset_index(drop=True)
+            b, V = fit(s, oc, ["d_cov", "d_not"])
+            for k, lab in enumerate((covered_label, "not covered")):
+                rows.append({"treated": treated, "outcome": oc, "scope": f"All four fields, {lab}", "did": b[k],
+                             "ci_low": b[k] - 1.96 * np.sqrt(V[k, k]), "ci_high": b[k] + 1.96 * np.sqrt(V[k, k]),
+                             "treated_pre_mean": np.nan, "n_treated": int(s.author_id[s.g == lab].nunique())})
+            dv, ds = c @ b, np.sqrt(c @ V @ c)
+            rows.append({"treated": treated, "outcome": oc, "scope": f"All four fields, {covered_label} minus not covered",
+                         "did": dv, "ci_low": dv - 1.96 * ds, "ci_high": dv + 1.96 * ds, "treated_pre_mean": np.nan, "n_treated": np.nan})
+    return rows
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--treated", required=True, choices=list(SUFFIX))
@@ -85,35 +120,7 @@ def main():
         parts.append(a)
         print(f"{args.treated} {FIELDS[fid][0]}: {a.author_id.nunique():,} scientists, {len(a):,} scientist-years", flush=True)
     A = pd.concat(parts, ignore_index=True)
-    A["d"] = ((A.group == "IT") & A.year.isin(config.POST_YEARS)).astype(float)
-    rows = []
-    for oc in OUTCOMES:
-        for scope in ["All four fields"] + [v[0] for v in FIELDS.values()]:
-            s = (A if scope == "All four fields" else A[A.field == scope]).dropna(subset=[oc]).reset_index(drop=True)
-            b, V = fit(s, oc, ["d"])
-            se = np.sqrt(V[0, 0])
-            pre = s[(s.group == "IT") & s.year.isin(config.PRE_YEARS)][oc].mean()
-            rows.append({"treated": args.treated, "outcome": oc, "scope": scope, "did": b[0],
-                         "ci_low": b[0] - 1.96 * se, "ci_high": b[0] + 1.96 * se, "treated_pre_mean": pre,
-                         "n_treated": int(s.author_id[s.group == "IT"].nunique())})
-    if args.groups:
-        g = pd.read_csv(args.groups).set_index("author_id").group
-        A["g"] = A.author_id.map(g)
-        B = A[(A.group == "CTRL") | A.g.notna()].reset_index(drop=True)
-        post = B.year.isin(config.POST_YEARS)
-        B["d_cov"] = ((B.g == args.covered_label) & post).astype(float)
-        B["d_not"] = ((B.g == "not covered") & post).astype(float)
-        c = np.array([1.0, -1.0])
-        for oc in OUTCOMES:
-            s = B.dropna(subset=[oc]).reset_index(drop=True)
-            b, V = fit(s, oc, ["d_cov", "d_not"])
-            for k, lab in enumerate((args.covered_label, "not covered")):
-                rows.append({"treated": args.treated, "outcome": oc, "scope": f"All four fields, {lab}", "did": b[k],
-                             "ci_low": b[k] - 1.96 * np.sqrt(V[k, k]), "ci_high": b[k] + 1.96 * np.sqrt(V[k, k]),
-                             "treated_pre_mean": np.nan, "n_treated": int(s.author_id[s.g == lab].nunique())})
-            dv, ds = c @ b, np.sqrt(c @ V @ c)
-            rows.append({"treated": args.treated, "outcome": oc, "scope": f"All four fields, {args.covered_label} minus not covered",
-                         "did": dv, "ci_low": dv - 1.96 * ds, "ci_high": dv + 1.96 * ds, "treated_pre_mean": np.nan, "n_treated": np.nan})
+    rows = did_rows(A, OUTCOMES, args.treated, args.groups, args.covered_label)
     t = pd.DataFrame(rows)
     t.to_csv(os.path.join(args.out, f"coauthors_{args.treated}.csv"), index=False)
     print(t.round(4).to_string(index=False))

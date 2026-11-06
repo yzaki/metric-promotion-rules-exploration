@@ -5,6 +5,7 @@ __pycache__/
 data*/raw/
 data*/refs/
 data*/world/
+data*/venues/
 data_meta/
 data_sciscinet/
 # decompressed copies of the distributed .csv.gz files

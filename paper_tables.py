@@ -721,11 +721,47 @@ def table_coauthors():
     write("tab_coauthors.tex", "\n".join(lines))
 
 
+def table_venues():
+    """Journal tier, fee-charging open access and institutions (plan V1, V2, C4), stacked and per field."""
+    names = {"top_quartile_yr": "Top-quartile journal, year of publication", "bottom_quartile_yr": "Bottom-quartile journal, year of publication",
+             "journal_pct_yr": "Journal percentile, year of publication",
+             "top_quartile": "Top-quartile journal, current citedness", "bottom_quartile": "Bottom-quartile journal, current citedness",
+             "journal_pct": "Journal percentile, current citedness", "fee_oa": "Fee-charging open-access journal",
+             "n_institutions": "Institutions per article", "single_inst": "Single-institution articles"}
+    scale = {"n_institutions": (1, 2), "journal_pct": (1, 1), "journal_pct_yr": (1, 1)}
+    scopes = ["All four fields", "Physics", "Engineering", "Biochemistry", "Chemistry"]
+    lines = [r"\begin{tabular}{llllll}", r"\toprule",
+             r"Outcome & All four fields & Physics & Engineering & Biochemistry & Chemistry \\", r"\midrule"]
+    for code, lab in (("IT", "Italy"), ("IN", "India"), ("RU", "Russia")):
+        t = pd.read_csv(path("results_venues", f"venues_{code}.csv")).set_index(["outcome", "scope"])
+        lines.append(rf"\multicolumn{{6}}{{l}}{{\emph{{{lab} vs France + Germany}}}} \\")
+        for oc, on in names.items():
+            k, d = scale.get(oc, (100, 1))
+            cells = [_pp(t.loc[(oc, s)].did * k, t.loc[(oc, s)].ci_low * k, t.loc[(oc, s)].ci_high * k, d) for s in scopes]
+            pre = t.loc[(oc, scopes[0])].treated_pre_mean * k
+            lines.append(f"{on} ({pre:.{d}f}) & {' & '.join(cells)} \\\\")
+        lines.append(r"\addlinespace")
+    lines += [r"\midrule", r"Stacked, by institution & Covered & Not covered & Covered minus not covered & & \\", r"\midrule"]
+    for code, lab, cov in (("IN", "India", "UGC-covered"), ("RU", "Russia", "5-100")):
+        t = pd.read_csv(path("results_venues", f"venues_{code}.csv")).set_index(["outcome", "scope"])
+        if ("top_quartile", f"All four fields, {cov}") not in t.index:
+            continue
+        lines.append(rf"\multicolumn{{6}}{{l}}{{\emph{{{lab}: {cov} vs not covered}}}} \\")
+        for oc, on in names.items():
+            k, d = scale.get(oc, (100, 1))
+            cells = [_pp(r.did * k, r.ci_low * k, r.ci_high * k, d) for r in
+                     (t.loc[(oc, f"All four fields, {g}")] for g in (cov, "not covered", f"{cov} minus not covered"))]
+            lines.append(f"{on} & {' & '.join(cells)} & & \\\\")
+        lines.append(r"\addlinespace")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_venues.tex", "\n".join(lines))
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     for fn in (table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries,
                table_stacked_rules, table_rank, table_sector_bars, table_institutions, table_chemistry, table_india, table_russia,
-               table_coauthors):
+               table_coauthors, table_venues):
         try:
             fn()
         except (FileNotFoundError, KeyError, IndexError) as e:
