@@ -10,7 +10,7 @@ in the paper (prepared for PNAS) and its SI Appendix.
 | `*.py`, `*.sh` | All analysis code (Python) |
 | `data/` (Physics), `data_field22/` (Engineering), `data_field13/` (Biochemistry), `data_field20/` (Economics), `data_field16/` (Chemistry) | Analysis-ready yearly choices of every sampled scientist (`trajectories*.csv.gz`), one file per specification |
 | `results*/` | Every result table (CSV) behind the paper's figures and tables, and diagnostic plots |
-| `plans/` | Time-stamped analysis plans for biochemistry/economics (4 Nov 2026), chemistry, India, Russia and co-authorship (5 Nov 2026), with timeline, hashes and deviations |
+| `plans/` | Time-stamped analysis plans for biochemistry/economics (4 Nov 2026), chemistry, India, Russia, and co-authorship and journals (5 Nov 2026), with timeline, hashes and deviations |
 | `career_start/career_start.tsv.gz` | True career start per scientist: first publication year in the matched Microsoft Academic Graph record (`mag_first_year`), with match diagnostics; author identifiers only |
 | `jubail/` | The SciSciNet matching job (`match_career.py`, run on a cluster with the SciSciNet tables) |
 
@@ -105,7 +105,7 @@ exactly with the same library versions.
 | Table S29 (co-authorship; plan `plans/PREREGISTRATION_venues_coauthors_2026-11-05.md`) | `coauthors.py --treated IT/IN/RU` (needs raw data); covered vs not covered: `run_coauthor_groups.sh` | `results_coauthors/`, `results_coauthors_groups/` |
 | Table S30 (journal tier, fee-charging open access, institutions; same plan) | `run_venues_fetch.sh` (`fetch_venues.py`, `fetch_sources.py`; re-download, about 7,400 requests), then `run_venues.sh` (`venues.py`) | `results_venues/` |
 | Table S31 (timing checks for the journal outcomes, exploratory) | `venue_checks.py --treated IT/IN/RU` (reads the per-scientist panels that `venues.py` writes; not distributed) | `results_venues/venue_checks_*.csv` |
-| Table S32 (timing checks for collaboration, exploratory) | `venue_checks.py --out results_coauthors --outcomes international new_coauthors log_team` (panels written by `coauthors.py`) and `--outcomes n_institutions single_inst` | `results_coauthors/venue_checks_*.csv`, `results_venues/venue_checks_inst_*.csv` |
+| Table S32 (timing checks for collaboration, exploratory) | in `run_venues.sh`: `venue_checks.py --out results_coauthors --outcomes international new_coauthors log_team` (co-author panels written by `coauthors.py`) and `venue_checks.py --outcomes n_institutions single_inst --tag _inst` (venue panels) | `results_coauthors/venue_checks_*.csv`, `results_venues/venue_checks_inst_*.csv` |
 | True career start | `export_author_papers.py`, `jubail/match_career.py` (needs author names and SciSciNet) | `career_start/career_start.tsv.gz` |
 | Economics placebo field | `estimate.py` with `CT_FIELD_ID=20` | `results_field20*/` |
 | All figures / all tables | `paper_figures.py`, `paper_tables.py` | written to `../paper_overleaf/` (adjust `OUT`) |
@@ -127,7 +127,7 @@ Folder names: `results` = Physics, `results_field22` = Engineering, `results_fie
    SciSciNet_Papers; then `bash run_career.sh`.
 7. Poland and Romania: `python fetch_openalex.py --countries RO PL` per field, then `bash run_newcountries.sh`.
 8. India and Russia: `python fetch_openalex.py --countries IN` (or `RU`) per field, then `bash run_india.sh` / `bash run_russia.sh`; co-authorship: `python coauthors.py --treated IT` (and `IN`, `RU`), then `bash run_coauthor_groups.sh`.
-9. Journals and institutions: `bash run_venues_fetch.sh 31 22 13 16` (journal and institutions of each article in the decision years, then journal metadata into `data_meta/sources.csv.gz`), then `bash run_venues.sh`.
+9. Journals and institutions: `bash run_venues_fetch.sh 31 22 13 16` (journal and institutions of each article in the decision years, then journal metadata into `data_meta/sources.csv.gz`), then `bash run_venues.sh` (journal and institution outcomes, then all timing checks for Tables S31 and S32). Run `coauthors.py` for IT, IN and RU first: the collaboration checks read its panels.
 
 The raw download used the OpenAlex API in November 2026; OpenAlex updates continuously, so a fresh
 download may differ slightly.

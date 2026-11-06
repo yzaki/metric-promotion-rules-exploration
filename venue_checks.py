@@ -50,6 +50,7 @@ def main():
     ap.add_argument("--out", default=os.path.join(HERE, "results_venues"),
                     help="folder with panel_<treated>.csv.gz; results are written there")
     ap.add_argument("--outcomes", nargs="+", default=OUTCOMES)
+    ap.add_argument("--tag", default="", help="suffix of the output file, e.g. _inst")
     args = ap.parse_args()
     A = pd.read_csv(os.path.join(args.out, f"panel_{args.treated}.csv.gz"))
     if args.groups:
@@ -90,7 +91,7 @@ def main():
                     r = est[f"t_{w}"]
                 rows.append({"outcome": oc, "comparison": label, "test": "event study", "window": w, "est": r[0], "lo": r[1], "hi": r[2]})
     t = pd.DataFrame(rows)
-    t.to_csv(os.path.join(args.out, f"venue_checks_{args.treated}.csv"), index=False)
+    t.to_csv(os.path.join(args.out, f"venue_checks_{args.treated}{args.tag}.csv"), index=False)
     pd.set_option("display.width", 200)
     print(t.assign(est=t.est.round(4), lo=t.lo.round(4), hi=t.hi.round(4)).to_string(index=False))
 

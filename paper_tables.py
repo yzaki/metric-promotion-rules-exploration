@@ -788,6 +788,7 @@ def table_venue_checks():
 def table_collab_checks():
     """Timing checks for collaboration outcomes (venue_checks.py on the co-author and venue panels)."""
     outs = [("international", "results_coauthors", "venue_checks_{c}.csv", 100, "Share of articles with a co-author abroad (pp)"),
+            ("new_coauthors", "results_coauthors", "venue_checks_{c}.csv", 100, "Share of co-authors new to the scientist (pp)"),
             ("log_team", "results_coauthors", "venue_checks_{c}.csv", 100, r"Log listed authors ($\times 100$)"),
             ("n_institutions", "results_venues", "venue_checks_inst_{c}.csv", 1, "Institutions per article")]
     comps = [("IT", "treated vs FR+DE", "Italy vs FR+DE"), ("IN", "treated vs FR+DE", "India vs FR+DE"),
