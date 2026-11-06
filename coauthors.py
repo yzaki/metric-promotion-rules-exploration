@@ -120,6 +120,7 @@ def main():
         parts.append(a)
         print(f"{args.treated} {FIELDS[fid][0]}: {a.author_id.nunique():,} scientists, {len(a):,} scientist-years", flush=True)
     A = pd.concat(parts, ignore_index=True)
+    A.to_csv(os.path.join(args.out, f"panel_{args.treated}.csv.gz"), index=False)   # for venue_checks.py
     rows = did_rows(A, OUTCOMES, args.treated, args.groups, args.covered_label)
     t = pd.DataFrame(rows)
     t.to_csv(os.path.join(args.out, f"coauthors_{args.treated}.csv"), index=False)

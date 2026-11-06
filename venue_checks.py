@@ -1,4 +1,4 @@
-"""Timing checks for the journal outcomes (exploratory): 2007 placebo and event study, from the saved panel.
+"""Timing checks for the journal, institution and co-authorship outcomes (exploratory): 2007 placebo and event study, from the saved panel.
 
 Reads results_venues/panel_<treated>.csv.gz (venues.py). For each outcome: the 2007 placebo (2004-06 vs 2007-09)
 of treated vs France + Germany, and an event study in two-year windows relative to 2008-09; with --groups, the
@@ -7,6 +7,7 @@ effects, standard errors clustered by scientist (india_stacked.fit).
 
 Usage:
     python venue_checks.py --treated RU --groups results_russia/russia_groups.csv --covered-label 5-100
+    python venue_checks.py --treated RU --groups ... --out results_coauthors --outcomes international new_coauthors log_team
 """
 import argparse
 import os
@@ -46,13 +47,15 @@ def main():
     ap.add_argument("--treated", required=True)
     ap.add_argument("--groups", default=None)
     ap.add_argument("--covered-label", default="5-100")
-    ap.add_argument("--out", default=os.path.join(HERE, "results_venues"))
+    ap.add_argument("--out", default=os.path.join(HERE, "results_venues"),
+                    help="folder with panel_<treated>.csv.gz; results are written there")
+    ap.add_argument("--outcomes", nargs="+", default=OUTCOMES)
     args = ap.parse_args()
     A = pd.read_csv(os.path.join(args.out, f"panel_{args.treated}.csv.gz"))
     if args.groups:
         A["g"] = A.author_id.map(pd.read_csv(args.groups).set_index("author_id").group)
     rows = []
-    for oc in OUTCOMES:
+    for oc in args.outcomes:
         base = A.dropna(subset=[oc]).reset_index(drop=True)
         # (1) treated vs control; (2) covered vs not covered (control scientists kept as the comparison)
         specs = [("treated vs FR+DE", base, {"t": base.group == "IT"})]

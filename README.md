@@ -105,6 +105,7 @@ exactly with the same library versions.
 | Table S29 (co-authorship; plan `plans/PREREGISTRATION_venues_coauthors_2026-11-05.md`) | `coauthors.py --treated IT/IN/RU` (needs raw data); covered vs not covered: `run_coauthor_groups.sh` | `results_coauthors/`, `results_coauthors_groups/` |
 | Table S30 (journal tier, fee-charging open access, institutions; same plan) | `run_venues_fetch.sh` (`fetch_venues.py`, `fetch_sources.py`; re-download, about 7,400 requests), then `run_venues.sh` (`venues.py`) | `results_venues/` |
 | Table S31 (timing checks for the journal outcomes, exploratory) | `venue_checks.py --treated IT/IN/RU` (reads the per-scientist panels that `venues.py` writes; not distributed) | `results_venues/venue_checks_*.csv` |
+| Table S32 (timing checks for collaboration, exploratory) | `venue_checks.py --out results_coauthors --outcomes international new_coauthors log_team` (panels written by `coauthors.py`) and `--outcomes n_institutions single_inst` | `results_coauthors/venue_checks_*.csv`, `results_venues/venue_checks_inst_*.csv` |
 | True career start | `export_author_papers.py`, `jubail/match_career.py` (needs author names and SciSciNet) | `career_start/career_start.tsv.gz` |
 | Economics placebo field | `estimate.py` with `CT_FIELD_ID=20` | `results_field20*/` |
 | All figures / all tables | `paper_figures.py`, `paper_tables.py` | written to `../paper_overleaf/` (adjust `OUT`) |
