@@ -757,11 +757,39 @@ def table_venues():
     write("tab_venues.tex", "\n".join(lines))
 
 
+def table_venue_checks():
+    """Timing checks for the bottom-quartile journal share (venue_checks.py): 2007 placebo and event study."""
+    outs = [("bottom_quartile", "current citedness"), ("bottom_quartile_yr", "year of publication"),
+            ("bottom_quartile_yr_intl", "year of publication, non-domestic journals")]
+    comps = [("IT", "treated vs FR+DE", "Italy vs FR+DE"), ("IN", "treated vs FR+DE", "India vs FR+DE"),
+             ("IN", "UGC-covered minus not covered", "India, UGC-covered minus not covered"),
+             ("RU", "treated vs FR+DE", "Russia vs FR+DE"), ("RU", "5-100 minus not covered", "Russia, 5-100 minus not covered")]
+    wins = ["2004-05", "2006-07", "2013-14", "2015-16", "2017-18"]
+    lines = [r"\begin{tabular}{lllllll}", r"\toprule",
+             r"Comparison & Placebo 2007 & 2004--05 & 2006--07 & 2013--14 & 2015--16 & 2017--18 \\", r"\midrule"]
+    for oc, lab in outs:
+        lines.append(rf"\multicolumn{{7}}{{l}}{{\emph{{Bottom-quartile journal share, {lab} (pp; event study relative to 2008--09)}}}} \\")
+        for code, comp, clab in comps:
+            t = pd.read_csv(path("results_venues", f"venue_checks_{code}.csv"))
+            t = t[(t.outcome == oc) & (t.comparison == comp)]
+            if t.empty:
+                continue
+            pl = t[t.test == "placebo 2007"].iloc[0]
+            cells = [_pp(100 * pl.est, 100 * pl.lo, 100 * pl.hi)]
+            for w in wins:
+                r = t[(t.test == "event study") & (t.window == w)].iloc[0]
+                cells.append(_pp(100 * r.est, 100 * r.lo, 100 * r.hi))
+            lines.append(f"{clab} & {' & '.join(cells)} \\\\")
+        lines.append(r"\addlinespace")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_venue_checks.tex", "\n".join(lines))
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     for fn in (table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries,
                table_stacked_rules, table_rank, table_sector_bars, table_institutions, table_chemistry, table_india, table_russia,
-               table_coauthors, table_venues):
+               table_coauthors, table_venues, table_venue_checks):
         try:
             fn()
         except (FileNotFoundError, KeyError, IndexError) as e:

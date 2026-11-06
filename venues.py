@@ -14,6 +14,11 @@ metadata from fetch_sources.py):
                                        year's articles by French or German authors without a treated-country
                                        author (journal_year_ranks), because current citedness misstates the
                                        standing of a journal in 2004-09
+    *_yr_intl (exploratory check)      the same, excluding domestic journals: journals where the treated
+                                       country holds at least DOMESTIC_SHARE of the field's articles in the
+                                       five countries' venue files (tests whether newly indexed national
+                                       journals drive the shift)
+The scientist-year panel is saved as <out>/panel_<treated>.csv.gz for venue_checks.py (placebo, event study).
 V1 and V2 use articles whose primary location is a journal with a citedness value; C4 uses all articles.
 Difference-in-differences as in coauthors.py (treated vs France + Germany, 2004-09 vs 2013-18, scientist and
 year fixed effects, clustered by scientist), per field and stacked.
@@ -36,7 +41,9 @@ from coauthors import FIELDS, SUFFIX, did_rows
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUTCOMES = ["top_quartile", "bottom_quartile", "journal_pct", "fee_oa", "n_institutions", "single_inst",
-            "top_quartile_yr", "bottom_quartile_yr", "journal_pct_yr"]
+            "top_quartile_yr", "bottom_quartile_yr", "journal_pct_yr",
+            "top_quartile_yr_intl", "bottom_quartile_yr_intl", "journal_pct_yr_intl"]
+DOMESTIC_SHARE = 0.25
 
 
 def journal_ranks(venues, sources):
@@ -83,7 +90,13 @@ def field_outcomes(field_id, treated, sources):
     traj = pd.read_csv(os.path.join(HERE, d, f"trajectories_{SUFFIX[treated]}.csv"), usecols=["author_id", "country", "group"])
     home = traj.drop_duplicates("author_id").set_index("author_id")
     files = glob.glob(os.path.join(HERE, d, "venues", "venues_*.csv.gz"))
-    ven = pd.concat((pd.read_csv(f) for f in files), ignore_index=True).drop_duplicates("work_id")
+    ven = pd.concat((pd.read_csv(f).assign(cc=os.path.basename(f).split("_")[1]) for f in files), ignore_index=True)
+    in_treated = set(ven.work_id[ven.cc == treated])
+    ven = ven.drop_duplicates("work_id").drop(columns="cc")
+    # domestic journals (exploratory check): the treated country holds >= DOMESTIC_SHARE of the journal's articles
+    # in the five countries' venue files of this field
+    share = ven[ven.source_type == "journal"].assign(t=ven.work_id.isin(in_treated)).groupby("source_id").t.mean()
+    domestic = set(share[share >= DOMESTIC_SHARE].index)
     ranks = journal_ranks(ven, sources)
     doaj_fee = set(sources.source_id[(sources.is_in_doaj == True) & (sources.apc_usd.fillna(0) > 0)])  # noqa: E712
     ven = ven.join(ranks, on="source_id")
@@ -103,6 +116,9 @@ def field_outcomes(field_id, treated, sources):
     ven["top_quartile_yr"] = (ven.quartile_yr == 4).astype(float).where(ven.quartile_yr.notna())
     ven["bottom_quartile_yr"] = (ven.quartile_yr == 1).astype(float).where(ven.quartile_yr.notna())
     ven["journal_pct_yr"] = ven.pct_yr
+    intl = ~ven.source_id.isin(domestic)
+    for c in ("top_quartile_yr", "bottom_quartile_yr", "journal_pct_yr"):
+        ven[c + "_intl"] = ven[c].where(intl)
     mine = raw[raw.author_id.isin(home.index)].drop_duplicates()
     mine = mine.merge(ven[["work_id"] + OUTCOMES], on="work_id", how="inner")
     ay = mine.groupby(["author_id", "year"])[OUTCOMES].mean().reset_index()
@@ -110,8 +126,10 @@ def field_outcomes(field_id, treated, sources):
     ay["field"] = name
     dec = raw[raw.author_id.isin(home.index) & raw.year.isin(config.PRE_YEARS + config.POST_YEARS)].drop_duplicates()
     cov = mine.year.isin(config.PRE_YEARS + config.POST_YEARS).sum() / max(1, len(dec))
+    dom_art = mine.work_id.map(ven.set_index("work_id").source_id).isin(domestic)
     print(f"  {name}: {len(ranks):,} ranked journals; {cov:.1%} of sampled author-articles in decision years "
-          f"matched to a venue row", flush=True)
+          f"matched to a venue row; {len(domestic):,} domestic journals ({dom_art[mine.author_id.map(home.group) == 'IT'].mean():.1%} "
+          f"of treated scientists' articles)", flush=True)
     return ay
 
 
@@ -131,6 +149,7 @@ def main():
         parts.append(a)
         print(f"{args.treated} {FIELDS[fid][0]}: {a.author_id.nunique():,} scientists, {len(a):,} scientist-years", flush=True)
     A = pd.concat(parts, ignore_index=True)
+    A.to_csv(os.path.join(args.out, f"panel_{args.treated}.csv.gz"), index=False)
     rows = did_rows(A, OUTCOMES, args.treated, args.groups, args.covered_label)
     t = pd.DataFrame(rows)
     t.to_csv(os.path.join(args.out, f"venues_{args.treated}.csv"), index=False)

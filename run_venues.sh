@@ -7,3 +7,6 @@ export PYTHONIOENCODING=utf-8
 $P -u venues.py --treated IT --out results_venues > logs/venues_IT.txt 2>&1; echo "IT exit $? $(date)"
 $P -u venues.py --treated IN --groups results_india/india_groups.csv --covered-label UGC-covered --out results_venues > logs/venues_IN.txt 2>&1; echo "IN exit $? $(date)"
 $P -u venues.py --treated RU --groups results_russia/russia_groups.csv --covered-label 5-100 --out results_venues > logs/venues_RU.txt 2>&1; echo "RU exit $? $(date)"
+$P -u venue_checks.py --treated IT > logs/venue_checks_IT.txt 2>&1
+$P -u venue_checks.py --treated IN --groups results_india/india_groups.csv --covered-label UGC-covered > logs/venue_checks_IN.txt 2>&1
+$P -u venue_checks.py --treated RU --groups results_russia/russia_groups.csv --covered-label 5-100 > logs/venue_checks_RU.txt 2>&1

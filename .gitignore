@@ -19,3 +19,4 @@ results_india/india_groups.csv
 results_india/choices_*.csv.gz
 results_russia/russia_groups.csv
 results_russia/choices_*.csv.gz
+results_venues/panel_*.csv.gz
