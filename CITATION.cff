@@ -11,6 +11,7 @@ authors:
     orcid: "https://orcid.org/0000-0001-8078-6944"
     affiliation: New York University Abu Dhabi
 license: MIT
-repository-code: "https://github.com/Nouar-NYUAD/metric-promotion-rules-exploration"
+doi: "10.5281/zenodo.24078251"
+repository-code: "https://github.com/yzaki/metric-promotion-rules-exploration"
 date-released: 2026-11-09
-version: "pnas-nexus-submission"
+version: "v1.0-pnas-nexus"

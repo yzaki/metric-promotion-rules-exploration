@@ -183,7 +183,7 @@ The authors supplied their original working repository. From it:
   files of the original download (3-5 November 2026), including chemistry. `articles` is the number of unique `work_id`s
   in each file; it may differ, by up to about 2.5%, from the logs' "saved N papers", which count the rows saved per query
   page, including duplicates.
-- Git history of the original replication repository (github.com/Nouar-NYUAD/metric-promotion-rules-exploration):
+- Git history of the original replication repository (github.com/yzaki/metric-promotion-rules-exploration):
   the plans were committed on 5 November 2026 at 05:56 (chemistry, commit 6a91531), 06:32 (biochemistry/economics, in
   the new `plans/` folder, 53fa0a4), 09:08 (India, 97d31db) and 14:28 (Russia, co-authorship, 37afb1e). These are
   client-recorded commit times; each committed plan file (`git show <commit>:<path> | sha256sum`) has the SHA-256 hash
