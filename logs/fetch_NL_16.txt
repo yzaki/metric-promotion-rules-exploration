@@ -1,0 +1,48 @@
+Field 16 = Chemistry
+Using field filter primary_topic.field.id:16
+  NL 1998: 998 papers to download
+  NL 1998: saved 998 papers, 4,369 author rows
+  NL 1999: 882 papers to download
+  NL 1999: saved 882 papers, 3,617 author rows
+  NL 2000: 965 papers to download
+  NL 2000: saved 965 papers, 4,248 author rows
+  NL 2001: 1,010 papers to download
+  NL 2001: saved 1,010 papers, 4,394 author rows
+  NL 2002: 985 papers to download
+  NL 2002: saved 985 papers, 4,356 author rows
+  NL 2003: 1,029 papers to download
+  NL 2003: saved 1,029 papers, 4,522 author rows
+  NL 2004: 1,032 papers to download
+  NL 2004: saved 1,032 papers, 4,685 author rows
+  NL 2005: 1,056 papers to download
+  NL 2005: saved 1,056 papers, 4,977 author rows
+  NL 2006: 945 papers to download
+  NL 2006: saved 945 papers, 4,574 author rows
+  NL 2007: 944 papers to download
+  NL 2007: saved 944 papers, 4,502 author rows
+  NL 2008: 866 papers to download
+  NL 2008: saved 866 papers, 4,520 author rows
+  NL 2009: 958 papers to download
+  NL 2009: saved 958 papers, 4,918 author rows
+  NL 2010: 984 papers to download
+  NL 2010: saved 984 papers, 5,045 author rows
+  NL 2011: 1,002 papers to download
+  NL 2011: saved 1,002 papers, 5,292 author rows
+  NL 2012: 988 papers to download
+  NL 2012: saved 988 papers, 5,343 author rows
+  NL 2013: 941 papers to download
+  NL 2013: saved 941 papers, 4,992 author rows
+  NL 2014: 1,000 papers to download
+  NL 2014: saved 1,000 papers, 5,371 author rows
+  NL 2015: 958 papers to download
+  NL 2015: saved 958 papers, 5,438 author rows
+  NL 2016: 916 papers to download
+  NL 2016: saved 916 papers, 5,390 author rows
+  NL 2017: 892 papers to download
+  NL 2017: saved 892 papers, 5,253 author rows
+  NL 2018: 870 papers to download
+  NL 2018: saved 870 papers, 5,245 author rows
+  NL 2019: 879 papers to download
+  NL 2019: saved 879 papers, 5,663 author rows
+
+Done. Next step: python build_trajectories.py

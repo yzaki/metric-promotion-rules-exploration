@@ -1,0 +1,25 @@
+Treated: IT; controls: FR, DE
+Loaded 446,333 papers and 3,404,015 paper-author rows from 66 files
+World citations: 3,008,237 papers, 115 topics, years 1998-2019
+Authors with a clear home country: 194,230
+Authors with at least 5 active years: 57,891
+Share of author-years matched to a MAG career start, by country:
+ country
+DE    0.891
+FR    0.929
+IT    0.959
+
+                     scientists  choices  share_stay  share_near  share_far
+country period                                                            
+DE      after            16848    64544       0.721       0.176      0.103
+        before           16554    55832       0.730       0.168      0.102
+        transition       15008    32703       0.733       0.164      0.103
+FR      after            11427    42789       0.729       0.161      0.110
+        before           12014    40684       0.727       0.160      0.112
+        transition       10282    22318       0.740       0.153      0.107
+IT      after            10032    40142       0.717       0.169      0.114
+        before           10164    37147       0.707       0.181      0.112
+        transition        8739    19580       0.713       0.171      0.116
+
+Wrote 355,739 choices to /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/data/trajectories_world_career.csv
+Next step: python estimate.py

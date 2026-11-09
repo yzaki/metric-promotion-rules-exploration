@@ -1,0 +1,26 @@
+Field 13 = Biochemistry, Genetics and Molecular Biology
+Using field filter primary_topic.field.id:13
+  1998: 198 topics, 99,892 papers
+  1999: 199 topics, 101,991 papers
+  2000: 199 topics, 112,210 papers
+  2001: 199 topics, 113,173 papers
+  2002: 199 topics, 120,005 papers
+  2003: 199 topics, 126,188 papers
+  2004: 198 topics, 137,938 papers
+  2005: 200 topics, 142,309 papers
+  2006: 200 topics, 151,887 papers
+  2007: 199 topics, 157,189 papers
+  2008: 200 topics, 172,829 papers
+  2009: 199 topics, 178,641 papers
+  2010: 200 topics, 179,779 papers
+  2011: 200 topics, 185,030 papers
+  2012: 200 topics, 188,257 papers
+  2013: 200 topics, 195,297 papers
+  2014: 200 topics, 199,035 papers
+  2015: 200 topics, 200,103 papers
+  2016: 200 topics, 213,461 papers
+  2017: 200 topics, 200,762 papers
+  2018: 200 topics, 188,092 papers
+  2019: 200 topics, 191,930 papers
+
+Done. Next step: python build_trajectories.py --world

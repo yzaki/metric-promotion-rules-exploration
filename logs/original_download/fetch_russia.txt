@@ -1,0 +1,194 @@
+started 2026-11-05T11:54:50+04:00
+Field 31 = Physics and Astronomy
+Using field filter primary_topic.field.id:31
+  RU 1998: 4,427 papers to download
+  RU 1998: saved 4,427 papers, 30,734 author rows
+  RU 1999: 4,536 papers to download
+  RU 1999: saved 4,536 papers, 31,886 author rows
+  RU 2000: 5,481 papers to download
+  RU 2000: saved 5,481 papers, 35,304 author rows
+  RU 2001: 5,646 papers to download
+  RU 2001: saved 5,646 papers, 37,408 author rows
+  RU 2002: 5,631 papers to download
+  RU 2002: saved 5,631 papers, 41,011 author rows
+  RU 2003: 5,578 papers to download
+  RU 2003: saved 5,578 papers, 39,369 author rows
+  RU 2004: 5,673 papers to download
+  RU 2004: saved 5,673 papers, 45,998 author rows
+  RU 2005: 5,785 papers to download
+  RU 2005: saved 5,785 papers, 52,760 author rows
+  RU 2006: 5,809 papers to download
+  RU 2006: saved 5,809 papers, 50,907 author rows
+  RU 2007: 6,264 papers to download
+  RU 2007: saved 6,264 papers, 58,758 author rows
+  RU 2008: 6,182 papers to download
+  RU 2008: saved 6,182 papers, 56,851 author rows
+  RU 2009: 6,352 papers to download
+  RU 2009: saved 6,352 papers, 58,398 author rows
+  RU 2010: 6,144 papers to download
+  RU 2010: saved 6,144 papers, 56,124 author rows
+  RU 2011: 6,414 papers to download
+  RU 2011: saved 6,414 papers, 66,429 author rows
+  RU 2012: 6,490 papers to download
+  RU 2012: saved 6,490 papers, 84,199 author rows
+  RU 2013: 6,866 papers to download
+  RU 2013: saved 6,866 papers, 82,943 author rows
+  RU 2014: 7,070 papers to download
+  RU 2014: saved 7,070 papers, 82,174 author rows
+  RU 2015: 7,955 papers to download
+  RU 2015: saved 7,955 papers, 88,224 author rows
+  RU 2016: 8,006 papers to download
+  RU 2016: saved 8,006 papers, 87,518 author rows
+  RU 2017: 9,470 papers to download
+  RU 2017: saved 9,470 papers, 94,722 author rows
+  RU 2018: 9,569 papers to download
+  RU 2018: saved 9,569 papers, 95,672 author rows
+  RU 2019: 9,135 papers to download
+  RU 2019: saved 9,135 papers, 90,132 author rows
+
+Done. Next step: python build_trajectories.py
+Field 22 = Engineering
+Using field filter primary_topic.field.id:22
+  RU 1998: 2,163 papers to download
+  RU 1998: saved 2,163 papers, 7,615 author rows
+  RU 1999: 2,187 papers to download
+  RU 1999: saved 2,187 papers, 8,210 author rows
+  RU 2000: 3,342 papers to download
+  RU 2000: saved 3,342 papers, 11,639 author rows
+  RU 2001: 3,843 papers to download
+  RU 2001: saved 3,843 papers, 13,103 author rows
+  RU 2002: 3,890 papers to download
+  RU 2002: saved 3,890 papers, 13,537 author rows
+  RU 2003: 3,959 papers to download
+  RU 2003: saved 3,959 papers, 13,616 author rows
+  RU 2004: 3,951 papers to download
+  RU 2004: saved 3,951 papers, 14,067 author rows
+  RU 2005: 3,846 papers to download
+  RU 2005: saved 3,846 papers, 13,506 author rows
+  RU 2006: 4,593 papers to download
+  RU 2006: saved 4,593 papers, 15,986 author rows
+  RU 2007: 5,691 papers to download
+  RU 2007: saved 5,691 papers, 19,122 author rows
+  RU 2008: 5,921 papers to download
+  RU 2008: saved 5,921 papers, 19,506 author rows
+  RU 2009: 6,465 papers to download
+  RU 2009: saved 6,465 papers, 21,509 author rows
+  RU 2010: 6,760 papers to download
+  RU 2010: saved 6,760 papers, 22,782 author rows
+  RU 2011: 7,586 papers to download
+  RU 2011: saved 7,586 papers, 25,057 author rows
+  RU 2012: 8,639 papers to download
+  RU 2012: saved 8,639 papers, 28,977 author rows
+  RU 2013: 9,564 papers to download
+  RU 2013: saved 9,564 papers, 31,928 author rows
+  RU 2014: 12,251 papers to download
+  RU 2014: saved 12,251 papers, 41,300 author rows
+  RU 2015: 14,924 papers to download
+  RU 2015: saved 14,924 papers, 50,701 author rows
+  RU 2016: 15,896 papers to download
+  RU 2016: saved 15,896 papers, 56,405 author rows
+  RU 2017: 18,443 papers to download
+  RU 2017: saved 18,443 papers, 65,119 author rows
+  RU 2018: 19,555 papers to download
+  RU 2018: saved 19,555 papers, 70,922 author rows
+  RU 2019: 21,476 papers to download
+  RU 2019: saved 21,476 papers, 77,772 author rows
+
+Done. Next step: python build_trajectories.py
+Field 13 = Biochemistry, Genetics and Molecular Biology
+Using field filter primary_topic.field.id:13
+  RU 1998: 1,430 papers to download
+  RU 1998: saved 1,430 papers, 5,652 author rows
+  RU 1999: 1,450 papers to download
+  RU 1999: saved 1,450 papers, 5,786 author rows
+  RU 2000: 1,983 papers to download
+  RU 2000: saved 1,983 papers, 7,590 author rows
+  RU 2001: 1,951 papers to download
+  RU 2001: saved 1,951 papers, 7,851 author rows
+  RU 2002: 1,965 papers to download
+  RU 2002: saved 1,965 papers, 8,120 author rows
+  RU 2003: 2,049 papers to download
+  RU 2003: saved 2,049 papers, 8,300 author rows
+  RU 2004: 1,775 papers to download
+  RU 2004: saved 1,775 papers, 7,863 author rows
+  RU 2005: 1,736 papers to download
+  RU 2005: saved 1,736 papers, 7,956 author rows
+  RU 2006: 1,874 papers to download
+  RU 2006: saved 1,874 papers, 8,445 author rows
+  RU 2007: 1,987 papers to download
+  RU 2007: saved 1,987 papers, 9,079 author rows
+  RU 2008: 2,131 papers to download
+  RU 2008: saved 2,131 papers, 10,100 author rows
+  RU 2009: 2,191 papers to download
+  RU 2009: saved 2,191 papers, 10,560 author rows
+  RU 2010: 2,332 papers to download
+  RU 2010: saved 2,332 papers, 11,311 author rows
+  RU 2011: 2,430 papers to download
+  RU 2011: saved 2,430 papers, 12,228 author rows
+  RU 2012: 2,489 papers to download
+  RU 2012: saved 2,489 papers, 12,608 author rows
+  RU 2013: 2,780 papers to download
+  RU 2013: saved 2,780 papers, 14,254 author rows
+  RU 2014: 3,104 papers to download
+  RU 2014: saved 3,104 papers, 16,549 author rows
+  RU 2015: 3,599 papers to download
+  RU 2015: saved 3,599 papers, 19,293 author rows
+  RU 2016: 4,061 papers to download
+  RU 2016: saved 4,061 papers, 24,071 author rows
+  RU 2017: 4,437 papers to download
+  RU 2017: saved 4,437 papers, 25,781 author rows
+  RU 2018: 4,876 papers to download
+  RU 2018: saved 4,876 papers, 28,037 author rows
+  RU 2019: 5,246 papers to download
+  RU 2019: saved 5,246 papers, 31,094 author rows
+
+Done. Next step: python build_trajectories.py
+Field 16 = Chemistry
+Using field filter primary_topic.field.id:16
+  RU 1998: 1,897 papers to download
+  RU 1998: saved 1,897 papers, 7,508 author rows
+  RU 1999: 1,947 papers to download
+  RU 1999: saved 1,947 papers, 7,854 author rows
+  RU 2000: 2,429 papers to download
+  RU 2000: saved 2,429 papers, 9,383 author rows
+  RU 2001: 3,149 papers to download
+  RU 2001: saved 3,149 papers, 12,357 author rows
+  RU 2002: 3,322 papers to download
+  RU 2002: saved 3,322 papers, 13,581 author rows
+  RU 2003: 3,382 papers to download
+  RU 2003: saved 3,382 papers, 13,618 author rows
+  RU 2004: 3,234 papers to download
+  RU 2004: saved 3,234 papers, 13,597 author rows
+  RU 2005: 3,384 papers to download
+  RU 2005: saved 3,384 papers, 14,624 author rows
+  RU 2006: 3,532 papers to download
+  RU 2006: saved 3,532 papers, 15,011 author rows
+  RU 2007: 3,459 papers to download
+  RU 2007: saved 3,459 papers, 14,908 author rows
+  RU 2008: 3,621 papers to download
+  RU 2008: saved 3,621 papers, 15,409 author rows
+  RU 2009: 3,429 papers to download
+  RU 2009: saved 3,429 papers, 14,660 author rows
+  RU 2010: 3,502 papers to download
+  RU 2010: saved 3,502 papers, 15,462 author rows
+  RU 2011: 3,684 papers to download
+  RU 2011: saved 3,684 papers, 16,181 author rows
+  RU 2012: 3,488 papers to download
+  RU 2012: saved 3,488 papers, 15,250 author rows
+  RU 2013: 3,664 papers to download
+  RU 2013: saved 3,664 papers, 16,435 author rows
+  RU 2014: 3,761 papers to download
+  RU 2014: saved 3,761 papers, 17,117 author rows
+  RU 2015: 4,093 papers to download
+  RU 2015: saved 4,093 papers, 19,467 author rows
+  RU 2016: 4,276 papers to download
+  RU 2016: saved 4,276 papers, 20,767 author rows
+  RU 2017: 4,638 papers to download
+  RU 2017: saved 4,638 papers, 22,344 author rows
+  RU 2018: 4,959 papers to download
+  RU 2018: saved 4,959 papers, 23,822 author rows
+  RU 2019: 4,640 papers to download
+  RU 2019: saved 4,640 papers, 22,908 author rows
+
+Done. Next step: python build_trajectories.py
+done 2026-11-05T13:07:52+04:00

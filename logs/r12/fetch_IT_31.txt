@@ -1,0 +1,48 @@
+Field 31 = Physics and Astronomy
+Using field filter primary_topic.field.id:31
+  IT 1998: 3,590 papers to download
+  IT 1998: saved 3,590 papers, 32,452 author rows
+  IT 1999: 3,781 papers to download
+  IT 1999: saved 3,781 papers, 33,718 author rows
+  IT 2000: 3,944 papers to download
+  IT 2000: saved 3,944 papers, 32,105 author rows
+  IT 2001: 4,407 papers to download
+  IT 2001: saved 4,407 papers, 34,180 author rows
+  IT 2002: 4,684 papers to download
+  IT 2002: saved 4,684 papers, 39,614 author rows
+  IT 2003: 5,117 papers to download
+  IT 2003: saved 5,117 papers, 42,853 author rows
+  IT 2004: 5,378 papers to download
+  IT 2004: saved 5,378 papers, 46,381 author rows
+  IT 2005: 5,467 papers to download
+  IT 2005: saved 5,467 papers, 50,255 author rows
+  IT 2006: 5,785 papers to download
+  IT 2006: saved 5,785 papers, 54,437 author rows
+  IT 2007: 5,825 papers to download
+  IT 2007: saved 5,825 papers, 57,715 author rows
+  IT 2008: 5,457 papers to download
+  IT 2008: saved 5,457 papers, 55,082 author rows
+  IT 2009: 6,114 papers to download
+  IT 2009: saved 6,114 papers, 66,239 author rows
+  IT 2010: 6,003 papers to download
+  IT 2010: saved 6,003 papers, 73,212 author rows
+  IT 2011: 5,915 papers to download
+  IT 2011: saved 5,915 papers, 78,988 author rows
+  IT 2012: 6,377 papers to download
+  IT 2012: saved 6,377 papers, 96,095 author rows
+  IT 2013: 6,449 papers to download
+  IT 2013: saved 6,449 papers, 94,541 author rows
+  IT 2014: 6,614 papers to download
+  IT 2014: saved 6,614 papers, 96,103 author rows
+  IT 2015: 6,837 papers to download
+  IT 2015: saved 6,837 papers, 99,201 author rows
+  IT 2016: 7,121 papers to download
+  IT 2016: saved 7,121 papers, 104,148 author rows
+  IT 2017: 6,897 papers to download
+  IT 2017: saved 6,897 papers, 106,060 author rows
+  IT 2018: 7,159 papers to download
+  IT 2018: saved 7,159 papers, 110,445 author rows
+  IT 2019: 7,142 papers to download
+  IT 2019: saved 7,142 papers, 104,267 author rows
+
+Done. Next step: python build_trajectories.py

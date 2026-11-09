@@ -1,0 +1,8 @@
+Loaded 446,333 papers and 3,404,015 paper-author rows from 66 files
+           outcome    did  ci_low  ci_high  IT_pre  IT_post  CTRL_pre  CTRL_post  n_scientists
+   distinct_topics 0.0257 -0.0164   0.0661  2.5086   2.7179    2.3224      2.506           NaN
+distinct_subfields 0.0274  0.0074   0.0454  1.4965   1.5734    1.4345      1.484           NaN
+        top1_share 0.0048  0.0034   0.0067  0.0122   0.0191    0.0160      0.018           NaN
+     left_research 0.0618  0.0446   0.0776  0.1981   0.2383    0.2995      0.278       39840.0
+
+Saved /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/results/long_run.csv

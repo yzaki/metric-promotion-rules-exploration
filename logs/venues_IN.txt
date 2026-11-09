@@ -1,0 +1,109 @@
+Loaded 421,094 papers and 3,167,123 paper-author rows from 66 files
+  Physics: 6,315 ranked journals; 100.0% of sampled author-articles in decision years matched to a venue row; 1,490 domestic journals (22.5% of treated scientists' articles)
+IN Physics: 51,076 scientists, 315,500 scientist-years
+Loaded 520,211 papers and 1,961,064 paper-author rows from 66 files
+  Engineering: 13,365 ranked journals; 100.0% of sampled author-articles in decision years matched to a venue row; 4,567 domestic journals (70.9% of treated scientists' articles)
+IN Engineering: 49,215 scientists, 268,229 scientist-years
+Loaded 387,481 papers and 2,361,319 paper-author rows from 66 files
+  Biochemistry: 10,389 ranked journals; 100.0% of sampled author-articles in decision years matched to a venue row; 3,471 domestic journals (50.7% of treated scientists' articles)
+IN Biochemistry: 63,158 scientists, 341,736 scientist-years
+Loaded 342,388 papers and 1,440,403 paper-author rows from 66 files
+  Chemistry: 5,060 ranked journals; 100.0% of sampled author-articles in decision years matched to a venue row; 1,959 domestic journals (81.5% of treated scientists' articles)
+IN Chemistry: 33,281 scientists, 179,868 scientist-years
+treated                 outcome                                          scope     did  ci_low  ci_high  treated_pre_mean  n_treated
+     IN            top_quartile                                All four fields -0.0309 -0.0357  -0.0261            0.2125    34818.0
+     IN            top_quartile                                        Physics -0.0204 -0.0286  -0.0123            0.1634     6404.0
+     IN            top_quartile                                    Engineering -0.0683 -0.0778  -0.0588            0.3017    12141.0
+     IN            top_quartile                                   Biochemistry -0.0377 -0.0480  -0.0275            0.1703     7422.0
+     IN            top_quartile                                      Chemistry  0.0098  0.0002   0.0195            0.1924    11228.0
+     IN         bottom_quartile                                All four fields  0.0312  0.0268   0.0356            0.2079    34818.0
+     IN         bottom_quartile                                        Physics  0.0239  0.0146   0.0332            0.1843     6404.0
+     IN         bottom_quartile                                    Engineering  0.0796  0.0724   0.0868            0.1092    12141.0
+     IN         bottom_quartile                                   Biochemistry  0.0356  0.0256   0.0457            0.2069     7422.0
+     IN         bottom_quartile                                      Chemistry -0.0235 -0.0322  -0.0148            0.3077    11228.0
+     IN             journal_pct                                All four fields -3.2190 -3.5268  -2.9112           49.3810    34818.0
+     IN             journal_pct                                        Physics -2.4890 -3.0955  -1.8825           47.8942     6404.0
+     IN             journal_pct                                    Engineering -7.2184 -7.7823  -6.6546           57.5817    12141.0
+     IN             journal_pct                                   Biochemistry -3.2125 -3.8668  -2.5583           47.3622     7422.0
+     IN             journal_pct                                      Chemistry  0.8587  0.2567   1.4606           44.5284    11228.0
+     IN                  fee_oa                                All four fields -0.0200 -0.0234  -0.0165            0.0771    34818.0
+     IN                  fee_oa                                        Physics -0.0275 -0.0337  -0.0213            0.0794     6404.0
+     IN                  fee_oa                                    Engineering -0.0001 -0.0050   0.0048            0.0331    12141.0
+     IN                  fee_oa                                   Biochemistry -0.0590 -0.0690  -0.0489            0.1318     7422.0
+     IN                  fee_oa                                      Chemistry -0.0038 -0.0103   0.0027            0.0822    11228.0
+     IN          n_institutions                                All four fields -1.6313 -1.6893  -1.5733            2.4066    34845.0
+     IN          n_institutions                                        Physics -2.8862 -3.0933  -2.6790            4.9892     6409.0
+     IN          n_institutions                                    Engineering -0.8807 -0.9172  -0.8442            1.6725    12155.0
+     IN          n_institutions                                   Biochemistry -2.3296 -2.4456  -2.2135            2.0944     7428.0
+     IN          n_institutions                                      Chemistry -0.7601 -0.8013  -0.7190            1.4991    11233.0
+     IN             single_inst                                All four fields -0.0268 -0.0328  -0.0209            0.5431    34845.0
+     IN             single_inst                                        Physics -0.0204 -0.0318  -0.0090            0.3830     6409.0
+     IN             single_inst                                    Engineering  0.0410  0.0300   0.0520            0.5310    12155.0
+     IN             single_inst                                   Biochemistry -0.0570 -0.0698  -0.0441            0.5200     7428.0
+     IN             single_inst                                      Chemistry -0.0896 -0.1011  -0.0782            0.6733    11233.0
+     IN         top_quartile_yr                                All four fields -0.0226 -0.0279  -0.0172            0.1952    32575.0
+     IN         top_quartile_yr                                        Physics -0.0550 -0.0643  -0.0458            0.2080     6253.0
+     IN         top_quartile_yr                                    Engineering -0.0362 -0.0476  -0.0248            0.2726    11160.0
+     IN         top_quartile_yr                                   Biochemistry -0.0235 -0.0359  -0.0110            0.1525     6506.0
+     IN         top_quartile_yr                                      Chemistry  0.0233  0.0136   0.0330            0.1524    10857.0
+     IN      bottom_quartile_yr                                All four fields  0.0592  0.0535   0.0649            0.2417    32575.0
+     IN      bottom_quartile_yr                                        Physics  0.0738  0.0622   0.0854            0.2685     6253.0
+     IN      bottom_quartile_yr                                    Engineering  0.1227  0.1126   0.1328            0.1321    11160.0
+     IN      bottom_quartile_yr                                   Biochemistry -0.0039 -0.0183   0.0104            0.2435     6506.0
+     IN      bottom_quartile_yr                                      Chemistry  0.0215  0.0118   0.0313            0.2960    10857.0
+     IN          journal_pct_yr                                All four fields -2.6678 -3.0076  -2.3279           47.5275    32575.0
+     IN          journal_pct_yr                                        Physics -4.5750 -5.1896  -3.9605           47.5688     6253.0
+     IN          journal_pct_yr                                    Engineering -6.1155 -6.8008  -5.4302           56.0766    11160.0
+     IN          journal_pct_yr                                   Biochemistry -0.0184 -0.8353   0.7984           45.0169     6506.0
+     IN          journal_pct_yr                                      Chemistry  0.9468  0.3314   1.5622           42.8206    10857.0
+     IN    top_quartile_yr_intl                                All four fields -0.0412 -0.0489  -0.0335            0.2661    24519.0
+     IN    top_quartile_yr_intl                                        Physics -0.0684 -0.0791  -0.0577            0.2431     5978.0
+     IN    top_quartile_yr_intl                                    Engineering -0.0066 -0.0249   0.0116            0.3020     7993.0
+     IN    top_quartile_yr_intl                                   Biochemistry -0.0358 -0.0514  -0.0202            0.1856     5812.0
+     IN    top_quartile_yr_intl                                      Chemistry -0.0264 -0.0491  -0.0037            0.3488     6383.0
+     IN bottom_quartile_yr_intl                                All four fields  0.0528  0.0463   0.0593            0.1313    24519.0
+     IN bottom_quartile_yr_intl                                        Physics  0.0745  0.0629   0.0861            0.1964     5978.0
+     IN bottom_quartile_yr_intl                                    Engineering  0.0631  0.0508   0.0753            0.1073     7993.0
+     IN bottom_quartile_yr_intl                                   Biochemistry  0.0301  0.0155   0.0447            0.1585     5812.0
+     IN bottom_quartile_yr_intl                                      Chemistry  0.0096 -0.0000   0.0193            0.0107     6383.0
+     IN     journal_pct_yr_intl                                All four fields -3.3714 -3.7935  -2.9494           55.7420    24519.0
+     IN     journal_pct_yr_intl                                        Physics -5.2919 -5.9207  -4.6630           52.2844     5978.0
+     IN     journal_pct_yr_intl                                    Engineering -3.2040 -4.1632  -2.2448           58.4551     7993.0
+     IN     journal_pct_yr_intl                                   Biochemistry -0.9397 -1.8847   0.0052           49.5680     5812.0
+     IN     journal_pct_yr_intl                                      Chemistry -1.8335 -2.8276  -0.8394           65.2903     6383.0
+     IN            top_quartile                   All four fields, UGC-covered -0.0323 -0.0395  -0.0250               NaN    12918.0
+     IN            top_quartile                   All four fields, not covered -0.0313 -0.0376  -0.0250               NaN    15065.0
+     IN            top_quartile All four fields, UGC-covered minus not covered -0.0010 -0.0101   0.0082               NaN        NaN
+     IN         bottom_quartile                   All four fields, UGC-covered  0.0385  0.0312   0.0458               NaN    12918.0
+     IN         bottom_quartile                   All four fields, not covered  0.0265  0.0211   0.0320               NaN    15065.0
+     IN         bottom_quartile All four fields, UGC-covered minus not covered  0.0120  0.0032   0.0208               NaN        NaN
+     IN             journal_pct                   All four fields, UGC-covered -3.7244 -4.2089  -3.2400               NaN    12918.0
+     IN             journal_pct                   All four fields, not covered -2.9679 -3.3665  -2.5692               NaN    15065.0
+     IN             journal_pct All four fields, UGC-covered minus not covered -0.7566 -1.3596  -0.1535               NaN        NaN
+     IN                  fee_oa                   All four fields, UGC-covered -0.0324 -0.0377  -0.0270               NaN    12918.0
+     IN                  fee_oa                   All four fields, not covered -0.0136 -0.0180  -0.0091               NaN    15065.0
+     IN                  fee_oa All four fields, UGC-covered minus not covered -0.0188 -0.0254  -0.0122               NaN        NaN
+     IN          n_institutions                   All four fields, UGC-covered -1.7040 -1.7702  -1.6378               NaN    12924.0
+     IN          n_institutions                   All four fields, not covered -1.7333 -1.7993  -1.6673               NaN    15079.0
+     IN          n_institutions All four fields, UGC-covered minus not covered  0.0293 -0.0516   0.1102               NaN        NaN
+     IN             single_inst                   All four fields, UGC-covered -0.0061 -0.0157   0.0035               NaN    12924.0
+     IN             single_inst                   All four fields, not covered -0.0416 -0.0496  -0.0337               NaN    15079.0
+     IN             single_inst All four fields, UGC-covered minus not covered  0.0356  0.0234   0.0478               NaN        NaN
+     IN         top_quartile_yr                   All four fields, UGC-covered -0.0082 -0.0159  -0.0004               NaN    11762.0
+     IN         top_quartile_yr                   All four fields, not covered -0.0298 -0.0367  -0.0228               NaN    14359.0
+     IN         top_quartile_yr All four fields, UGC-covered minus not covered  0.0216  0.0117   0.0315               NaN        NaN
+     IN      bottom_quartile_yr                   All four fields, UGC-covered  0.0654  0.0555   0.0753               NaN    11762.0
+     IN      bottom_quartile_yr                   All four fields, not covered  0.0567  0.0496   0.0637               NaN    14359.0
+     IN      bottom_quartile_yr All four fields, UGC-covered minus not covered  0.0087 -0.0030   0.0205               NaN        NaN
+     IN          journal_pct_yr                   All four fields, UGC-covered -2.1398 -2.6893  -1.5904               NaN    11762.0
+     IN          journal_pct_yr                   All four fields, not covered -3.0347 -3.4667  -2.6027               NaN    14359.0
+     IN          journal_pct_yr All four fields, UGC-covered minus not covered  0.8948  0.2229   1.5668               NaN        NaN
+     IN    top_quartile_yr_intl                   All four fields, UGC-covered -0.0365 -0.0500  -0.0230               NaN     7850.0
+     IN    top_quartile_yr_intl                   All four fields, not covered -0.0408 -0.0503  -0.0312               NaN    11929.0
+     IN    top_quartile_yr_intl All four fields, UGC-covered minus not covered  0.0043 -0.0120   0.0205               NaN        NaN
+     IN bottom_quartile_yr_intl                   All four fields, UGC-covered  0.0541  0.0409   0.0672               NaN     7850.0
+     IN bottom_quartile_yr_intl                   All four fields, not covered  0.0574  0.0495   0.0653               NaN    11929.0
+     IN bottom_quartile_yr_intl All four fields, UGC-covered minus not covered -0.0033 -0.0184   0.0118               NaN        NaN
+     IN     journal_pct_yr_intl                   All four fields, UGC-covered -3.1444 -3.9323  -2.3565               NaN     7850.0
+     IN     journal_pct_yr_intl                   All four fields, not covered -3.6177 -4.1306  -3.1049               NaN    11929.0
+     IN     journal_pct_yr_intl All four fields, UGC-covered minus not covered  0.4733 -0.4477   1.3944               NaN        NaN

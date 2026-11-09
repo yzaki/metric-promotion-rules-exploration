@@ -1,0 +1,20 @@
+Loaded 274,631 papers and 1,261,809 paper-author rows from 66 files
+      definition                outcome  beta_pp  ci_low_pp  ci_high_pp  raw_did_pp  IT_before_pct  IT_after_pct  CTRL_before_pct  CTRL_after_pct
+6-year look-back                   near    -1.28      -2.76        0.19       -2.71          25.32         22.75            22.26           22.39
+6-year look-back               near_new     1.70       0.74        2.67        0.40          10.93         10.24            11.01            9.92
+6-year look-back            near_return    -2.98      -4.16       -1.80       -3.11          14.39         12.51            11.25           12.47
+6-year look-back                far_new     2.51       1.49        3.53        2.24           9.99         11.98            10.92           10.67
+6-year look-back             far_return    -0.89      -2.04        0.27       -0.12          10.89         12.66            11.24           13.13
+6-year look-back near_concurrent_return    -1.53      -2.28       -0.79       -1.70           5.77          4.12             4.58            4.62
+6-year look-back        near_gap_return    -1.45      -2.40       -0.50       -1.41           8.62          8.39             6.67            7.85
+      since 1998               near_new     1.33       0.44        2.21        0.14           9.87          8.03            10.25            8.28
+      since 1998            near_return    -2.61      -3.86       -1.36       -2.84          15.45         14.71            12.01           14.11
+      since 1998                far_new     2.38       1.43        3.34        1.81           9.24          9.70            10.21            8.87
+      since 1998             far_return    -0.76      -1.96        0.44        0.32          11.64         14.94            11.96           14.93
+
+Choices 130,054; saved /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/results_field16_world/first_entry.csv
+        outcome  placebo2007_pp  placebo_ci_low_pp  placebo_ci_high_pp  pretrend_wald_p
+           near          -0.438             -2.031               1.155            0.001
+    near_return          -0.575             -1.896               0.745            0.000
+near_gap_return           0.782             -0.272               1.836            0.038
+       near_new           0.137             -0.979               1.252            0.597

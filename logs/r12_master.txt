@@ -1,0 +1,12 @@
+2026-11-08 15:16:56 snapshot done
+2026-11-08 16:07:28 fetched IT FR DE field 22
+2026-11-08 16:14:10 fetched IT FR DE field 13
+2026-11-08 16:31:59 fetched IT FR DE field 31
+2026-11-08 17:05:03 rebuild done
+2026-11-08 17:19:05 career start re-matched
+field 16 done
+field 22 done
+field 31 done
+field 13 done
+2026-11-08 17:21:20 career and timing done
+2026-11-08 17:24:51 ALL DONE

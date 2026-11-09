@@ -1,0 +1,48 @@
+Field 31 = Physics and Astronomy
+Using field filter primary_topic.field.id:31
+  PT 1998: 262 papers to download
+  PT 1998: saved 262 papers, 2,372 author rows
+  PT 1999: 346 papers to download
+  PT 1999: saved 346 papers, 3,855 author rows
+  PT 2000: 367 papers to download
+  PT 2000: saved 367 papers, 2,821 author rows
+  PT 2001: 386 papers to download
+  PT 2001: saved 386 papers, 2,283 author rows
+  PT 2002: 410 papers to download
+  PT 2002: saved 410 papers, 3,014 author rows
+  PT 2003: 513 papers to download
+  PT 2003: saved 513 papers, 3,980 author rows
+  PT 2004: 525 papers to download
+  PT 2004: saved 525 papers, 3,179 author rows
+  PT 2005: 477 papers to download
+  PT 2005: saved 477 papers, 3,765 author rows
+  PT 2006: 669 papers to download
+  PT 2006: saved 669 papers, 6,588 author rows
+  PT 2007: 575 papers to download
+  PT 2007: saved 575 papers, 6,171 author rows
+  PT 2008: 652 papers to download
+  PT 2008: saved 652 papers, 6,126 author rows
+  PT 2009: 687 papers to download
+  PT 2009: saved 687 papers, 6,969 author rows
+  PT 2010: 775 papers to download
+  PT 2010: saved 775 papers, 9,021 author rows
+  PT 2011: 862 papers to download
+  PT 2011: saved 862 papers, 18,493 author rows
+  PT 2012: 1,001 papers to download
+  PT 2012: saved 1,001 papers, 25,576 author rows
+  PT 2013: 1,065 papers to download
+  PT 2013: saved 1,065 papers, 21,368 author rows
+  PT 2014: 1,117 papers to download
+  PT 2014: saved 1,117 papers, 26,520 author rows
+  PT 2015: 1,051 papers to download
+  PT 2015: saved 1,051 papers, 25,469 author rows
+  PT 2016: 1,168 papers to download
+  PT 2016: saved 1,168 papers, 28,700 author rows
+  PT 2017: 1,098 papers to download
+  PT 2017: saved 1,098 papers, 30,159 author rows
+  PT 2018: 1,181 papers to download
+  PT 2018: saved 1,181 papers, 35,442 author rows
+  PT 2019: 1,114 papers to download
+  PT 2019: saved 1,114 papers, 31,147 author rows
+
+Done. Next step: python build_trajectories.py

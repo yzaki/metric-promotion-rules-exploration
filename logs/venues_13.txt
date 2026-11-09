@@ -1,0 +1,67 @@
+Field 13 = Biochemistry, Genetics and Molecular Biology
+Using field filter primary_topic.field.id:13
+  IT 2004: 3,869 papers
+  IT 2005: 4,039 papers
+  IT 2006: 4,192 papers
+  IT 2007: 4,631 papers
+  IT 2008: 4,859 papers
+    HTTP 504; retrying in 1s
+    HTTP 504; retrying in 2s
+    HTTP 504; retrying in 1s
+  IT 2009: 5,018 papers
+  IT 2013: 5,393 papers
+  IT 2014: 5,380 papers
+  IT 2015: 5,675 papers
+  IT 2016: 5,610 papers
+  IT 2017: 5,275 papers
+  IT 2018: 5,344 papers
+  FR 2004: 5,529 papers
+  FR 2005: 5,494 papers
+  FR 2006: 5,594 papers
+  FR 2007: 5,754 papers
+  FR 2008: 6,278 papers
+  FR 2009: 6,230 papers
+  FR 2013: 6,453 papers
+  FR 2014: 6,525 papers
+  FR 2015: 6,524 papers
+  FR 2016: 6,809 papers
+  FR 2017: 6,447 papers
+  FR 2018: 6,355 papers
+  DE 2004: 8,215 papers
+  DE 2005: 8,502 papers
+  DE 2006: 9,093 papers
+  DE 2007: 9,025 papers
+  DE 2008: 9,834 papers
+  DE 2009: 10,247 papers
+  DE 2013: 10,585 papers
+  DE 2014: 10,956 papers
+  DE 2015: 10,858 papers
+  DE 2016: 11,015 papers
+  DE 2017: 10,483 papers
+  DE 2018: 10,220 papers
+  IN 2004: 1,618 papers
+  IN 2005: 1,810 papers
+  IN 2006: 1,956 papers
+  IN 2007: 2,178 papers
+  IN 2008: 2,379 papers
+  IN 2009: 2,711 papers
+  IN 2013: 4,757 papers
+  IN 2014: 5,154 papers
+  IN 2015: 5,430 papers
+  IN 2016: 5,851 papers
+  IN 2017: 6,188 papers
+  IN 2018: 6,110 papers
+  RU 2004: 1,604 papers
+  RU 2005: 1,529 papers
+  RU 2006: 1,557 papers
+  RU 2007: 1,742 papers
+  RU 2008: 1,851 papers
+  RU 2009: 1,861 papers
+  RU 2013: 2,357 papers
+  RU 2014: 2,592 papers
+  RU 2015: 3,071 papers
+  RU 2016: 3,417 papers
+  RU 2017: 3,734 papers
+  RU 2018: 3,939 papers
+
+Done.

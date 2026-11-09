@@ -1,0 +1,15 @@
+Loaded 405,537 papers and 2,679,475 paper-author rows from 66 files
+bar                  far below   met  one short
+rank                                           
+associate professor        911   683        231
+researcher                1278  1026        385
+/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/sector_thresholds.py:97: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  v = fp_sc[fp_sc.n >= 5].join(anvur_table2(), rsuffix="_anvur", how="inner")
+Sectors compared with ANVUR Table 2: 57; Spearman correlations {'articles': np.float64(0.1165672868188535), 'citations': np.float64(0.41024810043780463), 'h': np.float64(0.3265554298697698)}
+                group  irl_near  irl_low  irl_high  lpm_near_pp  lpm_low  lpm_high  n_italian  validation_spearman_articles  validation_spearman_citations  validation_spearman_h  validation_n_sectors
+                  met     0.038   -0.063     0.128        0.161   -1.712     2.033     1709.0                         0.117                           0.41                  0.327                    57
+            one short    -0.095   -0.309     0.143       -1.197   -5.195     2.801      616.0                         0.117                           0.41                  0.327                    57
+            far below    -0.123   -0.271     0.013       -3.331   -6.263    -0.399     2189.0                         0.117                           0.41                  0.327                    57
+       full professor    -0.179   -0.317    -0.037       -4.038   -6.244    -1.833     1814.0                         0.117                           0.41                  0.327                    57
+  one short minus met    -0.133   -0.356     0.122          NaN      NaN       NaN        NaN                         0.117                           0.41                  0.327                    57
+below (0-1) minus met    -0.147   -0.328     0.018          NaN      NaN       NaN        NaN                         0.117                           0.41                  0.327                    57

@@ -2,7 +2,7 @@
 # India (UGC Regulations 2010) as a second treated country; plan ../PREREGISTRATION_india_2026-11-05.md.
 # Run from this folder after: fetch_openalex.py --countries IN for fields 31, 22, 13, 16.
 set -u
-P=.venv/Scripts/python
+P=${PYTHON:-python}
 export PYTHONIOENCODING=utf-8
 mkdir -p logs results_india
 N=$(ls data/raw/works_IN_*.csv.gz data_field*/raw/works_IN_*.csv.gz 2>/dev/null | wc -l)

@@ -1,0 +1,14 @@
+{
+  "title": "Code, analysis-ready data and results for \"Italian scientists moved less among neighboring research topics after a metric promotion reform\"",
+  "upload_type": "software",
+  "description": "Analysis code (Python), analysis-ready yearly topic choices of every sampled scientist (OpenAlex author identifiers only), and the result tables behind every figure and table of the paper and its Supplementary Information. Raw OpenAlex snapshots are in a separate data record. Analysis plans: https://osf.io/m3xgh.",
+  "creators": [
+    {"name": "AlDahoul, Nouar", "affiliation": "New York University Abu Dhabi", "orcid": "0000-0001-5522-0033"},
+    {"name": "Zaki, Yasir", "affiliation": "New York University Abu Dhabi", "orcid": "0000-0001-8078-6944"}
+  ],
+  "license": "MIT",
+  "keywords": ["research evaluation", "bibliometrics", "OpenAlex", "Italy", "habilitation", "topic choice"],
+  "related_identifiers": [
+    {"identifier": "https://osf.io/m3xgh", "relation": "isSupplementedBy", "scheme": "url"}
+  ]
+}

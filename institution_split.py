@@ -61,7 +61,7 @@ def main():
     df = pd.read_csv(args.input)
     df = df[df.year.isin(pre + post)].reset_index(drop=True)
     matched = set(pd.read_csv(os.path.join(args.out, "rank_2011_match.csv"), index_col=0).index)
-    cs = pd.read_csv(os.path.join(META, "career_start.tsv.gz"), sep="\t").set_index("author_id").mag_first_year
+    cs = pd.read_csv(os.path.join(config.HERE, "career_start", "career_start.tsv.gz"), sep="\t").set_index("author_id").mag_first_year
     it = df.author_id[df.group == "IT"].unique()
     g = classify(it, matched, (2011 - cs).to_dict())
     print(f"Italian scientists {len(it):,}; classified {len(g):,}\n{g.value_counts().to_string()}", flush=True)

@@ -1,0 +1,19 @@
+cls
+not covered    15142
+UGC-covered    12968
+  field                         group  irl_near  irl_low  irl_high  n_indian
+Physics                   UGC-covered     0.032   -0.122     0.217    1992.0
+Physics                   not covered    -0.089   -0.178    -0.004    3018.0
+Physics UGC-covered minus not covered     0.121   -0.049     0.305       NaN
+      field                         group  irl_near  irl_low  irl_high  n_indian
+Engineering                   UGC-covered     0.140    0.040     0.261    4023.0
+Engineering                   not covered     0.046   -0.030     0.130    5943.0
+Engineering UGC-covered minus not covered     0.094   -0.023     0.222       NaN
+       field                         group  irl_near  irl_low  irl_high  n_indian
+Biochemistry                   UGC-covered     0.091   -0.107     0.209    2770.0
+Biochemistry                   not covered     0.072   -0.045     0.191    3335.0
+Biochemistry UGC-covered minus not covered     0.019   -0.171     0.171       NaN
+    field                         group  irl_near  irl_low  irl_high  n_indian
+Chemistry                   UGC-covered     0.009   -0.077     0.079    4821.0
+Chemistry                   not covered    -0.079   -0.159     0.021    3961.0
+Chemistry UGC-covered minus not covered     0.089   -0.042     0.215       NaN

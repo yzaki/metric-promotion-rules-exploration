@@ -1,0 +1,32 @@
+Loaded 458,314 papers and 1,890,607 paper-author rows from 66 files
+Loaded 458,314 papers and 1,890,607 paper-author rows from 66 files
+Scientists per group (pre-reform active):
+ n_above     0     1     2     3
+country                        
+DE       4372  1938  1362  3802
+FR       5021  2265  1516  4312
+IT       3196  1388   856  2849
+
+0 of 3 (well below): 55,946 choices
+    [0 of 3 (well below)] bootstrap 50/100
+    [0 of 3 (well below)] bootstrap 100/100
+
+1 of 3 (just below): 31,553 choices
+    [1 of 3 (just below)] bootstrap 50/100
+    [1 of 3 (just below)] bootstrap 100/100
+
+2 of 3 (just cleared): 26,586 choices
+    [2 of 3 (just cleared)] bootstrap 50/100
+    [2 of 3 (just cleared)] bootstrap 100/100
+
+3 of 3 (well above): 108,525 choices
+    [3 of 3 (well above)] bootstrap 50/100
+    [3 of 3 (well above)] bootstrap 100/100
+
+                 group  n_above  parameter    did  ci_low  ci_high  boot_se
+  0 of 3 (well below)        0 theta_near -0.169  -0.273   -0.035    0.065
+  1 of 3 (just below)        1 theta_near -0.212  -0.388   -0.052    0.088
+2 of 3 (just cleared)        2 theta_near  0.029  -0.143    0.207    0.093
+  3 of 3 (well above)        3 theta_near -0.061  -0.141    0.013    0.043
+
+Saved results_field22_world/dose_response.csv

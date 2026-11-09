@@ -4,7 +4,7 @@
 # Run from this folder: bash run_world22.sh
 set -u
 F=$1; export CT_FIELD_ID=$F
-P=.venv/Scripts/python
+P=${PYTHON:-python}
 mkdir -p logs
 for attempt in 1 2 3 4 5 6; do
     rm -f data_field$F/world/*.part

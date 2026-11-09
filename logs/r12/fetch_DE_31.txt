@@ -1,0 +1,48 @@
+Field 31 = Physics and Astronomy
+Using field filter primary_topic.field.id:31
+  DE 1998: 8,219 papers to download
+  DE 1998: saved 8,219 papers, 50,537 author rows
+  DE 1999: 8,291 papers to download
+  DE 1999: saved 8,291 papers, 50,722 author rows
+  DE 2000: 8,472 papers to download
+  DE 2000: saved 8,472 papers, 49,407 author rows
+  DE 2001: 8,884 papers to download
+  DE 2001: saved 8,884 papers, 54,952 author rows
+  DE 2002: 9,311 papers to download
+  DE 2002: saved 9,311 papers, 60,838 author rows
+  DE 2003: 9,756 papers to download
+  DE 2003: saved 9,756 papers, 62,269 author rows
+  DE 2004: 9,915 papers to download
+  DE 2004: saved 9,915 papers, 68,464 author rows
+  DE 2005: 10,139 papers to download
+  DE 2005: saved 10,139 papers, 76,253 author rows
+  DE 2006: 10,567 papers to download
+  DE 2006: saved 10,567 papers, 80,507 author rows
+  DE 2007: 10,462 papers to download
+  DE 2007: saved 10,462 papers, 85,213 author rows
+  DE 2008: 10,436 papers to download
+  DE 2008: saved 10,436 papers, 85,518 author rows
+  DE 2009: 11,317 papers to download
+  DE 2009: saved 11,317 papers, 99,670 author rows
+  DE 2010: 11,774 papers to download
+  DE 2010: saved 11,774 papers, 109,087 author rows
+  DE 2011: 11,992 papers to download
+  DE 2011: saved 11,992 papers, 119,829 author rows
+  DE 2012: 12,667 papers to download
+  DE 2012: saved 12,667 papers, 139,177 author rows
+  DE 2013: 12,667 papers to download
+  DE 2013: saved 12,667 papers, 136,747 author rows
+  DE 2014: 12,476 papers to download
+  DE 2014: saved 12,476 papers, 135,734 author rows
+  DE 2015: 13,103 papers to download
+  DE 2015: saved 13,103 papers, 139,764 author rows
+  DE 2016: 13,373 papers to download
+  DE 2016: saved 13,373 papers, 149,748 author rows
+  DE 2017: 13,299 papers to download
+  DE 2017: saved 13,299 papers, 149,139 author rows
+  DE 2018: 13,441 papers to download
+  DE 2018: saved 13,441 papers, 154,769 author rows
+  DE 2019: 13,415 papers to download
+  DE 2019: saved 13,415 papers, 151,407 author rows
+
+Done. Next step: python build_trajectories.py

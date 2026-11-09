@@ -1,0 +1,12 @@
+              analysis                                  window  estimate  ci_low  ci_high  n_spain_scientists
+event study vs 2004-05                               2004-2005     0.000   0.000    0.000                5846
+event study vs 2004-05                               2006-2007     0.011  -0.081    0.129                5846
+event study vs 2004-05                               2008-2009     0.049  -0.035    0.165                5846
+event study vs 2004-05                               2010-2011     0.049  -0.064    0.157                5846
+event study vs 2004-05                               2012-2013     0.013  -0.085    0.132                5846
+event study vs 2004-05                               2014-2015     0.001  -0.100    0.134                5846
+event study vs 2004-05                               2016-2017    -0.110  -0.222    0.027                5846
+            DiD weight accreditation 2008 (2004-07 vs 2010-13)     0.026  -0.059    0.106                5846
+     DiD model-free pp accreditation 2008 (2004-07 vs 2010-13)    -0.567  -2.018    0.884                5846
+            DiD weight      criteria 2015 (2010-13 vs 2016-18)    -0.123  -0.204   -0.037                5846
+     DiD model-free pp      criteria 2015 (2010-13 vs 2016-18)    -0.748  -2.108    0.613                5846

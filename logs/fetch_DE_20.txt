@@ -1,0 +1,48 @@
+Field 20 = Economics, Econometrics and Finance
+Using field filter primary_topic.field.id:20
+  DE 1998: 471 papers to download
+  DE 1998: saved 471 papers, 895 author rows
+  DE 1999: 519 papers to download
+  DE 1999: saved 519 papers, 949 author rows
+  DE 2000: 620 papers to download
+  DE 2000: saved 620 papers, 1,109 author rows
+  DE 2001: 651 papers to download
+  DE 2001: saved 651 papers, 1,259 author rows
+  DE 2002: 854 papers to download
+  DE 2002: saved 854 papers, 1,668 author rows
+  DE 2003: 922 papers to download
+  DE 2003: saved 922 papers, 1,800 author rows
+  DE 2004: 1,132 papers to download
+  DE 2004: saved 1,132 papers, 2,344 author rows
+  DE 2005: 1,181 papers to download
+  DE 2005: saved 1,181 papers, 2,528 author rows
+  DE 2006: 1,365 papers to download
+  DE 2006: saved 1,365 papers, 2,902 author rows
+  DE 2007: 1,457 papers to download
+  DE 2007: saved 1,457 papers, 3,161 author rows
+  DE 2008: 1,644 papers to download
+  DE 2008: saved 1,644 papers, 3,526 author rows
+  DE 2009: 1,884 papers to download
+  DE 2009: saved 1,884 papers, 4,225 author rows
+  DE 2010: 1,992 papers to download
+  DE 2010: saved 1,992 papers, 4,562 author rows
+  DE 2011: 2,183 papers to download
+  DE 2011: saved 2,183 papers, 4,914 author rows
+  DE 2012: 2,292 papers to download
+  DE 2012: saved 2,292 papers, 5,295 author rows
+  DE 2013: 2,438 papers to download
+  DE 2013: saved 2,435 papers, 6,030 author rows
+  DE 2014: 2,629 papers to download
+  DE 2014: saved 2,630 papers, 6,572 author rows
+  DE 2015: 2,581 papers to download
+  DE 2015: saved 2,581 papers, 6,431 author rows
+  DE 2016: 2,728 papers to download
+  DE 2016: saved 2,728 papers, 7,166 author rows
+  DE 2017: 2,577 papers to download
+  DE 2017: saved 2,577 papers, 6,790 author rows
+  DE 2018: 2,573 papers to download
+  DE 2018: saved 2,573 papers, 6,972 author rows
+  DE 2019: 2,689 papers to download
+  DE 2019: saved 2,689 papers, 7,459 author rows
+
+Done. Next step: python build_trajectories.py

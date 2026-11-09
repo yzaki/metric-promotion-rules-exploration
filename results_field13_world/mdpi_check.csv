@@ -1,0 +1,11 @@
+spec,outcome,beta_pp,ci_low_pp,ci_high_pp
+all articles,near,-1.5107880339204163,-2.385613266584058,-0.6359628012567748
+all articles,gap return,-1.009498680943636,-1.5132686210544823,-0.5057287408327895
+without MDPI articles,near,-1.3974437024752264,-2.279543105035955,-0.5153442999144979
+without MDPI articles,gap return,-0.9916119596784752,-1.5002031968604026,-0.48302072249654765
+MDPI share of articles,DE before,0.041393583994480856,,
+MDPI share of articles,DE after,1.0988691953722656,,
+MDPI share of articles,FR before,0.05314767080332705,,
+MDPI share of articles,FR after,0.8525576730190572,,
+MDPI share of articles,IT before,0.09483333918724317,,
+MDPI share of articles,IT after,1.8457866104141223,,

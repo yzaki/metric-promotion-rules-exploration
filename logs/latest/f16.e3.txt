@@ -1,0 +1,64 @@
+Loaded 165,801 choices by 28,832 scientists from data_field16/trajectories.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.538  0.224  0.238
+      before  0.556  0.223  0.222
+IT    after   0.526  0.227  0.246
+      before  0.538  0.253  0.209
+
+Fitting the model (200 bootstrap draws)...
+    [main] bootstrap 50/200
+    [main] bootstrap 100/200
+    [main] bootstrap 150/200
+    [main] bootstrap 200/200
+
+Reward weights by group:
+                   IT_pre       IT_post      CTRL_pre     CTRL_post
+theta_cite      0.301019      0.304857      0.345051      0.257299
+theta_near     -0.709873     -0.775552     -0.871431     -0.838754
+theta_far      -0.965309     -0.793941     -0.923715     -0.826960
+n_choices   18832.000000  15097.000000  49826.000000  46299.000000
+converged       1.000000      1.000000      1.000000      1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite  0.092  -0.060    0.254    0.080
+theta_near -0.098  -0.169   -0.021    0.039
+ theta_far  0.075  -0.006    0.151    0.040
+
+Results saved in results_field16
+Loaded 165,801 choices by 28,832 scientists from data_field16/trajectories.csv
+Before = 2004-2006, after = 2007-2009, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.554  0.222  0.224
+      before  0.558  0.223  0.219
+IT    after   0.532  0.249  0.219
+      before  0.544  0.257  0.199
+
+Fitting the model (200 bootstrap draws)...
+    [placebo_2007] bootstrap 50/200
+    [placebo_2007] bootstrap 100/200
+    [placebo_2007] bootstrap 150/200
+    [placebo_2007] bootstrap 200/200
+
+Reward weights by group:
+                  IT_pre      IT_post      CTRL_pre     CTRL_post
+theta_cite     0.266029     0.305534      0.370223      0.312673
+theta_near    -0.709534    -0.713727     -0.866634     -0.876986
+theta_far     -1.022896    -0.906485     -0.944072     -0.905597
+n_choices   9511.000000  9321.000000  24008.000000  25818.000000
+converged      1.000000     1.000000      1.000000      1.000000
+
+Reform effect (difference-in-differences):
+  parameter   did  ci_low  ci_high  boot_se
+theta_cite 0.097  -0.098    0.283    0.098
+theta_near 0.006  -0.084    0.105    0.046
+ theta_far 0.078  -0.020    0.177    0.050
+
+Results saved in results_field16

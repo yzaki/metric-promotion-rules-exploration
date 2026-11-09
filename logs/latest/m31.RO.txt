@@ -1,0 +1,108 @@
+Treated: RO; controls: FR, DE
+Loaded 365,542 papers and 2,964,104 paper-author rows from 66 files
+World citations: 3,008,237 papers, 115 topics, years 1998-2019
+Authors with a clear home country: 163,454
+Authors with at least 5 active years: 48,077
+
+                     scientists  choices  share_stay  share_near  share_far
+country period                                                            
+DE      after            19868    76502       0.725       0.175      0.100
+        before           19577    66427       0.732       0.169      0.099
+        transition       17767    38889       0.734       0.165      0.101
+FR      after            13322    50301       0.735       0.158      0.107
+        before           13912    47158       0.729       0.162      0.109
+        transition       11985    26096       0.743       0.151      0.106
+RO      after              483     1771       0.733       0.143      0.124
+        before             474     1524       0.736       0.156      0.108
+        transition         436      907       0.729       0.158      0.114
+
+Wrote 309,575 choices to /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/data/trajectories_world_RO.csv
+Next step: python estimate.py
+Loaded 309,575 choices by 45,756 scientists from data/trajectories_world_RO.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.729  0.169  0.103
+      before  0.731  0.166  0.103
+IT    after   0.733  0.143  0.124
+      before  0.736  0.156  0.108
+
+Fitting the model (100 bootstrap draws)...
+    [main] bootstrap 50/100
+    [main] bootstrap 100/100
+
+Reward weights by group:
+                  IT_pre      IT_post       CTRL_pre      CTRL_post
+theta_cite    -0.056846    -0.242711       0.075566       0.030621
+theta_near    -1.540678    -1.607563      -1.493221      -1.469000
+theta_far     -1.921404    -1.750111      -1.943568      -1.951156
+n_choices   1524.000000  1771.000000  113585.000000  126803.000000
+converged      1.000000     1.000000       1.000000       1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite -0.141  -0.314    0.165    0.135
+theta_near -0.091  -0.337    0.090    0.121
+ theta_far  0.179  -0.149    0.453    0.144
+
+Event study...
+    [event study] bootstrap 25/50
+    [event study] bootstrap 50/50
+   window  start  parameter  it_minus_ctrl_vs_ref  ci_low  ci_high
+2004-2005   2004 theta_cite                -0.062  -0.448    0.329
+2004-2005   2004  theta_far                -0.198  -0.533    0.324
+2006-2007   2006 theta_cite                 0.269  -0.159    0.911
+2006-2007   2006  theta_far                -0.139  -0.430    0.244
+2008-2009   2008 theta_cite                 0.000   0.000    0.000
+2008-2009   2008  theta_far                 0.000   0.000    0.000
+2010-2011   2010 theta_cite                 0.213  -0.149    0.636
+2010-2011   2010  theta_far                 0.043  -0.193    0.328
+2012-2013   2012 theta_cite                 0.399  -0.159    0.854
+2012-2013   2012  theta_far                -0.093  -0.419    0.442
+2014-2015   2014 theta_cite                -0.042  -0.359    0.362
+2014-2015   2014  theta_far                -0.113  -0.441    0.307
+2016-2017   2016 theta_cite                 0.091  -0.246    0.479
+2016-2017   2016  theta_far                 0.239  -0.172    0.594
+
+Results saved in results_world_RO
+Loaded 309,575 choices by 45,756 scientists from data/trajectories_world_RO.csv
+Before = 2004-2006, after = 2007-2009, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.732  0.165  0.103
+      before  0.730  0.167  0.103
+IT    after   0.739  0.150  0.110
+      before  0.731  0.163  0.105
+
+Fitting the model (100 bootstrap draws)...
+    [placebo_2007] bootstrap 50/100
+    [placebo_2007] bootstrap 100/100
+
+Reward weights by group:
+                 IT_pre     IT_post      CTRL_pre     CTRL_post
+theta_cite   -0.051681   -0.052609      0.138447      0.029233
+theta_near   -1.484910   -1.588049     -1.487744     -1.495355
+theta_far    -1.945832   -1.901256     -1.925583     -1.952962
+n_choices   673.000000  851.000000  54074.000000  59511.000000
+converged     1.000000    1.000000      1.000000      1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite  0.108  -0.163    0.610    0.215
+theta_near -0.096  -0.343    0.216    0.148
+ theta_far  0.072  -0.200    0.513    0.195
+
+Results saved in results_world_RO
+                       spec choice  beta_pp  ci_low_pp  ci_high_pp  n_choices  n_scientists  baseline_IT_pre_pp
+        scientist + year FE   near   -1.598     -5.321       2.126     243683         45220              15.617
+        scientist + year FE   stay   -1.418     -5.817       2.981     243683         45220              73.556
+        scientist + year FE    far    3.016     -0.243       6.274     243683         45220              10.827
+scientist + year + state FE   near   -1.493     -5.077       2.092     243683         45220              15.617
+scientist + year + state FE   stay   -1.404     -5.400       2.592     243683         45220              73.556
+scientist + year + state FE    far    2.897     -0.238       6.032     243683         45220              10.827
+
+Saved results_world_RO/reduced_form.csv

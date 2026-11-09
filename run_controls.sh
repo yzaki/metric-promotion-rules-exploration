@@ -3,7 +3,7 @@
 # For each field and control set: build trajectories, IRL main estimate, model-free DiD.
 # Run from this folder: bash run_controls.sh
 set -u
-P=.venv/Scripts/python
+P=${PYTHON:-python}
 mkdir -p logs
 for F in 31 22 13; do
   export CT_FIELD_ID=$F

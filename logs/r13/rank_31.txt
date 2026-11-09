@@ -1,0 +1,21 @@
+Italian scientists 13,117; matched to the 2011 register 1,738 (13.2%); by rank:
+researcher             696
+associate professor    577
+full professor         465
+{'sample': 'all career ages', 'group': 'full professor', 'irl_near': np.float64(-0.13287093212204715), 'irl_low': np.float64(-0.36195343939181607), 'irl_high': np.float64(0.09978908939910675), 'lpm_near_pp': np.float64(-3.436435153947677), 'lpm_low': np.float64(-6.860254244447902), 'lpm_high': np.float64(-0.012616063447451475), 'n_italian': 465}
+{'sample': 'all career ages', 'group': 'associate professor', 'irl_near': np.float64(0.0007689457321065074), 'irl_low': np.float64(-0.22728077135171323), 'irl_high': np.float64(0.1947909739214015), 'lpm_near_pp': np.float64(-0.0970173046686702), 'lpm_low': np.float64(-3.6531908018546626), 'lpm_high': np.float64(3.459156192517322), 'n_italian': 577}
+{'sample': 'all career ages', 'group': 'researcher', 'irl_near': np.float64(0.010194484067897136), 'irl_low': np.float64(-0.21510684990290535), 'irl_high': np.float64(0.21823792143319834), 'lpm_near_pp': np.float64(0.6805867682224954), 'lpm_low': np.float64(-2.3658221508241515), 'lpm_high': np.float64(3.7269956872691425), 'n_italian': 696}
+{'sample': 'all career ages', 'group': 'needed minus full', 'irl_near': np.float64(0.13835264702204897), 'irl_low': np.float64(-0.1792648824196872), 'irl_high': np.float64(0.3982897228135051)}
+{'sample': '16+ years in 2011', 'group': 'full professor', 'irl_near': np.float64(-0.041449789561380124), 'irl_low': np.float64(-0.28093524456419966), 'irl_high': np.float64(0.1660750182600985), 'lpm_near_pp': np.float64(-2.6655198651184526), 'lpm_low': np.float64(-6.122503373069107), 'lpm_high': np.float64(0.7914636428322023), 'n_italian': 441}
+{'sample': '16+ years in 2011', 'group': 'associate professor', 'irl_near': np.float64(-0.05593095795971226), 'irl_low': np.float64(-0.2767434859126768), 'irl_high': np.float64(0.17091035884111924), 'lpm_near_pp': np.float64(-0.6107747540678181), 'lpm_low': np.float64(-4.261889276331856), 'lpm_high': np.float64(3.04033976819622), 'n_italian': 482}
+{'sample': '16+ years in 2011', 'group': 'researcher', 'irl_near': np.float64(0.08000341075185613), 'irl_low': np.float64(-0.29647174231221357), 'irl_high': np.float64(0.40815346791217805), 'lpm_near_pp': np.float64(-0.7096112382965974), 'lpm_low': np.float64(-5.334479426732327), 'lpm_high': np.float64(3.915256950139132), 'n_italian': 260}
+{'sample': '16+ years in 2011', 'group': 'needed minus full', 'irl_near': np.float64(0.05348601595745206), 'irl_low': np.float64(-0.28684134335261174), 'irl_high': np.float64(0.41194221813588616)}
+           sample               group  irl_near  irl_low  irl_high  lpm_near_pp  lpm_low  lpm_high  n_italian
+  all career ages      full professor    -0.133   -0.362     0.100       -3.436   -6.860    -0.013      465.0
+  all career ages associate professor     0.001   -0.227     0.195       -0.097   -3.653     3.459      577.0
+  all career ages          researcher     0.010   -0.215     0.218        0.681   -2.366     3.727      696.0
+  all career ages   needed minus full     0.138   -0.179     0.398          NaN      NaN       NaN        NaN
+16+ years in 2011      full professor    -0.041   -0.281     0.166       -2.666   -6.123     0.791      441.0
+16+ years in 2011 associate professor    -0.056   -0.277     0.171       -0.611   -4.262     3.040      482.0
+16+ years in 2011          researcher     0.080   -0.296     0.408       -0.710   -5.334     3.915      260.0
+16+ years in 2011   needed minus full     0.053   -0.287     0.412          NaN      NaN       NaN        NaN

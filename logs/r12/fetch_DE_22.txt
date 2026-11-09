@@ -1,0 +1,48 @@
+Field 22 = Engineering
+Using field filter primary_topic.field.id:22
+  DE 1998: 4,464 papers to download
+  DE 1998: saved 4,464 papers, 15,011 author rows
+  DE 1999: 4,487 papers to download
+  DE 1999: saved 4,487 papers, 15,595 author rows
+  DE 2000: 4,788 papers to download
+  DE 2000: saved 4,788 papers, 16,540 author rows
+  DE 2001: 5,159 papers to download
+  DE 2001: saved 5,159 papers, 18,480 author rows
+  DE 2002: 5,115 papers to download
+  DE 2002: saved 5,115 papers, 18,415 author rows
+  DE 2003: 5,832 papers to download
+  DE 2003: saved 5,832 papers, 21,026 author rows
+  DE 2004: 6,146 papers to download
+  DE 2004: saved 6,146 papers, 22,116 author rows
+  DE 2005: 6,610 papers to download
+  DE 2005: saved 6,610 papers, 24,296 author rows
+  DE 2006: 6,916 papers to download
+  DE 2006: saved 6,916 papers, 25,980 author rows
+  DE 2007: 7,186 papers to download
+  DE 2007: saved 7,186 papers, 27,221 author rows
+  DE 2008: 8,130 papers to download
+  DE 2008: saved 8,130 papers, 31,502 author rows
+  DE 2009: 8,472 papers to download
+  DE 2009: saved 8,472 papers, 34,321 author rows
+  DE 2010: 9,397 papers to download
+  DE 2010: saved 9,397 papers, 38,573 author rows
+  DE 2011: 10,009 papers to download
+  DE 2011: saved 10,009 papers, 41,358 author rows
+  DE 2012: 10,714 papers to download
+  DE 2012: saved 10,714 papers, 45,168 author rows
+  DE 2013: 11,213 papers to download
+  DE 2013: saved 11,213 papers, 48,630 author rows
+  DE 2014: 12,310 papers to download
+  DE 2014: saved 12,310 papers, 53,172 author rows
+  DE 2015: 12,622 papers to download
+  DE 2015: saved 12,622 papers, 55,753 author rows
+  DE 2016: 13,919 papers to download
+  DE 2016: saved 13,919 papers, 63,605 author rows
+  DE 2017: 13,815 papers to download
+  DE 2017: saved 13,815 papers, 63,615 author rows
+  DE 2018: 14,898 papers to download
+  DE 2018: saved 14,898 papers, 70,759 author rows
+  DE 2019: 15,364 papers to download
+  DE 2019: saved 15,364 papers, 74,382 author rows
+
+Done. Next step: python build_trajectories.py

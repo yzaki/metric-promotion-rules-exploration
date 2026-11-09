@@ -1,0 +1,42 @@
+Field 31 = Physics and Astronomy
+Using field filter primary_topic.field.id:31
+  DE 2001: 9,173 papers, 204,592 references
+  DE 2002: 9,566 papers, 228,594 references
+  DE 2003: 9,906 papers, 243,770 references
+  DE 2004: 10,195 papers, 267,816 references
+  DE 2005: 10,401 papers, 290,723 references
+  DE 2006: 10,849 papers, 327,700 references
+  DE 2007: 10,666 papers, 338,124 references
+  DE 2008: 10,538 papers, 360,878 references
+  DE 2009: 11,399 papers, 408,771 references
+  DE 2010: 11,774 papers, 441,413 references
+  DE 2011: 12,143 papers, 484,534 references
+  DE 2012: 12,725 papers, 531,118 references
+  DE 2013: 12,691 papers, 566,348 references
+  DE 2014: 12,392 papers, 579,048 references
+  DE 2015: 13,082 papers, 629,751 references
+  DE 2016: 13,456 papers, 679,311 references
+  DE 2017: 13,449 papers, 688,350 references
+  DE 2018: 13,800 papers, 744,217 references
+  DE 2019: 13,858 papers, 787,873 references
+  ES 2001: 2,374 papers, 59,676 references
+  ES 2002: 2,470 papers, 63,676 references
+  ES 2003: 2,539 papers, 71,719 references
+  ES 2004: 2,793 papers, 81,886 references
+  ES 2005: 3,032 papers, 92,378 references
+  ES 2006: 3,363 papers, 105,994 references
+  ES 2007: 3,520 papers, 116,262 references
+  ES 2008: 3,473 papers, 124,707 references
+  ES 2009: 3,988 papers, 146,254 references
+  ES 2010: 4,342 papers, 173,009 references
+  ES 2011: 4,504 papers, 185,994 references
+  ES 2012: 4,932 papers, 216,802 references
+  ES 2013: 5,037 papers, 224,434 references
+  ES 2014: 4,669 papers, 234,661 references
+  ES 2015: 4,711 papers, 244,434 references
+  ES 2016: 5,250 papers, 274,712 references
+  ES 2017: 4,903 papers, 270,807 references
+  ES 2018: 4,977 papers, 290,090 references
+  ES 2019: 5,082 papers, 313,830 references
+
+Done.

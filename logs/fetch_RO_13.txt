@@ -1,0 +1,48 @@
+Field 13 = Biochemistry, Genetics and Molecular Biology
+Using field filter primary_topic.field.id:13
+  RO 1998: 53 papers to download
+  RO 1998: saved 53 papers, 203 author rows
+  RO 1999: 46 papers to download
+  RO 1999: saved 46 papers, 206 author rows
+  RO 2000: 68 papers to download
+  RO 2000: saved 68 papers, 301 author rows
+  RO 2001: 65 papers to download
+  RO 2001: saved 65 papers, 297 author rows
+  RO 2002: 63 papers to download
+  RO 2002: saved 63 papers, 309 author rows
+  RO 2003: 82 papers to download
+  RO 2003: saved 82 papers, 346 author rows
+  RO 2004: 69 papers to download
+  RO 2004: saved 69 papers, 397 author rows
+  RO 2005: 67 papers to download
+  RO 2005: saved 67 papers, 310 author rows
+  RO 2006: 95 papers to download
+  RO 2006: saved 95 papers, 426 author rows
+  RO 2007: 157 papers to download
+  RO 2007: saved 157 papers, 807 author rows
+  RO 2008: 218 papers to download
+  RO 2008: saved 218 papers, 1,033 author rows
+  RO 2009: 213 papers to download
+  RO 2009: saved 213 papers, 1,072 author rows
+  RO 2010: 200 papers to download
+  RO 2010: saved 200 papers, 1,154 author rows
+  RO 2011: 305 papers to download
+  RO 2011: saved 305 papers, 1,587 author rows
+  RO 2012: 279 papers to download
+  RO 2012: saved 279 papers, 1,568 author rows
+  RO 2013: 302 papers to download
+  RO 2013: saved 302 papers, 1,656 author rows
+  RO 2014: 298 papers to download
+  RO 2014: saved 298 papers, 2,121 author rows
+  RO 2015: 356 papers to download
+  RO 2015: saved 356 papers, 2,366 author rows
+  RO 2016: 334 papers to download
+  RO 2016: saved 334 papers, 2,690 author rows
+  RO 2017: 335 papers to download
+  RO 2017: saved 335 papers, 2,731 author rows
+  RO 2018: 303 papers to download
+  RO 2018: saved 303 papers, 2,714 author rows
+  RO 2019: 356 papers to download
+  RO 2019: saved 356 papers, 2,841 author rows
+
+Done. Next step: python build_trajectories.py

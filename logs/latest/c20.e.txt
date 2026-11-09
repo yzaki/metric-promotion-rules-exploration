@@ -1,0 +1,59 @@
+Loaded 29,961 choices by 5,699 scientists from data_field20/trajectories_career.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.552  0.244  0.204
+      before  0.573  0.239  0.188
+IT    after   0.514  0.259  0.227
+      before  0.567  0.227  0.206
+
+Fitting the model (100 bootstrap draws)...
+    [main] bootstrap 50/100
+    [main] bootstrap 100/100
+
+Reward weights by group:
+                  IT_pre      IT_post     CTRL_pre    CTRL_post
+theta_cite     0.223572    -0.094659     0.136653    -0.056108
+theta_near    -0.903284    -0.686397    -0.863183    -0.816567
+theta_far     -1.027434    -0.805685    -1.128500    -0.985100
+n_choices   2485.000000  4156.000000  6785.000000  9711.000000
+converged      1.000000     1.000000     1.000000     1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite -0.125  -0.381    0.237    0.162
+theta_near  0.170   0.013    0.366    0.098
+ theta_far  0.078  -0.104    0.250    0.089
+
+Career stage 0-5 years...
+    [0-5 years] bootstrap 50/50
+
+Career stage 6-15 years...
+    [6-15 years] bootstrap 50/50
+
+Career stage 16+ years...
+    [16+ years] bootstrap 50/50
+
+Reform effect by career stage:
+ career_stage  parameter    did  ci_low  ci_high  boot_se
+   0-5 years theta_cite  0.199  -0.511    0.920    0.369
+   0-5 years theta_near -0.060  -0.406    0.439    0.234
+   0-5 years  theta_far  0.293  -0.206    0.720    0.290
+  6-15 years theta_cite -0.164  -0.594    0.368    0.272
+  6-15 years theta_near  0.284   0.000    0.598    0.155
+  6-15 years  theta_far  0.137  -0.090    0.382    0.133
+   16+ years theta_cite -0.129  -0.818    0.203    0.278
+   16+ years theta_near  0.214  -0.098    0.457    0.156
+   16+ years  theta_far -0.055  -0.372    0.290    0.181
+
+Results saved in results_field20_career
+estimate  point  ci_low  ci_high
+     mid  0.284   0.033    0.594
+  senior  0.214  -0.064    0.551
+     ddd  0.071  -0.329    0.566
+estimate  point  ci_low  ci_high
+     mid  0.235  -0.163    0.518
+  senior  0.466  -0.001    0.870
+     ddd -0.230  -0.859    0.445

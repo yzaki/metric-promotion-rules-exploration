@@ -1,0 +1,48 @@
+Field 20 = Economics, Econometrics and Finance
+Using field filter primary_topic.field.id:20
+  FR 1998: 445 papers to download
+  FR 1998: saved 445 papers, 932 author rows
+  FR 1999: 534 papers to download
+  FR 1999: saved 534 papers, 1,079 author rows
+  FR 2000: 631 papers to download
+  FR 2000: saved 631 papers, 1,238 author rows
+  FR 2001: 735 papers to download
+  FR 2001: saved 735 papers, 1,420 author rows
+  FR 2002: 825 papers to download
+  FR 2002: saved 825 papers, 1,540 author rows
+  FR 2003: 1,019 papers to download
+  FR 2003: saved 1,019 papers, 1,962 author rows
+  FR 2004: 1,015 papers to download
+  FR 2004: saved 1,015 papers, 2,087 author rows
+  FR 2005: 1,162 papers to download
+  FR 2005: saved 1,162 papers, 2,136 author rows
+  FR 2006: 1,374 papers to download
+  FR 2006: saved 1,374 papers, 2,762 author rows
+  FR 2007: 1,502 papers to download
+  FR 2007: saved 1,502 papers, 3,016 author rows
+  FR 2008: 1,653 papers to download
+  FR 2008: saved 1,653 papers, 3,402 author rows
+  FR 2009: 1,903 papers to download
+  FR 2009: saved 1,903 papers, 3,861 author rows
+  FR 2010: 1,986 papers to download
+  FR 2010: saved 1,986 papers, 4,302 author rows
+  FR 2011: 2,146 papers to download
+  FR 2011: saved 2,146 papers, 4,548 author rows
+  FR 2012: 2,351 papers to download
+  FR 2012: saved 2,351 papers, 4,925 author rows
+  FR 2013: 2,451 papers to download
+  FR 2013: saved 2,451 papers, 5,481 author rows
+  FR 2014: 2,490 papers to download
+  FR 2014: saved 2,490 papers, 5,848 author rows
+  FR 2015: 2,634 papers to download
+  FR 2015: saved 2,634 papers, 6,238 author rows
+  FR 2016: 2,660 papers to download
+  FR 2016: saved 2,660 papers, 6,558 author rows
+  FR 2017: 2,626 papers to download
+  FR 2017: saved 2,626 papers, 6,775 author rows
+  FR 2018: 2,741 papers to download
+  FR 2018: saved 2,741 papers, 7,004 author rows
+  FR 2019: 2,634 papers to download
+  FR 2019: saved 2,634 papers, 6,490 author rows
+
+Done. Next step: python build_trajectories.py

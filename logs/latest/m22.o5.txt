@@ -1,0 +1,37 @@
+Loaded 534,346 papers and 2,190,085 paper-author rows from 88 files
+                      analysis   outcome  estimate  ci_low  ci_high  IT_pre  IT_post  CTRL_pre  CTRL_post
+                    reform_did    papers    0.1279  0.0823   0.1727  1.9646   2.3892    1.9884     2.2851
+                    reform_did log_cites    0.0377  0.0289   0.0475  0.5547   0.5928    0.5399     0.5402
+                    reform_did     top10    0.0160  0.0111   0.0210  0.1084   0.1163    0.1117     0.1036
+   near_vs_stay_premium_IT_pre    papers   -0.1736 -0.2423  -0.1152     NaN      NaN       NaN        NaN
+  near_vs_stay_premium_IT_post    papers   -0.2040 -0.2861  -0.1122     NaN      NaN       NaN        NaN
+ near_vs_stay_premium_CTRL_pre    papers   -0.1134 -0.1565  -0.0578     NaN      NaN       NaN        NaN
+near_vs_stay_premium_CTRL_post    papers   -0.2710 -0.3195  -0.2292     NaN      NaN       NaN        NaN
+      near_vs_stay_premium_did    papers    0.1273 -0.0196   0.2487     NaN      NaN       NaN        NaN
+   near_vs_stay_premium_IT_pre log_cites   -0.0542 -0.0683  -0.0392     NaN      NaN       NaN        NaN
+  near_vs_stay_premium_IT_post log_cites   -0.0207 -0.0336  -0.0101     NaN      NaN       NaN        NaN
+ near_vs_stay_premium_CTRL_pre log_cites   -0.0462 -0.0548  -0.0393     NaN      NaN       NaN        NaN
+near_vs_stay_premium_CTRL_post log_cites   -0.0302 -0.0382  -0.0220     NaN      NaN       NaN        NaN
+      near_vs_stay_premium_did log_cites    0.0175 -0.0063   0.0376     NaN      NaN       NaN        NaN
+   near_vs_stay_premium_IT_pre     top10   -0.0170 -0.0251  -0.0097     NaN      NaN       NaN        NaN
+  near_vs_stay_premium_IT_post     top10   -0.0050 -0.0119   0.0023     NaN      NaN       NaN        NaN
+ near_vs_stay_premium_CTRL_pre     top10   -0.0135 -0.0177  -0.0086     NaN      NaN       NaN        NaN
+near_vs_stay_premium_CTRL_post     top10   -0.0055 -0.0106  -0.0013     NaN      NaN       NaN        NaN
+      near_vs_stay_premium_did     top10    0.0041 -0.0109   0.0160     NaN      NaN       NaN        NaN
+    far_vs_stay_premium_IT_pre    papers   -0.3179 -0.3875  -0.2493     NaN      NaN       NaN        NaN
+   far_vs_stay_premium_IT_post    papers   -0.3018 -0.3720  -0.2257     NaN      NaN       NaN        NaN
+  far_vs_stay_premium_CTRL_pre    papers   -0.2350 -0.2821  -0.1868     NaN      NaN       NaN        NaN
+ far_vs_stay_premium_CTRL_post    papers   -0.2878 -0.3409  -0.2307     NaN      NaN       NaN        NaN
+       far_vs_stay_premium_did    papers    0.0688 -0.0404   0.1847     NaN      NaN       NaN        NaN
+    far_vs_stay_premium_IT_pre log_cites   -0.0263 -0.0408  -0.0127     NaN      NaN       NaN        NaN
+   far_vs_stay_premium_IT_post log_cites   -0.0284 -0.0406  -0.0172     NaN      NaN       NaN        NaN
+  far_vs_stay_premium_CTRL_pre log_cites   -0.0402 -0.0497  -0.0320     NaN      NaN       NaN        NaN
+ far_vs_stay_premium_CTRL_post log_cites   -0.0571 -0.0634  -0.0498     NaN      NaN       NaN        NaN
+       far_vs_stay_premium_did log_cites    0.0148 -0.0077   0.0347     NaN      NaN       NaN        NaN
+    far_vs_stay_premium_IT_pre     top10   -0.0095 -0.0179  -0.0014     NaN      NaN       NaN        NaN
+   far_vs_stay_premium_IT_post     top10   -0.0101 -0.0163  -0.0038     NaN      NaN       NaN        NaN
+  far_vs_stay_premium_CTRL_pre     top10   -0.0158 -0.0205  -0.0114     NaN      NaN       NaN        NaN
+ far_vs_stay_premium_CTRL_post     top10   -0.0234 -0.0275  -0.0190     NaN      NaN       NaN        NaN
+       far_vs_stay_premium_did     top10    0.0070 -0.0073   0.0192     NaN      NaN       NaN        NaN
+
+Saved /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/results_field22/outcomes_citations_es.csv

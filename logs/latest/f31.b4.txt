@@ -1,0 +1,22 @@
+Treated: IT; controls: FR, DE, ES
+Loaded 494,679 papers and 3,606,535 paper-author rows from 88 files
+Authors with a clear home country: 212,256
+Authors with at least 5 active years: 61,969
+
+                     scientists  choices  share_stay  share_near  share_far
+country period                                                            
+DE      after            17717    67748       0.718       0.177      0.105
+        before           17525    59260       0.729       0.168      0.103
+        transition       15852    34572       0.730       0.164      0.106
+ES      after             4795    18177       0.735       0.171      0.094
+        before            4444    15289       0.735       0.168      0.098
+        transition        4272     9240       0.739       0.165      0.096
+FR      after            11583    43257       0.728       0.161      0.111
+        before           12188    41372       0.726       0.161      0.114
+        transition       10426    22583       0.738       0.153      0.109
+IT      after             9832    39183       0.715       0.170      0.115
+        before            9952    36395       0.704       0.182      0.114
+        transition        8553    19097       0.709       0.173      0.118
+
+Wrote 406,173 choices to /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/data/trajectories_es.csv
+Next step: python estimate.py

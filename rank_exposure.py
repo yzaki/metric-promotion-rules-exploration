@@ -98,7 +98,7 @@ def main():
     pd.DataFrame({"rank_2011": rank, "sc_2011": hit_keys.map(lambda k: reg.loc[k, "sc"])}).to_csv(
         os.path.join(args.out, "rank_2011_match.csv"))   # ids, rank and sector only; not distributed
 
-    cs = pd.read_csv(os.path.join(META, "career_start.tsv.gz"), sep="\t").set_index("author_id").mag_first_year
+    cs = pd.read_csv(os.path.join(config.HERE, "career_start", "career_start.tsv.gz"), sep="\t").set_index("author_id").mag_first_year
     career_2011 = 2011 - cs   # years since first publication (full MAG record), by author_id
 
     df["rank"] = df.author_id.map(rank).where(df.group == "IT")

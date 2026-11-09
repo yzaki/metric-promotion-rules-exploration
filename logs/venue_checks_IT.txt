@@ -1,0 +1,37 @@
+                outcome       comparison         test  window     est      lo      hi
+     bottom_quartile_yr treated vs FR+DE placebo 2007          0.0162  0.0116  0.0207
+     bottom_quartile_yr treated vs FR+DE  event study 2004-05 -0.0090 -0.0144 -0.0035
+     bottom_quartile_yr treated vs FR+DE  event study 2006-07 -0.0209 -0.0259 -0.0159
+     bottom_quartile_yr treated vs FR+DE  event study 2013-14 -0.0145 -0.0196 -0.0095
+     bottom_quartile_yr treated vs FR+DE  event study 2015-16  0.0222  0.0171  0.0274
+     bottom_quartile_yr treated vs FR+DE  event study 2017-18  0.0185  0.0131  0.0239
+        top_quartile_yr treated vs FR+DE placebo 2007         -0.0072 -0.0121 -0.0024
+        top_quartile_yr treated vs FR+DE  event study 2004-05 -0.0021 -0.0079  0.0037
+        top_quartile_yr treated vs FR+DE  event study 2006-07 -0.0099 -0.0154 -0.0044
+        top_quartile_yr treated vs FR+DE  event study 2013-14 -0.0051 -0.0106  0.0004
+        top_quartile_yr treated vs FR+DE  event study 2015-16 -0.0149 -0.0206 -0.0092
+        top_quartile_yr treated vs FR+DE  event study 2017-18 -0.0196 -0.0254 -0.0139
+         journal_pct_yr treated vs FR+DE placebo 2007         -0.0938 -0.3770  0.1893
+         journal_pct_yr treated vs FR+DE  event study 2004-05 -0.4417 -0.7832 -0.1001
+         journal_pct_yr treated vs FR+DE  event study 2006-07 -0.1316 -0.4461  0.1830
+         journal_pct_yr treated vs FR+DE  event study 2013-14 -0.1631 -0.4824  0.1563
+         journal_pct_yr treated vs FR+DE  event study 2015-16 -1.3641 -1.6954 -1.0328
+         journal_pct_yr treated vs FR+DE  event study 2017-18 -1.4813 -1.8289 -1.1337
+bottom_quartile_yr_intl treated vs FR+DE placebo 2007          0.0090  0.0033  0.0146
+bottom_quartile_yr_intl treated vs FR+DE  event study 2004-05  0.0003 -0.0065  0.0071
+bottom_quartile_yr_intl treated vs FR+DE  event study 2006-07 -0.0031 -0.0096  0.0033
+bottom_quartile_yr_intl treated vs FR+DE  event study 2013-14 -0.0023 -0.0089  0.0043
+bottom_quartile_yr_intl treated vs FR+DE  event study 2015-16  0.0161  0.0093  0.0229
+bottom_quartile_yr_intl treated vs FR+DE  event study 2017-18  0.0093  0.0020  0.0166
+        bottom_quartile treated vs FR+DE placebo 2007         -0.0045 -0.0084 -0.0007
+        bottom_quartile treated vs FR+DE  event study 2004-05  0.0067  0.0021  0.0112
+        bottom_quartile treated vs FR+DE  event study 2006-07 -0.0020 -0.0062  0.0022
+        bottom_quartile treated vs FR+DE  event study 2013-14  0.0037 -0.0004  0.0078
+        bottom_quartile treated vs FR+DE  event study 2015-16  0.0138  0.0097  0.0179
+        bottom_quartile treated vs FR+DE  event study 2017-18  0.0182  0.0140  0.0224
+                 fee_oa treated vs FR+DE placebo 2007          0.0029  0.0001  0.0058
+                 fee_oa treated vs FR+DE  event study 2004-05 -0.0030 -0.0066  0.0006
+                 fee_oa treated vs FR+DE  event study 2006-07 -0.0044 -0.0078 -0.0011
+                 fee_oa treated vs FR+DE  event study 2013-14  0.0138  0.0100  0.0177
+                 fee_oa treated vs FR+DE  event study 2015-16 -0.0047 -0.0088 -0.0007
+                 fee_oa treated vs FR+DE  event study 2017-18  0.0091  0.0048  0.0135

@@ -1,0 +1,48 @@
+Field 22 = Engineering
+Using field filter primary_topic.field.id:22
+  PT 1998: 290 papers to download
+  PT 1998: saved 290 papers, 853 author rows
+  PT 1999: 367 papers to download
+  PT 1999: saved 367 papers, 1,107 author rows
+  PT 2000: 395 papers to download
+  PT 2000: saved 395 papers, 1,235 author rows
+  PT 2001: 427 papers to download
+  PT 2001: saved 427 papers, 1,413 author rows
+  PT 2002: 567 papers to download
+  PT 2002: saved 567 papers, 1,883 author rows
+  PT 2003: 611 papers to download
+  PT 2003: saved 611 papers, 2,128 author rows
+  PT 2004: 776 papers to download
+  PT 2004: saved 776 papers, 2,670 author rows
+  PT 2005: 828 papers to download
+  PT 2005: saved 828 papers, 2,967 author rows
+  PT 2006: 981 papers to download
+  PT 2006: saved 981 papers, 3,456 author rows
+  PT 2007: 948 papers to download
+  PT 2007: saved 948 papers, 3,369 author rows
+  PT 2008: 1,177 papers to download
+  PT 2008: saved 1,177 papers, 4,325 author rows
+  PT 2009: 1,188 papers to download
+  PT 2009: saved 1,188 papers, 4,416 author rows
+  PT 2010: 1,361 papers to download
+  PT 2010: saved 1,361 papers, 5,155 author rows
+  PT 2011: 1,433 papers to download
+  PT 2011: saved 1,433 papers, 5,647 author rows
+  PT 2012: 1,782 papers to download
+  PT 2012: saved 1,782 papers, 6,806 author rows
+  PT 2013: 1,862 papers to download
+  PT 2013: saved 1,862 papers, 7,390 author rows
+  PT 2014: 2,035 papers to download
+  PT 2014: saved 2,035 papers, 8,041 author rows
+  PT 2015: 2,050 papers to download
+  PT 2015: saved 2,050 papers, 8,561 author rows
+  PT 2016: 2,247 papers to download
+  PT 2016: saved 2,247 papers, 9,648 author rows
+  PT 2017: 2,495 papers to download
+  PT 2017: saved 2,495 papers, 10,647 author rows
+  PT 2018: 2,456 papers to download
+  PT 2018: saved 2,456 papers, 10,925 author rows
+  PT 2019: 2,812 papers to download
+  PT 2019: saved 2,812 papers, 12,938 author rows
+
+Done. Next step: python build_trajectories.py

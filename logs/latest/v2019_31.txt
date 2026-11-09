@@ -1,0 +1,7 @@
+Field 31 = Physics and Astronomy
+Using field filter primary_topic.field.id:31
+  IT 2019: 7,142 papers
+  FR 2019: 8,156 papers
+  DE 2019: 13,415 papers
+
+Done.

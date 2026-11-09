@@ -1,0 +1,62 @@
+Treated: IT; controls: FR, DE, ES, NL, PT
+Loaded 528,556 papers and 3,759,366 paper-author rows from 132 files
+World citations: 3,008,237 papers, 115 topics, years 1998-2019
+Authors with a clear home country: 226,959
+Authors with at least 5 active years: 64,338
+Share of author-years matched to a MAG career start, by country:
+ country
+DE    0.864
+ES    0.844
+FR    0.905
+IT    0.939
+NL    0.936
+PT    0.934
+
+                     scientists  choices  share_stay  share_near  share_far
+country period                                                            
+DE      after            14849    57240       0.719       0.175      0.106
+        before           14860    50801       0.728       0.167      0.105
+        transition       13410    29335       0.730       0.163      0.107
+ES      after             3930    15026       0.735       0.169      0.096
+        before            3649    12601       0.735       0.166      0.099
+        transition        3494     7585       0.739       0.163      0.098
+FR      after            10256    38803       0.726       0.161      0.112
+        before           10906    37417       0.724       0.161      0.115
+        transition        9305    20318       0.736       0.152      0.111
+IT      after             9008    36178       0.714       0.169      0.117
+        before            9234    34240       0.704       0.182      0.115
+        transition        7910    17808       0.708       0.172      0.120
+NL      after             2304     8555       0.730       0.185      0.084
+        before            2209     7165       0.737       0.176      0.087
+        transition        1985     4350       0.736       0.177      0.088
+PT      after              721     2766       0.734       0.141      0.125
+        before             717     2437       0.745       0.139      0.116
+        transition         637     1390       0.732       0.160      0.107
+
+Wrote 384,015 choices to /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/data/trajectories_world_career_ctrl5.csv
+Next step: python estimate.py
+IT: IRL -0.117  mid -0.089  senior -0.118  DDD +0.030  LPM -1.59 pp (1s)
+FR: IRL -0.045  mid -0.005  senior -0.010  DDD +0.005  LPM +0.10 pp (0s)
+DE: IRL +0.049  mid -0.042  senior +0.099  DDD -0.141  LPM +0.49 pp (0s)
+ES: IRL -0.043  mid +0.026  senior -0.076  DDD +0.102  LPM -0.95 pp (0s)
+NL: IRL +0.027  mid +0.147  senior -0.148  DDD +0.296  LPM -0.38 pp (0s)
+PT: IRL -0.045  mid -0.198  senior -0.149  DDD -0.048  LPM -0.67 pp (0s)
+
+ treated  n_treated_scientists  irl_near  irl_near_mid  irl_near_senior  irl_ddd_mid_minus_senior  lpm_near_pp  lpm_se_pp  rank_irl_near  rank_irl_ddd_mid_minus_senior  rank_lpm_near_pp
+     IT                 11721    -0.117        -0.089           -0.118                     0.030       -1.589      0.476              1                              4                 1
+     FR                 13767    -0.045        -0.005           -0.010                     0.005        0.097      0.474              3                              3                 5
+     DE                 20110     0.049        -0.042            0.099                    -0.141        0.486      0.461              6                              1                 6
+     ES                  4899    -0.043         0.026           -0.076                     0.102       -0.946      0.681              4                              5                 2
+     NL                  3106     0.027         0.147           -0.148                     0.296       -0.379      0.956              5                              6                 4
+     PT                   937    -0.045        -0.198           -0.149                    -0.048       -0.673      1.439              2                              2                 3
+  bootstrap 25/100
+  bootstrap 50/100
+  bootstrap 75/100
+  bootstrap 100/100
+
+Italy, bootstrap 95% intervals:
+ estimate  point  ci_low  ci_high
+     all -0.117  -0.171   -0.058
+       1 -0.089  -0.193   -0.006
+       2 -0.118  -0.200   -0.042
+     ddd  0.030  -0.103    0.169

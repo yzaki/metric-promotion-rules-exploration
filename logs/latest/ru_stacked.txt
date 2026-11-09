@@ -1,0 +1,24 @@
+                       test           scope  beta_pp  ci_low_pp  ci_high_pp  n_treated
+             I1 nearby move All four fields    -1.08      -1.66       -0.51    39768.0
+             I1 nearby move         Physics    -1.05      -1.97       -0.14    14618.0
+             I1 nearby move     Engineering    -1.18      -2.36        0.00    12685.0
+             I1 nearby move    Biochemistry    -1.39      -2.81        0.03     6568.0
+             I1 nearby move       Chemistry    -0.82      -2.12        0.48     9799.0
+            I2 placebo 2007 All four fields    -0.07      -0.77        0.63    26921.0
+            I2 placebo 2007         Physics    -0.41      -1.47        0.65    10830.0
+            I2 placebo 2007     Engineering     2.14       0.56        3.71     6851.0
+            I2 placebo 2007    Biochemistry    -0.91      -2.74        0.92     4153.0
+            I2 placebo 2007       Chemistry    -0.64      -2.10        0.82     7197.0
+             I3 near return All four fields    -0.83      -1.28       -0.37    39768.0
+             I3 near return         Physics    -1.07      -1.83       -0.31    14618.0
+             I3 near return     Engineering    -0.30      -1.17        0.56    12685.0
+             I3 near return    Biochemistry    -0.81      -1.82        0.19     6568.0
+             I3 near return       Chemistry    -0.94      -1.98        0.10     9799.0
+                I3 near new All four fields    -0.26      -0.62        0.11    39768.0
+                I3 near new         Physics     0.02      -0.48        0.51    14618.0
+                I3 near new     Engineering    -0.88      -1.68       -0.07    12685.0
+                I3 near new    Biochemistry    -0.58      -1.60        0.45     6568.0
+                I3 near new       Chemistry     0.12      -0.73        0.98     9799.0
+      I4 nearby move, 5-100 All four fields    -2.72      -4.92       -0.52     2530.0
+I4 nearby move, not covered All four fields    -0.93      -1.53       -0.33    30155.0
+ I4 5-100 minus not covered All four fields    -1.79      -4.04        0.45        NaN

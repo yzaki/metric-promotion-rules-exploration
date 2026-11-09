@@ -1,0 +1,7 @@
+Field 22 = Engineering
+Using field filter primary_topic.field.id:22
+  IT 2019: 10,066 papers
+  FR 2019: 10,280 papers
+  DE 2019: 15,364 papers
+
+Done.

@@ -1,0 +1,268 @@
+Loaded 33,268 choices by 6,359 scientists from data_field20/trajectories.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.556  0.242  0.201
+      before  0.574  0.238  0.188
+IT    after   0.519  0.257  0.224
+      before  0.570  0.226  0.205
+
+Fitting the model (200 bootstrap draws)...
+    [main] bootstrap 50/200
+    [main] bootstrap 100/200
+    [main] bootstrap 150/200
+    [main] bootstrap 200/200
+
+Reward weights by group:
+                  IT_pre      IT_post     CTRL_pre     CTRL_post
+theta_cite     0.273353    -0.098972     0.043874     -0.111189
+theta_near    -0.907994    -0.702341    -0.876087     -0.829831
+theta_far     -1.046643    -0.824005    -1.121797     -0.999183
+n_choices   2542.000000  4261.000000  7735.000000  11159.000000
+converged      1.000000     1.000000     1.000000      1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite -0.217  -0.471    0.077    0.138
+theta_near  0.159  -0.005    0.318    0.091
+ theta_far  0.100  -0.073    0.311    0.094
+
+Career stage 0-5 years...
+    [0-5 years] bootstrap 50/100
+    [0-5 years] bootstrap 100/100
+
+Career stage 6-15 years...
+    [6-15 years] bootstrap 50/100
+    [6-15 years] bootstrap 100/100
+
+Career stage 16+ years...
+    [16+ years] bootstrap 50/100
+    [16+ years] bootstrap 100/100
+
+Reform effect by career stage:
+ career_stage  parameter    did  ci_low  ci_high  boot_se
+   0-5 years theta_cite -0.284  -0.761    0.088    0.220
+   0-5 years theta_near  0.245  -0.051    0.494    0.147
+   0-5 years  theta_far  0.189  -0.103    0.522    0.165
+  6-15 years theta_cite -0.063  -0.470    0.292    0.210
+  6-15 years theta_near  0.182  -0.047    0.450    0.136
+  6-15 years  theta_far -0.079  -0.399    0.155    0.127
+   16+ years theta_cite -0.344  -0.847    0.153    0.265
+   16+ years theta_near  0.089  -0.169    0.381    0.137
+   16+ years  theta_far  0.352   0.067    0.678    0.163
+
+Event study...
+    [event study] bootstrap 25/100
+    [event study] bootstrap 50/100
+    [event study] bootstrap 75/100
+    [event study] bootstrap 100/100
+   window  start  parameter  it_minus_ctrl_vs_ref  ci_low  ci_high
+2004-2005   2004 theta_cite                 0.246  -0.266    0.652
+2004-2005   2004  theta_far                -0.132  -0.477    0.203
+2006-2007   2006 theta_cite                 0.112  -0.240    0.530
+2006-2007   2006  theta_far                -0.123  -0.391    0.104
+2008-2009   2008 theta_cite                 0.000   0.000    0.000
+2008-2009   2008  theta_far                 0.000   0.000    0.000
+2010-2011   2010 theta_cite                 0.237  -0.145    0.574
+2010-2011   2010  theta_far                 0.022  -0.236    0.216
+2012-2013   2012 theta_cite                 0.008  -0.307    0.475
+2012-2013   2012  theta_far                 0.203  -0.067    0.382
+2014-2015   2014 theta_cite                -0.151  -0.596    0.246
+2014-2015   2014  theta_far                -0.127  -0.394    0.097
+2016-2017   2016 theta_cite                 0.072  -0.336    0.495
+2016-2017   2016  theta_far                 0.151  -0.121    0.367
+
+Results saved in results_field20
+Loaded 33,268 choices by 6,359 scientists from data_field20/trajectories.csv
+Before = 2004-2006, after = 2007-2009, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.568  0.239  0.193
+      before  0.582  0.236  0.181
+IT    after   0.547  0.246  0.207
+      before  0.604  0.194  0.201
+
+Fitting the model (200 bootstrap draws)...
+    [placebo_2007] bootstrap 50/200
+    [placebo_2007] bootstrap 100/200
+    [placebo_2007] bootstrap 150/200
+    [placebo_2007] bootstrap 200/200
+
+Reward weights by group:
+                  IT_pre      IT_post     CTRL_pre    CTRL_post
+theta_cite     0.215212     0.200297     0.012659     0.077210
+theta_near    -1.122741    -0.782334    -0.899404    -0.860764
+theta_far     -1.142760    -0.975022    -1.167167    -1.092528
+n_choices   1008.000000  1534.000000  3214.000000  4521.000000
+converged      1.000000     1.000000     1.000000     1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite -0.079  -0.519    0.332    0.218
+theta_near  0.302   0.089    0.556    0.127
+ theta_far  0.093  -0.169    0.334    0.134
+
+Results saved in results_field20
+Italian post-reform sample: 1,378 scientists, 4,261 choices (710 per year)
+choice  observed  predicted_actual  predicted_no_reform  diff_pp  diff_pp_low  diff_pp_high  relative_change_pct  choices_per_year_change
+  stay     0.519             0.519                0.547   -2.837       -6.569         0.535               -5.184                  -20.147
+  near     0.257             0.257                0.231    2.568       -0.656         5.258               11.100                   18.234
+   far     0.224             0.224                0.221    0.269       -2.651         3.457                1.217                    1.913
+
+Saved results_field20/effect_sizes.csv
+Loaded 41,560 choices by 7,950 scientists from data_field20/trajectories_es.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.558  0.241  0.201
+      before  0.581  0.235  0.183
+IT    after   0.518  0.259  0.223
+      before  0.571  0.225  0.204
+
+Fitting the model (200 bootstrap draws)...
+    [main] bootstrap 50/200
+    [main] bootstrap 100/200
+    [main] bootstrap 150/200
+    [main] bootstrap 200/200
+
+Reward weights by group:
+                  IT_pre      IT_post      CTRL_pre     CTRL_post
+theta_cite     0.438680    -0.047418      0.018569     -0.145306
+theta_near    -0.888529    -0.693038     -0.902939     -0.839711
+theta_far     -1.049574    -0.833178     -1.158199     -0.994479
+n_choices   2504.000000  4179.000000  10542.000000  14918.000000
+converged      1.000000     1.000000      1.000000      1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite -0.322  -0.581   -0.031    0.140
+theta_near  0.132  -0.052    0.317    0.093
+ theta_far  0.053  -0.114    0.227    0.092
+
+Event study...
+    [event study] bootstrap 25/100
+    [event study] bootstrap 50/100
+    [event study] bootstrap 75/100
+    [event study] bootstrap 100/100
+   window  start  parameter  it_minus_ctrl_vs_ref  ci_low  ci_high
+2004-2005   2004 theta_cite                 0.060  -0.435    0.483
+2004-2005   2004  theta_far                -0.156  -0.447    0.236
+2006-2007   2006 theta_cite                 0.141  -0.514    0.576
+2006-2007   2006  theta_far                -0.125  -0.338    0.151
+2008-2009   2008 theta_cite                 0.000   0.000    0.000
+2008-2009   2008  theta_far                 0.000   0.000    0.000
+2010-2011   2010 theta_cite                 0.074  -0.373    0.522
+2010-2011   2010  theta_far                 0.014  -0.184    0.208
+2012-2013   2012 theta_cite                -0.367  -0.722    0.106
+2012-2013   2012  theta_far                 0.148  -0.056    0.364
+2014-2015   2014 theta_cite                -0.354  -0.744    0.132
+2014-2015   2014  theta_far                -0.138  -0.342    0.088
+2016-2017   2016 theta_cite                -0.168  -0.535    0.274
+2016-2017   2016  theta_far                 0.130  -0.132    0.350
+
+Results saved in results_field20_es
+Loaded 41,560 choices by 7,950 scientists from data_field20/trajectories_es.csv
+Before = 2004-2006, after = 2007-2009, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.574  0.236  0.189
+      before  0.592  0.234  0.174
+IT    after   0.547  0.246  0.207
+      before  0.608  0.192  0.200
+
+Fitting the model (200 bootstrap draws)...
+    [placebo_2007] bootstrap 50/200
+    [placebo_2007] bootstrap 100/200
+    [placebo_2007] bootstrap 150/200
+    [placebo_2007] bootstrap 200/200
+
+Reward weights by group:
+                 IT_pre      IT_post     CTRL_pre    CTRL_post
+theta_cite    0.299410     0.391417    -0.042762     0.100076
+theta_near   -1.130489    -0.753361    -0.929846    -0.882769
+theta_far    -1.150151    -0.973370    -1.214730    -1.126940
+n_choices   994.000000  1510.000000  4392.000000  6150.000000
+converged     1.000000     1.000000     1.000000     1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite -0.051  -0.481    0.412    0.216
+theta_near  0.330   0.092    0.562    0.123
+ theta_far  0.089  -0.144    0.354    0.128
+
+Results saved in results_field20_es
+Loaded 29,970 choices by 5,701 scientists from data_field20/trajectories_career.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.552  0.244  0.204
+      before  0.573  0.239  0.188
+IT    after   0.514  0.259  0.227
+      before  0.567  0.227  0.206
+
+Fitting the model (100 bootstrap draws)...
+    [main] bootstrap 50/100
+    [main] bootstrap 100/100
+
+Reward weights by group:
+                  IT_pre      IT_post     CTRL_pre    CTRL_post
+theta_cite     0.223645    -0.094659     0.135869    -0.058943
+theta_near    -0.903290    -0.686397    -0.863673    -0.816945
+theta_far     -1.027431    -0.805685    -1.128264    -0.984484
+n_choices   2485.000000  4156.000000  6788.000000  9714.000000
+converged      1.000000     1.000000     1.000000     1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite -0.123  -0.411    0.199    0.160
+theta_near  0.170  -0.004    0.357    0.091
+ theta_far  0.078  -0.077    0.260    0.097
+
+Career stage 0-5 years...
+    [0-5 years] bootstrap 50/50
+
+Career stage 6-15 years...
+    [6-15 years] bootstrap 50/50
+
+Career stage 16+ years...
+    [16+ years] bootstrap 50/50
+
+Reform effect by career stage:
+ career_stage  parameter    did  ci_low  ci_high  boot_se
+   0-5 years theta_cite  0.191  -0.735    0.651    0.373
+   0-5 years theta_near -0.059  -0.596    0.474    0.263
+   0-5 years  theta_far  0.296  -0.222    0.795    0.271
+  6-15 years theta_cite -0.156  -0.531    0.478    0.265
+  6-15 years theta_near  0.286   0.052    0.488    0.127
+  6-15 years  theta_far  0.138  -0.144    0.419    0.147
+   16+ years theta_cite -0.128  -0.629    0.295    0.252
+   16+ years theta_near  0.211  -0.043    0.528    0.164
+   16+ years  theta_far -0.059  -0.279    0.238    0.156
+
+Results saved in results_field20_career
+estimate  point  ci_low  ci_high
+     mid  0.286   0.022    0.575
+  senior  0.211  -0.089    0.541
+     ddd  0.074  -0.181    0.484
+estimate  point  ci_low  ci_high
+     mid  0.245  -0.155    0.601
+  senior  0.455  -0.042    0.814
+     ddd -0.210  -0.811    0.486
+Loaded 91,869 papers and 211,842 paper-author rows from 66 files
+           outcome     did  ci_low  ci_high  IT_pre  IT_post  CTRL_pre  CTRL_post  n_scientists
+   distinct_topics  0.1912  0.0799   0.3102  2.2664   2.7348    2.4392     2.7164           NaN
+distinct_subfields  0.0332 -0.0211   0.0902  1.4865   1.5871    1.4611     1.5285           NaN
+        top1_share -0.0076 -0.0116  -0.0025  0.0140   0.0088    0.0128     0.0152           NaN
+     left_research -0.1167 -0.1983  -0.0484  0.2387   0.1713    0.2267     0.2760        2712.0
+
+Saved /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/results_field20/long_run.csv

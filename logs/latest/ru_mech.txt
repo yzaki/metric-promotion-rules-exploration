@@ -1,0 +1,44 @@
+cls
+not covered    30853
+5-100           2573 
+matched 5-100 institution names:
+                     Far Eastern Federal University
+Federal Agrarian Scientific Center of the North...
+                                   ITMO University
+           Immanuel Kant Baltic Federal University
+                          Kazan Federal University
+Military Academy of Strategic Missile Forces na...
+        Moscow Institute of Physics and Technology
+N. I. Lobachevsky State University of Nizhny No...
+        National Research Nuclear University MEPhI
+          National Research Tomsk State University
+National Research University Higher School of E...
+                      Novosibirsk State University
+          Peoples' Friendship University of Russia
+Peter the Great St. Petersburg Polytechnic Univ...
+Peter the Great's Museum of Anthropology and Et...
+Saint Petersburg State Electrotechnical University
+               Samara National Research University
+                               Sechenov University
+                       Siberian Federal University
+                       South Ural State University
+                      Tomsk Polytechnic University
+                              University of Tyumen
+                           Ural Federal University
+Voronezh State Agrarian University named after ...
+  field                   group  irl_near  irl_low  irl_high  n_russian
+Physics                   5-100    -0.338   -0.563    -0.159      903.0
+Physics             not covered     0.005   -0.061     0.081    11039.0
+Physics 5-100 minus not covered    -0.343   -0.563    -0.158        NaN
+      field                   group  irl_near  irl_low  irl_high  n_russian
+Engineering                   5-100     0.186   -0.060     0.365     1110.0
+Engineering             not covered     0.052   -0.019     0.114     9496.0
+Engineering 5-100 minus not covered     0.134   -0.121     0.337        NaN
+       field                   group  irl_near  irl_low  irl_high  n_russian
+Biochemistry                   5-100     0.266   -0.409     1.289      144.0
+Biochemistry             not covered    -0.197   -0.283    -0.132     5362.0
+Biochemistry 5-100 minus not covered     0.463   -0.233     1.480        NaN
+    field                   group  irl_near  irl_low  irl_high  n_russian
+Chemistry                   5-100    -0.263   -0.640    -0.067      619.0
+Chemistry             not covered    -0.046   -0.110     0.021     7796.0
+Chemistry 5-100 minus not covered    -0.218   -0.553     0.018        NaN

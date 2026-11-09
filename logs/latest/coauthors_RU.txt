@@ -1,0 +1,29 @@
+Loaded 471,286 papers and 3,414,461 paper-author rows from 66 files
+RU Physics: 57,844 scientists, 356,945 scientist-years
+Loaded 486,364 papers and 1,911,656 paper-author rows from 66 files
+RU Engineering: 49,744 scientists, 270,293 scientist-years
+Loaded 364,795 papers and 2,300,854 paper-author rows from 66 files
+RU Biochemistry: 62,207 scientists, 339,464 scientist-years
+Loaded 308,417 papers and 1,366,776 paper-author rows from 66 files
+RU Chemistry: 31,663 scientists, 177,501 scientist-years
+treated       outcome           scope     did  ci_low  ci_high  treated_pre_mean  n_treated
+     RU     team_size All four fields -1.2539 -1.3814  -1.1264            9.7704      40283
+     RU     team_size         Physics -1.4918 -1.8145  -1.1691           16.8087      14806
+     RU     team_size     Engineering -0.5973 -0.6698  -0.5249            4.8430      12884
+     RU     team_size    Biochemistry -2.3928 -2.5784  -2.2072            6.1124       6684
+     RU     team_size       Chemistry -0.6800 -0.7414  -0.6185            5.1064       9937
+     RU      log_team All four fields -0.1149 -0.1215  -0.1083            1.6761      40283
+     RU      log_team         Physics -0.1211 -0.1345  -0.1076            1.9678      14806
+     RU      log_team     Engineering -0.0788 -0.0892  -0.0684            1.3516      12884
+     RU      log_team    Biochemistry -0.1642 -0.1783  -0.1500            1.6364       6684
+     RU      log_team       Chemistry -0.1062 -0.1163  -0.0962            1.5256       9937
+     RU international All four fields -0.1067 -0.1110  -0.1023            0.3454      40283
+     RU international         Physics -0.0801 -0.0873  -0.0729            0.5113      14806
+     RU international     Engineering -0.1266 -0.1347  -0.1185            0.2303      12884
+     RU international    Biochemistry -0.1232 -0.1342  -0.1122            0.3429       6684
+     RU international       Chemistry -0.1176 -0.1263  -0.1089            0.1901       9937
+     RU new_coauthors All four fields -0.0232 -0.0273  -0.0191            0.5235      39067
+     RU new_coauthors         Physics -0.0091 -0.0162  -0.0019            0.4997      13704
+     RU new_coauthors     Engineering -0.0423 -0.0506  -0.0340            0.5844      12773
+     RU new_coauthors    Biochemistry -0.0407 -0.0498  -0.0316            0.5895       6673
+     RU new_coauthors       Chemistry -0.0087 -0.0168  -0.0005            0.4695       9910

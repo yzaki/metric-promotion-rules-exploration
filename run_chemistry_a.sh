@@ -2,7 +2,7 @@
 # Chemistry (OpenAlex field 16), stage A: everything that does not need the true career start.
 # Analysis plan: ../PREREGISTRATION_chemistry_2026-11-05.md (written before the download).
 set -u
-P=.venv/Scripts/python
+P=${PYTHON:-python}
 export PYTHONIOENCODING=utf-8 CT_FIELD_ID=16
 D=data_field16; R=results_field16
 mkdir -p logs

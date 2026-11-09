@@ -109,7 +109,7 @@ def fetch_country_year(cc, year, field_id):
         "filter": (f"authorships.institutions.country_code:{cc},publication_year:{year},"
                    f"primary_topic.field.id:{field_id},type:article"),
         "select": SELECT,
-        "per_page": 100,
+        "per_page": 200,
         "cursor": "*",
         "api_key": config.OPENALEX_API_KEY,
     }

@@ -1,0 +1,48 @@
+Field 22 = Engineering
+Using field filter primary_topic.field.id:22
+  RU 1998: 1,636 papers to download
+  RU 1998: saved 1,636 papers, 5,698 author rows
+  RU 1999: 1,709 papers to download
+  RU 1999: saved 1,709 papers, 6,202 author rows
+  RU 2000: 2,498 papers to download
+  RU 2000: saved 2,498 papers, 8,483 author rows
+  RU 2001: 2,885 papers to download
+  RU 2001: saved 2,885 papers, 9,533 author rows
+  RU 2002: 2,890 papers to download
+  RU 2002: saved 2,890 papers, 9,782 author rows
+  RU 2003: 2,947 papers to download
+  RU 2003: saved 2,947 papers, 9,919 author rows
+  RU 2004: 2,886 papers to download
+  RU 2004: saved 2,886 papers, 10,006 author rows
+  RU 2005: 2,888 papers to download
+  RU 2005: saved 2,888 papers, 9,966 author rows
+  RU 2006: 3,350 papers to download
+  RU 2006: saved 3,350 papers, 11,407 author rows
+  RU 2007: 4,261 papers to download
+  RU 2007: saved 4,261 papers, 14,202 author rows
+  RU 2008: 4,497 papers to download
+  RU 2008: saved 4,497 papers, 14,257 author rows
+  RU 2009: 4,896 papers to download
+  RU 2009: saved 4,896 papers, 15,716 author rows
+  RU 2010: 5,144 papers to download
+  RU 2010: saved 5,144 papers, 16,799 author rows
+  RU 2011: 5,781 papers to download
+  RU 2011: saved 5,781 papers, 18,306 author rows
+  RU 2012: 6,659 papers to download
+  RU 2012: saved 6,659 papers, 21,649 author rows
+  RU 2013: 7,421 papers to download
+  RU 2013: saved 7,421 papers, 24,062 author rows
+  RU 2014: 9,651 papers to download
+  RU 2014: saved 9,674 papers, 30,902 author rows
+  RU 2015: 11,652 papers to download
+  RU 2015: saved 11,651 papers, 38,184 author rows
+  RU 2016: 12,409 papers to download
+  RU 2016: saved 12,409 papers, 42,806 author rows
+  RU 2017: 14,318 papers to download
+  RU 2017: saved 14,318 papers, 48,588 author rows
+  RU 2018: 15,204 papers to download
+  RU 2018: saved 15,204 papers, 53,116 author rows
+  RU 2019: 16,863 papers to download
+  RU 2019: saved 16,863 papers, 59,245 author rows
+
+Done. Next step: python build_trajectories.py

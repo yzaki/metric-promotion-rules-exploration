@@ -1,0 +1,25 @@
+Coverage: 0.398 gender; 0.599 region (Italy); 0.697 ORCID
+gender           Men  Women
+country                    
+DE       15299  8728   1124
+FR       10574  4815   1032
+IT        7346  4813   1437
+    [Women] bootstrap 50/100
+    [Women] bootstrap 100/100
+    [Men] bootstrap 50/100
+    [Men] bootstrap 100/100
+    [Italy North vs all control] bootstrap 50/100
+    [Italy North vs all control] bootstrap 100/100
+    [Italy Centre vs all control] bootstrap 50/100
+    [Italy Centre vs all control] bootstrap 100/100
+    [Italy South vs all control] bootstrap 50/100
+    [Italy South vs all control] bootstrap 100/100
+    [ORCID] bootstrap 50/100
+    [ORCID] bootstrap 100/100
+                   subgroup  n_choices  irl_near  irl_low  irl_high  lpm_near_pp  lpm_low  lpm_high
+                      Women      23153    -0.086   -0.297     0.118       -2.346   -5.751     1.060
+                        Men     125122    -0.099   -0.208     0.013       -1.392   -2.902     0.118
+ Italy North vs all control     301357    -0.204   -0.305    -0.100       -2.748   -4.315    -1.181
+Italy Centre vs all control     312054    -0.155   -0.256    -0.060       -2.539   -3.922    -1.155
+ Italy South vs all control     288155    -0.230   -0.398    -0.072       -2.792   -5.474    -0.110
+          ORCID-only sample     290994    -0.108   -0.180    -0.050       -1.812   -2.794    -0.830

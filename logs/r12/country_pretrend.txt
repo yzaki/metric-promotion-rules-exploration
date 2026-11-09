@@ -1,0 +1,13 @@
+{'country': 'Russia', 'field': 'Physics', 'pretrend_wald_p': np.float64(0.13049364338246927)}
+{'country': 'Russia', 'field': 'Engineering', 'pretrend_wald_p': np.float64(0.00392771066857367)}
+{'country': 'Russia', 'field': 'Biochemistry', 'pretrend_wald_p': np.float64(0.24168838157512373)}
+{'country': 'Russia', 'field': 'Chemistry', 'pretrend_wald_p': np.float64(0.3104412033330859)}
+{'country': 'India', 'field': 'Physics', 'pretrend_wald_p': np.float64(0.041245310018863335)}
+{'country': 'India', 'field': 'Engineering', 'pretrend_wald_p': np.float64(0.6631495571417172)}
+{'country': 'India', 'field': 'Biochemistry', 'pretrend_wald_p': np.float64(0.4242411792418165)}
+{'country': 'India', 'field': 'Chemistry', 'pretrend_wald_p': np.float64(0.2665336056208045)}
+        download           test  estimate_pp  ci_low_pp  ci_high_pp
+earlier download I1 nearby move        -0.21      -0.96        0.54
+earlier download I3 near return        -0.66      -1.25       -0.06
+ latest download I1 nearby move        -1.15      -1.92       -0.38
+ latest download I3 near return        -0.98      -1.58       -0.37

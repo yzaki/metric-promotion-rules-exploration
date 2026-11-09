@@ -1,0 +1,2 @@
+Sampled scientists (any field, any specification): 351,063
+9,158,510 author-paper pairs; 71.6% with a name

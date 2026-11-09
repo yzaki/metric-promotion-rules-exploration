@@ -1,0 +1,12 @@
+Loaded 274,631 papers and 1,261,809 paper-author rows from 66 files
+                  spec    outcome  beta_pp  ci_low_pp  ci_high_pp
+          all articles       near    -1.28      -2.76        0.19
+          all articles gap return    -1.45      -2.40       -0.50
+ without MDPI articles       near    -1.49      -2.98        0.01
+ without MDPI articles gap return    -1.44      -2.39       -0.49
+MDPI share of articles  DE before     0.18        NaN         NaN
+MDPI share of articles   DE after     1.16        NaN         NaN
+MDPI share of articles  FR before     0.20        NaN         NaN
+MDPI share of articles   FR after     1.11        NaN         NaN
+MDPI share of articles  IT before     0.24        NaN         NaN
+MDPI share of articles   IT after     2.56        NaN         NaN
