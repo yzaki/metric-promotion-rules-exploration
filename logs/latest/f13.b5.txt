@@ -1,0 +1,21 @@
+Treated: IT; controls: FR, DE
+Loaded 405,537 papers and 2,679,475 paper-author rows from 66 files
+World citations: 3,555,998 papers, 200 topics, years 1998-2019
+Authors with a clear home country: 396,870
+Authors with at least 5 active years: 80,163
+Topic neighbours: 197 topics, k=10; share of neighbours in the same subfield 0.42
+
+                     scientists  choices  share_stay  share_near  share_far
+country period                                                            
+DE      after            21980    71758       0.463       0.148      0.389
+        before           21685    62390       0.508       0.163      0.328
+        transition       19338    38321       0.487       0.156      0.357
+FR      after            17294    52986       0.480       0.171      0.349
+        before           17671    48920       0.527       0.177      0.297
+        transition       14716    28163       0.506       0.172      0.322
+IT      after            16285    52416       0.441       0.137      0.422
+        before           15516    44601       0.486       0.169      0.345
+        transition       13612    26261       0.466       0.149      0.385
+
+Wrote 425,816 choices to /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/data_field13/trajectories_world_near10.csv
+Next step: python estimate.py

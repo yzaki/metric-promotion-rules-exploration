@@ -1,0 +1,26 @@
+Field 16 = Chemistry
+Using field filter primary_topic.field.id:16
+  1998: 119 topics, 78,302 papers
+  1999: 119 topics, 79,940 papers
+  2000: 119 topics, 81,933 papers
+  2001: 119 topics, 83,906 papers
+  2002: 119 topics, 88,570 papers
+  2003: 119 topics, 92,776 papers
+  2004: 119 topics, 96,076 papers
+  2005: 119 topics, 101,359 papers
+  2006: 119 topics, 104,980 papers
+  2007: 119 topics, 107,636 papers
+  2008: 119 topics, 109,955 papers
+  2009: 119 topics, 113,710 papers
+  2010: 119 topics, 117,543 papers
+  2011: 119 topics, 125,008 papers
+  2012: 119 topics, 123,244 papers
+  2013: 119 topics, 128,179 papers
+  2014: 119 topics, 127,769 papers
+  2015: 119 topics, 124,657 papers
+  2016: 119 topics, 128,311 papers
+  2017: 119 topics, 113,656 papers
+  2018: 119 topics, 105,374 papers
+  2019: 119 topics, 106,535 papers
+
+Done. Next step: python build_trajectories.py --world

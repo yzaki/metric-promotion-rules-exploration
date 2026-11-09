@@ -1,0 +1,48 @@
+Field 13 = Biochemistry, Genetics and Molecular Biology
+Using field filter primary_topic.field.id:13
+  DE 1998: 6,521 papers to download
+  DE 1998: saved 6,521 papers, 28,154 author rows
+  DE 1999: 6,606 papers to download
+  DE 1999: saved 6,606 papers, 30,044 author rows
+  DE 2000: 6,799 papers to download
+  DE 2000: saved 6,799 papers, 31,694 author rows
+  DE 2001: 6,837 papers to download
+  DE 2001: saved 6,837 papers, 32,413 author rows
+  DE 2002: 7,046 papers to download
+  DE 2002: saved 7,046 papers, 34,131 author rows
+  DE 2003: 7,426 papers to download
+  DE 2003: saved 7,426 papers, 36,563 author rows
+  DE 2004: 8,215 papers to download
+  DE 2004: saved 8,215 papers, 42,823 author rows
+  DE 2005: 8,502 papers to download
+  DE 2005: saved 8,502 papers, 46,231 author rows
+  DE 2006: 9,093 papers to download
+  DE 2006: saved 9,093 papers, 50,481 author rows
+  DE 2007: 9,025 papers to download
+  DE 2007: saved 9,025 papers, 53,017 author rows
+  DE 2008: 9,834 papers to download
+  DE 2008: saved 9,834 papers, 57,699 author rows
+  DE 2009: 10,247 papers to download
+  DE 2009: saved 10,247 papers, 62,739 author rows
+  DE 2010: 10,486 papers to download
+  DE 2010: saved 10,486 papers, 68,942 author rows
+  DE 2011: 10,280 papers to download
+  DE 2011: saved 10,280 papers, 70,712 author rows
+  DE 2012: 10,767 papers to download
+  DE 2012: saved 10,767 papers, 75,389 author rows
+  DE 2013: 10,585 papers to download
+  DE 2013: saved 10,585 papers, 77,279 author rows
+  DE 2014: 10,956 papers to download
+  DE 2014: saved 10,956 papers, 83,127 author rows
+  DE 2015: 10,858 papers to download
+  DE 2015: saved 10,858 papers, 84,816 author rows
+  DE 2016: 11,015 papers to download
+  DE 2016: saved 11,015 papers, 91,093 author rows
+  DE 2017: 10,483 papers to download
+  DE 2017: saved 10,483 papers, 86,264 author rows
+  DE 2018: 10,220 papers to download
+  DE 2018: saved 10,220 papers, 88,027 author rows
+  DE 2019: 10,313 papers to download
+  DE 2019: saved 10,313 papers, 92,533 author rows
+
+Done. Next step: python build_trajectories.py

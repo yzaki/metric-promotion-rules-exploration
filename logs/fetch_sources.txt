@@ -1,0 +1,7 @@
+21,492 distinct sources
+  100 / 21,492
+  5,100 / 21,492
+  10,100 / 21,492
+  15,100 / 21,492
+  20,100 / 21,492
+Saved /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/data_meta/sources.csv.gz

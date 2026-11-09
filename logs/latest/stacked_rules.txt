@@ -1,0 +1,40 @@
+  scope                                         estimate  beta_pp  se_pp  n_treated  ci_low_pp  ci_high_pp
+Physics                                       Italy 2012    -1.87   0.46    13468.0      -2.77       -0.97
+Physics                                     Romania 2012    -1.60   1.90      649.0      -5.32        2.13
+Physics                                       Spain 2015    -0.75   0.69     5110.0      -2.11        0.61
+Physics                                      Poland 2011     1.20   0.72     4295.0      -0.22        2.62
+Physics                                       Spain 2008    -0.57   0.74     5352.0      -2.02        0.88
+Physics Hard outside Italy (mean of Spain 2015, Romania)    -1.17   1.01        NaN      -3.16        0.82
+Physics                         All hard (mean of three)    -1.41   0.71        NaN      -2.79       -0.02
+Physics                Soft (mean of Poland, Spain 2008)     0.32   0.53        NaN      -0.72        1.36
+Physics                    Hard outside Italy minus soft    -1.49   1.15        NaN      -3.74        0.76
+      scope                                         estimate  beta_pp  se_pp  n_treated  ci_low_pp  ci_high_pp
+Engineering                                       Italy 2012    -1.74   0.56    12572.0      -2.83       -0.65
+Engineering                                     Romania 2012    -4.10   1.57     1589.0      -7.17       -1.02
+Engineering                                       Spain 2015    -0.54   0.62     8599.0      -1.76        0.69
+Engineering                                      Poland 2011    -0.05   0.73     8657.0      -1.48        1.39
+Engineering                                       Spain 2008     0.31   0.73     8392.0      -1.13        1.74
+Engineering Hard outside Italy (mean of Spain 2015, Romania)    -2.32   0.85        NaN      -3.99       -0.65
+Engineering                         All hard (mean of three)    -2.13   0.62        NaN      -3.33       -0.92
+Engineering                Soft (mean of Poland, Spain 2008)     0.13   0.54        NaN      -0.93        1.19
+Engineering                    Hard outside Italy minus soft    -2.45   1.00        NaN      -4.41       -0.49
+       scope                                         estimate  beta_pp  se_pp  n_treated  ci_low_pp  ci_high_pp
+Biochemistry                                       Italy 2012    -1.51   0.45    21242.0      -2.39       -0.64
+Biochemistry                                     Romania 2012     0.21   2.90      494.0      -5.47        5.89
+Biochemistry                                       Spain 2015    -0.84   0.60    10942.0      -2.01        0.34
+Biochemistry                                      Poland 2011    -0.50   0.78     5396.0      -2.03        1.03
+Biochemistry                                       Spain 2008    -0.25   0.64    11302.0      -1.51        1.00
+Biochemistry Hard outside Italy (mean of Spain 2015, Romania)    -0.31   1.48        NaN      -3.22        2.59
+Biochemistry                         All hard (mean of three)    -0.71   1.01        NaN      -2.69        1.26
+Biochemistry                Soft (mean of Poland, Spain 2008)    -0.38   0.52        NaN      -1.39        0.64
+Biochemistry                    Hard outside Italy minus soft     0.06   1.57        NaN      -3.02        3.14
+           scope                                         estimate  beta_pp  se_pp  n_treated  ci_low_pp  ci_high_pp
+All three fields                                       Italy 2012    -1.70   0.28    44604.0      -2.24       -1.15
+All three fields                                     Romania 2012    -2.62   1.11     2618.0      -4.81       -0.44
+All three fields                                       Spain 2015    -0.71   0.37    23668.0      -1.43        0.01
+All three fields                                      Poland 2011     0.25   0.43    17717.0      -0.59        1.09
+All three fields                                       Spain 2008    -0.18   0.40    23959.0      -0.97        0.61
+All three fields Hard outside Italy (mean of Spain 2015, Romania)    -1.67   0.59        NaN      -2.82       -0.51
+All three fields                         All hard (mean of three)    -1.68   0.41        NaN      -2.48       -0.87
+All three fields                Soft (mean of Poland, Spain 2008)     0.04   0.30        NaN      -0.56        0.63
+All three fields                    Hard outside Italy minus soft    -1.70   0.66        NaN      -3.00       -0.41

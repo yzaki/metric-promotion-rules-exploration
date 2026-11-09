@@ -1,0 +1,31 @@
+Field 31 = Physics and Astronomy
+Using field filter primary_topic.field.id:31
+  1998: 115 topics, 97,555 papers
+  1999: 115 topics, 100,177 papers
+  2000: 115 topics, 104,993 papers
+Field 31 = Physics and Astronomy
+Using field filter primary_topic.field.id:31
+  1998: already downloaded, skipping
+  1999: already downloaded, skipping
+  2000: already downloaded, skipping
+  2001: already downloaded, skipping
+  2002: already downloaded, skipping
+  2003: already downloaded, skipping
+  2004: already downloaded, skipping
+  2005: already downloaded, skipping
+  2006: already downloaded, skipping
+  2007: already downloaded, skipping
+  2008: already downloaded, skipping
+  2009: already downloaded, skipping
+  2010: already downloaded, skipping
+  2011: already downloaded, skipping
+  2012: already downloaded, skipping
+  2013: already downloaded, skipping
+  2014: already downloaded, skipping
+  2015: 115 topics, 162,685 papers
+  2016: 115 topics, 163,232 papers
+  2017: 115 topics, 155,899 papers
+  2018: 115 topics, 151,485 papers
+  2019: 115 topics, 153,041 papers
+
+Done. Next step: python build_trajectories.py --world

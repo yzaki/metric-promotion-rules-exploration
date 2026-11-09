@@ -1,0 +1,6 @@
+Loaded 446,333 papers and 3,404,015 paper-author rows from 66 files
+      measure     did  ci_low  ci_high  IT_pre  IT_post  CTRL_pre  CTRL_post  n_scientists
+spec_subfield -0.0076 -0.0124  -0.0042  0.9080   0.8980    0.9145     0.9121         51879
+   spec_topic -0.0028 -0.0086   0.0027  0.7602   0.7465    0.7795     0.7685         51879
+
+Saved /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/results/reconcile_abramo.csv

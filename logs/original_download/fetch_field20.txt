@@ -1,0 +1,181 @@
+Field 20 = Economics, Econometrics and Finance
+Using field filter primary_topic.field.id:20
+  IT 1998: 245 papers to download
+  IT 1998: saved 245 papers, 553 author rows
+  IT 1999: 234 papers to download
+  IT 1999: saved 234 papers, 519 author rows
+  IT 2000: 323 papers to download
+  IT 2000: saved 323 papers, 676 author rows
+  IT 2001: 375 papers to download
+  IT 2001: saved 375 papers, 815 author rows
+  IT 2002: 411 papers to download
+  IT 2002: saved 411 papers, 886 author rows
+  IT 2003: 484 papers to download
+  IT 2003: saved 484 papers, 986 author rows
+  IT 2004: 502 papers to download
+  IT 2004: saved 502 papers, 1,108 author rows
+  IT 2005: 622 papers to download
+  IT 2005: saved 622 papers, 1,335 author rows
+  IT 2006: 736 papers to download
+  IT 2006: saved 736 papers, 1,649 author rows
+  IT 2007: 830 papers to download
+  IT 2007: saved 830 papers, 1,910 author rows
+  IT 2008: 938 papers to download
+  IT 2008: saved 938 papers, 2,164 author rows
+  IT 2009: 991 papers to download
+  IT 2009: saved 991 papers, 2,224 author rows
+  IT 2010: 1,016 papers to download
+  IT 2010: saved 1,016 papers, 2,463 author rows
+  IT 2011: 1,066 papers to download
+  IT 2011: saved 1,066 papers, 2,615 author rows
+  IT 2012: 1,314 papers to download
+  IT 2012: saved 1,314 papers, 3,291 author rows
+  IT 2013: 1,324 papers to download
+  IT 2013: saved 1,324 papers, 3,380 author rows
+  IT 2014: 1,389 papers to download
+  IT 2014: saved 1,389 papers, 3,774 author rows
+  IT 2015: 1,430 papers to download
+  IT 2015: saved 1,430 papers, 3,948 author rows
+  IT 2016: 1,584 papers to download
+  IT 2016: saved 1,584 papers, 4,705 author rows
+  IT 2017: 1,541 papers to download
+  IT 2017: saved 1,541 papers, 4,422 author rows
+  IT 2018: 1,646 papers to download
+  IT 2018: saved 1,646 papers, 4,761 author rows
+  IT 2019: 1,700 papers to download
+  IT 2019: saved 1,700 papers, 4,932 author rows
+  FR 1998: 458 papers to download
+  FR 1998: saved 458 papers, 953 author rows
+  FR 1999: 524 papers to download
+  FR 1999: saved 524 papers, 1,100 author rows
+  FR 2000: 606 papers to download
+  FR 2000: saved 606 papers, 1,182 author rows
+  FR 2001: 753 papers to download
+  FR 2001: saved 753 papers, 1,417 author rows
+  FR 2002: 827 papers to download
+  FR 2002: saved 827 papers, 1,557 author rows
+  FR 2003: 1,011 papers to download
+  FR 2003: saved 1,011 papers, 1,955 author rows
+  FR 2004: 1,071 papers to download
+  FR 2004: saved 1,071 papers, 2,108 author rows
+  FR 2005: 1,226 papers to download
+  FR 2005: saved 1,226 papers, 2,241 author rows
+  FR 2006: 1,384 papers to download
+  FR 2006: saved 1,384 papers, 2,745 author rows
+  FR 2007: 1,575 papers to download
+  FR 2007: saved 1,575 papers, 3,127 author rows
+  FR 2008: 1,733 papers to download
+  FR 2008: saved 1,733 papers, 3,424 author rows
+  FR 2009: 1,919 papers to download
+  FR 2009: saved 1,919 papers, 3,871 author rows
+  FR 2010: 2,017 papers to download
+  FR 2010: saved 2,017 papers, 4,315 author rows
+  FR 2011: 2,124 papers to download
+  FR 2011: saved 2,124 papers, 4,435 author rows
+  FR 2012: 2,407 papers to download
+  FR 2012: saved 2,407 papers, 4,963 author rows
+  FR 2013: 2,497 papers to download
+  FR 2013: saved 2,497 papers, 5,515 author rows
+  FR 2014: 2,513 papers to download
+  FR 2014: saved 2,513 papers, 5,863 author rows
+  FR 2015: 2,684 papers to download
+  FR 2015: saved 2,684 papers, 6,268 author rows
+  FR 2016: 2,675 papers to download
+  FR 2016: saved 2,675 papers, 6,488 author rows
+  FR 2017: 2,646 papers to download
+  FR 2017: saved 2,646 papers, 6,683 author rows
+  FR 2018: 2,797 papers to download
+  FR 2018: saved 2,797 papers, 7,042 author rows
+  FR 2019: 2,665 papers to download
+  FR 2019: saved 2,665 papers, 6,456 author rows
+  DE 1998: 460 papers to download
+  DE 1998: saved 460 papers, 890 author rows
+  DE 1999: 515 papers to download
+  DE 1999: saved 515 papers, 997 author rows
+  DE 2000: 599 papers to download
+  DE 2000: saved 599 papers, 1,077 author rows
+  DE 2001: 633 papers to download
+  DE 2001: saved 633 papers, 1,234 author rows
+  DE 2002: 818 papers to download
+  DE 2002: saved 818 papers, 1,623 author rows
+  DE 2003: 888 papers to download
+  DE 2003: saved 888 papers, 1,741 author rows
+  DE 2004: 1,110 papers to download
+  DE 2004: saved 1,110 papers, 2,239 author rows
+  DE 2005: 1,141 papers to download
+  DE 2005: saved 1,141 papers, 2,421 author rows
+  DE 2006: 1,293 papers to download
+  DE 2006: saved 1,293 papers, 2,767 author rows
+  DE 2007: 1,392 papers to download
+  DE 2007: saved 1,392 papers, 2,979 author rows
+  DE 2008: 1,540 papers to download
+  DE 2008: saved 1,540 papers, 3,333 author rows
+  DE 2009: 1,740 papers to download
+  DE 2009: saved 1,740 papers, 3,905 author rows
+  DE 2010: 1,866 papers to download
+  DE 2010: saved 1,866 papers, 4,273 author rows
+  DE 2011: 1,967 papers to download
+  DE 2011: saved 1,967 papers, 4,457 author rows
+  DE 2012: 2,075 papers to download
+  DE 2012: saved 2,075 papers, 4,791 author rows
+  DE 2013: 2,237 papers to download
+  DE 2013: saved 2,237 papers, 5,553 author rows
+  DE 2014: 2,406 papers to download
+  DE 2014: saved 2,406 papers, 6,101 author rows
+  DE 2015: 2,354 papers to download
+  DE 2015: saved 2,354 papers, 5,813 author rows
+  DE 2016: 2,455 papers to download
+  DE 2016: saved 2,455 papers, 6,482 author rows
+  DE 2017: 2,308 papers to download
+  DE 2017: saved 2,308 papers, 5,954 author rows
+  DE 2018: 2,338 papers to download
+  DE 2018: saved 2,338 papers, 6,354 author rows
+  DE 2019: 2,419 papers to download
+  DE 2019: saved 2,419 papers, 6,832 author rows
+  ES 1998: 289 papers to download
+  ES 1998: saved 289 papers, 566 author rows
+  ES 1999: 322 papers to download
+  ES 1999: saved 322 papers, 643 author rows
+  ES 2000: 389 papers to download
+  ES 2000: saved 389 papers, 738 author rows
+  ES 2001: 490 papers to download
+  ES 2001: saved 490 papers, 923 author rows
+  ES 2002: 577 papers to download
+  ES 2002: saved 577 papers, 1,193 author rows
+  ES 2003: 735 papers to download
+  ES 2003: saved 735 papers, 1,404 author rows
+  ES 2004: 754 papers to download
+  ES 2004: saved 754 papers, 1,566 author rows
+  ES 2005: 809 papers to download
+  ES 2005: saved 809 papers, 1,643 author rows
+  ES 2006: 853 papers to download
+  ES 2006: saved 853 papers, 1,790 author rows
+  ES 2007: 994 papers to download
+  ES 2007: saved 994 papers, 2,127 author rows
+  ES 2008: 1,091 papers to download
+  ES 2008: saved 1,091 papers, 2,379 author rows
+  ES 2009: 1,134 papers to download
+  ES 2009: saved 1,134 papers, 2,613 author rows
+  ES 2010: 1,101 papers to download
+  ES 2010: saved 1,101 papers, 2,589 author rows
+  ES 2011: 1,447 papers to download
+  ES 2011: saved 1,447 papers, 3,366 author rows
+  ES 2012: 1,401 papers to download
+  ES 2012: saved 1,401 papers, 3,332 author rows
+  ES 2013: 1,407 papers to download
+  ES 2013: saved 1,407 papers, 3,376 author rows
+  ES 2014: 1,516 papers to download
+  ES 2014: saved 1,516 papers, 3,876 author rows
+  ES 2015: 1,558 papers to download
+  ES 2015: saved 1,558 papers, 4,048 author rows
+  ES 2016: 1,586 papers to download
+  ES 2016: saved 1,586 papers, 4,194 author rows
+  ES 2017: 1,640 papers to download
+  ES 2017: saved 1,640 papers, 4,357 author rows
+  ES 2018: 1,444 papers to download
+  ES 2018: saved 1,444 papers, 4,109 author rows
+  ES 2019: 1,617 papers to download
+  ES 2019: saved 1,617 papers, 4,515 author rows
+
+Done. Next step: python build_trajectories.py
+attempt 1: 88/88 files

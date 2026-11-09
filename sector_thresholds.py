@@ -64,9 +64,11 @@ def main():
     pre, post = config.PRE_YEARS, config.POST_YEARS
 
     match = pd.read_csv(os.path.join(args.out, "rank_2011_match.csv"), index_col=0)
-    cs = pd.read_csv(os.path.join(config.HERE, "data_meta", "career_start.tsv.gz"), sep="\t").set_index("author_id").mag_first_year
+    cs = pd.read_csv(os.path.join(config.HERE, "career_start", "career_start.tsv.gz"), sep="\t").set_index("author_id").mag_first_year
     raw = bt.load_raw()
     ind = indicators(raw, set(match.index), cs).reindex(match.index).fillna(0)
+    # articles per scientist-year, for the output-controlled check below
+    n_art = raw[raw.author_id.isin(set(match.index))].drop_duplicates(["work_id", "author_id"]).groupby(["author_id", "year"]).size()
     del raw
     m = match.join(ind)
     m["macro"] = m.sc_2011.astype(str).str[:4]
@@ -89,6 +91,18 @@ def main():
                 continue
             rows.append({"author_id": a, "rank": cand, "n_above": int(sum(r[c] > med[c] for c in IND))})
     cands = pd.DataFrame(rows).set_index("author_id")
+    # placebo bar: full professors (who needed no habilitation) against the medians of full professors in their sector
+    by_sc, by_mac = medians("full professor")
+    prow = []
+    for a, r in m[m.rank_2011 == "full professor"].iterrows():
+        if r.sc_2011 in by_sc.index and by_sc.loc[r.sc_2011, "n"] >= 5:
+            med = by_sc.loc[r.sc_2011]
+        elif r.macro in by_mac.index and by_mac.loc[r.macro, "n"] >= 5:
+            med = by_mac.loc[r.macro]
+        else:
+            continue
+        prow.append({"author_id": a, "n_above": int(sum(r[c] > med[c] for c in IND))})
+    placebo_bar = pd.DataFrame(prow).set_index("author_id").n_above.map(lambda k: "met" if k >= 2 else "below")
     cands["bar"] = np.select([cands.n_above >= 2, cands.n_above == 1], ["met", "one short"], "far below")
     print(pd.crosstab(cands["rank"], cands.bar), flush=True)
 
@@ -140,8 +154,44 @@ def main():
     t["validation_spearman_articles"], t["validation_spearman_citations"], t["validation_spearman_h"] = (
         val["articles"], val["citations"], val["h"])
     t["validation_n_sectors"] = len(v)
+    t["n_boot"] = args.n_boot   # scientist resamples behind the IRL intervals
     t.to_csv(os.path.join(args.out, "sector_thresholds.csv"), index=False)
     print(t.round(3).to_string(index=False))
+
+    # Output check (added after the main analysis): within Italy, model-free DiD of nearby moves for scientists below
+    # their bar (0-1 indicators) vs those who met it, after vs before, with scientist and year fixed effects, and
+    # additionally with fixed effects for the number of articles in the decision year (alone and by period),
+    # so that a change in output cannot by itself make the yearly topic more stable.
+    bins = lambda n: np.digitize(n, [2, 3, 4, 6, 10])
+    res = []
+    def contrast(it, sample):
+        it = it.copy()
+        it["n0"] = [n_art.get((a, y), 0) for a, y in zip(it.author_id, it.year)]
+        it["n1"] = [n_art.get((a, y + 1), 0) for a, y in zip(it.author_id, it.year)]
+        it["out_fe"], it["out1_fe"] = bins(it.n0.to_numpy()), bins(it.n1.to_numpy())
+        d = (it.below * it.year.isin(post)).to_numpy()
+        author = pd.factorize(it.author_id)[0]
+        y = (it.action == "near").astype(float).to_numpy()
+        per = it.year.isin(post).astype(str)
+        for lab, fe in (("scientist + year FE", [author, it.year.to_numpy()]),
+                        ("+ articles-in-year FE", [author, it.year.to_numpy(), it.out_fe.to_numpy()]),
+                        ("+ articles-in-year x period FE", [author, it.year.to_numpy(), (it.out_fe.astype(str) + per).to_numpy()]),
+                        ("+ articles in decision and next year x period FE", [author, it.year.to_numpy(),
+                         (it.out_fe.astype(str) + per).to_numpy(), (it.out1_fe.astype(str) + per).to_numpy()])):
+            fe = [pd.factorize(f)[0] for f in fe]
+            b, se = ols_cluster(demean(y[:, None], fe)[:, 0], demean(d[:, None], fe), author)
+            res.append({"sample": sample, "spec": lab, "below_minus_met_pp": 100 * b[0],
+                        "ci_low_pp": 100 * (b[0] - 1.96 * se[0]), "ci_high_pp": 100 * (b[0] + 1.96 * se[0]),
+                        "n_scientists": int(it.author_id.nunique())})
+    it = df[df.g.isin(["met", "one short", "far below"])].copy()
+    it["below"] = (it.g != "met").astype(float)
+    contrast(it, "associates and researchers (own bar)")
+    fp = df[(df.group == "IT") & df.author_id.isin(placebo_bar.index)].copy()
+    fp["below"] = (fp.author_id.map(placebo_bar) == "below").astype(float)
+    contrast(fp, "full professors (placebo bar)")
+    r = pd.DataFrame(res)
+    r.to_csv(os.path.join(args.out, "sector_output_check.csv"), index=False)
+    print(r.round(2).to_string(index=False))
 
 
 if __name__ == "__main__":

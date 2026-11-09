@@ -2,7 +2,7 @@
 # Russia (Project 5-100, from 2013) as a third treated country; plan ../PREREGISTRATION_russia_2026-11-05.md.
 # Run from this folder after: fetch_openalex.py --countries RU for fields 31, 22, 13, 16.
 set -u
-P=.venv/Scripts/python
+P=${PYTHON:-python}
 export PYTHONIOENCODING=utf-8
 mkdir -p logs results_russia
 N=$(ls data/raw/works_RU_*.csv.gz data_field*/raw/works_RU_*.csv.gz 2>/dev/null | wc -l)

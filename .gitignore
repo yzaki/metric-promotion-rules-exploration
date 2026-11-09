@@ -6,11 +6,18 @@ data*/raw/
 data*/refs/
 data*/world/
 data*/venues/
-data_meta/
+data_meta/*
+# published: the raw-file manifest and the register hash list (the register itself is not distributed)
+!data_meta/raw_manifest.csv
+!data_meta/raw_manifest_original_download.csv
+!data_meta/raw_manifest_5nov_redownload.csv
+!data_meta/staff_register/
+data_meta/staff_register/*
+!data_meta/staff_register/MANIFEST.sha256
 data_sciscinet/
 # decompressed copies of the distributed .csv.gz files
 data*/trajectories*.csv
-logs/
+# fetch and run logs are published (they contain counts and timings, no person-level data)
 # person-level rank matched by name (re-identifiable); not distributed
 rank_2011_match.csv
 **/rank_2011_match.csv
@@ -21,3 +28,6 @@ results_russia/russia_groups.csv
 results_russia/choices_*.csv.gz
 results_venues/panel_*.csv.gz
 results_coauthors/panel_*.csv.gz
+results_coauthors_groups/panel_*.csv.gz
+# local links to the 5 November and original raw files (deposited separately)
+data*/raw_ITFRDE_5nov

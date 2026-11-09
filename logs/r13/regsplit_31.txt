@@ -1,0 +1,4 @@
+      italian_group  lpm_near_pp  ci_low  ci_high  n_italian
+matched to register        -0.71   -2.68     1.25       1738
+        not matched        -2.05   -3.03    -1.06      11379
+        all Italian        -1.83   -2.75    -0.91      13117

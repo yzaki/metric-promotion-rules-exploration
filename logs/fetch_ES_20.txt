@@ -1,0 +1,48 @@
+Field 20 = Economics, Econometrics and Finance
+Using field filter primary_topic.field.id:20
+  ES 1998: 289 papers to download
+  ES 1998: saved 289 papers, 570 author rows
+  ES 1999: 325 papers to download
+  ES 1999: saved 325 papers, 631 author rows
+  ES 2000: 378 papers to download
+  ES 2000: saved 378 papers, 727 author rows
+  ES 2001: 483 papers to download
+  ES 2001: saved 483 papers, 919 author rows
+  ES 2002: 568 papers to download
+  ES 2002: saved 568 papers, 1,189 author rows
+  ES 2003: 739 papers to download
+  ES 2003: saved 739 papers, 1,418 author rows
+  ES 2004: 741 papers to download
+  ES 2004: saved 741 papers, 1,556 author rows
+  ES 2005: 801 papers to download
+  ES 2005: saved 801 papers, 1,608 author rows
+  ES 2006: 893 papers to download
+  ES 2006: saved 893 papers, 1,899 author rows
+  ES 2007: 1,037 papers to download
+  ES 2007: saved 1,037 papers, 2,263 author rows
+  ES 2008: 1,113 papers to download
+  ES 2008: saved 1,113 papers, 2,431 author rows
+  ES 2009: 1,173 papers to download
+  ES 2009: saved 1,173 papers, 2,724 author rows
+  ES 2010: 1,141 papers to download
+  ES 2010: saved 1,141 papers, 2,704 author rows
+  ES 2011: 1,516 papers to download
+  ES 2011: saved 1,516 papers, 3,528 author rows
+  ES 2012: 1,419 papers to download
+  ES 2012: saved 1,419 papers, 3,412 author rows
+  ES 2013: 1,405 papers to download
+  ES 2013: saved 1,405 papers, 3,429 author rows
+  ES 2014: 1,536 papers to download
+  ES 2014: saved 1,536 papers, 3,939 author rows
+  ES 2015: 1,593 papers to download
+  ES 2015: saved 1,593 papers, 4,169 author rows
+  ES 2016: 1,648 papers to download
+  ES 2016: saved 1,648 papers, 4,378 author rows
+  ES 2017: 1,675 papers to download
+  ES 2017: saved 1,675 papers, 4,548 author rows
+  ES 2018: 1,524 papers to download
+  ES 2018: saved 1,524 papers, 4,382 author rows
+  ES 2019: 1,673 papers to download
+  ES 2019: saved 1,673 papers, 4,722 author rows
+
+Done. Next step: python build_trajectories.py

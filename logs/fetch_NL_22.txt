@@ -1,0 +1,48 @@
+Field 22 = Engineering
+Using field filter primary_topic.field.id:22
+  NL 1998: 1,126 papers to download
+  NL 1998: saved 1,126 papers, 3,733 author rows
+  NL 1999: 1,115 papers to download
+  NL 1999: saved 1,115 papers, 3,754 author rows
+  NL 2000: 1,180 papers to download
+  NL 2000: saved 1,180 papers, 4,007 author rows
+  NL 2001: 1,335 papers to download
+  NL 2001: saved 1,335 papers, 4,748 author rows
+  NL 2002: 1,383 papers to download
+  NL 2002: saved 1,383 papers, 5,076 author rows
+  NL 2003: 1,500 papers to download
+  NL 2003: saved 1,500 papers, 5,651 author rows
+  NL 2004: 1,504 papers to download
+  NL 2004: saved 1,504 papers, 5,649 author rows
+  NL 2005: 1,648 papers to download
+  NL 2005: saved 1,648 papers, 6,496 author rows
+  NL 2006: 1,853 papers to download
+  NL 2006: saved 1,853 papers, 7,366 author rows
+  NL 2007: 1,811 papers to download
+  NL 2007: saved 1,811 papers, 7,052 author rows
+  NL 2008: 1,941 papers to download
+  NL 2008: saved 1,941 papers, 8,268 author rows
+  NL 2009: 2,150 papers to download
+  NL 2009: saved 2,150 papers, 9,045 author rows
+  NL 2010: 2,176 papers to download
+  NL 2010: saved 2,176 papers, 9,469 author rows
+  NL 2011: 2,382 papers to download
+  NL 2011: saved 2,383 papers, 10,544 author rows
+  NL 2012: 2,594 papers to download
+  NL 2012: saved 2,595 papers, 11,514 author rows
+  NL 2013: 2,577 papers to download
+  NL 2013: saved 2,577 papers, 11,453 author rows
+  NL 2014: 2,782 papers to download
+  NL 2014: saved 2,782 papers, 12,862 author rows
+  NL 2015: 2,845 papers to download
+  NL 2015: saved 2,845 papers, 12,949 author rows
+  NL 2016: 3,070 papers to download
+  NL 2016: saved 3,070 papers, 14,550 author rows
+  NL 2017: 3,329 papers to download
+  NL 2017: saved 3,329 papers, 15,841 author rows
+  NL 2018: 3,601 papers to download
+  NL 2018: saved 3,601 papers, 17,919 author rows
+  NL 2019: 3,745 papers to download
+  NL 2019: saved 3,745 papers, 18,727 author rows
+
+Done. Next step: python build_trajectories.py

@@ -1,0 +1,13 @@
+group,type,period,share_near_pct,n_choices
+IT,stayer,before,18.063314711359403,28461
+IT,stayer,after,17.18542708439637,29397
+IT,leaver,before,18.353969410050983,9611
+IT,leaver,after,,0
+IT,entrant,before,,0
+IT,entrant,after,16.425285397853127,11738
+CTRL,stayer,before,16.22170711753477,73340
+CTRL,stayer,after,17.472841476599907,77692
+CTRL,leaver,before,17.135791220591585,30731
+CTRL,leaver,after,,0
+CTRL,entrant,before,,0
+CTRL,entrant,after,16.15630531850247,37849

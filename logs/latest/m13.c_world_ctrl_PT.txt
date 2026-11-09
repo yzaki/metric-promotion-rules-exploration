@@ -1,0 +1,56 @@
+Treated: IT; controls: PT
+Loaded 114,962 papers and 870,079 paper-author rows from 44 files
+World citations: 3,555,998 papers, 200 topics, years 1998-2019
+Authors with a clear home country: 118,503
+Authors with at least 5 active years: 25,867
+
+                     scientists  choices  share_stay  share_near  share_far
+country period                                                            
+IT      after            16873    54409       0.453       0.200      0.347
+        before           16052    45939       0.494       0.209      0.298
+        transition       14156    27324       0.478       0.202      0.320
+PT      after             2054     6556       0.508       0.183      0.309
+        before            1705     4623       0.590       0.170      0.240
+        transition        1776     3498       0.532       0.186      0.282
+
+Wrote 142,349 choices to /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/data_field13/trajectories_world_ctrl_PT.csv
+Next step: python estimate.py
+Loaded 142,349 choices by 24,977 scientists from data_field13/trajectories_world_ctrl_PT.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.508  0.183  0.309
+      before  0.590  0.170  0.240
+IT    after   0.453  0.200  0.347
+      before  0.494  0.209  0.298
+
+Fitting the model (100 bootstrap draws)...
+    [main] bootstrap 50/100
+    [main] bootstrap 100/100
+
+Reward weights by group:
+                   IT_pre       IT_post     CTRL_pre    CTRL_post
+theta_cite     -0.438522     -0.527738    -0.200928    -0.819543
+theta_near     -0.792589     -0.752810    -1.220840    -0.907209
+theta_far      -0.474404     -0.220700    -0.896568    -0.402882
+n_choices   45939.000000  54409.000000  4623.000000  6556.000000
+converged       1.000000      1.000000     1.000000     1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite  0.529   0.303    0.695    0.092
+theta_near -0.274  -0.405   -0.117    0.074
+ theta_far -0.240  -0.349   -0.133    0.056
+
+Results saved in results_field13_world_ctrl_PT
+                       spec choice  beta_pp  ci_low_pp  ci_high_pp  n_choices  n_scientists  baseline_IT_pre_pp
+        scientist + year FE   near   -0.820     -2.877       1.236     111527         24549              20.867
+        scientist + year FE   stay    3.371      0.701       6.042     111527         24549              49.370
+        scientist + year FE    far   -2.551     -4.997      -0.105     111527         24549              29.763
+scientist + year + state FE   near   -0.924     -2.966       1.117     111527         24549              20.867
+scientist + year + state FE   stay    3.571      1.046       6.097     111527         24549              49.370
+scientist + year + state FE    far   -2.647     -5.029      -0.265     111527         24549              29.763
+
+Saved results_field13_world_ctrl_PT/reduced_form.csv

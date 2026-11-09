@@ -1,0 +1,24 @@
+Loaded 458,314 papers and 1,890,607 paper-author rows from 66 files
+bar                  far below  met  one short
+rank                                          
+associate professor        637  539        178
+researcher                 902  789        273
+/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/sector_thresholds.py:111: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  v = fp_sc[fp_sc.n >= 5].join(anvur_table2(), rsuffix="_anvur", how="inner")
+Sectors compared with ANVUR Table 2: 51; Spearman correlations {'articles': np.float64(0.19794270804913253), 'citations': np.float64(0.19494094775377294), 'h': np.float64(0.30460967742535233)}
+                group  irl_near  irl_low  irl_high  lpm_near_pp  lpm_low  lpm_high  n_italian  validation_spearman_articles  validation_spearman_citations  validation_spearman_h  validation_n_sectors  n_boot
+                  met    -0.029   -0.158     0.100       -1.243   -3.263     0.777     1328.0                         0.198                          0.195                  0.305                    51     300
+            one short    -0.366   -0.634    -0.094       -4.159   -8.353     0.035      451.0                         0.198                          0.195                  0.305                    51     300
+            far below    -0.316   -0.478    -0.152       -4.273   -7.678    -0.868     1539.0                         0.198                          0.195                  0.305                    51     300
+       full professor    -0.081   -0.258     0.063       -2.231   -4.586     0.124     1362.0                         0.198                          0.195                  0.305                    51     300
+  one short minus met    -0.337   -0.613    -0.046          NaN      NaN       NaN        NaN                         0.198                          0.195                  0.305                    51     300
+below (0-1) minus met    -0.312   -0.510    -0.104          NaN      NaN       NaN        NaN                         0.198                          0.195                  0.305                    51     300
+                              sample                                             spec  below_minus_met_pp  ci_low_pp  ci_high_pp  n_scientists
+associates and researchers (own bar)                              scientist + year FE               -3.03      -6.28        0.21          3318
+associates and researchers (own bar)                            + articles-in-year FE               -2.79      -6.04        0.45          3318
+associates and researchers (own bar)                   + articles-in-year x period FE               -2.47      -5.83        0.89          3318
+associates and researchers (own bar) + articles in decision and next year x period FE               -2.47      -5.92        0.99          3318
+       full professors (placebo bar)                              scientist + year FE               -4.18      -9.12        0.75          1328
+       full professors (placebo bar)                            + articles-in-year FE               -4.26      -9.19        0.66          1328
+       full professors (placebo bar)                   + articles-in-year x period FE               -3.78      -8.96        1.40          1328
+       full professors (placebo bar) + articles in decision and next year x period FE               -3.45      -8.88        1.97          1328

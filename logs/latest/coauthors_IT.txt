@@ -1,0 +1,29 @@
+Loaded 446,333 papers and 3,404,015 paper-author rows from 66 files
+IT Physics: 55,134 scientists, 347,788 scientist-years
+Loaded 458,314 papers and 1,890,607 paper-author rows from 66 files
+IT Engineering: 49,591 scientists, 280,062 scientist-years
+Loaded 405,537 papers and 2,679,475 paper-author rows from 66 files
+IT Biochemistry: 76,368 scientists, 421,769 scientist-years
+Loaded 274,631 papers and 1,261,809 paper-author rows from 66 files
+IT Chemistry: 28,801 scientists, 161,238 scientist-years
+treated       outcome           scope     did  ci_low  ci_high  treated_pre_mean  n_treated
+     IT     team_size All four fields -0.1482 -0.2813  -0.0150           12.4149      49544
+     IT     team_size         Physics  0.7490  0.3216   1.1764           25.4051      13592
+     IT     team_size     Engineering -0.1553 -0.2421  -0.0684            5.2248      12702
+     IT     team_size    Biochemistry -0.8266 -0.9591  -0.6940            8.7274      21606
+     IT     team_size       Chemistry -0.1877 -0.2701  -0.1053            5.9971       7061
+     IT      log_team All four fields -0.0398 -0.0457  -0.0339            1.9673      49544
+     IT      log_team         Physics -0.0100 -0.0256   0.0056            2.4176      13592
+     IT      log_team     Engineering -0.0001 -0.0091   0.0090            1.4243      12702
+     IT      log_team    Biochemistry -0.0823 -0.0904  -0.0742            2.0172      21606
+     IT      log_team       Chemistry -0.0539 -0.0651  -0.0427            1.6925       7061
+     IT international All four fields  0.0003 -0.0037   0.0044            0.4169      49544
+     IT international         Physics  0.0195  0.0125   0.0266            0.6625      13592
+     IT international     Engineering  0.0010 -0.0075   0.0095            0.2814      12702
+     IT international    Biochemistry -0.0135 -0.0203  -0.0068            0.3524      21606
+     IT international       Chemistry -0.0036 -0.0148   0.0075            0.2817       7061
+     IT new_coauthors All four fields  0.0139  0.0106   0.0172            0.5584      47985
+     IT new_coauthors         Physics  0.0322  0.0252   0.0392            0.5048      12113
+     IT new_coauthors     Engineering  0.0057 -0.0016   0.0129            0.5547      12657
+     IT new_coauthors    Biochemistry -0.0049 -0.0097  -0.0000            0.6240      21535
+     IT new_coauthors       Chemistry  0.0496  0.0408   0.0583            0.4795       7058

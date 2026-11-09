@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/reclass_check.py", line 60, in <module>
+    main()
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/reclass_check.py", line 49, in main
+    sh = df[df.year.isin(list(PRE) + list(POST))].groupby(["country", df.year.isin(POST)])[y].mean().mul(100).round(1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/util/_decorators.py", line 335, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/core/frame.py", line 13788, in groupby
+    return DataFrameGroupBy(
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/core/groupby/groupby.py", line 849, in __init__
+    grouper, exclusions, obj = get_grouper(
+                               ^^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/core/groupby/grouper.py", line 936, in get_grouper
+    Grouping(
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/core/groupby/grouper.py", line 472, in __init__
+    grouping_vector = _convert_grouper(index, grouper)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/core/groupby/grouper.py", line 1027, in _convert_grouper
+    return grouper.reindex(axis)._values
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/core/series.py", line 6035, in reindex
+    return super().reindex(
+           ^^^^^^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/core/generic.py", line 5544, in reindex
+    return self._reindex_axes(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/core/generic.py", line 5566, in _reindex_axes
+    new_index, indexer = ax.reindex(
+                         ^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 4450, in reindex
+    raise ValueError("cannot reindex on an axis with duplicate labels")
+ValueError: cannot reindex on an axis with duplicate labels

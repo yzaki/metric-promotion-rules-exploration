@@ -1,0 +1,73 @@
+Loaded 446,333 papers and 3,404,015 paper-author rows from 66 files
+  Physics: 6,315 ranked journals; 100.0% of sampled author-articles in decision years matched to a venue row; 1,543 domestic journals (61.9% of treated scientists' articles)
+IT Physics: 55,134 scientists, 347,788 scientist-years
+Loaded 458,314 papers and 1,890,607 paper-author rows from 66 files
+  Engineering: 13,365 ranked journals; 100.0% of sampled author-articles in decision years matched to a venue row; 3,181 domestic journals (52.4% of treated scientists' articles)
+IT Engineering: 49,591 scientists, 280,062 scientist-years
+Loaded 405,537 papers and 2,679,475 paper-author rows from 66 files
+  Biochemistry: 10,389 ranked journals; 100.0% of sampled author-articles in decision years matched to a venue row; 3,204 domestic journals (60.3% of treated scientists' articles)
+IT Biochemistry: 76,368 scientists, 421,769 scientist-years
+Loaded 274,631 papers and 1,261,809 paper-author rows from 66 files
+  Chemistry: 5,060 ranked journals; 100.0% of sampled author-articles in decision years matched to a venue row; 960 domestic journals (20.6% of treated scientists' articles)
+IT Chemistry: 28,801 scientists, 161,238 scientist-years
+treated                 outcome           scope     did  ci_low  ci_high  treated_pre_mean  n_treated
+     IT            top_quartile All four fields  0.0065  0.0028   0.0101            0.2563      49525
+     IT            top_quartile         Physics  0.0147  0.0084   0.0210            0.2623      13589
+     IT            top_quartile     Engineering -0.0094 -0.0178  -0.0011            0.3118      12691
+     IT            top_quartile    Biochemistry  0.0044 -0.0017   0.0106            0.2132      21600
+     IT            top_quartile       Chemistry  0.0210  0.0105   0.0314            0.2795       7060
+     IT         bottom_quartile All four fields  0.0103  0.0074   0.0132            0.1592      49525
+     IT         bottom_quartile         Physics  0.0168  0.0111   0.0225            0.1903      13589
+     IT         bottom_quartile     Engineering  0.0313  0.0260   0.0366            0.0881      12691
+     IT         bottom_quartile    Biochemistry -0.0004 -0.0055   0.0047            0.1661      21600
+     IT         bottom_quartile       Chemistry -0.0093 -0.0166  -0.0019            0.1744       7060
+     IT             journal_pct All four fields -0.6751 -0.8940  -0.4562           53.0948      49525
+     IT             journal_pct         Physics -0.0527 -0.4657   0.3603           49.8119      13589
+     IT             journal_pct     Engineering -2.2328 -2.6871  -1.7784           59.4800      12691
+     IT             journal_pct    Biochemistry -0.6431 -1.0068  -0.2795           51.2009      21600
+     IT             journal_pct       Chemistry  0.4928 -0.0746   1.0601           55.8454       7060
+     IT                  fee_oa All four fields  0.0085  0.0057   0.0113            0.1018      49525
+     IT                  fee_oa         Physics  0.0027 -0.0019   0.0072            0.1353      13589
+     IT                  fee_oa     Engineering  0.0200  0.0153   0.0247            0.0442      12691
+     IT                  fee_oa    Biochemistry -0.0041 -0.0099   0.0017            0.1367      21600
+     IT                  fee_oa       Chemistry  0.0380  0.0324   0.0435            0.0258       7060
+     IT          n_institutions All four fields -0.3689 -0.4461  -0.2918            4.4373      49544
+     IT          n_institutions         Physics  0.8670  0.6327   1.1014            8.6671      13592
+     IT          n_institutions     Engineering -0.5124 -0.5506  -0.4742            2.1782      12702
+     IT          n_institutions    Biochemistry -1.1994 -1.2969  -1.1019            3.2782      21606
+     IT          n_institutions       Chemistry -0.4887 -0.5409  -0.4365            2.1342       7061
+     IT             single_inst All four fields -0.0055 -0.0089  -0.0021            0.2638      49544
+     IT             single_inst         Physics  0.0073  0.0026   0.0119            0.1070      13592
+     IT             single_inst     Engineering  0.0023 -0.0063   0.0108            0.4048      12702
+     IT             single_inst    Biochemistry -0.0125 -0.0182  -0.0069            0.2562      21606
+     IT             single_inst       Chemistry -0.0274 -0.0378  -0.0169            0.3995       7061
+     IT         top_quartile_yr All four fields -0.0089 -0.0129  -0.0049            0.2548      48482
+     IT         top_quartile_yr         Physics  0.0082  0.0015   0.0149            0.2290      13456
+     IT         top_quartile_yr     Engineering -0.0095 -0.0191   0.0000            0.3007      12332
+     IT         top_quartile_yr    Biochemistry -0.0190 -0.0259  -0.0121            0.2442      20952
+     IT         top_quartile_yr       Chemistry -0.0236 -0.0341  -0.0130            0.2788       6929
+     IT      bottom_quartile_yr All four fields  0.0170  0.0133   0.0208            0.1877      48482
+     IT      bottom_quartile_yr         Physics  0.0250  0.0177   0.0323            0.2430      13456
+     IT      bottom_quartile_yr     Engineering  0.0418  0.0339   0.0498            0.1426      12332
+     IT      bottom_quartile_yr    Biochemistry -0.0005 -0.0065   0.0056            0.1733      20952
+     IT      bottom_quartile_yr       Chemistry  0.0045 -0.0047   0.0137            0.1570       6929
+     IT          journal_pct_yr All four fields -0.7962 -1.0397  -0.5528           53.1081      48482
+     IT          journal_pct_yr         Physics -0.1207 -0.5531   0.3117           50.4164      13456
+     IT          journal_pct_yr     Engineering -2.2889 -2.8453  -1.7326           57.2417      12332
+     IT          journal_pct_yr    Biochemistry -0.5501 -0.9559  -0.1442           52.8650      20952
+     IT          journal_pct_yr       Chemistry -0.7695 -1.3860  -0.1531           54.5098       6929
+     IT    top_quartile_yr_intl All four fields -0.0105 -0.0156  -0.0053            0.2388      40399
+     IT    top_quartile_yr_intl         Physics  0.0034 -0.0048   0.0115            0.1770      11205
+     IT    top_quartile_yr_intl     Engineering -0.0011 -0.0133   0.0110            0.2521      10198
+     IT    top_quartile_yr_intl    Biochemistry -0.0252 -0.0352  -0.0153            0.2816      16897
+     IT    top_quartile_yr_intl       Chemistry -0.0189 -0.0302  -0.0076            0.2526       6578
+     IT bottom_quartile_yr_intl All four fields  0.0081  0.0032   0.0130            0.2013      40399
+     IT bottom_quartile_yr_intl         Physics  0.0115  0.0018   0.0213            0.2738      11205
+     IT bottom_quartile_yr_intl     Engineering  0.0249  0.0145   0.0354            0.1806      10198
+     IT bottom_quartile_yr_intl    Biochemistry -0.0008 -0.0094   0.0078            0.1541      16897
+     IT bottom_quartile_yr_intl       Chemistry -0.0016 -0.0118   0.0087            0.1853       6578
+     IT     journal_pct_yr_intl All four fields -0.5146 -0.8411  -0.1882           51.5659      40399
+     IT     journal_pct_yr_intl         Physics -0.7043 -1.3161  -0.0925           46.2079      11205
+     IT     journal_pct_yr_intl     Engineering -1.5993 -2.3153  -0.8834           53.9554      10198
+     IT     journal_pct_yr_intl    Biochemistry  0.3778 -0.2106   0.9663           54.6738      16897
+     IT     journal_pct_yr_intl       Chemistry -0.4146 -1.0967   0.2676           52.5614       6578

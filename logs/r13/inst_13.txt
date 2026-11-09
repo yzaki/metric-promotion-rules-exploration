@@ -1,0 +1,14 @@
+Italian scientists 20,715; classified 17,347
+university staff            6448
+university, early career    3582
+university, other           2740
+hospital or company         2674
+research institute          1903
+                                            group  irl_near  irl_low  irl_high  lpm_near_pp  lpm_low  lpm_high  n_italian
+                                 university staff    -0.064   -0.137     0.014       -1.927   -3.207    -0.646     6448.0
+                         university, early career    -0.020   -0.151     0.111       -1.981   -4.043     0.081     3582.0
+                                university, other    -0.107   -0.203     0.045       -1.026   -3.058     1.006     2740.0
+                               research institute    -0.015   -0.155     0.119       -1.160   -3.606     1.287     1903.0
+                              hospital or company    -0.302   -0.447    -0.158       -2.030   -4.029    -0.031     2674.0
+        university staff minus research institute    -0.049   -0.185     0.085          NaN      NaN       NaN        NaN
+university, early career minus research institute    -0.005   -0.194     0.216          NaN      NaN       NaN        NaN

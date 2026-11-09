@@ -1,0 +1,271 @@
+started 2026-11-05T03:55:29.6138569+04:00
+Field 16 = Chemistry
+Using field filter primary_topic.field.id:16
+  IT 1998: 1,945 papers to download
+  IT 1998: saved 1,945 papers, 8,614 author rows
+  IT 1999: 2,030 papers to download
+  IT 1999: saved 2,030 papers, 9,106 author rows
+  IT 2000: 2,148 papers to download
+  IT 2000: saved 2,148 papers, 9,575 author rows
+  IT 2001: 2,206 papers to download
+  IT 2001: saved 2,206 papers, 10,010 author rows
+  IT 2002: 2,282 papers to download
+  IT 2002: saved 2,282 papers, 10,602 author rows
+  IT 2003: 2,427 papers to download
+  IT 2003: saved 2,427 papers, 11,220 author rows
+  IT 2004: 2,458 papers to download
+  IT 2004: saved 2,458 papers, 11,889 author rows
+  IT 2005: 2,326 papers to download
+  IT 2005: saved 2,326 papers, 11,477 author rows
+  IT 2006: 2,314 papers to download
+  IT 2006: saved 2,314 papers, 11,417 author rows
+  IT 2007: 2,244 papers to download
+    HTTP 504; retrying in 1s
+  IT 2007: saved 2,244 papers, 11,409 author rows
+  IT 2008: 2,236 papers to download
+  IT 2008: saved 2,236 papers, 11,675 author rows
+  IT 2009: 2,247 papers to download
+  IT 2009: saved 2,247 papers, 11,499 author rows
+  IT 2010: 2,219 papers to download
+  IT 2010: saved 2,219 papers, 11,672 author rows
+  IT 2011: 2,125 papers to download
+  IT 2011: saved 2,125 papers, 11,205 author rows
+  IT 2012: 2,047 papers to download
+  IT 2012: saved 2,047 papers, 10,954 author rows
+  IT 2013: 2,103 papers to download
+  IT 2013: saved 2,103 papers, 11,518 author rows
+  IT 2014: 2,031 papers to download
+  IT 2014: saved 2,031 papers, 11,466 author rows
+  IT 2015: 2,037 papers to download
+  IT 2015: saved 2,037 papers, 11,746 author rows
+  IT 2016: 1,975 papers to download
+  IT 2016: saved 1,975 papers, 11,652 author rows
+  IT 2017: 1,790 papers to download
+  IT 2017: saved 1,790 papers, 10,771 author rows
+  IT 2018: 1,727 papers to download
+  IT 2018: saved 1,727 papers, 10,941 author rows
+  IT 2019: 1,835 papers to download
+  IT 2019: saved 1,835 papers, 11,635 author rows
+  FR 1998: 3,469 papers to download
+  FR 1998: saved 3,469 papers, 13,557 author rows
+  FR 1999: 3,468 papers to download
+  FR 1999: saved 3,468 papers, 13,818 author rows
+  FR 2000: 3,418 papers to download
+  FR 2000: saved 3,418 papers, 13,827 author rows
+  FR 2001: 3,461 papers to download
+  FR 2001: saved 3,461 papers, 14,440 author rows
+  FR 2002: 3,504 papers to download
+  FR 2002: saved 3,504 papers, 14,799 author rows
+  FR 2003: 3,445 papers to download
+  FR 2003: saved 3,445 papers, 14,625 author rows
+  FR 2004: 3,409 papers to download
+  FR 2004: saved 3,409 papers, 15,037 author rows
+  FR 2005: 3,578 papers to download
+  FR 2005: saved 3,578 papers, 15,898 author rows
+  FR 2006: 3,459 papers to download
+  FR 2006: saved 3,459 papers, 15,920 author rows
+  FR 2007: 3,650 papers to download
+  FR 2007: saved 3,650 papers, 16,882 author rows
+  FR 2008: 3,632 papers to download
+  FR 2008: saved 3,632 papers, 17,410 author rows
+  FR 2009: 3,567 papers to download
+  FR 2009: saved 3,567 papers, 17,390 author rows
+  FR 2010: 3,616 papers to download
+  FR 2010: saved 3,616 papers, 18,268 author rows
+  FR 2011: 3,644 papers to download
+  FR 2011: saved 3,644 papers, 18,838 author rows
+  FR 2012: 3,597 papers to download
+  FR 2012: saved 3,597 papers, 19,191 author rows
+  FR 2013: 3,674 papers to download
+  FR 2013: saved 3,674 papers, 19,711 author rows
+  FR 2014: 3,641 papers to download
+  FR 2014: saved 3,641 papers, 20,079 author rows
+  FR 2015: 3,479 papers to download
+  FR 2015: saved 3,479 papers, 19,660 author rows
+  FR 2016: 3,525 papers to download
+  FR 2016: saved 3,525 papers, 20,422 author rows
+  FR 2017: 3,086 papers to download
+  FR 2017: saved 3,086 papers, 18,594 author rows
+  FR 2018: 2,902 papers to download
+  FR 2018: saved 2,902 papers, 17,704 author rows
+  FR 2019: 2,928 papers to download
+  FR 2019: saved 2,928 papers, 18,391 author rows
+  DE 1998: 5,977 papers to download
+  DE 1998: saved 5,977 papers, 20,499 author rows
+  DE 1999: 5,687 papers to download
+  DE 1999: saved 5,687 papers, 19,678 author rows
+  DE 2000: 5,704 papers to download
+  DE 2000: saved 5,704 papers, 19,998 author rows
+  DE 2001: 5,378 papers to download
+  DE 2001: saved 5,378 papers, 19,260 author rows
+  DE 2002: 5,534 papers to download
+  DE 2002: saved 5,534 papers, 19,905 author rows
+  DE 2003: 5,337 papers to download
+  DE 2003: saved 5,337 papers, 19,422 author rows
+  DE 2004: 5,531 papers to download
+  DE 2004: saved 5,531 papers, 20,836 author rows
+  DE 2005: 5,609 papers to download
+  DE 2005: saved 5,609 papers, 21,636 author rows
+  DE 2006: 5,636 papers to download
+  DE 2006: saved 5,636 papers, 22,255 author rows
+  DE 2007: 5,556 papers to download
+  DE 2007: saved 5,556 papers, 22,573 author rows
+  DE 2008: 5,503 papers to download
+  DE 2008: saved 5,503 papers, 22,805 author rows
+  DE 2009: 5,707 papers to download
+  DE 2009: saved 5,707 papers, 24,235 author rows
+  DE 2010: 5,873 papers to download
+  DE 2010: saved 5,873 papers, 25,266 author rows
+  DE 2011: 5,735 papers to download
+  DE 2011: saved 5,735 papers, 25,339 author rows
+  DE 2012: 6,019 papers to download
+  DE 2012: saved 6,019 papers, 26,786 author rows
+  DE 2013: 5,872 papers to download
+  DE 2013: saved 5,872 papers, 26,943 author rows
+  DE 2014: 5,888 papers to download
+  DE 2014: saved 5,888 papers, 27,713 author rows
+  DE 2015: 5,913 papers to download
+  DE 2015: saved 5,913 papers, 28,422 author rows
+  DE 2016: 5,732 papers to download
+  DE 2016: saved 5,732 papers, 28,142 author rows
+  DE 2017: 5,094 papers to download
+  DE 2017: saved 5,094 papers, 26,536 author rows
+  DE 2018: 5,180 papers to download
+  DE 2018: saved 5,180 papers, 27,769 author rows
+  DE 2019: 5,060 papers to download
+  DE 2019: saved 5,060 papers, 27,336 author rows
+  ES 1998: 2,024 papers to download
+  ES 1998: saved 2,024 papers, 8,242 author rows
+  ES 1999: 2,192 papers to download
+  ES 1999: saved 2,192 papers, 9,158 author rows
+  ES 2000: 2,421 papers to download
+  ES 2000: saved 2,421 papers, 9,988 author rows
+  ES 2001: 2,466 papers to download
+  ES 2001: saved 2,466 papers, 10,586 author rows
+  ES 2002: 2,608 papers to download
+  ES 2002: saved 2,608 papers, 11,278 author rows
+  ES 2003: 2,682 papers to download
+  ES 2003: saved 2,682 papers, 11,556 author rows
+  ES 2004: 2,739 papers to download
+    HTTP 504; retrying in 1s
+  ES 2004: saved 2,739 papers, 11,872 author rows
+  ES 2005: 2,927 papers to download
+  ES 2005: saved 2,927 papers, 12,886 author rows
+  ES 2006: 2,948 papers to download
+  ES 2006: saved 2,948 papers, 13,025 author rows
+  ES 2007: 2,904 papers to download
+  ES 2007: saved 2,904 papers, 13,032 author rows
+  ES 2008: 2,792 papers to download
+  ES 2008: saved 2,792 papers, 12,744 author rows
+  ES 2009: 2,890 papers to download
+  ES 2009: saved 2,890 papers, 13,268 author rows
+  ES 2010: 2,933 papers to download
+  ES 2010: saved 2,933 papers, 13,788 author rows
+  ES 2011: 3,111 papers to download
+  ES 2011: saved 3,111 papers, 14,793 author rows
+  ES 2012: 2,942 papers to download
+  ES 2012: saved 2,942 papers, 14,149 author rows
+  ES 2013: 3,012 papers to download
+  ES 2013: saved 3,012 papers, 14,784 author rows
+  ES 2014: 2,894 papers to download
+  ES 2014: saved 2,894 papers, 14,406 author rows
+  ES 2015: 2,832 papers to download
+  ES 2015: saved 2,832 papers, 14,618 author rows
+  ES 2016: 2,787 papers to download
+resumed 2026-11-05T05:14:42.8470926+04:00
+Field 16 = Chemistry
+Using field filter primary_topic.field.id:16
+  IT 1998: already downloaded, skipping
+  IT 1999: already downloaded, skipping
+  IT 2000: already downloaded, skipping
+  IT 2001: already downloaded, skipping
+  IT 2002: already downloaded, skipping
+  IT 2003: already downloaded, skipping
+  IT 2004: already downloaded, skipping
+  IT 2005: already downloaded, skipping
+  IT 2006: already downloaded, skipping
+  IT 2007: already downloaded, skipping
+  IT 2008: already downloaded, skipping
+  IT 2009: already downloaded, skipping
+  IT 2010: already downloaded, skipping
+  IT 2011: already downloaded, skipping
+  IT 2012: already downloaded, skipping
+  IT 2013: already downloaded, skipping
+  IT 2014: already downloaded, skipping
+  IT 2015: already downloaded, skipping
+  IT 2016: already downloaded, skipping
+  IT 2017: already downloaded, skipping
+  IT 2018: already downloaded, skipping
+  IT 2019: already downloaded, skipping
+  FR 1998: already downloaded, skipping
+  FR 1999: already downloaded, skipping
+  FR 2000: already downloaded, skipping
+  FR 2001: already downloaded, skipping
+  FR 2002: already downloaded, skipping
+  FR 2003: already downloaded, skipping
+  FR 2004: already downloaded, skipping
+  FR 2005: already downloaded, skipping
+  FR 2006: already downloaded, skipping
+  FR 2007: already downloaded, skipping
+  FR 2008: already downloaded, skipping
+  FR 2009: already downloaded, skipping
+  FR 2010: already downloaded, skipping
+  FR 2011: already downloaded, skipping
+  FR 2012: already downloaded, skipping
+  FR 2013: already downloaded, skipping
+  FR 2014: already downloaded, skipping
+  FR 2015: already downloaded, skipping
+  FR 2016: already downloaded, skipping
+  FR 2017: already downloaded, skipping
+  FR 2018: already downloaded, skipping
+  FR 2019: already downloaded, skipping
+  DE 1998: already downloaded, skipping
+  DE 1999: already downloaded, skipping
+  DE 2000: already downloaded, skipping
+  DE 2001: already downloaded, skipping
+  DE 2002: already downloaded, skipping
+  DE 2003: already downloaded, skipping
+  DE 2004: already downloaded, skipping
+  DE 2005: already downloaded, skipping
+  DE 2006: already downloaded, skipping
+  DE 2007: already downloaded, skipping
+  DE 2008: already downloaded, skipping
+  DE 2009: already downloaded, skipping
+  DE 2010: already downloaded, skipping
+  DE 2011: already downloaded, skipping
+  DE 2012: already downloaded, skipping
+  DE 2013: already downloaded, skipping
+  DE 2014: already downloaded, skipping
+  DE 2015: already downloaded, skipping
+  DE 2016: already downloaded, skipping
+  DE 2017: already downloaded, skipping
+  DE 2018: already downloaded, skipping
+  DE 2019: already downloaded, skipping
+  ES 1998: already downloaded, skipping
+  ES 1999: already downloaded, skipping
+  ES 2000: already downloaded, skipping
+  ES 2001: already downloaded, skipping
+  ES 2002: already downloaded, skipping
+  ES 2003: already downloaded, skipping
+  ES 2004: already downloaded, skipping
+  ES 2005: already downloaded, skipping
+  ES 2006: already downloaded, skipping
+  ES 2007: already downloaded, skipping
+  ES 2008: already downloaded, skipping
+  ES 2009: already downloaded, skipping
+  ES 2010: already downloaded, skipping
+  ES 2011: already downloaded, skipping
+  ES 2012: already downloaded, skipping
+  ES 2013: already downloaded, skipping
+  ES 2014: already downloaded, skipping
+  ES 2015: already downloaded, skipping
+  ES 2016: 2,787 papers to download
+  ES 2016: saved 2,787 papers, 14,503 author rows
+  ES 2017: 2,519 papers to download
+  ES 2017: saved 2,519 papers, 13,535 author rows
+  ES 2018: 2,502 papers to download
+  ES 2018: saved 2,502 papers, 13,569 author rows
+  ES 2019: 2,363 papers to download
+  ES 2019: saved 2,363 papers, 13,483 author rows
+
+Done. Next step: python build_trajectories.py

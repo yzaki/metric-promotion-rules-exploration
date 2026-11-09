@@ -1,0 +1,29 @@
+Loaded 446,333 papers and 3,404,015 paper-author rows from 66 files
+World citations: 3,008,237 papers, 115 topics, years 1998-2019
+                      sample   outcome      choice  vs_stay  ci_low  ci_high  stay_mean  n_choices  share_of_choices
+control countries, 2004-2018    papers near_return  -0.1678 -0.2344  -0.1013     4.1007     244288            0.1107
+control countries, 2004-2018    papers    near_new  -0.2704 -0.3453  -0.1955     4.1007     244288            0.0532
+control countries, 2004-2018    papers  far_return  -0.1516 -0.2061  -0.0970     4.1007     244288            0.0617
+control countries, 2004-2018    papers     far_new  -0.2124 -0.2663  -0.1584     4.1007     244288            0.0424
+control countries, 2004-2018 log_cites near_return   0.0017 -0.0045   0.0078     0.5828     244288            0.1107
+control countries, 2004-2018 log_cites    near_new   0.0022 -0.0063   0.0108     0.5828     244288            0.0532
+control countries, 2004-2018 log_cites  far_return  -0.0031 -0.0110   0.0047     0.5828     244288            0.0617
+control countries, 2004-2018 log_cites     far_new   0.0030 -0.0066   0.0125     0.5828     244288            0.0424
+control countries, 2004-2018     top10 near_return   0.0051  0.0014   0.0089     0.1343     244288            0.1107
+control countries, 2004-2018     top10    near_new   0.0029 -0.0023   0.0081     0.1343     244288            0.0532
+control countries, 2004-2018     top10  far_return   0.0016 -0.0029   0.0060     0.1343     244288            0.0617
+control countries, 2004-2018     top10     far_new   0.0014 -0.0043   0.0070     0.1343     244288            0.0424
+     Italy before the reform    papers near_return   0.0593 -0.0813   0.1999     4.1107      37060            0.1267
+     Italy before the reform    papers    near_new   0.4789  0.2536   0.7042     4.1107      37060            0.0537
+     Italy before the reform    papers  far_return  -0.1322 -0.2879   0.0235     4.1107      37060            0.0658
+     Italy before the reform    papers     far_new   0.0708 -0.0888   0.2303     4.1107      37060            0.0452
+     Italy before the reform log_cites near_return   0.0204  0.0058   0.0350     0.5165      37060            0.1267
+     Italy before the reform log_cites    near_new   0.0101 -0.0139   0.0340     0.5165      37060            0.0537
+     Italy before the reform log_cites  far_return  -0.0090 -0.0290   0.0111     0.5165      37060            0.0658
+     Italy before the reform log_cites     far_new   0.0013 -0.0266   0.0292     0.5165      37060            0.0452
+     Italy before the reform     top10 near_return   0.0153  0.0068   0.0239     0.1061      37060            0.1267
+     Italy before the reform     top10    near_new   0.0064 -0.0060   0.0187     0.1061      37060            0.0537
+     Italy before the reform     top10  far_return  -0.0060 -0.0161   0.0042     0.1061      37060            0.0658
+     Italy before the reform     top10     far_new  -0.0004 -0.0136   0.0128     0.1061      37060            0.0452
+
+Saved /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/results_world/return_value_lead2.csv

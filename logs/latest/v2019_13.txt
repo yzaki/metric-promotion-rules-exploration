@@ -1,0 +1,7 @@
+Field 13 = Biochemistry, Genetics and Molecular Biology
+Using field filter primary_topic.field.id:13
+  IT 2019: 5,466 papers
+  FR 2019: 6,397 papers
+  DE 2019: 10,313 papers
+
+Done.

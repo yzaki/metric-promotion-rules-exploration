@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/institution_split.py", line 109, in <module>
+    main()
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/institution_split.py", line 63, in main
+    matched = set(pd.read_csv(os.path.join(args.out, "rank_2011_match.csv"), index_col=0).index)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 1866, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 423, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 2721, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 2988, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/.venv/lib/python3.11/site-packages/pandas/io/common.py", line 954, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results_field13_world_career/rank_2011_match.csv'

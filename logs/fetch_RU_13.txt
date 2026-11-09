@@ -1,0 +1,48 @@
+Field 13 = Biochemistry, Genetics and Molecular Biology
+Using field filter primary_topic.field.id:13
+  RU 1998: 1,306 papers to download
+  RU 1998: saved 1,306 papers, 5,266 author rows
+  RU 1999: 1,330 papers to download
+  RU 1999: saved 1,330 papers, 5,360 author rows
+  RU 2000: 1,797 papers to download
+  RU 2000: saved 1,797 papers, 6,897 author rows
+  RU 2001: 1,707 papers to download
+  RU 2001: saved 1,707 papers, 6,953 author rows
+  RU 2002: 1,754 papers to download
+  RU 2002: saved 1,754 papers, 7,351 author rows
+  RU 2003: 1,807 papers to download
+  RU 2003: saved 1,807 papers, 7,386 author rows
+  RU 2004: 1,604 papers to download
+  RU 2004: saved 1,604 papers, 7,159 author rows
+  RU 2005: 1,529 papers to download
+  RU 2005: saved 1,529 papers, 7,099 author rows
+  RU 2006: 1,557 papers to download
+  RU 2006: saved 1,557 papers, 7,313 author rows
+  RU 2007: 1,742 papers to download
+  RU 2007: saved 1,742 papers, 8,269 author rows
+  RU 2008: 1,851 papers to download
+  RU 2008: saved 1,851 papers, 9,045 author rows
+  RU 2009: 1,861 papers to download
+  RU 2009: saved 1,860 papers, 9,379 author rows
+  RU 2010: 2,002 papers to download
+  RU 2010: saved 2,002 papers, 9,903 author rows
+  RU 2011: 2,058 papers to download
+  RU 2011: saved 2,058 papers, 10,889 author rows
+  RU 2012: 2,078 papers to download
+  RU 2012: saved 2,078 papers, 11,083 author rows
+  RU 2013: 2,357 papers to download
+  RU 2013: saved 2,358 papers, 12,533 author rows
+  RU 2014: 2,592 papers to download
+  RU 2014: saved 2,592 papers, 14,609 author rows
+  RU 2015: 3,071 papers to download
+  RU 2015: saved 3,072 papers, 17,442 author rows
+  RU 2016: 3,417 papers to download
+  RU 2016: saved 3,415 papers, 21,301 author rows
+  RU 2017: 3,734 papers to download
+  RU 2017: saved 3,734 papers, 22,512 author rows
+  RU 2018: 3,939 papers to download
+  RU 2018: saved 3,939 papers, 24,018 author rows
+  RU 2019: 4,244 papers to download
+  RU 2019: saved 4,244 papers, 26,422 author rows
+
+Done. Next step: python build_trajectories.py

@@ -1,0 +1,8 @@
+Loaded 335,103 papers and 1,535,026 paper-author rows from 88 files
+Loaded 272,185 papers with 9,660,669 references from 76 files
+  outcome      did   ci_low  ci_high  IT_pre  IT_post  CTRL_pre  CTRL_post
+     refs -10.1513 -12.4816  -7.3335 63.4102  85.9257   69.7928   102.4596
+ new_refs  -6.2449  -8.0103  -4.6761 49.8079  65.8169   54.8945    77.1484
+new_share   0.0146   0.0094   0.0187  0.8108   0.7904    0.8151     0.7801
+
+Saved /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/results_field16/novelty_es.csv

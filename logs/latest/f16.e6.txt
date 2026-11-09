@@ -1,0 +1,68 @@
+Loaded 151,567 choices by 26,420 scientists from data_field16/trajectories_world_career.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.541  0.222  0.237
+      before  0.559  0.223  0.218
+IT    after   0.526  0.228  0.247
+      before  0.536  0.255  0.209
+
+Fitting the model (100 bootstrap draws)...
+    [main] bootstrap 50/100
+    [main] bootstrap 100/100
+
+Reward weights by group:
+                   IT_pre       IT_post      CTRL_pre     CTRL_post
+theta_cite      0.098332     -0.074317      0.125847      0.079393
+theta_near     -0.734725     -0.842549     -0.915824     -0.888401
+theta_far      -0.947341     -0.749519     -0.940622     -0.829813
+n_choices   18397.000000  14715.000000  44358.000000  41430.000000
+converged       1.000000      1.000000      1.000000      1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite -0.126  -0.227   -0.021    0.058
+theta_near -0.135  -0.200   -0.072    0.037
+ theta_far  0.087   0.029    0.149    0.037
+
+Career stage 0-5 years...
+    [0-5 years] bootstrap 50/50
+
+Career stage 6-15 years...
+    [6-15 years] bootstrap 50/50
+
+Career stage 16+ years...
+    [16+ years] bootstrap 50/50
+
+Reform effect by career stage:
+ career_stage  parameter    did  ci_low  ci_high  boot_se
+   0-5 years theta_cite -0.164  -0.419    0.084    0.159
+   0-5 years theta_near -0.202  -0.463    0.120    0.157
+   0-5 years  theta_far  0.096  -0.155    0.347    0.132
+  6-15 years theta_cite -0.132  -0.297    0.085    0.119
+  6-15 years theta_near -0.186  -0.335   -0.059    0.077
+  6-15 years  theta_far  0.033  -0.141    0.169    0.077
+   16+ years theta_cite -0.141  -0.278    0.036    0.084
+   16+ years theta_near -0.114  -0.216   -0.010    0.056
+   16+ years  theta_far  0.119   0.008    0.215    0.063
+
+Results saved in results_field16_world_career
+estimate  point  ci_low  ci_high
+     mid -0.186  -0.318   -0.049
+  senior -0.114  -0.214   -0.003
+     ddd -0.072  -0.258    0.056
+estimate  point  ci_low  ci_high
+     mid -0.014  -0.168    0.126
+  senior  0.034  -0.115    0.145
+     ddd -0.048  -0.250    0.140
+                       spec choice  beta_pp  ci_low_pp  ci_high_pp  n_choices  n_scientists  baseline_IT_pre_pp
+        scientist + year FE   near   -1.409     -2.921       0.102     118900         25951              25.531
+        scientist + year FE   stay   -0.033     -1.840       1.773     118900         25951              53.607
+        scientist + year FE    far    1.443     -0.095       2.980     118900         25951              20.862
+scientist + year + state FE   near   -1.675     -3.161      -0.189     118900         25951              25.531
+scientist + year + state FE   stay    0.307     -1.386       1.999     118900         25951              53.607
+scientist + year + state FE    far    1.368     -0.135       2.871     118900         25951              20.862
+
+Saved results_field16_world_career/reduced_form.csv

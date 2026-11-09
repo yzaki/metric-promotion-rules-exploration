@@ -1,0 +1,10 @@
+Loaded 564,928 papers and 2,396,185 paper-author rows from 66 files
+SciSciNet rows with references: 1,590,634; with disruption: 1,504,723
+Matched 419,403 of 486,608 sample papers (86.2%)
+    outcome       did    ci_low   ci_high    IT_pre   IT_post  CTRL_pre  CTRL_post
+ disruption   0.00047  -0.00021   0.00113   0.00357  -0.00075   0.00558    0.00079
+ disruptive  -0.00391  -0.01122   0.00240   0.32867   0.21654   0.30814    0.19992
+ atyp_10pct -10.23537 -17.41384  -3.12168  82.29547  55.95629  73.12198   57.01816
+atyp_median -25.75677 -33.34422 -17.07078 235.42170 211.32172 208.52531  210.18210
+
+Saved /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/results_field22/disruption.csv

@@ -1,0 +1,53 @@
+Loaded 377,879 choices by 54,525 scientists from data/trajectories_world.csv.gz
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.732  0.166  0.102
+      before  0.735  0.164  0.101
+IT    after   0.729  0.159  0.112
+      before  0.711  0.179  0.110
+
+Fitting the model (200 bootstrap draws)...
+    [main] bootstrap 50/200
+    [main] bootstrap 100/200
+    [main] bootstrap 150/200
+    [main] bootstrap 200/200
+
+Reward weights by group:
+                   IT_pre       IT_post       CTRL_pre      CTRL_post
+theta_cite      0.098708      0.050116       0.052298       0.027568
+theta_near     -1.385115     -1.528332      -1.505848      -1.487884
+theta_far      -1.854432     -1.867004      -1.972208      -1.970885
+n_choices   37949.000000  39675.000000  105400.000000  115935.000000
+converged       1.000000      1.000000       1.000000       1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite -0.024  -0.081    0.028    0.029
+theta_near -0.161  -0.205   -0.111    0.027
+ theta_far -0.014  -0.079    0.061    0.036
+
+Event study...
+    [event study] bootstrap 25/100
+    [event study] bootstrap 50/100
+    [event study] bootstrap 75/100
+    [event study] bootstrap 100/100
+   window  start  parameter  it_minus_ctrl_vs_ref  ci_low  ci_high
+2004-2005   2004 theta_cite                -0.046  -0.144    0.038
+2004-2005   2004  theta_far                -0.101  -0.182   -0.001
+2006-2007   2006 theta_cite                 0.033  -0.046    0.121
+2006-2007   2006  theta_far                 0.068  -0.016    0.157
+2008-2009   2008 theta_cite                 0.000   0.000    0.000
+2008-2009   2008  theta_far                 0.000   0.000    0.000
+2010-2011   2010 theta_cite                -0.192  -0.305   -0.066
+2010-2011   2010  theta_far                 0.009  -0.083    0.068
+2012-2013   2012 theta_cite                 0.005  -0.118    0.140
+2012-2013   2012  theta_far                -0.006  -0.107    0.092
+2014-2015   2014 theta_cite                -0.030  -0.112    0.064
+2014-2015   2014  theta_far                -0.043  -0.142    0.042
+2016-2017   2016 theta_cite                 0.029  -0.064    0.109
+2016-2017   2016  theta_far                 0.059  -0.033    0.139
+
+Results saved in results_world_esFRDE

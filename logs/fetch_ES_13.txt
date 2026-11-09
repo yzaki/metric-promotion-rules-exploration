@@ -1,0 +1,48 @@
+Field 13 = Biochemistry, Genetics and Molecular Biology
+Using field filter primary_topic.field.id:13
+  ES 1998: 1,839 papers to download
+  ES 1998: saved 1,839 papers, 8,557 author rows
+  ES 1999: 1,893 papers to download
+  ES 1999: saved 1,893 papers, 8,935 author rows
+  ES 2000: 2,075 papers to download
+  ES 2000: saved 2,075 papers, 9,820 author rows
+  ES 2001: 2,188 papers to download
+  ES 2001: saved 2,188 papers, 10,562 author rows
+  ES 2002: 2,380 papers to download
+  ES 2002: saved 2,380 papers, 11,686 author rows
+  ES 2003: 2,454 papers to download
+  ES 2003: saved 2,454 papers, 12,159 author rows
+  ES 2004: 2,706 papers to download
+  ES 2004: saved 2,706 papers, 14,284 author rows
+  ES 2005: 2,801 papers to download
+  ES 2005: saved 2,801 papers, 15,820 author rows
+  ES 2006: 3,088 papers to download
+  ES 2006: saved 3,088 papers, 17,279 author rows
+  ES 2007: 3,161 papers to download
+  ES 2007: saved 3,161 papers, 18,994 author rows
+  ES 2008: 3,614 papers to download
+  ES 2008: saved 3,614 papers, 21,961 author rows
+  ES 2009: 3,930 papers to download
+  ES 2009: saved 3,930 papers, 25,304 author rows
+  ES 2010: 4,112 papers to download
+  ES 2010: saved 4,112 papers, 27,690 author rows
+  ES 2011: 4,291 papers to download
+  ES 2011: saved 4,292 papers, 30,130 author rows
+  ES 2012: 4,537 papers to download
+  ES 2012: saved 4,536 papers, 32,340 author rows
+  ES 2013: 4,501 papers to download
+  ES 2013: saved 4,501 papers, 34,698 author rows
+  ES 2014: 4,677 papers to download
+  ES 2014: saved 4,677 papers, 38,094 author rows
+  ES 2015: 4,535 papers to download
+  ES 2015: saved 4,535 papers, 36,499 author rows
+  ES 2016: 4,468 papers to download
+  ES 2016: saved 4,468 papers, 39,721 author rows
+  ES 2017: 4,635 papers to download
+  ES 2017: saved 4,636 papers, 40,183 author rows
+  ES 2018: 4,621 papers to download
+  ES 2018: saved 4,624 papers, 41,603 author rows
+  ES 2019: 4,701 papers to download
+  ES 2019: saved 4,701 papers, 44,039 author rows
+
+Done. Next step: python build_trajectories.py

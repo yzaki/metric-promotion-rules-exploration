@@ -1,0 +1,7 @@
+Field 16 = Chemistry
+Using field filter primary_topic.field.id:16
+  IT 2019: 2,206 papers
+  FR 2019: 3,367 papers
+  DE 2019: 5,847 papers
+
+Done.

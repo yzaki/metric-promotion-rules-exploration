@@ -1,0 +1,18 @@
+Loaded 458,314 papers and 1,890,607 paper-author rows from 66 files
+                              definition     outcome  beta_pp  ci_low_pp  ci_high_pp
+                     most frequent topic      gap>=1    -1.18      -1.82       -0.53
+                     most frequent topic      gap>=2    -0.97      -1.42       -0.52
+                     most frequent topic      gap>=3    -0.27      -0.60        0.06
+                     most frequent topic all returns    -0.76      -1.60        0.07
+most frequent topic, FE articles t x t+1      gap>=1    -0.85      -1.49       -0.21
+most frequent topic, FE articles t x t+1 all returns    -0.91      -1.75       -0.08
+     one random article per year, draw 1      gap>=1    -1.17      -1.83       -0.50
+     one random article per year, draw 1 all returns    -0.91      -1.80       -0.02
+     one random article per year, draw 2      gap>=1    -0.82      -1.47       -0.17
+     one random article per year, draw 2 all returns    -0.69      -1.58        0.19
+     one random article per year, draw 3      gap>=1    -1.11      -1.77       -0.46
+     one random article per year, draw 3 all returns    -1.07      -1.93       -0.20
+     one random article per year, draw 4      gap>=1    -0.92      -1.57       -0.27
+     one random article per year, draw 4 all returns    -0.59      -1.46        0.29
+     one random article per year, draw 5      gap>=1    -1.05      -1.70       -0.40
+     one random article per year, draw 5 all returns    -0.40      -1.28        0.47

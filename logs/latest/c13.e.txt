@@ -1,0 +1,77 @@
+Loaded 389,939 choices by 70,153 scientists from data_field13/trajectories_world_career.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.470  0.212  0.318
+      before  0.517  0.199  0.284
+IT    after   0.440  0.204  0.357
+      before  0.485  0.210  0.304
+
+Fitting the model (100 bootstrap draws)...
+    [main] bootstrap 50/100
+    [main] bootstrap 100/100
+
+Reward weights by group:
+                   IT_pre       IT_post      CTRL_pre      CTRL_post
+theta_cite     -0.457555     -0.512532     -0.319642      -0.439197
+theta_near     -0.768387     -0.702898     -0.916909      -0.740478
+theta_far      -0.434516     -0.167155     -0.585851      -0.369693
+n_choices   43416.000000  51187.000000  99091.000000  111381.000000
+converged       1.000000      1.000000      1.000000       1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite  0.065  -0.016    0.135    0.041
+theta_near -0.111  -0.147   -0.056    0.026
+ theta_far  0.051   0.011    0.095    0.023
+
+Career stage 0-5 years...
+    [0-5 years] bootstrap 50/50
+
+Career stage 6-15 years...
+    [6-15 years] bootstrap 50/50
+
+Career stage 16+ years...
+    [16+ years] bootstrap 50/50
+
+Reform effect by career stage:
+ career_stage  parameter    did  ci_low  ci_high  boot_se
+   0-5 years theta_cite  0.060  -0.172    0.279    0.113
+   0-5 years theta_near -0.131  -0.259   -0.022    0.076
+   0-5 years  theta_far  0.037  -0.054    0.156    0.065
+  6-15 years theta_cite  0.045  -0.078    0.193    0.081
+  6-15 years theta_near -0.085  -0.176   -0.003    0.049
+  6-15 years  theta_far  0.102   0.018    0.161    0.037
+   16+ years theta_cite  0.096   0.002    0.181    0.051
+   16+ years theta_near -0.109  -0.186   -0.031    0.042
+   16+ years  theta_far  0.034  -0.021    0.101    0.030
+
+Results saved in results_field13_world_career
+estimate  point  ci_low  ci_high
+     mid -0.085  -0.164    0.012
+  senior -0.109  -0.186   -0.034
+     ddd  0.024  -0.116    0.155
+estimate  point  ci_low  ci_high
+     mid -0.046  -0.167    0.064
+  senior  0.061  -0.031    0.153
+     ddd -0.107  -0.225    0.014
+                       spec choice  beta_pp  ci_low_pp  ci_high_pp  n_choices  n_scientists  baseline_IT_pre_pp
+        scientist + year FE   near   -1.689     -2.589      -0.790     305075         68856               21.05
+        scientist + year FE   stay    0.518     -0.554       1.589     305075         68856               48.51
+        scientist + year FE    far    1.172      0.138       2.206     305075         68856               30.44
+scientist + year + state FE   near   -1.762     -2.654      -0.870     305075         68856               21.05
+scientist + year + state FE   stay    0.585     -0.425       1.595     305075         68856               48.51
+scientist + year + state FE    far    1.177      0.167       2.187     305075         68856               30.44
+
+Saved results_field13_world_career/reduced_form.csv
+{'band': '0-10', 'irl_near': np.float64(-0.07838025185502451), 'irl_low': np.float64(-0.1566474811223364), 'irl_high': np.float64(0.014412658134215512), 'lpm_near_pp': np.float64(-2.490431819574932), 'lpm_low': np.float64(-4.683501583763248), 'lpm_high': np.float64(-0.2973620553866164), 'n_IT_pre': 16585, 'n_IT_post': 13850, 'n_CTRL_pre': 45211, 'n_CTRL_post': 31829}
+{'band': '11-20', 'irl_near': np.float64(-0.11023263441039843), 'irl_low': np.float64(-0.20710470045966375), 'irl_high': np.float64(-0.0066568386402690305), 'lpm_near_pp': np.float64(-3.064962593968832), 'lpm_low': np.float64(-5.7710950433235695), 'lpm_high': np.float64(-0.3588301446140949), 'n_IT_pre': 12994, 'n_IT_post': 15393, 'n_CTRL_pre': 31553, 'n_CTRL_post': 40447}
+{'band': '21-30', 'irl_near': np.float64(-0.1397663342780635), 'irl_low': np.float64(-0.263451039520709), 'irl_high': np.float64(-0.041300369297906835), 'lpm_near_pp': np.float64(-1.8113383368784006), 'lpm_low': np.float64(-4.892762714623778), 'lpm_high': np.float64(1.2700860408669765), 'n_IT_pre': 9352, 'n_IT_post': 13021, 'n_CTRL_pre': 15613, 'n_CTRL_post': 26932}
+{'band': '31+', 'irl_near': np.float64(-0.08359988953554331), 'irl_low': np.float64(-0.24086879947116585), 'irl_high': np.float64(0.07606526311368117), 'lpm_near_pp': np.float64(-2.820738398497661), 'lpm_low': np.float64(-6.234793048375239), 'lpm_high': np.float64(0.5933162513799168), 'n_IT_pre': 4485, 'n_IT_post': 8923, 'n_CTRL_pre': 6714, 'n_CTRL_post': 12173}
+ band  irl_near  irl_low  irl_high  lpm_near_pp  lpm_low  lpm_high  n_IT_pre  n_IT_post  n_CTRL_pre  n_CTRL_post
+ 0-10    -0.078   -0.157     0.014       -2.490   -4.684    -0.297     16585      13850       45211        31829
+11-20    -0.110   -0.207    -0.007       -3.065   -5.771    -0.359     12994      15393       31553        40447
+21-30    -0.140   -0.263    -0.041       -1.811   -4.893     1.270      9352      13021       15613        26932
+  31+    -0.084   -0.241     0.076       -2.821   -6.235     0.593      4485       8923        6714        12173

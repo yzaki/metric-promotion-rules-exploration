@@ -9,20 +9,20 @@ import numpy as np
 import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "..", "paper_overleaf", "tables")
+OUT = os.path.join(HERE, "..", "v3_out", "tables")
 PNAME = {"theta_cite": "Citation potential", "theta_near": "Nearby move", "theta_far": "Distant jump"}
 
 # (label, main results folder, +Spain folder)
 SPECS = [
     ("Physics (world citation measure)", "results_world", "results_world_es"),
-    ("Physics (four-country citation measure)", "results", "results_es"),
+    ("Physics (study-country citation measure)", "results", "results_es"),
     ("Engineering (world citation measure)", "results_field22_world", "results_field22_world_es"),
-    ("Engineering (four-country citation measure)", "results_field22", "results_field22_es"),
+    ("Engineering (study-country citation measure)", "results_field22", "results_field22_es"),
     ("Biochemistry (world citation measure)", "results_field13_world", "results_field13_world_es"),
-    ("Biochemistry (four-country citation measure)", "results_field13", "results_field13_es"),
+    ("Biochemistry (study-country citation measure)", "results_field13", "results_field13_es"),
     ("Chemistry (world citation measure)", "results_field16_world", "results_field16_world_es"),
-    ("Chemistry (four-country citation measure)", "results_field16", "results_field16_es"),
-    ("Economics (four-country citation measure)", "results_field20", "results_field20_es"),
+    ("Chemistry (study-country citation measure)", "results_field16", "results_field16_es"),
+    ("Economics (study-country citation measure)", "results_field20", "results_field20_es"),
 ]
 
 
@@ -75,8 +75,8 @@ def table_placebo():
 
 
 def table_robustness():
-    rows = [("Main (four-country citation measure, $\\gamma=0.9$)", "results"),
-            ("World-wide citation measure", "results_world"),
+    rows = [("Study-country citation measure, $\\gamma=0.9$", "results"),
+            ("Worldwide citation measure", "results_world"),
             ("Discount factor $\\gamma=0.8$", "results_g08"),
             ("Discount factor $\\gamma=0.95$", "results_g095"),
             ("Scientists active before and after (balanced)", "results_balanced"),
@@ -133,7 +133,7 @@ def table_return_value():
     labels = {"near_return": "Nearby, return", "near_new": "Nearby, first entry",
               "far_return": "Distant, return", "far_new": "Distant, first entry"}
     for sample in tabs[0]["sample"].unique():
-        for o, olabel in (("log_cites", "Mean log normalised citations"), ("top10", "Share in top 10\\%"), ("papers", "Articles")):
+        for o, olabel in (("log_cites", "Mean log normalized citations"), ("top10", "Share in top 10\\%"), ("papers", "Articles")):
             for i, c in enumerate(labels):
                 cells = [(lambda r: _pp(r.vs_stay, r.ci_low, r.ci_high, 3))(
                     t[(t["sample"] == sample) & (t.outcome == o) & (t.choice == c)].iloc[0]) for t in tabs]
@@ -190,11 +190,11 @@ def table_secondary():
     lines = [r"\begin{tabular}{lllll}", r"\toprule",
              r"Outcome (Italy vs control DiD) & Physics & Engineering & Biochemistry & Chemistry \\", r"\midrule"]
     specs = [("Articles per scientist-year", "outcomes_citations.csv", "reform_did", "papers", 2, 1),
-             ("Mean log normalised citations", "outcomes_citations.csv", "reform_did", "log_cites", 3, 1),
+             ("Mean log normalized citations", "outcomes_citations.csv", "reform_did", "log_cites", 3, 1),
              ("Share of articles in top 10\\% (pp)", "outcomes_citations.csv", "reform_did", "top10", 1, 100),
              ("Share of references new to the scientist (pp)", "novelty.csv", None, "new_share", 1, 100),
-             ("Specialisation, main subfield (pp)", "reconcile_abramo.csv", None, "spec_subfield", 1, 100),
-             ("Specialisation, main topic (pp)", "reconcile_abramo.csv", None, "spec_topic", 1, 100),
+             ("Specialization, main subfield (pp)", "reconcile_abramo.csv", None, "spec_subfield", 1, 100),
+             ("Specialization, main topic (pp)", "reconcile_abramo.csv", None, "spec_topic", 1, 100),
              ("Disruption (CD index)", "disruption.csv", None, "disruption", 4, 1),
              ("Share of disruptive articles (pp)", "disruption.csv", None, "disruptive", 1, 100),
              ("Atypicality, 10th-pct $z$", "disruption.csv", None, "atyp_10pct", 2, 1)]
@@ -288,7 +288,9 @@ W3 = [("Physics", "results_world"), ("Engineering", "results_field22_world"), ("
 
 
 def _pp(v, lo, hi, d=1):
-    return f"${v:+.{d}f}$ [${lo:+.{d}f}$, ${hi:+.{d}f}$]"
+    def f(x):   # a bound that would round to zero is printed with one more decimal, so its sign is visible
+        return f"{x:+.{d + 1}f}" if abs(x) < 0.5 * 10 ** -d else f"{x:+.{d}f}"
+    return f"${v:+.{d}f}$ [${f(lo)}$, ${f(hi)}$]"
 
 
 def table_validation():
@@ -389,7 +391,7 @@ def table_heterogeneity():
                 cells.append(f"{_pp(r.irl_near, r.irl_low, r.irl_high, 2)} & {_pp(r.lpm_near_pp, r.lpm_low, r.lpm_high)}")
             lines.append(f"{sg} & {' & '.join(cells)} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}"]
-    write("tab_heterogeneity.tex", "\n".join(lines))
+    write("tab_heterogeneity.tex", "\n".join(lines).replace("Italy Centre", "Italy Center"))
 
 
 def table_controls():
@@ -482,23 +484,212 @@ def table_placebo_space():
     write("tab_placebo_space.tex", "\n".join(lines))
 
 
+FE4 = [("Physics", "results_world"), ("Engineering", "results_field22_world"),
+       ("Biochemistry", "results_field13_world"), ("Chemistry", "results_field16_world")]
+
+
+def _holm(p):
+    import numpy as np
+    order = np.argsort(p)
+    adj = np.empty(len(p))
+    run = 0.0
+    for rank, i in enumerate(order):
+        run = max(run, min(1.0, (len(p) - rank) * p[i]))
+        adj[i] = run
+    return adj
+
+
 def table_first_entry():
-    lines = [r"\begin{tabular}{llll}", r"\toprule",
-             r"Yearly choice, model-free DiD, pp & Physics & Engineering & Biochemistry \\", r"\midrule"]
-    tabs = [pd.read_csv(path(f, "first_entry.csv")) for _, f in W3]
-    labels = {"near": "Nearby move (all)", "near_new": "Nearby move, new topic", "near_return": "Nearby move, return",
-              "far_new": "Distant jump, new topic", "far_return": "Distant jump, return"}
+    from scipy import stats
+    fields = [(n, f) for n, f in FE4 if os.path.exists(path(f, "first_entry.csv"))]
+    k = len(fields)
+    lines = [r"\begin{tabular}{l" + "l" * k + "}", r"\toprule",
+             "Yearly choice, model-free DiD, pp (Italian share before) & " + " & ".join(n for n, _ in fields) + r" \\", r"\midrule"]
+    tabs = [pd.read_csv(path(f, "first_entry.csv")) for _, f in fields]
+    order = [("near", "Nearby move (all)"), ("near_new", "Nearby move, new topic"), ("near_return", "Nearby move, return"),
+             ("near_gap_return", r"\quad gap return (topic not in the decision year)"),
+             ("near_concurrent_return", r"\quad concurrent return (topic also in the decision year)"),
+             ("far_new", "Distant jump, new topic"), ("far_return", "Distant jump, return")]
     for definition in tabs[0].definition.unique():
-        lines.append(rf"\multicolumn{{4}}{{l}}{{\emph{{New = no article in the topic, {definition}}}}} \\")
-        for o in tabs[0][tabs[0].definition == definition].outcome:
+        lines.append(rf"\multicolumn{{{k + 1}}}{{l}}{{\emph{{New = no article in the topic, {definition}}}}} \\")
+        for o, lab in order:
             cells = []
             for t in tabs:
-                r = t[(t.definition == definition) & (t.outcome == o)].iloc[0]
+                r = t[(t.definition == definition) & (t.outcome == o)]
+                if r.empty:
+                    cells.append(None)
+                    continue
+                r = r.iloc[0]
                 cells.append(f"{_pp(r.beta_pp, r.ci_low_pp, r.ci_high_pp)} ({r.IT_before_pct:.1f}\\%)")
-            lines.append(f"\\quad {labels[o]} & {' & '.join(cells)} \\\\")
+            if all(c is None for c in cells):
+                continue
+            lines.append(f"{lab} & {' & '.join(c or '--' for c in cells)} \\\\")
         lines.append(r"\addlinespace")
+    # Holm adjustment over the four fields for the headline outcome (gap returns)
+    g = [t[(t.definition == t.definition.iloc[0]) & (t.outcome == "near_gap_return")].iloc[0] for t in tabs]
+    p = [2 * stats.norm.sf(abs(r.beta_pp) / ((r.ci_high_pp - r.ci_low_pp) / 3.92)) for r in g]
+    adj = _holm(p)
+    lines.append("Gap return: Holm-adjusted $p$ over the four fields & " + " & ".join(("$<0.001$" if a < 0.001 else f"{a:.3f}") for a in adj) + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}"]
     write("tab_first_entry.tex", "\n".join(lines))
+
+
+def table_timing():
+    """Timing checks for all Italian outcomes (first_entry_timing.csv; event studies with France + Germany)."""
+    fields = [(n, f) for n, f in FE4 if os.path.exists(path(f, "first_entry_timing.csv"))]
+    k = len(fields)
+    lines = [r"\begin{tabular}{l" + "l" * k + "}", r"\toprule",
+             "Italy vs France + Germany & " + " & ".join(n for n, _ in fields) + r" \\", r"\midrule",
+             rf"\multicolumn{{{k + 1}}}{{l}}{{\emph{{Model-free: placebo reform 2007 (pp) and joint test of the pre-2009 annual coefficients ($p$)}}}} \\"]
+    tims = [pd.read_csv(path(f, "first_entry_timing.csv")).set_index("outcome") for _, f in fields]
+    for o, lab in (("near", "Nearby move"), ("near_new", "New topic"), ("near_return", "Return"), ("near_gap_return", "Gap return"),
+                   ("far", "Distant jump"), ("move", "Any move"), ("any_return", "Return, nearby or distant")):
+        cells = [f"{_pp(t.loc[o].placebo2007_pp, t.loc[o].placebo_ci_low_pp, t.loc[o].placebo_ci_high_pp)}; " + _pv(t.loc[o].pretrend_wald_p) for t in tims]
+        lines.append(f"\\quad {lab} & {' & '.join(cells)} \\\\")
+    lines.append(r"\addlinespace")
+    lines.append(rf"\multicolumn{{{k + 1}}}{{l}}{{\emph{{Dynamic model: nearby-move weight, event study relative to 2008--09}}}} \\")
+    es_folder = {"results_world": "results_world", "results_field22_world": "results_field22_world",
+                 "results_field13_world": "results_field13_world", "results_field16_world": "results_field16_world"}
+    evs = [pd.read_csv(path(es_folder[f], "event_study.csv")).query("parameter == 'theta_near'").set_index("window") for _, f in fields]
+    for w in ("2004-2005", "2006-2007", "2010-2011", "2012-2013", "2014-2015", "2016-2017"):
+        cells = [_pp(e.loc[w].it_minus_ctrl_vs_ref, e.loc[w].ci_low, e.loc[w].ci_high, 2) for e in evs]
+        lines.append(f"\\quad {w.replace('-', '--')} & {' & '.join(cells)} \\\\")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_timing.tex", "\n".join(lines))
+
+
+def table_reclass():
+    """Any move, distant jumps and all returns; estimates on articles whose field did not change; balance of the
+    OpenAlex reclassification (first_entry.py, --stable-only, reclass_check.py)."""
+    fields = [("Physics", "results"), ("Engineering", "results_field22"), ("Biochemistry", "results_field13"), ("Chemistry", "results_field16")]
+    def cell(folder, o):
+        f = path(folder, "first_entry.csv")
+        if not os.path.exists(f):
+            return "--"
+        t = pd.read_csv(f); t = t[t.definition == t.definition.iloc[0]].set_index("outcome")
+        return _pp(t.loc[o, "beta_pp"], t.loc[o, "ci_low_pp"], t.loc[o, "ci_high_pp"])
+    def tim(folder, o):
+        t = pd.read_csv(path(folder, "first_entry_timing.csv")).set_index("outcome").loc[o]
+        ok = t.pretrend_wald_p >= 0.05 and t.placebo_ci_low_pp <= 0 <= t.placebo_ci_high_pp
+        return "" if ok else "$^\\dagger$"
+    lines = [r"\begin{tabular}{lllll}", r"\toprule", "& " + " & ".join(f for f, _ in fields) + r" \\", r"\midrule",
+             r"\multicolumn{5}{l}{\emph{Italy vs France + Germany, yearly probability (pp)}} \\"]
+    for o, lab in (("near", "Nearby move"), ("far", "Distant jump"), ("move", "Any move (nearby or distant)"),
+                   ("near_return", "Return, nearby"), ("any_return", "Return, nearby or distant"), ("near_gap_return", "Gap return, nearby")):
+        lines.append(f"{lab} & " + " & ".join(cell(r + "_world", o) + tim(r + "_world", o) for _, r in fields) + r" \\")
+    lines += [r"\addlinespace", r"\multicolumn{5}{l}{\emph{Only articles in the field on both 5 and 8 November 2026 (pp)}} \\"]
+    for o, lab in (("near", "Nearby move"), ("far", "Distant jump"), ("move", "Any move"), ("near_gap_return", "Gap return, nearby")):
+        lines.append(f"{lab} & " + " & ".join(cell(r + "_world_stable", o) for _, r in fields) + r" \\")
+    f = path("results_downloads", "reclass_check.csv")
+    if os.path.exists(f):
+        t = pd.read_csv(f)
+        lines += [r"\addlinespace", r"\multicolumn{5}{l}{\emph{Articles reassigned between 5 and 8 November: Italy vs France + Germany, after vs before (pp)}} \\"]
+        for o, lab in (("left the field", "Left the field"), ("entered the field", "Entered the field")):
+            cells = []
+            for fld, _ in fields:
+                r = t[(t.field == fld) & (t.outcome == o)]
+                cells.append("--" if r.empty else _pp(r.iloc[0].beta_pp, r.iloc[0].ci_low_pp, r.iloc[0].ci_high_pp)
+                             + f" ({r.iloc[0].IT_before_pct:.0f}\\%)")
+            lines.append(f"{lab} & " + " & ".join(cells) + r" \\")
+        lines += [r"\addlinespace", r"\multicolumn{5}{l}{\emph{Articles in the field on both dates, percent}} \\"]
+        for o, lab in (("stable articles: topic changed (%)", "Topic changed"), ("stable articles: subfield changed (%)", "Subfield of the topic changed"),
+                       ("articles in topics that left entirely (% of those that left)", "Left with their whole topic (\\% of articles that left)")):
+            cells = []
+            for fld, _ in fields:
+                r = t[(t.field == fld) & (t.outcome == o)]
+                cells.append("--" if r.empty else f"{r.iloc[0].beta_pp:.1f}")
+            lines.append(f"{lab} & " + " & ".join(cells) + r" \\")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_reclass.tex", "\n".join(lines))
+
+
+def _pv(v):
+    return "$p<0.001$" if v < 0.001 else f"$p={v:.3f}$"
+
+
+def table_returns_countries():
+    """Returns to familiar topics: Italy vs Russia and India, all returns and gap returns, pooled over fields."""
+    import numpy as np
+    from scipy import stats
+    def get(suffix, outcome, fields=FE4):
+        b, se = [], []
+        for _, f in fields:
+            fn = path(f + suffix, "first_entry.csv")
+            t = pd.read_csv(fn)
+            r = t[(t.definition == t.definition.iloc[0]) & (t.outcome == outcome)].iloc[0]
+            b.append(r.beta_pp); se.append((r.ci_high_pp - r.ci_low_pp) / 3.92)
+        b, se = np.array(b), np.array(se)
+        w = 1 / se ** 2
+        return (w * b).sum() / w.sum(), np.sqrt(1 / w.sum())
+    fmt = lambda b, se: _pp(b, b - 1.96 * se, b + 1.96 * se)
+    dif = lambda a, c: f"{fmt(a[0] - c[0], np.sqrt(a[1] ** 2 + c[1] ** 2))}; " + _pv(2 * stats.norm.sf(abs(a[0] - c[0]) / np.sqrt(a[1] ** 2 + c[1] ** 2)))
+    def passes(suffix, outcome):
+        """Fields that pass Italy's timing check for this outcome (joint pre-2009 test p >= 0.05 and 2007 placebo
+        interval including zero; first_entry.py --timing)."""
+        keep = []
+        for n, f in FE4:
+            t = pd.read_csv(path(f + suffix, "first_entry_timing.csv"))
+            r = t[t.outcome == outcome].iloc[0]
+            if r.pretrend_wald_p >= 0.05 and r.placebo_ci_low_pp <= 0 <= r.placebo_ci_high_pp:
+                keep.append((n, f + suffix))
+        return keep
+    names = lambda fs: ", ".join(n.lower() for n, _ in fs)
+    it_all, it_gap = get("", "near_return"), get("", "near_gap_return")
+    lines = [r"\begin{tabular}{lll}", r"\toprule",
+             r"Model-free DiD, pp, pooled over fields (inverse-variance) & All returns & Gap returns \\", r"\midrule",
+             f"Italy, four fields & {fmt(*it_all)} & {fmt(*it_gap)} \\\\"]
+    for cname, suf in (("Russia", "_RU"), ("India", "_IN")):
+        rows_a = [(n, f + suf) for n, f in FE4]
+        a = get("", "near_return", rows_a)
+        g = get("", "near_gap_return", rows_a)
+        lines.append(f"{cname}, four fields & {fmt(*a)} & {fmt(*g)} \\\\")
+        lines.append(f"\\quad Italy minus {cname} & {dif(it_all, a)} & {dif(it_gap, g)} \\\\")
+        # fields that pass the timing check in both Italy and this country (same fields for both)
+        cells = {}
+        for o in ("near_return", "near_gap_return"):
+            both = [n for n, _ in passes("", o) if n in {m for m, _ in passes(suf, o)}]
+            fi = [(n, f) for n, f in FE4 if n in both]
+            fc = [(n, f + suf) for n, f in FE4 if n in both]
+            if fi:
+                xi, xc = get("", o, fi), get("", o, fc)
+                cells[o] = (names(fi), fmt(*xi), fmt(*xc), dif(xi, xc))
+            else:
+                cells[o] = ("none", "--", "--", "--")
+        lines.append(f"\\addlinespace\n\\multicolumn{{3}}{{l}}{{\\emph{{Fields passing the timing check in both Italy and {cname}: all returns, {cells['near_return'][0]}; gap returns, {cells['near_gap_return'][0]}}}}} \\\\")
+        lines.append(f"\\quad Italy & {cells['near_return'][1]} & {cells['near_gap_return'][1]} \\\\")
+        lines.append(f"\\quad {cname} & {cells['near_return'][2]} & {cells['near_gap_return'][2]} \\\\")
+        lines.append(f"\\quad Italy minus {cname} & {cells['near_return'][3]} & {cells['near_gap_return'][3]} \\\\")
+        lines.append(r"\addlinespace")
+    # Italy and Russia against Spain, the Netherlands and Portugal (France and Germany left out)
+    def get_space(outcome):
+        b, se = [], []
+        for _, f in FE4:
+            t = pd.read_csv(path(f, "returns_placebo_space.csv"))
+            r = t[(t.design == "Italy vs ES+NL+PT") & (t.outcome == outcome)].iloc[0]
+            b.append(r.beta_pp); se.append((r.ci_high_pp - r.ci_low_pp) / 3.92)
+        b, se = np.array(b), np.array(se)
+        w = 1 / se ** 2
+        return (w * b).sum() / w.sum(), np.sqrt(1 / w.sum())
+    try:
+        ia, ig = get_space("ret"), get_space("gap")
+        rr = [(n, f + "_RU_esnlpt") for n, f in FE4]
+        ra, rg = get("", "near_return", rr), get("", "near_gap_return", rr)
+        lines += [r"\multicolumn{3}{l}{\emph{Against Spain, the Netherlands and Portugal, four fields (added after the main analysis)}} \\",
+                  f"\\quad Italy & {fmt(*ia)} & {fmt(*ig)} \\\\",
+                  f"\\quad Russia & {fmt(*ra)} & {fmt(*rg)} \\\\",
+                  f"\\quad Italy minus Russia & {dif(ia, ra)} & {dif(ig, rg)} \\\\"]
+        rn = get("", "near", rr)
+        lines.append(f"\\quad Russia, nearby moves & {fmt(*rn)} & \\\\")
+        bi = [(n, f) for n, f in FE4 if n == "Biochemistry"]
+        br = [(n, f + "_RU") for n, f in FE4 if n == "Biochemistry"]
+        ba, bra = get("", "near_return", bi), get("", "near_return", br)
+        bg, brg = get("", "near_gap_return", bi), get("", "near_gap_return", br)
+        lines += [r"\addlinespace", r"\multicolumn{3}{l}{\emph{Biochemistry only, against France and Germany}} \\",
+                  f"\\quad Italy minus Russia & {dif(ba, bra)} & {dif(bg, brg)} \\\\"]
+    except (FileNotFoundError, IndexError):
+        pass
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_returns_countries.tex", "\n".join(lines))
 
 
 def table_stacked_rules():
@@ -562,11 +753,45 @@ def _group_table(fname, order, labels, header, outname, extra_rows=None):
     write(outname, "\n".join(lines))
 
 
+def table_sector_output():
+    """Below-bar minus met, model-free, with output fixed effects, and a placebo bar for full professors
+    (sector_thresholds.py, added after the main analysis)."""
+    fields = [("Physics", "results"), ("Engineering", "results_field22"), ("Biochemistry", "results_field13"), ("Chemistry", "results_field16")]
+    ts = [pd.read_csv(path(f + "_world_career", "sector_output_check.csv")) for _, f in fields]
+    lines = [r"\begin{tabular}{lllll}", r"\toprule", "Below (0--1) minus met, nearby moves, pp & " + " & ".join(f for f, _ in fields) + r" \\", r"\midrule"]
+    for sample in ts[0]["sample"].unique():
+        lab = {"associates and researchers (own bar)": "Associates and researchers: habilitation bar (median of the rank above)",
+               "full professors (placebo bar)": "Full professors: commissioner bar (median of full professors)"}.get(sample, sample)
+        lines.append(r"\multicolumn{5}{l}{\emph{" + lab + r"}} \\")
+        for spec in ts[0][ts[0]["sample"] == sample].spec:
+            cells = []
+            for t in ts:
+                r = t[(t["sample"] == sample) & (t.spec == spec)].iloc[0]
+                cells.append(_pp(r.below_minus_met_pp, r.ci_low_pp, r.ci_high_pp))
+            lines.append(spec.replace(" x ", r" $\times$ ") + " & " + " & ".join(cells) + r" \\")
+        lines.append(r"\addlinespace")
+    # difference between the two panels (different scientists, so the estimates are independent)
+    samples = list(ts[0]["sample"].unique())
+    if len(samples) == 2:
+        lines.append(r"\multicolumn{5}{l}{\emph{Difference: associates and researchers minus full professors}} \\")
+        for spec in ts[0][ts[0]["sample"] == samples[0]].spec:
+            cells = []
+            for t in ts:
+                a_ = t[(t["sample"] == samples[0]) & (t.spec == spec)].iloc[0]
+                b_ = t[(t["sample"] == samples[1]) & (t.spec == spec)].iloc[0]
+                sa, sb = (a_.ci_high_pp - a_.ci_low_pp) / 3.92, (b_.ci_high_pp - b_.ci_low_pp) / 3.92
+                d, se = a_.below_minus_met_pp - b_.below_minus_met_pp, (sa ** 2 + sb ** 2) ** 0.5
+                cells.append(_pp(d, d - 1.96 * se, d + 1.96 * se))
+            lines.append(spec.replace(" x ", r" $\times$ ") + " & " + " & ".join(cells) + r" \\")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_sector_output.tex", "\n".join(lines))
+
+
 def table_sector_bars():
     _group_table("sector_thresholds.csv", ["met", "one short", "far below", "full professor", "one short minus met",
                                           "below (0-1) minus met"],
                  {"met": "Associates and researchers: bar met (2--3 of 3)", "one short": "\\quad one indicator short",
-                  "far below": "\\quad far below (0 of 3)", "full professor": "Full professors (no bar)",
+                  "far below": "\\quad far below (0 of 3)", "full professor": "All full professors (commissioner bar, if they applied to serve)",
                   "one short minus met": "One short minus met", "below (0-1) minus met": "Below (0--1) minus met"},
                  "Group (weight; model-free pp, $n$)", "tab_sector_bars.tex",
                  [("Validation: Spearman vs ANVUR 2012 medians (articles / citations / h; sectors)",
@@ -604,23 +829,35 @@ def table_chemistry():
     sb = pd.read_csv(path(c, "sector_thresholds.csv")).set_index("group")
     irl = lambda r: _pp(r.irl_near, r.irl_low, r.irl_high, 2)
     pp = lambda b, lo, hi: _pp(b, lo, hi)
+    hi = lambda f, n="did_main.csv": pd.read_csv(path(f, n)).set_index("parameter").loc["theta_near"]
+    neg = lambda f: "met" if hi(f).ci_high < 0 else "not met"
+    nul = lambda f: "met" if hi(f, "did_placebo_2007.csv").ci_low <= 0 <= hi(f, "did_placebo_2007.csv").ci_high else "not met"
+    pre_fail = any(ev.loc[x].ci_low > 0 or ev.loc[x].ci_high < 0 for x in ("2004-2005", "2006-2007"))
+    def cverdict(r):
+        """Chemistry plan, C3-C5: supported if negative with an interval excluding 0; consistent if negative with an
+        interval including 0; not supported otherwise."""
+        if r.irl_near < 0 and r.irl_high < 0:
+            return "supported"
+        return "consistent" if r.irl_near < 0 else "not supported"
     rows = [
-        ("C1 Nearby-move weight, FR+DE", near(w), "met"),
-        ("C1 Nearby-move weight, FR+DE+ES (primary under the pre-trend rule)", near(es), "met"),
-        ("C2 Placebo 2007, FR+DE / FR+DE+ES", near(w, "did_placebo_2007.csv") + " / " + near(es, "did_placebo_2007.csv"), "met"),
+        ("C1 Nearby-move weight, FR+DE", near(w), neg(w)),
+        ("C1 Nearby-move weight, FR+DE+ES (primary under the plan's pre-trend rule)", near(es), neg(es)),
+        ("C2 Placebo 2007, FR+DE / FR+DE+ES", near(w, "did_placebo_2007.csv") + " / " + near(es, "did_placebo_2007.csv"),
+         "met" if nul(w) == nul(es) == "met" else "not met"),
         ("Event study vs 2008--09: 2004--05 / 2006--07", " / ".join(_pp(ev.loc[x].it_minus_ctrl_vs_ref, ev.loc[x].ci_low, ev.loc[x].ci_high, 2)
-                                                         for x in ("2004-2005", "2006-2007")), "pre-trend"),
-        ("Event study: 2012--13 / 2014--15 / 2016--17", " / ".join(f"${ev.loc[x].it_minus_ctrl_vs_ref:+.2f}$" for x in ("2012-2013", "2014-2015", "2016-2017")), "no break"),
+                                                         for x in ("2004-2005", "2006-2007")),
+         "pre-trend: not interpretable under the India/Russia rule" if pre_fail else "no pre-trend"),
+        ("Event study: 2012--13 / 2014--15 / 2016--17", " / ".join(f"${ev.loc[x].it_minus_ctrl_vs_ref:+.2f}$" for x in ("2012-2013", "2014-2015", "2016-2017")), ""),
         ("Model-free, scientist + year FE, pp", pp(rf.beta_pp, rf.ci_low_pp, rf.ci_high_pp), ""),
         ("Same scientists / entrants vs leavers, pp", " / ".join(pp(dec.loc[k].did_pp, dec.loc[k].ci_low, dec.loc[k].ci_high)
                                                           for k in ("stayers: after minus before", "entrants after minus leavers before")), ""),
         ("Nearby first entries / returns, pp", " / ".join(pp(fe.loc[k].beta_pp, fe.loc[k].ci_low_pp, fe.loc[k].ci_high_pp)
                                                      for k in ("near_new", "near_return")), ""),
         ("Career stage 0--5 / 6--15 / 16+", " / ".join(f"${car.loc[s].did:+.2f}$" for s in ("0-5 years", "6-15 years", "16+ years")), ""),
-        ("C3 University staff minus research institute", irl(ins.loc["university staff minus research institute"]), "consistent"),
-        ("C4 Needed it minus full professors", irl(rk.loc["needed minus full"]), "not supported"),
+        ("C3 University staff minus research institute", irl(ins.loc["university staff minus research institute"]), cverdict(ins.loc["university staff minus research institute"])),
+        ("C4 Needed it minus full professors", irl(rk.loc["needed minus full"]), cverdict(rk.loc["needed minus full"])),
         ("\\quad full / associate / researcher", " / ".join(f"${rk.loc[g].irl_near:+.2f}$" for g in ("full professor", "associate professor", "researcher")), ""),
-        ("C5 Below own bar (0--1) minus met", irl(sb.loc["below (0-1) minus met"]), "consistent"),
+        ("C5 Below own bar (0--1) minus met", irl(sb.loc["below (0-1) minus met"]), cverdict(sb.loc["below (0-1) minus met"])),
     ]
     lines = [r"\begin{tabular}{lll}", r"\toprule", r"Test (chemistry, Italy vs control) & Estimate [95\% CI] & Verdict \\", r"\midrule"]
     lines += [f"{a} & {b} & {v} \\\\" for a, b, v in rows]
@@ -790,7 +1027,7 @@ def table_collab_checks():
     outs = [("international", "results_coauthors", "venue_checks_{c}.csv", 100, "Share of articles with a co-author abroad (pp)"),
             ("new_coauthors", "results_coauthors", "venue_checks_{c}.csv", 100, "Share of co-authors new to the scientist (pp)"),
             ("log_team", "results_coauthors", "venue_checks_{c}.csv", 100, r"Log listed authors ($\times 100$)"),
-            ("n_institutions", "results_venues", "venue_checks_inst_{c}.csv", 1, "Institutions per article")]
+            ("n_institutions", "results_venues", "venue_checks_{c}_inst.csv", 1, "Institutions per article")]
     comps = [("IT", "treated vs FR+DE", "Italy vs FR+DE"), ("IN", "treated vs FR+DE", "India vs FR+DE"),
              ("IN", "UGC-covered minus not covered", "India, UGC-covered minus not covered"),
              ("RU", "treated vs FR+DE", "Russia vs FR+DE"), ("RU", "5-100 minus not covered", "Russia, 5-100 minus not covered")]
@@ -814,9 +1051,164 @@ def table_collab_checks():
     write("tab_collab_checks.tex", "\n".join(lines))
 
 
+def table_downloads():
+    """Pre-specified tests and headline estimates on both OpenAlex downloads (download_comparison.py)."""
+    f = path("results_downloads", "download_comparison.csv")
+    if not os.path.exists(f):
+        print("skip downloads")
+        return
+    t = pd.read_csv(f)
+    def cell(r, k):
+        b, lo, hi, note = r[f"{k}_b"], r[f"{k}_lo"], r[f"{k}_hi"], r.get(f"note_{k}")
+        if pd.notna(b):
+            d = 0 if abs(b) >= 5 else 2 if abs(b) < 1 else 1
+            return _pp(b, lo, hi, d)
+        return str(note) if isinstance(note, str) else "--"
+    v = lambda x: x if isinstance(x, str) else ""
+    lines = [r"\begin{tabular}{llllll}", r"\toprule",
+             r"Plan & Test & Original download (3--5 Nov) & Verdict & Latest download (7--8 Nov) & Verdict \\", r"\midrule"]
+    last = None
+    for _, r in t.iterrows():
+        plan = r.plan if r.plan != last else ""
+        last = r.plan
+        flag = r"$^\ast$" if v(r.verdict_orig) != v(r.verdict_latest) else ""
+        lines.append(f"{plan} & {r.test}{flag} & {cell(r, 'orig')} & {v(r.verdict_orig)} & {cell(r, 'latest')} & {v(r.verdict_latest)} \\\\")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_downloads.tex", "\n".join(lines))
+
+
+def table_returns_space():
+    """Gap returns: each country as if reformed; Italy against Spain + Netherlands + Portugal and against
+    Netherlands + Portugal. Two panels (two fields each) so the table stays readable."""
+    fields = [(n, f) for n, f in FE4 if os.path.exists(path(f, "returns_placebo_space.csv"))]
+    names = {"IT": "Italy", "FR": "France", "DE": "Germany", "ES": "Spain", "NL": "Netherlands", "PT": "Portugal"}
+    outs = (("near", "Nearby move"), ("gap", "Gap return"), ("new", "First entry"))
+    blocks = []
+    for half in (fields[:2], fields[2:]):
+        tabs = [pd.read_csv(path(f, "returns_placebo_space.csv")) for _, f in half]
+        lines = [r"\begin{tabular}{l" + "lll" * len(half) + "}", r"\toprule",
+                 " & " + " & ".join(rf"\multicolumn{{3}}{{c}}{{{n}}}" for n, _ in half) + r" \\",
+                 "Treated country & " + " & ".join([o[1] for o in outs] * len(half)) + r" \\", r"\midrule",
+                 rf"\multicolumn{{{1 + 3 * len(half)}}}{{l}}{{\emph{{Each country treated as if reformed; rank among six in parentheses}}}} \\"]
+        for c, lab in names.items():
+            cells = []
+            for t in tabs:
+                for o, _ in outs:
+                    r = t[(t.design == "each country as reformed") & (t.treated == c) & (t.outcome == o)].iloc[0]
+                    cells.append(f"{_pp(r.beta_pp, r.ci_low_pp, r.ci_high_pp)} ({int(r['rank'])})")
+            lines.append(f"{lab} & " + " & ".join(cells) + r" \\")
+        lines.append(r"\addlinespace")
+        for design, lab in (("Italy vs ES+NL+PT", "Italy vs ES + NL + PT"), ("Italy vs NL+PT", "Italy vs NL + PT")):
+            cells = []
+            for t in tabs:
+                for o, _ in outs:
+                    r = t[(t.design == design) & (t.outcome == o)]
+                    cells.append("--" if r.empty else _pp(r.iloc[0].beta_pp, r.iloc[0].ci_low_pp, r.iloc[0].ci_high_pp))
+            lines.append(f"{lab} & " + " & ".join(cells) + r" \\")
+        lines += [r"\bottomrule", r"\end{tabular}"]
+        blocks.append("\n".join(lines))
+    write("tab_returns_space.tex", "\n\\\\[2ex]\n".join(blocks))
+
+
+def table_returns_checks():
+    """Robustness of the decline in returns (returns_checks.py)."""
+    fields = [(n, f) for n, f in FE4 if os.path.exists(path(f, "returns_checks.csv"))]
+    tabs = [pd.read_csv(path(f, "returns_checks.csv")) for _, f in fields]
+    lines = [r"\begin{tabular}{l" + "l" * len(fields) + "}", r"\toprule",
+             "Model-free DiD, pp & " + " & ".join(n for n, _ in fields) + r" \\", r"\midrule"]
+    def cell(t, d, o):
+        r = t[(t.definition == d) & (t.outcome == o)].iloc[0]
+        return _pp(r.beta_pp, r.ci_low_pp, r.ci_high_pp)
+    for d, o, lab in (("most frequent topic", "all returns", "All returns"),
+                      ("most frequent topic", "gap>=1", "Gap return (topic not in decision year)"),
+                      ("most frequent topic", "gap>=2", r"\quad gap of at least 2 years"),
+                      ("most frequent topic", "gap>=3", r"\quad gap of at least 3 years"),
+                      ("most frequent topic, FE articles t x t+1", "gap>=1", r"Gap return, fixed effects for articles in $t$ $\times$ $t+1$"),
+                      ("most frequent topic, FE articles t x t+1", "all returns", r"All returns, fixed effects for articles in $t$ $\times$ $t+1$")):
+        lines.append(f"{lab} & " + " & ".join(cell(t, d, o) for t in tabs) + r" \\")
+    mds = [pd.read_csv(path(f, "mdpi_check.csv")) if os.path.exists(path(f, "mdpi_check.csv")) else None for _, f in fields]
+    if all(m is not None for m in mds):
+        for o, lab in (("near", "Nearby move, without articles in MDPI journals"), ("gap return", "Gap return, without articles in MDPI journals")):
+            cells = []
+            for m in mds:
+                r = m[(m.spec == "without MDPI articles") & (m.outcome == o)].iloc[0]
+                cells.append(_pp(r.beta_pp, r.ci_low_pp, r.ci_high_pp))
+            lines.append(f"{lab} & " + " & ".join(cells) + r" \\")
+        cells = []
+        for m in mds:
+            g = lambda k: m[(m.spec == "MDPI share of articles") & (m.outcome == k)].beta_pp.iloc[0]
+            cells.append(f"{g('IT before'):.1f}\\% $\\to$ {g('IT after'):.1f}\\%")
+        lines.append("MDPI share of Italian articles, before $\\to$ after & " + " & ".join(cells) + r" \\")
+    lines.append(r"\addlinespace")
+    for o, lab in (("gap>=1", "Gap return, one random article per year"), ("all returns", "All returns, one random article per year")):
+        cells = []
+        for t in tabs:
+            x = t[t.definition.str.startswith("one random") & (t.outcome == o)]
+            sig = int((x.ci_high_pp < 0).sum())
+            cells.append(f"${x.beta_pp.min():+.1f}$ to ${x.beta_pp.max():+.1f}$ ({sig}/5)")
+        lines.append(f"{lab}: range over 5 draws (significant) & " + " & ".join(cells) + r" \\")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_returns_checks.tex", "\n".join(lines))
+
+
+def _p(v):
+    return "$<0.001$" if v < 0.001 else f"{v:.3f}"
+
+
+def table_country_checks():
+    """Model-free pre-trend tests for Russia and India, and the Russia leave-out estimate (country_pretrend.py)."""
+    f1, f2 = path("results_downloads", "country_model_free_pretrend.csv"), path("results_downloads", "russia_leaveout.csv")
+    if not (os.path.exists(f1) and os.path.exists(f2)):
+        return
+    p, lo = pd.read_csv(f1), pd.read_csv(f2)
+    fields = ["Physics", "Engineering", "Biochemistry", "Chemistry"]
+    lines = [r"\begin{tabular}{lllll}", r"\toprule", "& " + " & ".join(fields) + r" \\", r"\midrule",
+             r"\multicolumn{5}{l}{\emph{Model-free annual comparison as for Italy in Table~S33 (2004--18), joint test of the pre-2009 coefficients ($p$)}} \\"]
+    fa = path("results_downloads", "country_model_free_pretrend_all_years.csv")
+    if os.path.exists(fa):
+        a = pd.read_csv(fa)
+        for c in ("Russia", "India"):
+            for o, lab in (("near", "nearby move"), ("near_return", "all returns"), ("near_gap_return", "gap returns"), ("near_new", "first entries")):
+                lines.append(f"{c}, {lab} & " + " & ".join(_p(a[(a.country == c) & (a.field == f) & (a.outcome == o)].pretrend_wald_p.iloc[0]) for f in fields) + r" \\")
+        lines += [r"\addlinespace", r"\multicolumn{5}{l}{\emph{Model-free 2007 placebo (2004--06 vs 2007--09), pp}} \\"]
+        for c in ("Russia", "India"):
+            for o, lab in (("near", "nearby move"), ("near_return", "all returns"), ("near_gap_return", "gap returns"), ("near_new", "first entries")):
+                cells = []
+                for f in fields:
+                    r = a[(a.country == c) & (a.field == f) & (a.outcome == o)].iloc[0]
+                    cells.append(_pp(r.placebo2007_pp, r.placebo_ci_low_pp, r.placebo_ci_high_pp))
+                lines.append(f"{c}, {lab} & " + " & ".join(cells) + r" \\")
+    lines += [r"\addlinespace", r"\multicolumn{5}{l}{\emph{Nearby moves, before and after years only (version first reported; $p$)}} \\"]
+    for c in ("Russia", "India"):
+        lines.append(f"{c}, nearby move & " + " & ".join(f"{p[(p.country == c) & (p.field == f)].pretrend_wald_p.iloc[0]:.3f}" for f in fields) + r" \\")
+    lines += [r"\addlinespace", r"\multicolumn{5}{l}{\emph{Russia, pooled (inverse-variance) over the fields without pre-trends under the plan (physics, biochemistry), pp}} \\",
+              r"& Nearby move & Returns & & \\"]
+    for d in ("earlier download", "latest download"):
+        cells = []
+        for t in ("I1 nearby move", "I3 near return"):
+            r = lo[(lo.download == d) & (lo.test == t)].iloc[0]
+            cells.append(_pp(r.estimate_pp, r.ci_low_pp, r.ci_high_pp))
+        lines.append(f"{d.capitalize()} & " + " & ".join(cells) + r" & & \\")
+    # timing checks against other control groups (run_round12_controls_timing.sh)
+    other = [("Italy vs ES+NL+PT", "_world_esnlpt"), ("Italy vs NL+PT", "_world_nlpt"), ("Russia vs ES+NL+PT", "_world_RU_esnlpt")]
+    base = {"Physics": "results", "Engineering": "results_field22", "Biochemistry": "results_field13", "Chemistry": "results_field16"}
+    if all(os.path.exists(path(base[f] + suf, "first_entry_timing.csv")) for _, suf in other for f in fields):
+        lines += [r"\addlinespace", r"\multicolumn{5}{l}{\emph{Other control groups: joint pre-2009 test ($p$); 2007 placebo, pp}} \\"]
+        for lab, suf in other:
+            for o, olab in (("near", "nearby move"), ("near_gap_return", "gap returns")):
+                cells = []
+                for f in fields:
+                    t = pd.read_csv(path(base[f] + suf, "first_entry_timing.csv")).set_index("outcome")
+                    r = t.loc[o]
+                    cells.append(f"{_p(r.pretrend_wald_p)}; {_pp(r.placebo2007_pp, r.placebo_ci_low_pp, r.placebo_ci_high_pp)}")
+                lines.append(f"{lab}, {olab} & " + " & ".join(cells) + r" \\")
+    lines += [r"\bottomrule", r"\end{tabular}"]
+    write("tab_country_checks.tex", "\n".join(lines))
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
-    for fn in (table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries,
+    for fn in (table_sector_output, table_reclass, table_country_checks, table_returns_space, table_returns_checks, table_downloads, table_timing, table_returns_countries, table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries,
                table_stacked_rules, table_rank, table_sector_bars, table_institutions, table_chemistry, table_india, table_russia,
                table_coauthors, table_venues, table_venue_checks,
                table_collab_checks):

@@ -1,0 +1,21 @@
+Loaded 446,333 papers and 3,404,015 paper-author rows from 66 files
+World citations: 3,008,237 papers, 115 topics, years 1998-2019
+      definition                outcome  beta_pp  ci_low_pp  ci_high_pp  raw_did_pp  IT_before_pct  IT_after_pct  CTRL_before_pct  CTRL_after_pct
+6-year look-back                   near    -1.87      -2.77       -0.97       -1.72          18.14         16.97            16.49           17.04
+6-year look-back               near_new     0.09      -0.35        0.54       -0.14           5.35          4.55             5.65            4.99
+6-year look-back            near_return    -1.96      -2.74       -1.19       -1.58          12.79         12.42            10.84           12.05
+6-year look-back                far_new     0.04      -0.37        0.45       -0.00           4.52          4.02             4.54            4.05
+6-year look-back             far_return    -0.17      -0.75        0.41        0.27           6.56          7.28             6.15            6.60
+6-year look-back near_concurrent_return    -0.83      -1.35       -0.31       -0.49           5.89          5.82             4.93            5.35
+6-year look-back        near_gap_return    -1.13      -1.68       -0.58       -1.10           6.90          6.59             5.91            6.70
+      since 1998               near_new     0.27      -0.14        0.68       -0.10           4.86          3.51             5.13            3.88
+      since 1998            near_return    -2.14      -2.94       -1.35       -1.62          13.28         13.46            11.36           13.16
+      since 1998                far_new     0.09      -0.29        0.47        0.01           4.15          3.21             4.18            3.23
+      since 1998             far_return    -0.22      -0.83        0.39        0.25           6.93          8.09             6.51            7.41
+
+Choices 298,819; saved /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/results_world/first_entry.csv
+        outcome  placebo2007_pp  placebo_ci_low_pp  placebo_ci_high_pp  pretrend_wald_p
+           near           0.111             -0.899               1.121              0.0
+    near_return           0.348             -0.558               1.254              0.0
+near_gap_return           0.757              0.070               1.445              0.0
+       near_new          -0.237             -0.801               0.327              0.0

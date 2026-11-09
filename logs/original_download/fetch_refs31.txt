@@ -1,0 +1,80 @@
+Field 31 = Physics and Astronomy
+Using field filter primary_topic.field.id:31
+  IT 2001: 4,548 papers, 104,115 references
+  IT 2002: 4,823 papers, 119,487 references
+  IT 2003: 5,228 papers, 128,981 references
+  IT 2004: 5,520 papers, 148,964 references
+  IT 2005: already downloaded, skipping
+  IT 2006: 5,887 papers, 179,387 references
+  IT 2007: 5,850 papers, 183,444 references
+  IT 2008: 5,506 papers, 190,211 references
+  IT 2009: 6,077 papers, 215,185 references
+  IT 2010: 5,973 papers, 225,363 references
+  IT 2011: 5,920 papers, 234,717 references
+  IT 2012: 6,333 papers, 261,377 references
+  IT 2013: 6,324 papers, 280,770 references
+  IT 2014: 6,500 papers, 309,412 references
+  IT 2015: 6,680 papers, 326,180 references
+  IT 2016: 7,009 papers, 353,377 references
+  IT 2017: 6,840 papers, 363,559 references
+  IT 2018: 7,004 papers, 385,229 references
+  IT 2019: 7,050 papers, 411,937 references
+  FR 2001: 5,520 papers, 117,983 references
+  FR 2002: 5,872 papers, 127,317 references
+  FR 2003: 5,881 papers, 139,157 references
+  FR 2004: 6,410 papers, 156,065 references
+  FR 2005: 6,727 papers, 174,961 references
+  FR 2006: 7,135 papers, 194,280 references
+  FR 2007: 6,990 papers, 213,265 references
+  FR 2008: 7,175 papers, 233,713 references
+  FR 2009: 7,638 papers, 255,639 references
+  FR 2010: 7,833 papers, 284,258 references
+  FR 2011: 7,925 papers, 299,662 references
+  FR 2012: 8,172 papers, 328,305 references
+  FR 2013: 8,216 papers, 347,357 references
+  FR 2014: 8,352 papers, 373,576 references
+  FR 2015: 8,491 papers, 396,614 references
+  FR 2016: 8,626 papers, 432,895 references
+  FR 2017: 8,427 papers, 428,755 references
+  FR 2018: 8,333 papers, 449,212 references
+  FR 2019: 8,563 papers, 473,972 references
+  DE 2001: already downloaded, skipping
+  DE 2002: already downloaded, skipping
+  DE 2003: already downloaded, skipping
+  DE 2004: already downloaded, skipping
+  DE 2005: already downloaded, skipping
+  DE 2006: already downloaded, skipping
+  DE 2007: already downloaded, skipping
+  DE 2008: already downloaded, skipping
+  DE 2009: already downloaded, skipping
+  DE 2010: already downloaded, skipping
+  DE 2011: already downloaded, skipping
+  DE 2012: already downloaded, skipping
+  DE 2013: already downloaded, skipping
+  DE 2014: already downloaded, skipping
+  DE 2015: already downloaded, skipping
+  DE 2016: already downloaded, skipping
+  DE 2017: already downloaded, skipping
+  DE 2018: already downloaded, skipping
+  DE 2019: already downloaded, skipping
+  ES 2001: already downloaded, skipping
+  ES 2002: already downloaded, skipping
+  ES 2003: already downloaded, skipping
+  ES 2004: already downloaded, skipping
+  ES 2005: already downloaded, skipping
+  ES 2006: already downloaded, skipping
+  ES 2007: already downloaded, skipping
+  ES 2008: already downloaded, skipping
+  ES 2009: already downloaded, skipping
+  ES 2010: already downloaded, skipping
+  ES 2011: already downloaded, skipping
+  ES 2012: already downloaded, skipping
+  ES 2013: already downloaded, skipping
+  ES 2014: already downloaded, skipping
+  ES 2015: already downloaded, skipping
+  ES 2016: already downloaded, skipping
+  ES 2017: already downloaded, skipping
+  ES 2018: already downloaded, skipping
+  ES 2019: already downloaded, skipping
+
+Done.

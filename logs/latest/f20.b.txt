@@ -1,0 +1,65 @@
+Treated: IT; controls: FR, DE
+Loaded 91,869 papers and 211,842 paper-author rows from 66 files
+Authors with a clear home country: 49,151
+Authors with at least 5 active years: 6,528
+
+                     scientists  choices  share_stay  share_near  share_far
+country period                                                            
+DE      after             1856     5767       0.567       0.242      0.191
+        before            1566     4031       0.564       0.245      0.191
+        transition        1553     2973       0.577       0.233      0.190
+FR      after             1835     5392       0.545       0.243      0.213
+        before            1488     3704       0.585       0.230      0.185
+        transition        1472     2706       0.561       0.230      0.209
+IT      after             1378     4261       0.519       0.257      0.224
+        before            1081     2542       0.570       0.226      0.205
+        transition        1059     1892       0.508       0.256      0.235
+
+Wrote 33,268 choices to /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/data_field20/trajectories.csv
+Next step: python estimate.py
+Treated: IT; controls: FR, DE, ES
+Loaded 113,177 papers and 260,163 paper-author rows from 88 files
+Authors with a clear home country: 62,747
+Authors with at least 5 active years: 8,161
+
+                     scientists  choices  share_stay  share_near  share_far
+country period                                                            
+DE      after             1841     5726       0.569       0.240      0.191
+        before            1550     3989       0.560       0.248      0.192
+        transition        1544     2964       0.582       0.229      0.188
+ES      after             1325     3825       0.562       0.238      0.200
+        before            1123     2865       0.605       0.227      0.168
+        transition        1056     1906       0.580       0.231      0.188
+FR      after             1823     5367       0.543       0.244      0.213
+        before            1483     3688       0.586       0.229      0.185
+        transition        1464     2691       0.559       0.230      0.211
+IT      after             1351     4179       0.518       0.259      0.223
+        before            1063     2504       0.571       0.225      0.204
+        transition        1034     1856       0.506       0.260      0.233
+
+Wrote 41,560 choices to /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/data_field20/trajectories_es.csv
+Next step: python estimate.py
+Treated: IT; controls: FR, DE
+Loaded 91,869 papers and 211,842 paper-author rows from 66 files
+Authors with a clear home country: 49,151
+Authors with at least 5 active years: 6,528
+Share of author-years matched to a MAG career start, by country:
+ country
+DE    0.879
+FR    0.839
+IT    0.963
+
+                     scientists  choices  share_stay  share_near  share_far
+country period                                                            
+DE      after             1661     5126       0.563       0.243      0.194
+        before            1393     3603       0.565       0.243      0.193
+        transition        1386     2658       0.577       0.230      0.193
+FR      after             1566     4588       0.539       0.245      0.216
+        before            1262     3185       0.582       0.235      0.183
+        transition        1261     2320       0.556       0.229      0.215
+IT      after             1346     4156       0.514       0.259      0.227
+        before            1057     2485       0.567       0.227      0.206
+        transition        1034     1849       0.509       0.256      0.235
+
+Wrote 29,970 choices to /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/data_field20/trajectories_career.csv
+Next step: python estimate.py

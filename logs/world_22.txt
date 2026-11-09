@@ -1,0 +1,26 @@
+Field 22 = Engineering
+Using field filter primary_topic.field.id:22
+  1998: 456 topics, 178,441 papers
+  1999: 455 topics, 192,666 papers
+  2000: 458 topics, 224,693 papers
+  2001: 457 topics, 240,048 papers
+  2002: 457 topics, 261,656 papers
+  2003: 458 topics, 293,444 papers
+  2004: 459 topics, 319,562 papers
+  2005: 459 topics, 348,162 papers
+  2006: 460 topics, 382,397 papers
+  2007: 458 topics, 404,592 papers
+  2008: 460 topics, 430,433 papers
+  2009: 458 topics, 457,899 papers
+  2010: 460 topics, 484,415 papers
+  2011: 459 topics, 521,825 papers
+  2012: 460 topics, 529,588 papers
+  2013: 461 topics, 560,966 papers
+  2014: 459 topics, 563,956 papers
+  2015: 460 topics, 540,276 papers
+  2016: 461 topics, 556,037 papers
+  2017: 461 topics, 518,605 papers
+  2018: 460 topics, 516,081 papers
+  2019: 460 topics, 547,024 papers
+
+Done. Next step: python build_trajectories.py --world

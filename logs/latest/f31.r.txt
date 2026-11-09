@@ -1,0 +1,129 @@
+Loaded 378,202 choices by 55,168 scientists from data/trajectories.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.8
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.723  0.170  0.106
+      before  0.728  0.165  0.107
+IT    after   0.717  0.170  0.113
+      before  0.708  0.181  0.111
+
+Fitting the model (200 bootstrap draws)...
+    [main] bootstrap 50/200
+    [main] bootstrap 100/200
+    [main] bootstrap 150/200
+    [main] bootstrap 200/200
+
+Reward weights by group:
+                   IT_pre       IT_post       CTRL_pre      CTRL_post
+theta_cite      0.235559      0.207614       0.204613       0.130239
+theta_near     -1.377451     -1.450612      -1.501522      -1.458925
+theta_far      -1.825493     -1.817978      -1.891578      -1.891121
+n_choices   38072.000000  41135.000000  104071.000000  115541.000000
+converged       1.000000      1.000000       1.000000       1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite  0.046  -0.038    0.131    0.043
+theta_near -0.116  -0.179   -0.057    0.031
+ theta_far  0.007  -0.061    0.076    0.036
+
+Results saved in results_g08
+Loaded 378,202 choices by 55,168 scientists from data/trajectories.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.95
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.723  0.170  0.106
+      before  0.728  0.165  0.107
+IT    after   0.717  0.170  0.113
+      before  0.708  0.181  0.111
+
+Fitting the model (200 bootstrap draws)...
+    [main] bootstrap 50/200
+    [main] bootstrap 100/200
+    [main] bootstrap 150/200
+    [main] bootstrap 200/200
+
+Reward weights by group:
+                   IT_pre       IT_post       CTRL_pre      CTRL_post
+theta_cite      0.150728      0.134971       0.124418       0.085253
+theta_near     -1.376929     -1.450638      -1.501024      -1.458854
+theta_far      -1.826771     -1.817754      -1.892650      -1.890353
+n_choices   38072.000000  41135.000000  104071.000000  115541.000000
+converged       1.000000      1.000000       1.000000       1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite  0.023  -0.032    0.078    0.028
+theta_near -0.116  -0.179   -0.057    0.031
+ theta_far  0.007  -0.062    0.076    0.036
+
+Results saved in results_g095
+Balanced panel: 27,448 scientists active before and after
+Loaded 266,043 choices by 27,448 scientists from data/trajectories.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.717  0.175  0.109
+      before  0.733  0.162  0.105
+IT    after   0.717  0.172  0.111
+      before  0.710  0.181  0.109
+
+Fitting the model (200 bootstrap draws)...
+    [main] bootstrap 50/200
+    [main] bootstrap 100/200
+    [main] bootstrap 150/200
+    [main] bootstrap 200/200
+
+Reward weights by group:
+                   IT_pre       IT_post      CTRL_pre     CTRL_post
+theta_cite      0.203166      0.171464      0.156279      0.093963
+theta_near     -1.387369     -1.434113     -1.526676     -1.423418
+theta_far      -1.841752     -1.829207     -1.915588     -1.863466
+n_choices   28461.000000  29397.000000  73340.000000  77692.000000
+converged       1.000000      1.000000      1.000000      1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite  0.031  -0.053    0.108    0.041
+theta_near -0.150  -0.222   -0.090    0.034
+ theta_far -0.040  -0.110    0.030    0.038
+
+Results saved in results_balanced
+Loaded 293,047 choices by 45,393 scientists from data/trajectories_team20.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.710  0.167  0.123
+      before  0.719  0.159  0.123
+IT    after   0.698  0.163  0.140
+      before  0.697  0.163  0.140
+
+Fitting the model (200 bootstrap draws)...
+    [main] bootstrap 50/200
+    [main] bootstrap 100/200
+    [main] bootstrap 150/200
+    [main] bootstrap 200/200
+
+Reward weights by group:
+                   IT_pre       IT_post      CTRL_pre     CTRL_post
+theta_cite      0.120706      0.030916      0.052874      0.061912
+theta_near     -1.469431     -1.458161     -1.518785     -1.455809
+theta_far      -1.582211     -1.604698     -1.759913     -1.742682
+n_choices   27067.000000  28642.000000  84150.000000  90820.000000
+converged       1.000000      1.000000      1.000000      1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite -0.099  -0.169   -0.017    0.037
+theta_near -0.052  -0.120    0.019    0.034
+ theta_far -0.040  -0.103    0.039    0.035
+
+Results saved in results_team20

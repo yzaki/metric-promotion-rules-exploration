@@ -1,0 +1,68 @@
+Treated: IT; controls: FR, DE, ES, NL, PT
+Loaded 525,005 papers and 3,392,582 paper-author rows from 132 files
+World citations: 3,555,998 papers, 200 topics, years 1998-2019
+Authors with a clear home country: 511,781
+Authors with at least 5 active years: 102,426
+
+                     scientists  choices  share_stay  share_near  share_far
+country period                                                            
+DE      after            21197    69313       0.460       0.213      0.327
+        before           21078    60906       0.507       0.198      0.295
+        transition       18756    37204       0.484       0.204      0.312
+ES      after             9844    31291       0.506       0.196      0.298
+        before            8660    24020       0.554       0.191      0.255
+        transition        8311    16144       0.530       0.196      0.273
+FR      after            16788    51468       0.476       0.211      0.313
+        before           17203    47886       0.524       0.202      0.274
+        transition       14317    27428       0.503       0.198      0.299
+IT      after            15999    51572       0.438       0.203      0.359
+        before           15256    43933       0.485       0.211      0.304
+        transition       13354    25785       0.463       0.206      0.331
+NL      after             6222    21106       0.517       0.182      0.301
+        before            6029    17609       0.540       0.176      0.284
+        transition        5491    11088       0.541       0.176      0.283
+PT      after             1912     6176       0.503       0.187      0.310
+        before            1574     4348       0.574       0.177      0.249
+        transition        1652     3282       0.524       0.190      0.285
+
+Wrote 550,559 choices to /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/data_field13/trajectories_world_ctrl_FR_DE_ES_NL_PT.csv
+Next step: python estimate.py
+Loaded 550,559 choices by 97,840 scientists from data_field13/trajectories_world_ctrl_FR_DE_ES_NL_PT.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.481  0.205  0.314
+      before  0.525  0.195  0.280
+IT    after   0.438  0.203  0.359
+      before  0.485  0.211  0.304
+
+Fitting the model (100 bootstrap draws)...
+    [main] bootstrap 50/100
+    [main] bootstrap 100/100
+
+Reward weights by group:
+                   IT_pre       IT_post       CTRL_pre      CTRL_post
+theta_cite     -0.473246     -0.542945      -0.360468      -0.480227
+theta_near     -0.759109     -0.695312      -0.939515      -0.788388
+theta_far      -0.431790     -0.154435      -0.612765      -0.395776
+n_choices   43933.000000  51572.000000  154769.000000  179354.000000
+converged       1.000000      1.000000       1.000000       1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite  0.050  -0.021    0.117    0.036
+theta_near -0.087  -0.135   -0.042    0.026
+ theta_far  0.060   0.014    0.105    0.023
+
+Results saved in results_field13_world_ctrl_FR_DE_ES_NL_PT
+                       spec choice  beta_pp  ci_low_pp  ci_high_pp  n_choices  n_scientists  baseline_IT_pre_pp
+        scientist + year FE   near   -1.447     -2.285      -0.609     429628         96010              21.121
+        scientist + year FE   stay    0.222     -0.775       1.219     429628         96010              48.451
+        scientist + year FE    far    1.225      0.259       2.190     429628         96010              30.428
+scientist + year + state FE   near   -1.589     -2.418      -0.760     429628         96010              21.121
+scientist + year + state FE   stay    0.384     -0.553       1.320     429628         96010              48.451
+scientist + year + state FE    far    1.205      0.265       2.145     429628         96010              30.428
+
+Saved results_field13_world_ctrl_FR_DE_ES_NL_PT/reduced_form.csv

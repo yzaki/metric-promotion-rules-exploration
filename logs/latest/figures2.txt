@@ -1,0 +1,2 @@
+Fig. 5 hollow: {('Italy', 'near'): {'Biochemistry', 'Chemistry', 'Physics'}, ('Italy', 'gap'): {'Chemistry', 'Physics'}, ('Russia', 'near'): {'Engineering'}, ('Russia', 'gap'): {'Engineering'}, ('India', 'near'): {'Physics'}, ('India', 'gap'): {'Chemistry'}}
+figures written to /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/v3_out/figures

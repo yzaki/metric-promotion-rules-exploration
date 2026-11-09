@@ -5,7 +5,7 @@
 # Same design as Italy: treated country vs France + Germany, world citation measure, Italy left out.
 # Run from this folder after fetch_openalex.py --countries RO PL for fields 31, 22, 13.
 set -u
-P=.venv/Scripts/python
+P=${PYTHON:-python}
 export PYTHONIOENCODING=utf-8
 mkdir -p logs
 for F in 31 22 13; do

@@ -1,0 +1,48 @@
+Field 16 = Chemistry
+Using field filter primary_topic.field.id:16
+  RU 1998: 2,200 papers to download
+  RU 1998: saved 2,200 papers, 8,570 author rows
+  RU 1999: 2,209 papers to download
+  RU 1999: saved 2,209 papers, 8,899 author rows
+  RU 2000: 2,777 papers to download
+  RU 2000: saved 2,777 papers, 10,672 author rows
+  RU 2001: 3,629 papers to download
+  RU 2001: saved 3,629 papers, 14,192 author rows
+  RU 2002: 3,827 papers to download
+  RU 2002: saved 3,827 papers, 15,473 author rows
+  RU 2003: 3,879 papers to download
+  RU 2003: saved 3,879 papers, 15,529 author rows
+  RU 2004: 3,665 papers to download
+  RU 2004: saved 3,665 papers, 15,311 author rows
+  RU 2005: 3,893 papers to download
+  RU 2005: saved 3,893 papers, 16,627 author rows
+  RU 2006: 4,076 papers to download
+  RU 2006: saved 4,076 papers, 17,239 author rows
+  RU 2007: 3,949 papers to download
+  RU 2007: saved 3,949 papers, 16,836 author rows
+  RU 2008: 4,185 papers to download
+  RU 2008: saved 4,185 papers, 17,664 author rows
+  RU 2009: 3,985 papers to download
+  RU 2009: saved 3,985 papers, 16,926 author rows
+  RU 2010: 4,095 papers to download
+  RU 2010: saved 4,095 papers, 17,896 author rows
+  RU 2011: 4,301 papers to download
+  RU 2011: saved 4,303 papers, 18,691 author rows
+  RU 2012: 4,042 papers to download
+  RU 2012: saved 4,042 papers, 17,519 author rows
+  RU 2013: 4,346 papers to download
+  RU 2013: saved 4,346 papers, 19,260 author rows
+  RU 2014: 4,431 papers to download
+  RU 2014: saved 4,431 papers, 19,933 author rows
+  RU 2015: 4,817 papers to download
+  RU 2015: saved 4,817 papers, 22,595 author rows
+  RU 2016: 4,989 papers to download
+  RU 2016: saved 4,989 papers, 23,884 author rows
+  RU 2017: 5,408 papers to download
+  RU 2017: saved 5,408 papers, 25,691 author rows
+  RU 2018: 5,795 papers to download
+  RU 2018: saved 5,795 papers, 27,479 author rows
+  RU 2019: 5,419 papers to download
+  RU 2019: saved 5,419 papers, 26,539 author rows
+
+Done. Next step: python build_trajectories.py

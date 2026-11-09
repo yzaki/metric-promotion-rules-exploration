@@ -1,0 +1,27 @@
+221,114 scientists across fields
+authors: 0 done, 221,114 to fetch
+  authors: 10,000 / 221,114
+  authors: 20,000 / 221,114
+  authors: 30,000 / 221,114
+  authors: 40,000 / 221,114
+  authors: 50,000 / 221,114
+  authors: 60,000 / 221,114
+  authors: 70,000 / 221,114
+  authors: 80,000 / 221,114
+  authors: 90,000 / 221,114
+  authors: 100,000 / 221,114
+  authors: 110,000 / 221,114
+  authors: 120,000 / 221,114
+  authors: 130,000 / 221,114
+  authors: 140,000 / 221,114
+  authors: 150,000 / 221,114
+    HTTP 504; retrying in 1s
+  authors: 160,000 / 221,114
+  authors: 170,000 / 221,114
+  authors: 180,000 / 221,114
+  authors: 190,000 / 221,114
+  authors: 200,000 / 221,114
+  authors: 210,000 / 221,114
+  authors: 220,000 / 221,114
+institutions: 0 done, 1,047 to fetch
+Done.

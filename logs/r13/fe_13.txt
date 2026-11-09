@@ -1,0 +1,28 @@
+Loaded 405,537 papers and 2,679,475 paper-author rows from 66 files
+World citations: 3,555,998 papers, 200 topics, years 1998-2019
+      definition                outcome  beta_pp  ci_low_pp  ci_high_pp  raw_did_pp  IT_before_pct  IT_after_pct  CTRL_before_pct  CTRL_after_pct
+6-year look-back                   near    -1.51      -2.39       -0.64       -1.92          21.02         20.30            19.95           21.15
+6-year look-back                   move    -0.50      -1.54        0.54       -0.09          51.37         55.91            48.36           52.98
+6-year look-back                    far     1.01       0.01        2.02        1.83          30.36         35.62            28.40           31.83
+6-year look-back             any_return    -1.49      -2.33       -0.65       -1.23          21.05         25.12            19.86           25.17
+6-year look-back               near_new     0.08      -0.54        0.71       -0.28          11.84         10.80            11.63           10.86
+6-year look-back            near_return    -1.59      -2.21       -0.98       -1.64           9.17          9.50             8.33           10.29
+6-year look-back                far_new     0.91       0.15        1.66        1.42          18.48         19.99            16.87           16.95
+6-year look-back             far_return     0.11      -0.60        0.81        0.41          11.87         15.62            11.54           14.88
+6-year look-back near_concurrent_return    -0.58      -0.92       -0.25       -0.60           2.68          2.56             2.59            3.07
+6-year look-back        near_gap_return    -1.01      -1.51       -0.51       -1.05           6.49          6.94             5.73            7.22
+      since 1998             any_return    -1.50      -2.37       -0.63       -1.12          22.58         28.62            21.49           28.65
+      since 1998               near_new     0.07      -0.52        0.67       -0.27          11.16          9.39            10.92            9.42
+      since 1998            near_return    -1.59      -2.23       -0.94       -1.66           9.86         10.91             9.03           11.74
+      since 1998                far_new     0.93       0.20        1.66        1.29          17.64         17.90            15.94           14.91
+      since 1998             far_return     0.09      -0.66        0.83        0.54          12.72         17.71            12.46           16.92
+
+Choices 333,071; saved /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/results_field13_world/first_entry.csv
+        outcome  placebo2007_pp  placebo_ci_low_pp  placebo_ci_high_pp  pretrend_wald_p
+           near          -0.352             -1.395               0.691            0.001
+           move          -0.409             -1.620               0.803            0.100
+            far          -0.056             -1.199               1.086            0.140
+     any_return           0.056             -0.998               1.109            0.894
+    near_return          -0.213             -0.981               0.555            0.478
+near_gap_return          -0.171             -0.832               0.490            0.549
+       near_new          -0.139             -0.939               0.660            0.059

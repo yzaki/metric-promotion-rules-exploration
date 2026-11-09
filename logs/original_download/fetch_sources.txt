@@ -1,0 +1,16 @@
+23,766 distinct sources
+Traceback (most recent call last):
+  File "C:\Users\naa9497\Downloads\cloud_projects\Citation Targets\citation-targets-irl\fetch_sources.py", line 58, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\naa9497\Downloads\cloud_projects\Citation Targets\citation-targets-irl\fetch_sources.py", line 46, in main
+    w.writerow([short(s["id"]), s.get("display_name"), s.get("type"), st.get("2yr_mean_citedness"),
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                s.get("is_in_doaj"), s.get("is_oa"), s.get("apc_usd"),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                s.get("issn_l") or "", "|".join(s.get("issn") or [])])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0301' in position 24: character maps to <undefined>

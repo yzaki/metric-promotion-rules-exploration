@@ -1,0 +1,92 @@
+Field 13 = Biochemistry, Genetics and Molecular Biology
+Using field filter primary_topic.field.id:13
+  RO 1998: 80 papers to download
+  RO 1998: saved 80 papers, 297 author rows
+  RO 1999: 69 papers to download
+  RO 1999: saved 69 papers, 292 author rows
+  RO 2000: 96 papers to download
+  RO 2000: saved 96 papers, 400 author rows
+  RO 2001: 94 papers to download
+  RO 2001: saved 94 papers, 403 author rows
+  RO 2002: 95 papers to download
+  RO 2002: saved 95 papers, 440 author rows
+  RO 2003: 117 papers to download
+  RO 2003: saved 117 papers, 522 author rows
+  RO 2004: 111 papers to download
+  RO 2004: saved 111 papers, 562 author rows
+  RO 2005: 106 papers to download
+  RO 2005: saved 106 papers, 514 author rows
+  RO 2006: 143 papers to download
+  RO 2006: saved 143 papers, 618 author rows
+  RO 2007: 213 papers to download
+  RO 2007: saved 213 papers, 968 author rows
+  RO 2008: 285 papers to download
+  RO 2008: saved 285 papers, 1,301 author rows
+  RO 2009: 295 papers to download
+  RO 2009: saved 295 papers, 1,361 author rows
+  RO 2010: 291 papers to download
+  RO 2010: saved 291 papers, 1,535 author rows
+  RO 2011: 405 papers to download
+  RO 2011: saved 405 papers, 1,980 author rows
+  RO 2012: 393 papers to download
+  RO 2012: saved 393 papers, 2,125 author rows
+  RO 2013: 414 papers to download
+  RO 2013: saved 414 papers, 2,394 author rows
+  RO 2014: 427 papers to download
+  RO 2014: saved 427 papers, 2,823 author rows
+  RO 2015: 469 papers to download
+  RO 2015: saved 469 papers, 2,899 author rows
+  RO 2016: 465 papers to download
+  RO 2016: saved 465 papers, 3,439 author rows
+  RO 2017: 447 papers to download
+  RO 2017: saved 447 papers, 3,510 author rows
+  RO 2018: 436 papers to download
+  RO 2018: saved 436 papers, 3,643 author rows
+  RO 2019: 505 papers to download
+  RO 2019: saved 505 papers, 3,934 author rows
+  PL 1998: 1,008 papers to download
+  PL 1998: saved 1,008 papers, 3,311 author rows
+  PL 1999: 1,107 papers to download
+  PL 1999: saved 1,107 papers, 3,821 author rows
+  PL 2000: 1,248 papers to download
+  PL 2000: saved 1,248 papers, 4,157 author rows
+  PL 2001: 1,275 papers to download
+  PL 2001: saved 1,275 papers, 4,623 author rows
+  PL 2002: 1,424 papers to download
+  PL 2002: saved 1,424 papers, 5,052 author rows
+  PL 2003: 1,668 papers to download
+  PL 2003: saved 1,668 papers, 6,341 author rows
+  PL 2004: 1,748 papers to download
+  PL 2004: saved 1,748 papers, 7,078 author rows
+  PL 2005: 1,850 papers to download
+  PL 2005: saved 1,850 papers, 7,676 author rows
+  PL 2006: 1,931 papers to download
+  PL 2006: saved 1,931 papers, 8,213 author rows
+  PL 2007: 1,869 papers to download
+  PL 2007: saved 1,869 papers, 8,502 author rows
+  PL 2008: 1,946 papers to download
+  PL 2008: saved 1,946 papers, 8,921 author rows
+  PL 2009: 2,239 papers to download
+  PL 2009: saved 2,239 papers, 10,373 author rows
+  PL 2010: 2,183 papers to download
+  PL 2010: saved 2,183 papers, 10,685 author rows
+  PL 2011: 2,242 papers to download
+  PL 2011: saved 2,242 papers, 12,135 author rows
+  PL 2012: 2,414 papers to download
+  PL 2012: saved 2,414 papers, 13,229 author rows
+  PL 2013: 2,882 papers to download
+  PL 2013: saved 2,882 papers, 15,372 author rows
+  PL 2014: 2,914 papers to download
+  PL 2014: saved 2,914 papers, 17,228 author rows
+  PL 2015: 3,071 papers to download
+  PL 2015: saved 3,071 papers, 17,207 author rows
+  PL 2016: 2,877 papers to download
+  PL 2016: saved 2,877 papers, 19,773 author rows
+  PL 2017: 2,832 papers to download
+  PL 2017: saved 2,832 papers, 17,952 author rows
+  PL 2018: 2,755 papers to download
+  PL 2018: saved 2,755 papers, 19,742 author rows
+  PL 2019: 2,729 papers to download
+  PL 2019: saved 2,729 papers, 19,577 author rows
+
+Done. Next step: python build_trajectories.py

@@ -1,0 +1,48 @@
+Field 22 = Engineering
+Using field filter primary_topic.field.id:22
+  RO 1998: 162 papers to download
+  RO 1998: saved 162 papers, 468 author rows
+  RO 1999: 190 papers to download
+  RO 1999: saved 190 papers, 601 author rows
+  RO 2000: 201 papers to download
+  RO 2000: saved 201 papers, 665 author rows
+  RO 2001: 239 papers to download
+  RO 2001: saved 239 papers, 808 author rows
+  RO 2002: 236 papers to download
+  RO 2002: saved 236 papers, 771 author rows
+  RO 2003: 259 papers to download
+  RO 2003: saved 259 papers, 847 author rows
+  RO 2004: 301 papers to download
+  RO 2004: saved 301 papers, 1,049 author rows
+  RO 2005: 329 papers to download
+  RO 2005: saved 329 papers, 1,145 author rows
+  RO 2006: 387 papers to download
+  RO 2006: saved 387 papers, 1,352 author rows
+  RO 2007: 526 papers to download
+  RO 2007: saved 526 papers, 1,815 author rows
+  RO 2008: 870 papers to download
+  RO 2008: saved 870 papers, 2,879 author rows
+  RO 2009: 747 papers to download
+  RO 2009: saved 747 papers, 2,547 author rows
+  RO 2010: 916 papers to download
+  RO 2010: saved 916 papers, 2,991 author rows
+  RO 2011: 933 papers to download
+  RO 2011: saved 933 papers, 3,178 author rows
+  RO 2012: 1,050 papers to download
+  RO 2012: saved 1,050 papers, 3,394 author rows
+  RO 2013: 1,352 papers to download
+  RO 2013: saved 1,352 papers, 4,205 author rows
+  RO 2014: 1,631 papers to download
+  RO 2014: saved 1,631 papers, 5,330 author rows
+  RO 2015: 1,807 papers to download
+  RO 2015: saved 1,807 papers, 6,135 author rows
+  RO 2016: 1,415 papers to download
+  RO 2016: saved 1,415 papers, 5,184 author rows
+  RO 2017: 1,493 papers to download
+  RO 2017: saved 1,493 papers, 5,490 author rows
+  RO 2018: 1,522 papers to download
+  RO 2018: saved 1,522 papers, 5,556 author rows
+  RO 2019: 1,675 papers to download
+  RO 2019: saved 1,675 papers, 6,495 author rows
+
+Done. Next step: python build_trajectories.py

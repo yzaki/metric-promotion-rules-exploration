@@ -1,0 +1,41 @@
+Field 22 = Engineering
+Using field filter primary_topic.field.id:22
+  1998: 550 topics, 220,044 papers
+  1999: 549 topics, 235,789 papers
+  2000: 552 topics, 276,528 papers
+  2001: 551 topics, 296,765 papers
+  2002: 551 topics, 323,628 papers
+  2003: 552 topics, 361,153 papers
+  2004: 553 topics, 395,964 papers
+
+Daily free budget used up ({"error":"Rate limit exceeded","message":"Insufficient budget. This request costs $0.0001 but you only have $0 remaining. Resets at midnight UTC. Need more? Add funds at https://openalex.org/pricing","retryAfter":70410,"costUsd":0.0001,"dailyRemainingUsd":0,"prepaidRemainingUsd":0,"creditsRequired":).
+Run the same command tomorrow; it resumes.
+attempt 1: 7/22 years
+--- switched to new key at 08:26
+Field 22 = Engineering
+Using field filter primary_topic.field.id:22
+  1998: already downloaded, skipping
+  1999: already downloaded, skipping
+  2000: already downloaded, skipping
+  2001: already downloaded, skipping
+  2002: already downloaded, skipping
+  2003: already downloaded, skipping
+  2004: already downloaded, skipping
+  2005: 553 topics, 430,136 papers
+  2006: 553 topics, 473,684 papers
+  2007: 552 topics, 501,665 papers
+  2008: 554 topics, 534,790 papers
+  2009: 553 topics, 572,154 papers
+  2010: 553 topics, 607,890 papers
+  2011: 553 topics, 654,552 papers
+  2012: 553 topics, 666,375 papers
+  2013: 554 topics, 706,777 papers
+  2014: 553 topics, 708,610 papers
+  2015: 554 topics, 684,821 papers
+  2016: 554 topics, 702,774 papers
+  2017: 554 topics, 650,515 papers
+  2018: 553 topics, 641,129 papers
+  2019: 553 topics, 674,603 papers
+
+Done. Next step: python build_trajectories.py --world
+attempt 1: 22/22 years

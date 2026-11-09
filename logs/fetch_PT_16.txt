@@ -1,0 +1,48 @@
+Field 16 = Chemistry
+Using field filter primary_topic.field.id:16
+  PT 1998: 231 papers to download
+  PT 1998: saved 231 papers, 919 author rows
+  PT 1999: 291 papers to download
+  PT 1999: saved 291 papers, 1,196 author rows
+  PT 2000: 325 papers to download
+  PT 2000: saved 325 papers, 1,313 author rows
+  PT 2001: 450 papers to download
+  PT 2001: saved 450 papers, 1,949 author rows
+  PT 2002: 421 papers to download
+  PT 2002: saved 421 papers, 1,867 author rows
+  PT 2003: 416 papers to download
+  PT 2003: saved 416 papers, 1,813 author rows
+  PT 2004: 535 papers to download
+  PT 2004: saved 535 papers, 2,409 author rows
+  PT 2005: 586 papers to download
+  PT 2005: saved 586 papers, 2,623 author rows
+  PT 2006: 624 papers to download
+  PT 2006: saved 624 papers, 2,861 author rows
+  PT 2007: 611 papers to download
+  PT 2007: saved 611 papers, 2,849 author rows
+  PT 2008: 708 papers to download
+  PT 2008: saved 708 papers, 3,244 author rows
+  PT 2009: 676 papers to download
+  PT 2009: saved 676 papers, 3,165 author rows
+  PT 2010: 793 papers to download
+  PT 2010: saved 793 papers, 3,698 author rows
+  PT 2011: 847 papers to download
+  PT 2011: saved 847 papers, 4,039 author rows
+  PT 2012: 798 papers to download
+  PT 2012: saved 798 papers, 3,931 author rows
+  PT 2013: 924 papers to download
+  PT 2013: saved 924 papers, 4,734 author rows
+  PT 2014: 836 papers to download
+  PT 2014: saved 836 papers, 4,131 author rows
+  PT 2015: 748 papers to download
+  PT 2015: saved 748 papers, 3,868 author rows
+  PT 2016: 714 papers to download
+  PT 2016: saved 714 papers, 3,759 author rows
+  PT 2017: 651 papers to download
+  PT 2017: saved 651 papers, 3,791 author rows
+  PT 2018: 673 papers to download
+  PT 2018: saved 673 papers, 3,826 author rows
+  PT 2019: 705 papers to download
+  PT 2019: saved 705 papers, 4,262 author rows
+
+Done. Next step: python build_trajectories.py

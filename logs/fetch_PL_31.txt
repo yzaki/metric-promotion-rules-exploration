@@ -1,0 +1,48 @@
+Field 31 = Physics and Astronomy
+Using field filter primary_topic.field.id:31
+  PL 1998: 1,321 papers to download
+  PL 1998: saved 1,321 papers, 11,081 author rows
+  PL 1999: 1,466 papers to download
+  PL 1999: saved 1,466 papers, 12,358 author rows
+  PL 2000: 1,637 papers to download
+  PL 2000: saved 1,637 papers, 12,352 author rows
+  PL 2001: 1,739 papers to download
+  PL 2001: saved 1,739 papers, 14,695 author rows
+  PL 2002: 1,792 papers to download
+  PL 2002: saved 1,792 papers, 15,659 author rows
+  PL 2003: 2,057 papers to download
+  PL 2003: saved 2,057 papers, 18,743 author rows
+  PL 2004: 2,216 papers to download
+  PL 2004: saved 2,217 papers, 21,417 author rows
+  PL 2005: 2,087 papers to download
+  PL 2005: saved 2,087 papers, 22,174 author rows
+  PL 2006: 2,222 papers to download
+  PL 2006: saved 2,222 papers, 21,398 author rows
+  PL 2007: 2,198 papers to download
+  PL 2007: saved 2,198 papers, 25,580 author rows
+  PL 2008: 2,091 papers to download
+  PL 2008: saved 2,091 papers, 24,296 author rows
+  PL 2009: 2,245 papers to download
+  PL 2009: saved 2,245 papers, 25,948 author rows
+  PL 2010: 2,198 papers to download
+  PL 2010: saved 2,198 papers, 29,479 author rows
+  PL 2011: 2,344 papers to download
+  PL 2011: saved 2,344 papers, 38,614 author rows
+  PL 2012: 2,680 papers to download
+  PL 2012: saved 2,680 papers, 56,521 author rows
+  PL 2013: 2,858 papers to download
+  PL 2013: saved 2,858 papers, 52,387 author rows
+  PL 2014: 3,109 papers to download
+  PL 2014: saved 3,109 papers, 59,241 author rows
+  PL 2015: 3,117 papers to download
+  PL 2015: saved 3,117 papers, 57,390 author rows
+  PL 2016: 3,279 papers to download
+  PL 2016: saved 3,279 papers, 63,020 author rows
+  PL 2017: 3,193 papers to download
+  PL 2017: saved 3,193 papers, 60,102 author rows
+  PL 2018: 3,140 papers to download
+  PL 2018: saved 3,140 papers, 65,365 author rows
+  PL 2019: 2,982 papers to download
+  PL 2019: saved 2,982 papers, 57,994 author rows
+
+Done. Next step: python build_trajectories.py

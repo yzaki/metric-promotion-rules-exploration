@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "Code, analysis-ready data and results for \"Italian scientists moved less among neighboring research topics after a metric promotion reform\""
+authors:
+  - family-names: AlDahoul
+    given-names: Nouar
+    orcid: "https://orcid.org/0000-0001-5522-0033"
+    affiliation: New York University Abu Dhabi
+  - family-names: Zaki
+    given-names: Yasir
+    orcid: "https://orcid.org/0000-0001-8078-6944"
+    affiliation: New York University Abu Dhabi
+license: MIT
+repository-code: "https://github.com/Nouar-NYUAD/metric-promotion-rules-exploration"
+date-released: 2026-11-09
+version: "pnas-nexus-submission"

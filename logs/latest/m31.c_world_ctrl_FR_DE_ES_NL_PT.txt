@@ -1,0 +1,68 @@
+Treated: IT; controls: FR, DE, ES, NL, PT
+Loaded 528,556 papers and 3,759,366 paper-author rows from 132 files
+World citations: 3,008,237 papers, 115 topics, years 1998-2019
+Authors with a clear home country: 226,959
+Authors with at least 5 active years: 64,338
+
+                     scientists  choices  share_stay  share_near  share_far
+country period                                                            
+DE      after            16921    64501       0.716       0.177      0.107
+        before           16816    56903       0.728       0.167      0.105
+        transition       15170    33027       0.728       0.164      0.108
+ES      after             4600    17400       0.734       0.170      0.095
+        before            4294    14804       0.734       0.169      0.098
+        transition        4094     8846       0.737       0.165      0.098
+FR      after            11237    42025       0.727       0.161      0.112
+        before           11855    40266       0.725       0.160      0.115
+        transition       10117    21919       0.737       0.152      0.111
+IT      after             9556    38071       0.714       0.170      0.116
+        before            9704    35589       0.704       0.181      0.115
+        transition        8317    18573       0.708       0.173      0.119
+NL      after             2397     8861       0.728       0.188      0.085
+        before            2287     7415       0.738       0.177      0.085
+        transition        2067     4525       0.733       0.179      0.088
+PT      after              758     2902       0.734       0.140      0.126
+        before             749     2566       0.746       0.141      0.113
+        transition         669     1453       0.736       0.160      0.104
+
+Wrote 419,646 choices to /Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/data/trajectories_world_ctrl_FR_DE_ES_NL_PT.csv
+Next step: python estimate.py
+Loaded 419,646 choices by 61,313 scientists from data/trajectories_world_ctrl_FR_DE_ES_NL_PT.csv
+Before = 2004-2009, after = 2013-2018, gamma = 0.9
+
+Share of each choice:
+ action         stay   near    far
+group period                     
+CTRL  after   0.723  0.171  0.106
+      before  0.729  0.165  0.106
+IT    after   0.714  0.170  0.116
+      before  0.704  0.181  0.115
+
+Fitting the model (100 bootstrap draws)...
+    [main] bootstrap 50/100
+    [main] bootstrap 100/100
+
+Reward weights by group:
+                   IT_pre       IT_post       CTRL_pre      CTRL_post
+theta_cite      0.094840      0.027893       0.050306       0.011084
+theta_near     -1.367052     -1.437599      -1.493567      -1.444130
+theta_far      -1.795138     -1.817799      -1.914285      -1.918064
+n_choices   35589.000000  38071.000000  121954.000000  135689.000000
+converged       1.000000      1.000000       1.000000       1.000000
+
+Reform effect (difference-in-differences):
+  parameter    did  ci_low  ci_high  boot_se
+theta_cite -0.028  -0.089    0.015    0.028
+theta_near -0.120  -0.163   -0.062    0.029
+ theta_far -0.019  -0.074    0.034    0.031
+
+Results saved in results_world_ctrl_FR_DE_ES_NL_PT
+                       spec choice  beta_pp  ci_low_pp  ci_high_pp  n_choices  n_scientists  baseline_IT_pre_pp
+        scientist + year FE   near   -1.721     -2.634      -0.807     331303         60591              18.146
+        scientist + year FE   stay    2.073      1.004       3.141     331303         60591              70.384
+        scientist + year FE    far   -0.352     -1.090       0.386     331303         60591              11.470
+scientist + year + state FE   near   -1.696     -2.560      -0.832     331303         60591              18.146
+scientist + year + state FE   stay    2.042      1.080       3.005     331303         60591              70.384
+scientist + year + state FE    far   -0.346     -1.062       0.370     331303         60591              11.470
+
+Saved results_world_ctrl_FR_DE_ES_NL_PT/reduced_form.csv

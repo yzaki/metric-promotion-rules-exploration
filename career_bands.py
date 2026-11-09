@@ -28,7 +28,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--input", required=True)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--career-start", default=os.path.join(config.HERE, "data_meta", "career_start.tsv.gz"))
+    ap.add_argument("--career-start", default=os.path.join(config.HERE, "career_start", "career_start.tsv.gz"))
     ap.add_argument("--n-boot", type=int, default=100)
     args = ap.parse_args()
     pre, post = config.PRE_YEARS, config.POST_YEARS

@@ -1,0 +1,21 @@
+Loaded 387,481 papers and 2,361,319 paper-author rows from 66 files
+World citations: 3,555,998 papers, 200 topics, years 1998-2019
+      definition                outcome  beta_pp  ci_low_pp  ci_high_pp  raw_did_pp  IT_before_pct  IT_after_pct  CTRL_before_pct  CTRL_after_pct
+6-year look-back                   near     1.43      -0.21        3.08        0.88          20.07         22.20            19.84           21.08
+6-year look-back               near_new    -0.15      -1.35        1.05       -0.01          12.42         11.70            11.54           10.83
+6-year look-back            near_return     1.59       0.43        2.74        0.89           7.65         10.49             8.29           10.24
+6-year look-back                far_new    -1.08      -2.45        0.30        0.50          17.60         18.12            16.81           16.84
+6-year look-back             far_return     1.32       0.07        2.56        0.25          10.30         13.91            11.48           14.84
+6-year look-back near_concurrent_return     0.59      -0.08        1.26        0.23           2.50          3.20             2.59            3.06
+6-year look-back        near_gap_return     1.00       0.08        1.91        0.66           5.15          7.29             5.71            7.18
+      since 1998               near_new    -0.27      -1.43        0.89        0.24          11.89         10.69            10.84            9.40
+      since 1998            near_return     1.70       0.50        2.90        0.65           8.18         11.51             9.00           11.68
+      since 1998                far_new    -0.90      -2.22        0.43        0.88          16.80         16.64            15.87           14.83
+      since 1998             far_return     1.14      -0.19        2.46       -0.13          11.10         15.39            12.42           16.85
+
+Choices 268,779; saved results_field13_world_IN/first_entry.csv
+        outcome  placebo2007_pp  placebo_ci_low_pp  placebo_ci_high_pp  pretrend_wald_p
+           near          -0.177             -2.236               1.883            0.299
+    near_return          -0.156             -1.619               1.307            0.152
+near_gap_return           0.689             -0.616               1.994            0.976
+       near_new          -0.021             -1.715               1.673            0.417

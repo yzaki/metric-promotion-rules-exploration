@@ -3,7 +3,7 @@
 # plus the value-of-returns analysis. Runs everything one after another (low-memory machine).
 # Run from this folder: bash run_career.sh
 set -u
-P=.venv/Scripts/python
+P=${PYTHON:-python}
 CS=data_meta/career_start.tsv.gz
 mkdir -p logs
 export PYTHONIOENCODING=utf-8

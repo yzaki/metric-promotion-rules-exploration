@@ -1,0 +1,48 @@
+Field 16 = Chemistry
+Using field filter primary_topic.field.id:16
+  IN 1998: 1,932 papers to download
+  IN 1998: saved 1,932 papers, 5,567 author rows
+  IN 1999: 2,138 papers to download
+  IN 1999: saved 2,138 papers, 6,263 author rows
+  IN 2000: 2,269 papers to download
+  IN 2000: saved 2,269 papers, 6,909 author rows
+  IN 2001: 2,517 papers to download
+  IN 2001: saved 2,517 papers, 7,861 author rows
+  IN 2002: 2,897 papers to download
+  IN 2002: saved 2,897 papers, 9,449 author rows
+  IN 2003: 3,269 papers to download
+  IN 2003: saved 3,269 papers, 10,836 author rows
+  IN 2004: 3,641 papers to download
+  IN 2004: saved 3,641 papers, 11,975 author rows
+  IN 2005: 4,007 papers to download
+  IN 2005: saved 4,007 papers, 13,741 author rows
+  IN 2006: 4,672 papers to download
+  IN 2006: saved 4,672 papers, 16,232 author rows
+  IN 2007: 5,149 papers to download
+  IN 2007: saved 5,149 papers, 18,148 author rows
+  IN 2008: 5,063 papers to download
+  IN 2008: saved 5,063 papers, 18,155 author rows
+  IN 2009: 5,297 papers to download
+  IN 2009: saved 5,297 papers, 19,384 author rows
+  IN 2010: 6,071 papers to download
+  IN 2010: saved 6,071 papers, 22,258 author rows
+  IN 2011: 7,246 papers to download
+  IN 2011: saved 7,246 papers, 27,102 author rows
+  IN 2012: 7,754 papers to download
+  IN 2012: saved 7,754 papers, 29,131 author rows
+  IN 2013: 8,689 papers to download
+  IN 2013: saved 8,688 papers, 32,667 author rows
+  IN 2014: 9,215 papers to download
+  IN 2014: saved 9,215 papers, 35,244 author rows
+  IN 2015: 8,737 papers to download
+  IN 2015: saved 8,736 papers, 33,513 author rows
+  IN 2016: 8,221 papers to download
+  IN 2016: saved 8,221 papers, 32,748 author rows
+  IN 2017: 7,527 papers to download
+  IN 2017: saved 7,527 papers, 29,807 author rows
+  IN 2018: 7,371 papers to download
+  IN 2018: saved 7,371 papers, 29,877 author rows
+  IN 2019: 7,535 papers to download
+  IN 2019: saved 7,535 papers, 31,017 author rows
+
+Done. Next step: python build_trajectories.py

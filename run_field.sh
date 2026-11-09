@@ -5,7 +5,7 @@
 set -u
 F=$1
 export CT_FIELD_ID=$F
-P=.venv/Scripts/python
+P=${PYTHON:-python}
 D=data_field$F
 R=results_field$F
 mkdir -p logs
