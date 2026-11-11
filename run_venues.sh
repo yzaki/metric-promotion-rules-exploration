@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # Journal tier, fee-charging open access and institutions (plan V1, V2, C4) for Italy, India and Russia.
 # Run after run_venues_fetch.sh. One country at a time (each loads the raw author rows).
-set -u
 P=${PYTHON:-python}
 export PYTHONIOENCODING=utf-8
 $P -u venues.py --treated IT --out results_venues > logs/venues_IT.txt 2>&1; echo "IT exit $? $(date)"

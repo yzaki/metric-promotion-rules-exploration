@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # Core rebuild on the latest OpenAlex download (Nov 2026): Italy vs France + Germany (+ Spain),
 # four fields with bibliometric thresholds. Run after run_latest_fetch.sh has finished.
 cd "$(dirname "$0")"
@@ -61,7 +62,7 @@ one() {
   echo "$(date) field $F rebuilt" >> logs/latest/progress.txt
 }
 for F in 31 22 13 16; do one $F & done
-wait
+waitall
 # ---------- everything beyond the Italy core ----------
 export OPENALEX_API_KEY=$(tr -d '[:space:]' < ~/.openalex.key)
 more() {
@@ -109,7 +110,7 @@ more() {
   echo "$(date) field $F extra done" >> logs/latest/progress.txt
 }
 for F in 31 22 13 16; do more $F & done
-wait
+waitall
 # economics (field 20; no citation thresholds; study-country measure)
 export CT_FIELD_ID=20; L=logs/latest/f20
 $P build_trajectories.py > $L.b.txt 2>&1

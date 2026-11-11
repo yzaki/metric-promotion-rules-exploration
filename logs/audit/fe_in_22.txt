@@ -1,0 +1,20 @@
+Loaded 520,211 papers and 1,961,064 paper-author rows from 66 files
+World citations: 9,072,766 papers, 461 topics, years 1998-2019
+      definition                outcome  beta_pp  ci_low_pp  ci_high_pp  raw_did_pp  IT_before_pct  IT_after_pct  CTRL_before_pct  CTRL_after_pct
+6-year look-back                   near     0.20      -1.12        1.53        0.44          21.78         23.37            19.65           20.80
+6-year look-back                   move     2.89       1.33        4.45        0.86          41.05         45.30            38.24           41.63
+6-year look-back                    far     2.69       1.41        3.96        0.42          19.27         21.93            18.59           20.83
+6-year look-back             any_return     3.17       1.90        4.44        0.57          17.95         22.95            18.18           22.61
+6-year look-back               near_new    -1.48      -2.36       -0.59       -0.01          11.62         10.69             9.72            8.79
+6-year look-back            near_return     1.68       0.66        2.69        0.45          10.15         12.68             9.93           12.01
+6-year look-back                far_new     1.19       0.27        2.11        0.30          11.48         11.67            10.34           10.24
+6-year look-back             far_return     1.49       0.57        2.42        0.12           7.80         10.27             8.25           10.59
+6-year look-back near_concurrent_return     0.99       0.34        1.65        0.46           4.24          5.30             3.74            4.35
+6-year look-back        near_gap_return     0.69      -0.08        1.45       -0.01           5.91          7.38             6.18            7.67
+      since 1998             any_return     3.45       2.16        4.75        0.17          18.99         24.83            19.39           25.05
+      since 1998               near_new    -1.62      -2.47       -0.77        0.09          11.04          9.69             9.06            7.61
+      since 1998            near_return     1.82       0.78        2.86        0.35          10.73         13.68            10.59           13.19
+      since 1998                far_new     1.05       0.16        1.94        0.59          11.02         10.79             9.79            8.97
+      since 1998             far_return     1.63       0.67        2.60       -0.17           8.26         11.15             8.80           11.86
+
+Choices 219,395; saved results_field22_world_IN/first_entry.csv

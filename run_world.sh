@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # One field (usage: bash run_world.sh 13): world-wide citation distributions, waiting out the daily
 # API budget if needed, then rebuild and re-estimate with --world.
 # Run from this folder: bash run_world22.sh
-set -u
 F=$1; export CT_FIELD_ID=$F
 P=${PYTHON:-python}
 mkdir -p logs
 for attempt in 1 2 3 4 5 6; do
     rm -f data_field$F/world/*.part
     PYTHONUNBUFFERED=1 $P fetch_world_citations.py >> logs/fetch_world$F.txt 2>&1
-    n=$(ls data_field$F/world/*.csv.gz 2>/dev/null | wc -l)
+    n=$(ls data_field$F/world/*.csv.gz 2>/dev/null | wc -l || true)
     echo "attempt $attempt: $n/22 years" >> logs/fetch_world$F.txt
     [ "$n" -ge 22 ] && break
     sleep 10800   # check again in 3 h (budget resets at midnight UTC)

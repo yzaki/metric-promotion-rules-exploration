@@ -218,6 +218,9 @@ def main():
     if args.truth:
         with open(args.truth) as f:
             truth = json.load(f)["did"]
+        if args.placebo_year:
+            # the simulated reform starts after the placebo window, so the planted placebo effect is zero
+            truth = {p: 0.0 for p in truth}
 
     if args.placebo_year:
         pre = [y for y in config.PRE_YEARS if y < args.placebo_year]

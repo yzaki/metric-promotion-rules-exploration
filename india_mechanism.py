@@ -40,8 +40,12 @@ def classify():
     aff["cls"] = np.select([aff.type.isin(["facility", "government"]),
                             (aff.type == "education") & aff.name.str.contains(AUTONOMOUS),
                             aff.type == "education"], ["not covered", "not covered", "UGC-covered"], "other")
-    main = aff[aff.cls != "other"].groupby("author_id").cls.agg(lambda s: s.value_counts().index[0])
-    return main
+    aff = aff[aff.cls != "other"]
+    # main institution: most affiliation records in 2009-12; ties to the most recent, then the smallest ID
+    n = aff.groupby(["author_id", "institution_id"]).agg(n=("year", "size"), last=("year", "max")).reset_index()
+    n = n.sort_values(["author_id", "n", "last", "institution_id"], ascending=[True, False, False, True])
+    main_inst = n.drop_duplicates("author_id").set_index("author_id").institution_id
+    return main_inst.map(aff.drop_duplicates("institution_id").set_index("institution_id").cls)
 
 
 def main():

@@ -1,0 +1,17 @@
+Loaded 446,333 papers and 3,404,015 paper-author rows from 66 files
+bar                  far below  met  one short
+rank                                          
+associate professor        261  208         58
+researcher                 250  277         94
+/Users/yz48/Desktop/ResearchClaude/Nouar_citations/review/new_version/repo_v3/sector_thresholds.py:113: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  v = fp_sc[fp_sc.n >= 5].join(anvur_table2(), rsuffix="_anvur", how="inner")
+Sectors compared with ANVUR Table 2: 21; Spearman correlations {'articles': np.float64(0.6538724231602713), 'citations': np.float64(0.7974025974025974), 'h': np.float64(0.7459957820894134)}
+                              sample                                                    spec  below_minus_met_pp  ci_low_pp  ci_high_pp  n_scientists
+associates and researchers (own bar)                                     scientist + year FE                2.92      -2.12        7.96          1148
+associates and researchers (own bar)                                   + articles-in-year FE                3.29      -1.76        8.35          1148
+associates and researchers (own bar)                          + articles-in-year x period FE                3.70      -1.61        9.01          1148
+associates and researchers (own bar) + articles in decision and destination year x period FE                4.51      -0.98       10.01          1148
+       full professors (placebo bar)                                     scientist + year FE                1.27      -5.84        8.39           427
+       full professors (placebo bar)                                   + articles-in-year FE                2.09      -4.91        9.09           427
+       full professors (placebo bar)                          + articles-in-year x period FE                2.82      -4.06        9.69           427
+       full professors (placebo bar) + articles in decision and destination year x period FE                4.05      -2.91       11.02           427

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # Download everything the rebuild needs from the latest OpenAlex version. Resumable; waits out budget resets.
 cd "$(dirname "$0")"
 export OPENALEX_API_KEY=$(tr -d '[:space:]' < ~/.openalex.key)
@@ -30,6 +31,6 @@ field_loop() {  # one field, until complete
   echo "$(date): field $F fetched" >> logs/latest_fetch.txt
 }
 for F in 31 22 13 16 20; do field_loop $F & done
-wait
+waitall
 $P fetch_sources.py >> logs/fetch_sources.txt 2>&1
 echo "$(date): ALL FETCHED" >> logs/latest_fetch.txt

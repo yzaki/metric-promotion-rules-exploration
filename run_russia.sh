@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # Russia (Project 5-100, from 2013) as a third treated country; plan ../PREREGISTRATION_russia_2026-11-05.md.
 # Run from this folder after: fetch_openalex.py --countries RU for fields 31, 22, 13, 16.
-set -u
 P=${PYTHON:-python}
 export PYTHONIOENCODING=utf-8
 mkdir -p logs results_russia
-N=$(ls data/raw/works_RU_*.csv.gz data_field*/raw/works_RU_*.csv.gz 2>/dev/null | wc -l)
+N=$(ls data/raw/works_RU_*.csv.gz data_field*/raw/works_RU_*.csv.gz 2>/dev/null | wc -l || true)
 if [ "$N" -lt 88 ]; then echo "only $N of 88 Russian files downloaded; stopping (rerun fetch_openalex.py --countries RU)"; exit 1; fi
 for F in 31 22 13 16; do
   export CT_FIELD_ID=$F

@@ -60,6 +60,8 @@ def main():
     ap.add_argument("--input", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--n-boot", type=int, default=100)
+    ap.add_argument("--output-check-only", action="store_true",
+                    help="rerun only the output-controlled model-free check (sector_output_check.csv)")
     args = ap.parse_args()
     pre, post = config.PRE_YEARS, config.POST_YEARS
 
@@ -118,45 +120,46 @@ def main():
     grp = pd.concat([grp, pd.Series("full professor", index=match.index[match.rank_2011 == "full professor"], name="g")])
     df["g"] = df.author_id.map(grp).where(df.group == "IT")
     groups = ["met", "one short", "far below", "full professor"]
-    panels = {g: Panel(df[(df.group == "CTRL") | (df.g == g)].reset_index(drop=True)) for g in groups}
-    point = {g: did(fit_groups(panels[g], pre, post, config.GAMMA))[NEAR] for g in groups}
-    it_auth = df.author_id[df.g.isin(groups)].unique()
-    ct_auth = df.author_id[df.group == "CTRL"].unique()
-    rng = np.random.default_rng(config.SEED)
-    draws = []
-    for _ in range(args.n_boot):
-        w = pd.concat([pd.Series(rng.multinomial(len(it_auth), np.full(len(it_auth), 1 / len(it_auth))), index=it_auth),
-                       pd.Series(rng.multinomial(len(ct_auth), np.full(len(ct_auth), 1 / len(ct_auth))), index=ct_auth)])
-        draws.append({g: did(fit_groups(panels[g], pre, post, config.GAMMA,
-                                        weights=panels[g].df.author_id.map(w).to_numpy(dtype=float)))[NEAR] for g in groups})
-    draws = pd.DataFrame(draws)
-    for k, (a, b) in {"one short minus met": ("one short", "met"), "below (0-1) minus met": (None, "met")}.items():
-        if a:
-            draws[k], point[k] = draws[a] - draws[b], point[a] - point[b]
-        else:
-            draws[k] = (draws["one short"] + draws["far below"]) / 2 - draws[b]
-            point[k] = (point["one short"] + point["far below"]) / 2 - point[b]
-    out = []
-    for g in groups + ["one short minus met", "below (0-1) minus met"]:
-        row = {"group": g, "irl_near": point[g], "irl_low": np.percentile(draws[g], 2.5),
-               "irl_high": np.percentile(draws[g], 97.5)}
-        if g in groups:
-            sub = panels[g].df
-            d = ((sub.group == "IT") & sub.year.isin(post)).astype(float).to_numpy()
-            author = pd.factorize(sub.author_id)[0]
-            fe = [author, sub.year.to_numpy()]
-            y = (sub.action == "near").astype(float).to_numpy()
-            b, se = ols_cluster(demean(y[:, None], fe)[:, 0], demean(d[:, None], fe), author)
-            row.update(lpm_near_pp=100 * b[0], lpm_low=100 * (b[0] - 1.96 * se[0]), lpm_high=100 * (b[0] + 1.96 * se[0]),
-                       n_italian=int(sub.author_id[sub.group == "IT"].nunique()))
-        out.append(row)
-    t = pd.DataFrame(out)
-    t["validation_spearman_articles"], t["validation_spearman_citations"], t["validation_spearman_h"] = (
-        val["articles"], val["citations"], val["h"])
-    t["validation_n_sectors"] = len(v)
-    t["n_boot"] = args.n_boot   # scientist resamples behind the IRL intervals
-    t.to_csv(os.path.join(args.out, "sector_thresholds.csv"), index=False)
-    print(t.round(3).to_string(index=False))
+    if not args.output_check_only:
+        panels = {g: Panel(df[(df.group == "CTRL") | (df.g == g)].reset_index(drop=True)) for g in groups}
+        point = {g: did(fit_groups(panels[g], pre, post, config.GAMMA))[NEAR] for g in groups}
+        it_auth = df.author_id[df.g.isin(groups)].unique()
+        ct_auth = df.author_id[df.group == "CTRL"].unique()
+        rng = np.random.default_rng(config.SEED)
+        draws = []
+        for _ in range(args.n_boot):
+            w = pd.concat([pd.Series(rng.multinomial(len(it_auth), np.full(len(it_auth), 1 / len(it_auth))), index=it_auth),
+                           pd.Series(rng.multinomial(len(ct_auth), np.full(len(ct_auth), 1 / len(ct_auth))), index=ct_auth)])
+            draws.append({g: did(fit_groups(panels[g], pre, post, config.GAMMA,
+                                            weights=panels[g].df.author_id.map(w).to_numpy(dtype=float)))[NEAR] for g in groups})
+        draws = pd.DataFrame(draws)
+        for k, (a, b) in {"one short minus met": ("one short", "met"), "below (0-1) minus met": (None, "met")}.items():
+            if a:
+                draws[k], point[k] = draws[a] - draws[b], point[a] - point[b]
+            else:
+                draws[k] = (draws["one short"] + draws["far below"]) / 2 - draws[b]
+                point[k] = (point["one short"] + point["far below"]) / 2 - point[b]
+        out = []
+        for g in groups + ["one short minus met", "below (0-1) minus met"]:
+            row = {"group": g, "irl_near": point[g], "irl_low": np.percentile(draws[g], 2.5),
+                   "irl_high": np.percentile(draws[g], 97.5)}
+            if g in groups:
+                sub = panels[g].df
+                d = ((sub.group == "IT") & sub.year.isin(post)).astype(float).to_numpy()
+                author = pd.factorize(sub.author_id)[0]
+                fe = [author, sub.year.to_numpy()]
+                y = (sub.action == "near").astype(float).to_numpy()
+                b, se = ols_cluster(demean(y[:, None], fe)[:, 0], demean(d[:, None], fe), author)
+                row.update(lpm_near_pp=100 * b[0], lpm_low=100 * (b[0] - 1.96 * se[0]), lpm_high=100 * (b[0] + 1.96 * se[0]),
+                           n_italian=int(sub.author_id[sub.group == "IT"].nunique()))
+            out.append(row)
+        t = pd.DataFrame(out)
+        t["validation_spearman_articles"], t["validation_spearman_citations"], t["validation_spearman_h"] = (
+            val["articles"], val["citations"], val["h"])
+        t["validation_n_sectors"] = len(v)
+        t["n_boot"] = args.n_boot   # scientist resamples behind the IRL intervals
+        t.to_csv(os.path.join(args.out, "sector_thresholds.csv"), index=False)
+        print(t.round(3).to_string(index=False))
 
     # Output check (added after the main analysis): within Italy, model-free DiD of nearby moves for scientists below
     # their bar (0-1 indicators) vs those who met it, after vs before, with scientist and year fixed effects, and
@@ -167,7 +170,9 @@ def main():
     def contrast(it, sample):
         it = it.copy()
         it["n0"] = [n_art.get((a, y), 0) for a, y in zip(it.author_id, it.year)]
-        it["n1"] = [n_art.get((a, y + 1), 0) for a, y in zip(it.author_id, it.year)]
+        # articles in the destination year: the next active year, one or two years after the decision
+        # (config.MAX_GAP = 2); a decision with no article in y + 1 links to y + 2
+        it["n1"] = [n_art.get((a, y + 1), 0) or n_art.get((a, y + 2), 0) for a, y in zip(it.author_id, it.year)]
         it["out_fe"], it["out1_fe"] = bins(it.n0.to_numpy()), bins(it.n1.to_numpy())
         d = (it.below * it.year.isin(post)).to_numpy()
         author = pd.factorize(it.author_id)[0]
@@ -176,7 +181,7 @@ def main():
         for lab, fe in (("scientist + year FE", [author, it.year.to_numpy()]),
                         ("+ articles-in-year FE", [author, it.year.to_numpy(), it.out_fe.to_numpy()]),
                         ("+ articles-in-year x period FE", [author, it.year.to_numpy(), (it.out_fe.astype(str) + per).to_numpy()]),
-                        ("+ articles in decision and next year x period FE", [author, it.year.to_numpy(),
+                        ("+ articles in decision and destination year x period FE", [author, it.year.to_numpy(),
                          (it.out_fe.astype(str) + per).to_numpy(), (it.out1_fe.astype(str) + per).to_numpy()])):
             fe = [pd.factorize(f)[0] for f in fe]
             b, se = ols_cluster(demean(y[:, None], fe)[:, 0], demean(d[:, None], fe), author)

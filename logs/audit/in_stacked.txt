@@ -1,0 +1,25 @@
+15:31:53 ../../.venv/bin/python -u india_stacked.py --out results_india --groups results_india/india_groups.csv
+                            test           scope  beta_pp  ci_low_pp  ci_high_pp  n_treated
+                  I1 nearby move All four fields    -0.31      -1.02        0.40    34416.0
+                  I1 nearby move         Physics    -1.17      -2.44        0.11     6337.0
+                  I1 nearby move     Engineering     0.20      -1.12        1.53    12015.0
+                  I1 nearby move    Biochemistry     1.43      -0.21        3.08     7287.0
+                  I1 nearby move       Chemistry    -1.38      -2.86        0.11    11094.0
+                 I2 placebo 2007 All four fields     0.43      -0.45        1.31    19085.0
+                 I2 placebo 2007         Physics     2.15       0.57        3.73     4101.0
+                 I2 placebo 2007     Engineering    -0.59      -2.35        1.17     5794.0
+                 I2 placebo 2007    Biochemistry    -0.18      -2.24        1.88     3883.0
+                 I2 placebo 2007       Chemistry     0.12      -1.56        1.80     6446.0
+                  I3 near return All four fields     1.20       0.64        1.75    34416.0
+                  I3 near return         Physics    -0.21      -1.28        0.85     6337.0
+                  I3 near return     Engineering     1.68       0.66        2.69    12015.0
+                  I3 near return    Biochemistry     1.59       0.43        2.74     7287.0
+                  I3 near return       Chemistry     1.76       0.58        2.93    11094.0
+                     I3 near new All four fields    -1.51      -1.99       -1.02    34416.0
+                     I3 near new         Physics    -0.95      -1.67       -0.23     6337.0
+                     I3 near new     Engineering    -1.48      -2.36       -0.59    12015.0
+                     I3 near new    Biochemistry    -0.15      -1.35        1.05     7287.0
+                     I3 near new       Chemistry    -3.13      -4.23       -2.04    11094.0
+     I4 nearby move, UGC-covered All four fields     0.69      -0.41        1.79    12737.0
+     I4 nearby move, not covered All four fields    -0.85      -1.76        0.07    14884.0
+I4 UGC-covered minus not covered All four fields     1.54       0.17        2.91        NaN

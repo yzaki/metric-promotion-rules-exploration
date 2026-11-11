@@ -1,7 +1,13 @@
-# Versions used for the paper (Python 3.14.7); earlier versions of these libraries are likely to work.
-numpy==2.5.4
-pandas==3.1.0
-scipy==1.18.1
+# Environment of the reported (latest-download) results: Python 3.11.14.
+# The original-download results (results_original/) were produced with Python 3.14.7, numpy 2.5.4, pandas 3.1.0,
+# scipy 1.18.1, matplotlib 3.11.2; an external audit reproduced them to numerical precision with other versions.
+numpy==2.4.6
+pandas==3.1.1
+scipy==1.17.1
 matplotlib==3.11.2
 requests==2.34.2
 gender-guesser==0.4.0
+# staff-register reading (read_xlsx_raw.py, rank_exposure.py; register exports not distributed)
+openpyxl==3.1.5
+# career-start matching on the cluster (jubail/match_career.py, with the SciSciNet tables)
+polars==2.1.0

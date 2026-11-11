@@ -202,3 +202,37 @@ Italian, French and German works files for physics, engineering and biochemistry
 every analysis, logging each step to `logs/r12/` and stopping on any failure. Results on the 5 November files
 were kept outside this package (`snapshot_r11`, not distributed) for comparison. `run_round12_controls_timing.sh` adds the timing checks against
 Spain + Netherlands + Portugal and Netherlands + Portugal.
+
+## Corrections after an external audit (11 November 2026)
+
+An external numerical and code audit (10 November 2026) of release v1.0 found the following; all are corrected in
+this version.
+
+- **Trajectory files.** In v1.0 the compressed `data*/trajectories*.csv.gz` were copies from the original download
+  (3-5 November), not the latest download behind the paper's results; they had not been recompressed after the
+  8 November rebuild. They are now the latest files (scientists with a decision from 2004: physics 55,168,
+  engineering 49,629, biochemistry 76,412, chemistry 28,832), and the model-free and dynamic-model point
+  estimates reproduce the saved results exactly. The original-download results remain in `results_original/`.
+- **India and Russia groups.** The plans classify scientists by their main affiliation in 2009-12. The scripts now
+  take each scientist's main institution (most affiliation records; ties to the most recent year, then the
+  smallest ID) and classify that institution. Russia's 21 Project 5-100 universities are listed by OpenAlex ID
+  (`russia_mechanism.py`); the earlier name patterns also caught four unrelated institutions named after Peter the
+  Great or N. V. Rudnitsky and missed MISiS ("National University of Science and Technology" in OpenAlex).
+  `run_audit_groups.sh` reruns everything that uses the groups. The groups, the choice-level files and the
+  OpenAlex affiliations behind them are now included (`results_india/`, `results_russia/`, `data_meta/`).
+- **Shared scientists in contrasts.** Table S34's Italy-minus-Russia/India contrasts and pooled estimates now take
+  their standard errors from each scientist's influence on the estimates (`first_entry.py --save-influence`,
+  `run_audit_influence.sh`), which includes the covariance from control scientists shared by the two countries
+  and from scientists in several fields. Against Spain, the Netherlands and Portugal, Italy is now estimated with
+  the same construction as Russia (`first_entry.py --controls ES NL PT`). `pooled_covariance_check.py` reports
+  how much the Fig. 4 pools change.
+- **Output in the destination year.** The output-controlled check (Table S40) now controls for articles in the
+  destination year (the next active year), not the calendar year after the decision (`run_audit_sector.sh`).
+- **Simulation placebo.** `estimate.py --truth --placebo-year` now uses a planted effect of zero.
+- **Scripts.** Every `run_*.sh` sources `run_lib.sh` (stop at the first failure; `waitall` checks every background
+  job). `run_career.sh` reads `career_start/career_start.tsv.gz`. `reclass_check.py` reads the original download
+  from `ORIGINAL_DOWNLOAD` (default `original_download/`). `requirements.txt` lists the environment of the
+  reported results.
+- **Text.** Resample counts (50 per career stage; event studies use half the samples of their analysis), the
+  equal-weight definition of two group contrasts, retrospective citation counts, and field-specific exit are
+  stated in the paper.

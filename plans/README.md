@@ -65,7 +65,7 @@ Only article counts per field were queried before the plan. SHA-256:
 `2F6483B083EA70A7BA005A90E06ED724FF92834C822BDE1C04899136BE374E79`.
 Outcome (paper, Table S27, latest download of 7-8 November 2026; first download in Table S35): I1 not supported
 (stacked −0.3 pp [−1.0, +0.4]); I2 met (+0.4 [−0.5, +1.3]); I3 not supported (returns rose, +1.2 pp [+0.6, +1.7]);
-I4 not supported (+1.1 pp [−0.2, +2.5]); physics not interpretable under the pre-trend rule. (Values as in Table S35,
+I4 not supported (+1.5 pp [+0.2, +2.9]: covered universities declined less, the opposite of the prediction; main institution by OpenAlex records, as corrected after an external audit); physics not interpretable under the pre-trend rule. (Values as in Table S35,
 latest download, current build; the first download gives the same verdicts.)
 India does not replicate the Italian result.
 
@@ -92,6 +92,7 @@ India does not replicate the Italian result.
 - Gap returns (no article in the destination topic in the decision year) and concurrent returns were added in the revision (7 November 2026); no plan specified them. They were estimated on OpenAlex records re-downloaded in November 2026.
 - The pre-trend rule of the India and Russia plans was applied to the Italian fields after the fact (Table S33): chemistry would not be interpretable as a policy effect under it, and physics passes it only at the margin.
 - The Italy-minus-Russia and Italy-minus-India comparisons of returns (Table S34) were not specified in advance.
+- Main affiliation (I4, R4): the plans define groups by the main affiliation in 2009-12. The first implementation classified each scientist's affiliation records and took the most frequent class, and matched Russia's 5-100 universities by name patterns that also caught four unrelated institutions and missed MISiS. After an external audit (10 November 2026) the scripts take each scientist's main institution (most records; ties to the most recent) and list the 21 universities by OpenAlex ID. I4 and R4 remain not supported on both downloads (Table S35).
 - The plans were deposited publicly on 9 November 2026, after the analyses, at https://osf.io/m3xgh (hashes match those listed above).
 - The reported results use a second OpenAlex download (7-8 November 2026), made after all results on the first (original) download (3-5 November) were known. The pre-specified tests listed in Table S35, including chemistry C3-C5 and the chemistry mechanism rule, are reported on both downloads (`download_comparison.py`; only the per-field pre-trend verdicts are not repeated there); all verdicts in that table are identical except those marked with an asterisk there (engineering's all-returns estimate; biochemistry's model-free nearby moves; the engineering and chemistry distant-jump weights; chemistry C3 and the chemistry mechanism rule; and Russia's replication rule, which is not met on the first download (decline driven by engineering, which fails the pre-trend rule) and met on the second (driven by physics); the definition of the fields that drive the decline is our reading of the plan. The 2011 staff-register analyses (Tables S23-S25) were later rerun on the latest download with register exports supplied by the authors (see "Round-13 additions").
 

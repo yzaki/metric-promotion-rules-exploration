@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # Round 13: any-move / distant / any-return outcomes with timing; estimates on articles whose field did not change;
 # balance of the reclassification.
 cd "$(dirname "$0")"
@@ -9,5 +10,5 @@ one() { F=$1; export CT_FIELD_ID=$F; R=results; [ $F != 31 ] && R=results_field$
   echo "$(date '+%F %T') new outcomes $F done" >> $L/progress.txt; }
 for F in 31 22 13 16; do one $F & done
 $P -u reclass_check.py > $L/reclass.txt 2>&1 || echo "FAILED reclass" >> $L/progress.txt
-wait
+waitall
 echo "$(date '+%F %T') NEW DONE" >> $L/progress.txt

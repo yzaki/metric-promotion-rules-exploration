@@ -1,0 +1,54 @@
+                              plan                                                                          test                     verdict_orig                   verdict_latest
+              Biochemistry (4 Nov)                                                       H-R1 nearby-move weight                              met                              met
+              Biochemistry (4 Nov)                                                             H-R2 placebo 2007                              met                              met
+                 Economics (4 Nov)                                                            nearby-move weight                                                                  
+                 Economics (4 Nov)                                                                  placebo 2007                          not met                          not met
+              Biochemistry (4 Nov)    H-R3 decline larger at 0-5 and 6-15 than at 16+ (weights 0-5 / 6-15 / 16+)                          not met                          not met
+                 Economics (4 Nov)                                 H-P1 interpretation of the nearby-move weight includes 0 (citation thresholds) includes 0 (citation thresholds)
+                 Chemistry (5 Nov)                                                  C1 nearby-move weight, FR+DE                              met                              met
+                 Chemistry (5 Nov)                                               C1 nearby-move weight, FR+DE+ES                              met                              met
+                 Chemistry (5 Nov)                                                               C2 placebo 2007                              met                              met
+                 Chemistry (5 Nov)                         C3 university staff minus research institute (weight)                       consistent                    not supported
+                 Chemistry (5 Nov)                     C4 needed the habilitation minus full professors (weight)                    not supported                    not supported
+                 Chemistry (5 Nov)                                           C5 below own bar minus met (weight)                       consistent                       consistent
+                 Chemistry (5 Nov) Mechanism rule (at least two of C3-C5 supported or consistent, none opposite)                              met                          not met
+                     India (5 Nov)                                                            I1 nearby move, pp                          not met                          not met
+                     India (5 Nov)                                                           I2 placebo 2007, pp                              met                              met
+                     India (5 Nov)                                                                I3 returns, pp                          not met                          not met
+                     India (5 Nov)                                              I4 covered minus not covered, pp                          not met                          not met
+                    Russia (5 Nov)                                                            R1 nearby move, pp                              met                              met
+                    Russia (5 Nov)                                                           R2 placebo 2007, pp                              met                              met
+                    Russia (5 Nov)                                                                R3 returns, pp                              met                              met
+                    Russia (5 Nov)                                              R4 covered minus not covered, pp                          not met                          not met
+                    Russia (5 Nov)                 Replication rule (R1, R2, no pre-trend in the driving fields)                          not met                              met
+Co-authorship/journals (5 Nov), IT                                                                listed authors                                                                  
+Co-authorship/journals (5 Nov), IT                                               international co-authorship, pp                                                                  
+Co-authorship/journals (5 Nov), IT                                                            new co-authors, pp                                                                  
+Co-authorship/journals (5 Nov), IT                                                  bottom-quartile journals, pp                                                                  
+Co-authorship/journals (5 Nov), IT                                                  fee-charging open access, pp                                                                  
+Co-authorship/journals (5 Nov), IN                                                                listed authors                                                                  
+Co-authorship/journals (5 Nov), IN                                               international co-authorship, pp                                                                  
+Co-authorship/journals (5 Nov), IN                                                            new co-authors, pp                                                                  
+Co-authorship/journals (5 Nov), IN                                                  bottom-quartile journals, pp                                                                  
+Co-authorship/journals (5 Nov), IN                                                  fee-charging open access, pp                                                                  
+Co-authorship/journals (5 Nov), RU                                                                listed authors                                                                  
+Co-authorship/journals (5 Nov), RU                                               international co-authorship, pp                                                                  
+Co-authorship/journals (5 Nov), RU                                                            new co-authors, pp                                                                  
+Co-authorship/journals (5 Nov), RU                                                  bottom-quartile journals, pp                                                                  
+Co-authorship/journals (5 Nov), RU                                                  fee-charging open access, pp                                                                  
+                   Headline, Italy                                                   Physics: nearby-move weight                      significant                      significant
+                   Headline, Italy                                        Physics: nearby moves (model-free, pp)                      significant                      significant
+                   Headline, Italy                                                  Physics: distant-jump weight                             n.s.                             n.s.
+                   Headline, Italy                                             Physics: returns (model-free, pp)                      significant                      significant
+                   Headline, Italy                                               Engineering: nearby-move weight                      significant                      significant
+                   Headline, Italy                                    Engineering: nearby moves (model-free, pp)                      significant                      significant
+                   Headline, Italy                                              Engineering: distant-jump weight                             n.s.                      significant
+                   Headline, Italy                                         Engineering: returns (model-free, pp)                      significant                             n.s.
+                   Headline, Italy                                              Biochemistry: nearby-move weight                      significant                      significant
+                   Headline, Italy                                   Biochemistry: nearby moves (model-free, pp)                             n.s.                      significant
+                   Headline, Italy                                             Biochemistry: distant-jump weight                      significant                      significant
+                   Headline, Italy                                        Biochemistry: returns (model-free, pp)                      significant                      significant
+                   Headline, Italy                                                 Chemistry: nearby-move weight                      significant                      significant
+                   Headline, Italy                                      Chemistry: nearby moves (model-free, pp)                             n.s.                             n.s.
+                   Headline, Italy                                                Chemistry: distant-jump weight                             n.s.                      significant
+                   Headline, Italy                                           Chemistry: returns (model-free, pp)                      significant                      significant

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # Career-stage analyses with the career start re-matched on the latest sample (match_career.py).
 cd "$(dirname "$0")"; P=${PYTHON:-python}; CS=career_start/career_start.tsv.gz; L=logs/latest
 one() {
@@ -22,7 +23,7 @@ $P build_trajectories.py --career-start $CS --tag career > $L/c20.b.txt 2>&1
 $P -u estimate.py --input data_field20/trajectories_career.csv --out results_field20_career --n-boot 100 --by-career > $L/c20.e.txt 2>&1
 $P -u ddd_checks.py --input data_field20/trajectories_career.csv --out results_field20_career >> $L/c20.e.txt 2>&1
 $P -u ddd_checks.py --input data_field20/trajectories_career.csv --out results_field20_career --placebo-year 2007 >> $L/c20.e.txt 2>&1
-wait
+waitall
 $P paper_tables.py > $L/tables2.txt 2>&1
 $P paper_figures.py > $L/figures2.txt 2>&1
 echo "$(date) CAREER + TABLES DONE" >> $L/progress.txt

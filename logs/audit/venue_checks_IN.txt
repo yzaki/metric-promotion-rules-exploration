@@ -1,0 +1,74 @@
+15:38:30 ../../.venv/bin/python -u venue_checks.py --treated IN --groups results_india/india_groups.csv --covered-label UGC-covered
+                outcome                    comparison         test  window     est      lo      hi
+     bottom_quartile_yr              treated vs FR+DE placebo 2007          0.0254  0.0185  0.0324
+     bottom_quartile_yr              treated vs FR+DE  event study 2004-05 -0.0140 -0.0224 -0.0057
+     bottom_quartile_yr              treated vs FR+DE  event study 2006-07 -0.0227 -0.0302 -0.0153
+     bottom_quartile_yr              treated vs FR+DE  event study 2013-14  0.0302  0.0228  0.0376
+     bottom_quartile_yr              treated vs FR+DE  event study 2015-16  0.0469  0.0394  0.0545
+     bottom_quartile_yr              treated vs FR+DE  event study 2017-18  0.0712  0.0632  0.0793
+     bottom_quartile_yr UGC-covered minus not covered placebo 2007         -0.0063 -0.0209  0.0083
+     bottom_quartile_yr UGC-covered minus not covered  event study 2004-05  0.0110 -0.0065  0.0285
+     bottom_quartile_yr UGC-covered minus not covered  event study 2006-07 -0.0058 -0.0209  0.0093
+     bottom_quartile_yr UGC-covered minus not covered  event study 2013-14 -0.0031 -0.0182  0.0121
+     bottom_quartile_yr UGC-covered minus not covered  event study 2015-16  0.0178  0.0023  0.0334
+     bottom_quartile_yr UGC-covered minus not covered  event study 2017-18  0.0290  0.0120  0.0459
+        top_quartile_yr              treated vs FR+DE placebo 2007          0.0081  0.0009  0.0152
+        top_quartile_yr              treated vs FR+DE  event study 2004-05 -0.0211 -0.0294 -0.0129
+        top_quartile_yr              treated vs FR+DE  event study 2006-07  0.0057 -0.0019  0.0133
+        top_quartile_yr              treated vs FR+DE  event study 2013-14 -0.0196 -0.0268 -0.0123
+        top_quartile_yr              treated vs FR+DE  event study 2015-16 -0.0369 -0.0442 -0.0295
+        top_quartile_yr              treated vs FR+DE  event study 2017-18 -0.0216 -0.0291 -0.0141
+        top_quartile_yr UGC-covered minus not covered placebo 2007          0.0070 -0.0065  0.0205
+        top_quartile_yr UGC-covered minus not covered  event study 2004-05  0.0037 -0.0120  0.0195
+        top_quartile_yr UGC-covered minus not covered  event study 2006-07 -0.0058 -0.0199  0.0083
+        top_quartile_yr UGC-covered minus not covered  event study 2013-14  0.0212  0.0078  0.0346
+        top_quartile_yr UGC-covered minus not covered  event study 2015-16  0.0117 -0.0020  0.0253
+        top_quartile_yr UGC-covered minus not covered  event study 2017-18  0.0289  0.0150  0.0429
+         journal_pct_yr              treated vs FR+DE placebo 2007         -1.3752 -1.7982 -0.9521
+         journal_pct_yr              treated vs FR+DE  event study 2004-05  1.1575  0.6501  1.6649
+         journal_pct_yr              treated vs FR+DE  event study 2006-07  1.4382  0.9904  1.8860
+         journal_pct_yr              treated vs FR+DE  event study 2013-14 -1.1128 -1.5498 -0.6759
+         journal_pct_yr              treated vs FR+DE  event study 2015-16 -2.0682 -2.5157 -1.6206
+         journal_pct_yr              treated vs FR+DE  event study 2017-18 -2.6857 -3.1602 -2.2113
+         journal_pct_yr UGC-covered minus not covered placebo 2007          0.0351 -0.7988  0.8690
+         journal_pct_yr UGC-covered minus not covered  event study 2004-05  0.6011 -0.4117  1.6139
+         journal_pct_yr UGC-covered minus not covered  event study 2006-07  0.8668  0.0070  1.7266
+         journal_pct_yr UGC-covered minus not covered  event study 2013-14  1.2197  0.3695  2.0698
+         journal_pct_yr UGC-covered minus not covered  event study 2015-16  1.1648  0.2909  2.0386
+         journal_pct_yr UGC-covered minus not covered  event study 2017-18  1.0330  0.0855  1.9805
+bottom_quartile_yr_intl              treated vs FR+DE placebo 2007          0.0181  0.0102  0.0260
+bottom_quartile_yr_intl              treated vs FR+DE  event study 2004-05 -0.0091 -0.0183  0.0002
+bottom_quartile_yr_intl              treated vs FR+DE  event study 2006-07 -0.0131 -0.0215 -0.0047
+bottom_quartile_yr_intl              treated vs FR+DE  event study 2013-14  0.0444  0.0359  0.0529
+bottom_quartile_yr_intl              treated vs FR+DE  event study 2015-16  0.0431  0.0345  0.0517
+bottom_quartile_yr_intl              treated vs FR+DE  event study 2017-18  0.0519  0.0428  0.0609
+bottom_quartile_yr_intl UGC-covered minus not covered placebo 2007          0.0058 -0.0125  0.0240
+bottom_quartile_yr_intl UGC-covered minus not covered  event study 2004-05  0.0007 -0.0207  0.0221
+bottom_quartile_yr_intl UGC-covered minus not covered  event study 2006-07  0.0009 -0.0182  0.0200
+bottom_quartile_yr_intl UGC-covered minus not covered  event study 2013-14 -0.0106 -0.0298  0.0086
+bottom_quartile_yr_intl UGC-covered minus not covered  event study 2015-16  0.0042 -0.0154  0.0237
+bottom_quartile_yr_intl UGC-covered minus not covered  event study 2017-18  0.0119 -0.0091  0.0330
+        bottom_quartile              treated vs FR+DE placebo 2007          0.0193  0.0135  0.0252
+        bottom_quartile              treated vs FR+DE  event study 2004-05 -0.0167 -0.0237 -0.0096
+        bottom_quartile              treated vs FR+DE  event study 2006-07 -0.0194 -0.0255 -0.0132
+        bottom_quartile              treated vs FR+DE  event study 2013-14  0.0259  0.0200  0.0319
+        bottom_quartile              treated vs FR+DE  event study 2015-16  0.0233  0.0174  0.0293
+        bottom_quartile              treated vs FR+DE  event study 2017-18  0.0122  0.0061  0.0183
+        bottom_quartile UGC-covered minus not covered placebo 2007         -0.0084 -0.0201  0.0034
+        bottom_quartile UGC-covered minus not covered  event study 2004-05  0.0084 -0.0059  0.0227
+        bottom_quartile UGC-covered minus not covered  event study 2006-07  0.0054 -0.0067  0.0175
+        bottom_quartile UGC-covered minus not covered  event study 2013-14  0.0220  0.0103  0.0337
+        bottom_quartile UGC-covered minus not covered  event study 2015-16  0.0063 -0.0056  0.0181
+        bottom_quartile UGC-covered minus not covered  event study 2017-18  0.0140  0.0019  0.0262
+                 fee_oa              treated vs FR+DE placebo 2007         -0.0133 -0.0171 -0.0095
+                 fee_oa              treated vs FR+DE  event study 2004-05  0.0085  0.0037  0.0133
+                 fee_oa              treated vs FR+DE  event study 2006-07  0.0029 -0.0013  0.0070
+                 fee_oa              treated vs FR+DE  event study 2013-14 -0.0010 -0.0056  0.0035
+                 fee_oa              treated vs FR+DE  event study 2015-16 -0.0069 -0.0117 -0.0021
+                 fee_oa              treated vs FR+DE  event study 2017-18 -0.0463 -0.0510 -0.0415
+                 fee_oa UGC-covered minus not covered placebo 2007          0.0045 -0.0032  0.0122
+                 fee_oa UGC-covered minus not covered  event study 2004-05 -0.0096 -0.0194  0.0002
+                 fee_oa UGC-covered minus not covered  event study 2006-07 -0.0050 -0.0132  0.0032
+                 fee_oa UGC-covered minus not covered  event study 2013-14 -0.0182 -0.0269 -0.0095
+                 fee_oa UGC-covered minus not covered  event study 2015-16 -0.0151 -0.0244 -0.0059
+                 fee_oa UGC-covered minus not covered  event study 2017-18 -0.0291 -0.0382 -0.0201

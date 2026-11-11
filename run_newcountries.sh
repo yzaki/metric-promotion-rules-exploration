@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # Further treated countries with national metric-based promotion rules from 2011-2012:
 # Romania (minimum scientometric standards for habilitation and professorships, Law 1/2011, Orders
 # 4692/2011 and 6560/2012) and Poland (habilitation criteria with bibliometric indicators, Sept 2011).
 # Same design as Italy: treated country vs France + Germany, world citation measure, Italy left out.
 # Run from this folder after fetch_openalex.py --countries RO PL for fields 31, 22, 13.
-set -u
 P=${PYTHON:-python}
 export PYTHONIOENCODING=utf-8
 mkdir -p logs

@@ -55,6 +55,10 @@ def main():
     ap.add_argument("--save-choices", default=None, help="write choice-level move types to this .csv.gz")
     ap.add_argument("--timing", action="store_true", help="placebo 2007 and annual event study (first_entry_timing.csv)")
     ap.add_argument("--controls", nargs="+", default=None, help="control countries instead of FR DE, e.g. ES NL PT")
+    ap.add_argument("--save-influence", default=None,
+                    help="write each scientist's influence on the estimates (pp) to this .csv.gz, for contrasts and "
+                         "pooled estimates that share scientists (Table S34: shared control scientists, scientists in "
+                         "several fields)")
     ap.add_argument("--stable-only", action="store_true",
                     help="keep only articles also in the field on 5 Nov 2026 (<raw dir>_ITFRDE_5nov), i.e. whose "
                          "field assignment did not change in the OpenAlex reclassification")
@@ -101,7 +105,8 @@ def main():
     ch = ch[ch.year.isin(config.PRE_YEARS + config.POST_YEARS)].reset_index(drop=True)
     del df
     if args.save_choices:
-        ch[["author_id", "group", "year", "action", "seen_window", "seen_ever"]].to_csv(args.save_choices, index=False)
+        ch[["author_id", "group", "year", "action", "next_year", "seen_window", "seen_ever", "in_decision_year"]].to_csv(
+            args.save_choices, index=False)
 
     d = ((ch.group == "IT") & ch.year.isin(config.POST_YEARS)).astype(float).to_numpy()
     author = pd.factorize(ch.author_id)[0]
@@ -109,6 +114,7 @@ def main():
     Xd = demean(d[:, None], groups)
     is_it, post = (ch.group == "IT"), ch.year.isin(config.POST_YEARS)
     rows = []
+    infl = []
     for flag, label in (("seen_window", f"{args.lookback}-year look-back"), ("seen_ever", "since 1998")):
         outcomes = {
             "near": ch.action == "near",
@@ -126,6 +132,11 @@ def main():
             yv = y.astype(float).to_numpy()
             yd = demean(yv[:, None], groups)[:, 0]
             b, se = ols_cluster(yd, Xd, author)
+            if args.save_influence and flag == "seen_window" and name in ("near", "near_return", "near_gap_return"):
+                # influence of each scientist on the coefficient: sum of x*u over their choices / sum of x^2
+                u = yd - Xd[:, 0] * b[0]
+                psi = pd.Series(Xd[:, 0] * u).groupby(ch.author_id.to_numpy()).sum() / (Xd[:, 0] ** 2).sum()
+                infl.append(pd.DataFrame({"author_id": psi.index, "outcome": name, "psi_pp": 100 * psi.to_numpy()}))
             rows.append({"definition": label, "outcome": name, "beta_pp": 100 * b[0],
                          "ci_low_pp": 100 * (b[0] - 1.96 * se[0]), "ci_high_pp": 100 * (b[0] + 1.96 * se[0]),
                          "raw_did_pp": raw_did(ch.assign(action=np.where(y, "near", "x"))),
@@ -133,6 +144,8 @@ def main():
                          "CTRL_before_pct": 100 * yv[~is_it & ~post].mean(), "CTRL_after_pct": 100 * yv[~is_it & post].mean()})
     t = pd.DataFrame(rows)
     os.makedirs(out_dir, exist_ok=True)
+    if args.save_influence:
+        pd.concat(infl).to_csv(args.save_influence, index=False, float_format="%.6g")
     path = os.path.join(out_dir, "first_entry.csv")
     t.to_csv(path, index=False)
     print(t.round(2).to_string(index=False))

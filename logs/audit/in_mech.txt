@@ -1,0 +1,20 @@
+15:29:50 ../../.venv/bin/python -u india_mechanism.py --out results_india
+institution_id
+not covered    15138
+UGC-covered    12972
+  field                         group  irl_near  irl_low  irl_high  n_indian
+Physics                   UGC-covered     0.078   -0.090     0.280    1973.0
+Physics                   not covered    -0.112   -0.205    -0.026    3037.0
+Physics UGC-covered minus not covered     0.190    0.020     0.367       NaN
+      field                         group  irl_near  irl_low  irl_high  n_indian
+Engineering                   UGC-covered     0.149    0.040     0.265    4035.0
+Engineering                   not covered     0.040   -0.036     0.123    5931.0
+Engineering UGC-covered minus not covered     0.109   -0.014     0.225       NaN
+       field                         group  irl_near  irl_low  irl_high  n_indian
+Biochemistry                   UGC-covered     0.104   -0.091     0.249    2769.0
+Biochemistry                   not covered     0.060   -0.062     0.176    3336.0
+Biochemistry UGC-covered minus not covered     0.043   -0.135     0.194       NaN
+    field                         group  irl_near  irl_low  irl_high  n_indian
+Chemistry                   UGC-covered     0.007   -0.073     0.076    4798.0
+Chemistry                   not covered    -0.075   -0.150     0.022    3984.0
+Chemistry UGC-covered minus not covered     0.082   -0.051     0.189       NaN

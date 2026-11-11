@@ -15,9 +15,11 @@ import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FIELDS = [("Physics", "data"), ("Engineering", "data_field22"), ("Biochemistry", "data_field13"), ("Chemistry", "data_field16")]
-# Old files: the 5 Nov re-download for three fields; for chemistry, the authors' original download of 5 Nov 2026
-# (03:55-05:17, log fetch_field16.txt), supplied with the original working repository.
-ORIG = os.path.join(HERE, "..", "..", "original_repo", "Citation Targets", "citation-targets-irl")
+# Old files: the 5 Nov re-download for three fields (<raw>_ITFRDE_5nov: unzip openalex_works_redownload_5nov_ITFRDE.zip
+# from the Zenodo data record and rename each data*/raw folder to data*/raw_ITFRDE_5nov); for chemistry, the original
+# download of 5 Nov 2026 (03:55-05:17, log fetch_field16.txt): unzip openalex_works_original_3-5nov.zip into the
+# folder given by ORIGINAL_DOWNLOAD (default: original_download/ in this repository).
+ORIG = os.environ.get("ORIGINAL_DOWNLOAD", os.path.join(HERE, "original_download"))
 PRE, POST = range(2004, 2010), range(2013, 2019)
 
 

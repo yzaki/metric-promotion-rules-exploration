@@ -266,7 +266,7 @@ def table_long_run():
     labels = [("distinct_topics", "Distinct topics per scientist and period", 2, 1),
               ("distinct_subfields", "Distinct subfields per scientist and period", 2, 1),
               ("top1_share", "Share of articles in top 1\\% of year (pp)", 1, 100),
-              ("left_research", "No article 7 years later (pp)", 1, 100)]
+              ("left_research", "No article in the field 7 years later (pp)", 1, 100)]
     lines = [r"\begin{tabular}{lllll}", r"\toprule",
              r"Outcome & Physics & Engineering & Biochemistry & Economics \\", r"\midrule"]
     tabs = {n: pd.read_csv(path(f, "long_run.csv")).set_index("outcome") for n, f in sets
@@ -611,18 +611,30 @@ def table_returns_countries():
     """Returns to familiar topics: Italy vs Russia and India, all returns and gap returns, pooled over fields."""
     import numpy as np
     from scipy import stats
+    # Pooled estimates use inverse-variance weights across fields. Their standard errors, and those of the
+    # Italy-minus-other contrasts, come from each scientist's influence on the estimates
+    # (first_entry.py --save-influence), so they include the covariance from control scientists shared by the two
+    # countries and from scientists in several fields (clustered by scientist across all of them).
+    def infl_se(psi):
+        g = len(psi)
+        return np.sqrt((psi ** 2).sum() * g / (g - 1))
     def get(suffix, outcome, fields=FE4):
-        b, se = [], []
+        b, se, psis = [], [], []
         for _, f in fields:
-            fn = path(f + suffix, "first_entry.csv")
-            t = pd.read_csv(fn)
+            t = pd.read_csv(path(f + suffix, "first_entry.csv"))
             r = t[(t.definition == t.definition.iloc[0]) & (t.outcome == outcome)].iloc[0]
             b.append(r.beta_pp); se.append((r.ci_high_pp - r.ci_low_pp) / 3.92)
+            i = pd.read_csv(path(f + suffix, "first_entry_influence.csv.gz"))
+            psis.append(i[i.outcome == outcome].set_index("author_id").psi_pp)
         b, se = np.array(b), np.array(se)
         w = 1 / se ** 2
-        return (w * b).sum() / w.sum(), np.sqrt(1 / w.sum())
-    fmt = lambda b, se: _pp(b, b - 1.96 * se, b + 1.96 * se)
-    dif = lambda a, c: f"{fmt(a[0] - c[0], np.sqrt(a[1] ** 2 + c[1] ** 2))}; " + _pv(2 * stats.norm.sf(abs(a[0] - c[0]) / np.sqrt(a[1] ** 2 + c[1] ** 2)))
+        w = w / w.sum()
+        psi = pd.concat([p * wk for p, wk in zip(psis, w)]).groupby(level=0).sum()
+        return (w * b).sum(), infl_se(psi), psi
+    fmt = lambda b, se, *_: _pp(b, b - 1.96 * se, b + 1.96 * se)
+    def dif(a, c):
+        d, se = a[0] - c[0], infl_se(a[2].sub(c[2], fill_value=0))
+        return f"{fmt(d, se)}; " + _pv(2 * stats.norm.sf(abs(d) / se))
     def passes(suffix, outcome):
         """Fields that pass Italy's timing check for this outcome (joint pre-2009 test p >= 0.05 and 2007 placebo
         interval including zero; first_entry.py --timing)."""
@@ -660,18 +672,9 @@ def table_returns_countries():
         lines.append(f"\\quad {cname} & {cells['near_return'][2]} & {cells['near_gap_return'][2]} \\\\")
         lines.append(f"\\quad Italy minus {cname} & {cells['near_return'][3]} & {cells['near_gap_return'][3]} \\\\")
         lines.append(r"\addlinespace")
-    # Italy and Russia against Spain, the Netherlands and Portugal (France and Germany left out)
-    def get_space(outcome):
-        b, se = [], []
-        for _, f in FE4:
-            t = pd.read_csv(path(f, "returns_placebo_space.csv"))
-            r = t[(t.design == "Italy vs ES+NL+PT") & (t.outcome == outcome)].iloc[0]
-            b.append(r.beta_pp); se.append((r.ci_high_pp - r.ci_low_pp) / 3.92)
-        b, se = np.array(b), np.array(se)
-        w = 1 / se ** 2
-        return (w * b).sum() / w.sum(), np.sqrt(1 / w.sum())
+    # Italy and Russia against Spain, the Netherlands and Portugal (France and Germany left out), same construction
     try:
-        ia, ig = get_space("ret"), get_space("gap")
+        ia, ig = get("_esnlpt", "near_return"), get("_esnlpt", "near_gap_return")
         rr = [(n, f + "_RU_esnlpt") for n, f in FE4]
         ra, rg = get("", "near_return", rr), get("", "near_gap_return", rr)
         lines += [r"\multicolumn{3}{l}{\emph{Against Spain, the Netherlands and Portugal, four fields (added after the main analysis)}} \\",

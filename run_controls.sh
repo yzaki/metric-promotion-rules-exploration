@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # Item 3: alternative control groups (leave-one-country-out and extra countries), world measure.
 # For each field and control set: build trajectories, IRL main estimate, model-free DiD.
 # Run from this folder: bash run_controls.sh
-set -u
 P=${PYTHON:-python}
 mkdir -p logs
 for F in 31 22 13; do

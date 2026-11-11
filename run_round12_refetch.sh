@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # Round 12: re-download Italy/France/Germany works for physics, engineering and biochemistry from the latest
 # OpenAlex (the 7-8 Nov rebuild had reused files fetched on 5 Nov, because fetch_openalex.py skips existing
 # files), then rerun every analysis. Each step's exit status is logged; the script stops on failure.
@@ -29,7 +30,7 @@ fetch() { F=$1; export CT_FIELD_ID=$F; D=data; [ $F != 31 ] && D=data_field$F
     done
   done
   log "fetched IT FR DE field $F"; }
-for F in 31 22 13; do fetch $F & done; wait
+for F in 31 22 13; do fetch $F & done; waitall
 # 2. full rebuild (as on 7-8 Nov) on the new files
 run bash run_latest_rebuild.sh
 log "rebuild done"
@@ -39,14 +40,14 @@ run $P -u ../extra/sciscinet_subset.py > $L/sciscinet_subset.txt 2>&1
 ( cd ../match_work && run $P -u ../repo_v3/jubail/match_career.py > match_r12.log 2>&1 )
 run gzip -c ../match_work/career_start.tsv > career_start/career_start.tsv.gz
 log "career start re-matched"
-for F in 31 22 13 16; do (CT_FIELD_ID=$F $P -u disruption.py > $L/disruption_$F.txt 2>&1) & done; wait
+for F in 31 22 13 16; do (CT_FIELD_ID=$F $P -u disruption.py > $L/disruption_$F.txt 2>&1) & done; waitall
 run bash run_career_latest.sh
 run bash run_round3.sh
 log "career and timing done"
 # 4. returns checks, S37, MDPI, Russia/India pre-tests, Russia vs ES+NL+PT
-for F in 31 22 13 16; do (CT_FIELD_ID=$F $P -u returns_checks.py > $L/rc_$F.txt 2>&1) & done; wait
-for F in 31 22 13 16; do (CT_FIELD_ID=$F $P -u returns_placebo_space.py > $L/rps_$F.txt 2>&1) & done; wait
-for F in 31 22 13 16; do (CT_FIELD_ID=$F $P -u mdpi_check.py > $L/mdpi_$F.txt 2>&1) & done; wait
+for F in 31 22 13 16; do (CT_FIELD_ID=$F $P -u returns_checks.py > $L/rc_$F.txt 2>&1) & done; waitall
+for F in 31 22 13 16; do (CT_FIELD_ID=$F $P -u returns_placebo_space.py > $L/rps_$F.txt 2>&1) & done; waitall
+for F in 31 22 13 16; do (CT_FIELD_ID=$F $P -u mdpi_check.py > $L/mdpi_$F.txt 2>&1) & done; waitall
 run bash run_round9_pretest.sh
 run bash run_round11_russia_esnlpt.sh
 run $P -u country_pretrend.py > $L/country_pretrend.txt 2>&1

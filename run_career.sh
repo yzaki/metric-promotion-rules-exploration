@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Career-stage reanalysis with the true career start (SciSciNet/MAG match, data_meta/career_start.tsv.gz),
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
+# Career-stage reanalysis with the true career start (SciSciNet/MAG match, career_start/career_start.tsv.gz),
 # plus the value-of-returns analysis. Runs everything one after another (low-memory machine).
 # Run from this folder: bash run_career.sh
-set -u
 P=${PYTHON:-python}
-CS=data_meta/career_start.tsv.gz
+CS=career_start/career_start.tsv.gz
 mkdir -p logs
 export PYTHONIOENCODING=utf-8
 for F in 31 22 13; do

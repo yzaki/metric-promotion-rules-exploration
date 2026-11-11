@@ -1,25 +1,22 @@
-institution_id,name
-I153845743,Moscow Institute of Physics and Technology
-I196355604,National Research Tomsk State University
-I30849647,Tomsk Polytechnic University
-I130823665,Ural Federal University
-I204947315,Far Eastern Federal University
-I4853710,Siberian Federal University
-I173089394,ITMO University
-I79563041,N. I. Lobachevsky State University of Nizhny Novgorod
-I188973947,Novosibirsk State University
-I118501908,National Research University Higher School of Economics
-I17877952,Sechenov University
-I887846188,National Research Nuclear University MEPhI
-I3124489027,Samara National Research University
-I212220629,Peter the Great St. Petersburg Polytechnic University
-I41518628,Saint Petersburg State Electrotechnical University
-I21203515,Kazan Federal University
-I107640659,South Ural State University
-I149643846,Immanuel Kant Baltic Federal University
-I126527374,Peoples' Friendship University of Russia
-I4210115778,Federal Agrarian Scientific Center of the North-East named after NV Rudnitsky
-I3020440027,University of Tyumen
-I4210119165,Voronezh State Agrarian University named after Emperor Peter the Great
-I4210106186,Peter the Great's Museum of Anthropology and Ethnography
-I4210127784,Military Academy of Strategic Missile Forces named after Peter the Great
+institution_id,name_in_plan,name,main_institution_of
+I118501908,National Research University Higher School of Economics,National Research University Higher School of Economics,142
+I153845743,Moscow Institute of Physics and Technology,Moscow Institute of Physics and Technology,129
+I12003341,National University of Science and Technology (MISiS),National University of Science and Technology,250
+I887846188,National Research Nuclear University MEPhI,National Research Nuclear University MEPhI,369
+I79563041,N. I. Lobachevsky State University of Nizhny Novgorod,N. I. Lobachevsky State University of Nizhny Novgorod,199
+I188973947,Novosibirsk State University,Novosibirsk State University,303
+I17877952,Sechenov University,Sechenov University,42
+I126527374,Peoples' Friendship University of Russia,Peoples' Friendship University of Russia,131
+I3124489027,Samara National Research University,Samara National Research University,97
+I41518628,Saint Petersburg State Electrotechnical University (LETI),Saint Petersburg State Electrotechnical University,73
+I212220629,Peter the Great St. Petersburg Polytechnic University,Peter the Great St. Petersburg Polytechnic University,228
+I4853710,Siberian Federal University,Siberian Federal University,80
+I196355604,National Research Tomsk State University,National Research Tomsk State University,199
+I30849647,Tomsk Polytechnic University,Tomsk Polytechnic University,268
+I3020440027,University of Tyumen,University of Tyumen,14
+I173089394,ITMO University,ITMO University,143
+I130823665,Ural Federal University,Ural Federal University,273
+I107640659,South Ural State University,South Ural State University,99
+I149643846,Immanuel Kant Baltic Federal University,Immanuel Kant Baltic Federal University,17
+I204947315,Far Eastern Federal University,Far Eastern Federal University,67
+I21203515,Kazan Federal University,Kazan Federal University,329

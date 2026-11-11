@@ -2,8 +2,8 @@ sample,spec,below_minus_met_pp,ci_low_pp,ci_high_pp,n_scientists
 associates and researchers (own bar),scientist + year FE,-3.034738146983546,-6.283669590012753,0.21419329604565954,3318
 associates and researchers (own bar),+ articles-in-year FE,-2.793769145680508,-6.040165337850194,0.4526270464891777,3318
 associates and researchers (own bar),+ articles-in-year x period FE,-2.4728641885975278,-5.834375279650325,0.8886469024552698,3318
-associates and researchers (own bar),+ articles in decision and next year x period FE,-2.4651576263154436,-5.917958590324965,0.9876433376940781,3318
+associates and researchers (own bar),+ articles in decision and destination year x period FE,-2.506200981372516,-5.964399811359062,0.95199784861403,3318
 full professors (placebo bar),scientist + year FE,-4.183121305577449,-9.116860469852758,0.7506178586978586,1328
 full professors (placebo bar),+ articles-in-year FE,-4.264774179874871,-9.190271162142762,0.6607228023930218,1328
 full professors (placebo bar),+ articles-in-year x period FE,-3.7815686535769126,-8.959189991723571,1.3960526845697465,1328
-full professors (placebo bar),+ articles in decision and next year x period FE,-3.4512491756255788,-8.87662036315349,1.9741220119023337,1328
+full professors (placebo bar),+ articles in decision and destination year x period FE,-3.6056844063721076,-9.059586737647946,1.8482179249037305,1328

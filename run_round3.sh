@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # Round-3 additions: timing (with SEs) for all four fields; IRL event studies with France + Germany.
 P=${PYTHON:-python}
 for F in 31 22 13 16; do
@@ -7,4 +8,4 @@ for F in 31 22 13 16; do
     [ $F != 16 ] && $P estimate.py --input $D/trajectories_world.csv.gz --out ${R}_world_esFRDE --event-study --n-boot 200 > logs/r3_es_$F.txt 2>&1
     echo "field $F done" ) &
 done
-wait
+waitall

@@ -1,0 +1,38 @@
+15:39:27 ../../.venv/bin/python -u venue_checks.py --treated IN --groups results_india/india_groups.csv --covered-label UGC-covered --out results_coauthors --outcomes international new_coauthors log_team
+      outcome                    comparison         test  window     est      lo      hi
+international              treated vs FR+DE placebo 2007         -0.0177 -0.0237 -0.0116
+international              treated vs FR+DE  event study 2004-05  0.0295  0.0221  0.0370
+international              treated vs FR+DE  event study 2006-07  0.0075  0.0014  0.0137
+international              treated vs FR+DE  event study 2013-14 -0.0559 -0.0623 -0.0496
+international              treated vs FR+DE  event study 2015-16 -0.0692 -0.0757 -0.0627
+international              treated vs FR+DE  event study 2017-18 -0.0769 -0.0837 -0.0701
+international UGC-covered minus not covered placebo 2007         -0.0041 -0.0158  0.0076
+international UGC-covered minus not covered  event study 2004-05  0.0098 -0.0048  0.0245
+international UGC-covered minus not covered  event study 2006-07  0.0001 -0.0115  0.0117
+international UGC-covered minus not covered  event study 2013-14  0.0127  0.0009  0.0245
+international UGC-covered minus not covered  event study 2015-16  0.0184  0.0061  0.0306
+international UGC-covered minus not covered  event study 2017-18  0.0184  0.0056  0.0312
+new_coauthors              treated vs FR+DE placebo 2007         -0.0639 -0.0710 -0.0569
+new_coauthors              treated vs FR+DE  event study 2004-05  0.0321  0.0238  0.0403
+new_coauthors              treated vs FR+DE  event study 2006-07  0.0186  0.0113  0.0260
+new_coauthors              treated vs FR+DE  event study 2013-14  0.0149  0.0080  0.0217
+new_coauthors              treated vs FR+DE  event study 2015-16 -0.0184 -0.0251 -0.0116
+new_coauthors              treated vs FR+DE  event study 2017-18 -0.0308 -0.0377 -0.0239
+new_coauthors UGC-covered minus not covered placebo 2007         -0.0210 -0.0352 -0.0068
+new_coauthors UGC-covered minus not covered  event study 2004-05  0.0024 -0.0142  0.0190
+new_coauthors UGC-covered minus not covered  event study 2006-07  0.0105 -0.0040  0.0251
+new_coauthors UGC-covered minus not covered  event study 2013-14 -0.0206 -0.0337 -0.0075
+new_coauthors UGC-covered minus not covered  event study 2015-16 -0.0236 -0.0367 -0.0104
+new_coauthors UGC-covered minus not covered  event study 2017-18 -0.0308 -0.0442 -0.0174
+     log_team              treated vs FR+DE placebo 2007         -0.0309 -0.0385 -0.0234
+     log_team              treated vs FR+DE  event study 2004-05  0.0311  0.0215  0.0407
+     log_team              treated vs FR+DE  event study 2006-07  0.0163  0.0085  0.0241
+     log_team              treated vs FR+DE  event study 2013-14 -0.0595 -0.0677 -0.0513
+     log_team              treated vs FR+DE  event study 2015-16 -0.0748 -0.0833 -0.0662
+     log_team              treated vs FR+DE  event study 2017-18 -0.0900 -0.0989 -0.0810
+     log_team UGC-covered minus not covered placebo 2007         -0.0044 -0.0187  0.0100
+     log_team UGC-covered minus not covered  event study 2004-05  0.0086 -0.0097  0.0270
+     log_team UGC-covered minus not covered  event study 2006-07  0.0031 -0.0112  0.0174
+     log_team UGC-covered minus not covered  event study 2013-14 -0.0209 -0.0358 -0.0060
+     log_team UGC-covered minus not covered  event study 2015-16 -0.0155 -0.0311  0.0000
+     log_team UGC-covered minus not covered  event study 2017-18 -0.0135 -0.0298  0.0028

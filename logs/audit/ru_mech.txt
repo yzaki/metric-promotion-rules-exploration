@@ -1,0 +1,42 @@
+15:30:49 ../../.venv/bin/python -u russia_mechanism.py --out results_russia
+not covered    30276
+5-100           3150 
+5-100 universities (main institution of N scientists):
+ institution_id                                              name_in_plan                                                    name  main_institution_of
+    I118501908   National Research University Higher School of Economics National Research University Higher School of Economics                  120
+    I153845743                Moscow Institute of Physics and Technology              Moscow Institute of Physics and Technology                  131
+     I12003341     National University of Science and Technology (MISiS)           National University of Science and Technology                  177
+    I887846188                National Research Nuclear University MEPhI              National Research Nuclear University MEPhI                  343
+     I79563041     N. I. Lobachevsky State University of Nizhny Novgorod   N. I. Lobachevsky State University of Nizhny Novgorod                  177
+    I188973947                              Novosibirsk State University                            Novosibirsk State University                  284
+     I17877952                                       Sechenov University                                     Sechenov University                   42
+    I126527374                  Peoples' Friendship University of Russia                Peoples' Friendship University of Russia                  130
+   I3124489027                       Samara National Research University                     Samara National Research University                   90
+     I41518628 Saint Petersburg State Electrotechnical University (LETI)      Saint Petersburg State Electrotechnical University                   67
+    I212220629     Peter the Great St. Petersburg Polytechnic University   Peter the Great St. Petersburg Polytechnic University                  219
+      I4853710                               Siberian Federal University                             Siberian Federal University                   68
+    I196355604                  National Research Tomsk State University                National Research Tomsk State University                  203
+     I30849647                              Tomsk Polytechnic University                            Tomsk Polytechnic University                  254
+   I3020440027                                      University of Tyumen                                    University of Tyumen                   12
+    I173089394                                           ITMO University                                         ITMO University                  129
+    I130823665                                   Ural Federal University                                 Ural Federal University                  237
+    I107640659                               South Ural State University                             South Ural State University                   77
+    I149643846                   Immanuel Kant Baltic Federal University                 Immanuel Kant Baltic Federal University                   12
+    I204947315                            Far Eastern Federal University                          Far Eastern Federal University                   63
+     I21203515                                  Kazan Federal University                                Kazan Federal University                  315
+  field                   group  irl_near  irl_low  irl_high  n_russian
+Physics                   5-100    -0.218   -0.375    -0.053     1134.0
+Physics             not covered    -0.001   -0.067     0.072    10808.0
+Physics 5-100 minus not covered    -0.217   -0.362    -0.041        NaN
+      field                   group  irl_near  irl_low  irl_high  n_russian
+Engineering                   5-100     0.026   -0.170     0.208     1381.0
+Engineering             not covered     0.062   -0.008     0.120     9225.0
+Engineering 5-100 minus not covered    -0.036   -0.207     0.139        NaN
+       field                   group  irl_near  irl_low  irl_high  n_russian
+Biochemistry                   5-100     0.181   -0.401     0.794      186.0
+Biochemistry             not covered    -0.201   -0.280    -0.129     5320.0
+Biochemistry 5-100 minus not covered     0.383   -0.216     1.013        NaN
+    field                   group  irl_near  irl_low  irl_high  n_russian
+Chemistry                   5-100    -0.283   -0.609    -0.082      716.0
+Chemistry             not covered    -0.041   -0.109     0.024     7699.0
+Chemistry 5-100 minus not covered    -0.242   -0.528    -0.018        NaN

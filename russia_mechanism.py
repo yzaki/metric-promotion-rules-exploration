@@ -1,7 +1,8 @@
 """Russia, hypothesis R4: was the decline larger among scientists at the 21 Project 5-100 universities?
 
-Main Russian affiliation in 2009-12 (OpenAlex dated affiliations, data_meta/affiliations_ru.csv.gz; most frequent
-institution): '5-100' if its name matches one of the plan's patterns, otherwise 'not covered'. Per field:
+Main Russian affiliation in 2009-12 (OpenAlex dated affiliations, data_meta/affiliations_ru.csv.gz; the institution
+with the most records, ties to the most recent): '5-100' if it is one of the 21 universities (PROJECT_5_100, by
+OpenAlex ID), otherwise 'not covered'. Per field:
 nearby-move weight for each group vs France + Germany with paired scientist resamples, and the difference.
 Writes russia_groups.csv (author_id, group) for the stacked model-free test (india_stacked.py --suffix RU).
 Plan: ../PREREGISTRATION_russia_2026-11-05.md.
@@ -23,15 +24,40 @@ from estimate import Panel, fit_groups, did
 NEAR = irl.PARAMS.index("theta_near")
 META = os.path.join(config.HERE, "data_meta")
 FIELDS = {"Physics": "data", "Engineering": "data_field22", "Biochemistry": "data_field13", "Chemistry": "data_field16"}
-PROJECT_5_100 = re.compile("|".join([
-    r"Higher School of Economics", r"Moscow Institute of Physics and Technology", r"MISiS|MISIS",
-    r"MEPhI|National Research Nuclear University", r"Lobachevsky", r"Novosibirsk State University(?! of)",
-    r"Sechenov|First Moscow State Medical University", r"Peoples'? Friendship University|RUDN",
-    r"Samara National Research University|Samara University", r"Electrotechnical University|LETI",
-    r"Peter the Great|Saint Petersburg Polytechnic|St\.? Petersburg Polytechnic", r"Siberian Federal University",
-    r"Tomsk State University(?! of)", r"Tomsk Polytechnic", r"University of Tyumen|Tyumen State University",
-    r"ITMO", r"Ural Federal University", r"South Ural State University(?! of)", r"Immanuel Kant|Baltic Federal University",
-    r"Far Eastern Federal University", r"Kazan Federal University"]), re.I)
+# The 21 Project 5-100 universities (plan, as of 2015), as OpenAlex institution IDs (reviewed by name; an earlier
+# name-pattern match also caught four unrelated institutions named after Peter the Great or N.V. Rudnitsky and
+# missed MISiS, which OpenAlex calls "National University of Science and Technology").
+PROJECT_5_100 = {
+    "I118501908": "National Research University Higher School of Economics",
+    "I153845743": "Moscow Institute of Physics and Technology",
+    "I12003341": "National University of Science and Technology (MISiS)",
+    "I887846188": "National Research Nuclear University MEPhI",
+    "I79563041": "N. I. Lobachevsky State University of Nizhny Novgorod",
+    "I188973947": "Novosibirsk State University",
+    "I17877952": "Sechenov University",
+    "I126527374": "Peoples' Friendship University of Russia",
+    "I3124489027": "Samara National Research University",
+    "I41518628": "Saint Petersburg State Electrotechnical University (LETI)",
+    "I212220629": "Peter the Great St. Petersburg Polytechnic University",
+    "I4853710": "Siberian Federal University",
+    "I196355604": "National Research Tomsk State University",
+    "I30849647": "Tomsk Polytechnic University",
+    "I3020440027": "University of Tyumen",
+    "I173089394": "ITMO University",
+    "I130823665": "Ural Federal University",
+    "I107640659": "South Ural State University",
+    "I149643846": "Immanuel Kant Baltic Federal University",
+    "I204947315": "Far Eastern Federal University",
+    "I21203515": "Kazan Federal University",
+}
+
+
+def main_institution(aff):
+    """Each scientist's main institution: the one with the most affiliation records in the window; ties go to the
+    institution seen most recently, then to the smallest institution ID."""
+    n = aff.groupby(["author_id", "institution_id"]).agg(n=("year", "size"), last=("year", "max")).reset_index()
+    n = n.sort_values(["author_id", "n", "last", "institution_id"], ascending=[True, False, False, True])
+    return n.drop_duplicates("author_id").set_index("author_id").institution_id
 
 
 def classify():
@@ -40,8 +66,9 @@ def classify():
     aff = aff[aff.year.between(2009, 2012) & (aff.country == "RU")].copy()
     aff["name"] = aff.institution_id.map(types["name"]).fillna("")
     aff = aff[aff.name != ""]
-    aff["cls"] = np.where(aff.name.str.contains(PROJECT_5_100), "5-100", "not covered")
-    return aff.groupby("author_id").cls.agg(lambda s: s.value_counts().index[0]), aff
+    main_inst = main_institution(aff)
+    cls = pd.Series(np.where(main_inst.isin(list(PROJECT_5_100)), "5-100", "not covered"), index=main_inst.index)
+    return cls, aff
 
 
 def main():
@@ -52,9 +79,11 @@ def main():
     os.makedirs(args.out, exist_ok=True)
     g, aff = classify()
     g.rename("group").to_csv(os.path.join(args.out, "russia_groups.csv"))
-    matched = aff[aff.cls == "5-100"].drop_duplicates("institution_id")[["institution_id", "name"]]
+    matched = pd.DataFrame({"institution_id": list(PROJECT_5_100), "name_in_plan": list(PROJECT_5_100.values())})
+    matched["name"] = matched.institution_id.map(aff.drop_duplicates("institution_id").set_index("institution_id")["name"])
+    matched["main_institution_of"] = matched.institution_id.map(main_institution(aff).value_counts()).fillna(0).astype(int)
     matched.to_csv(os.path.join(args.out, "russia_5_100_institutions_matched.csv"), index=False)
-    print(g.value_counts().to_string(), "\nmatched 5-100 institution names:\n", matched.name.sort_values().to_string(index=False), flush=True)
+    print(g.value_counts().to_string(), "\n5-100 universities (main institution of N scientists):\n", matched.to_string(index=False), flush=True)
     pre, post = config.PRE_YEARS, config.POST_YEARS
     rows = []
     rng = np.random.default_rng(config.SEED)

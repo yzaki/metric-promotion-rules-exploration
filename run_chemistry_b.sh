@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # Chemistry (OpenAlex field 16), stage B: after data_meta/career_start.tsv.gz includes chemistry authors.
 # Tests C3-C5 of ../PREREGISTRATION_chemistry_2026-11-05.md.
-set -u
 P=${PYTHON:-python}
 export PYTHONIOENCODING=utf-8 CT_FIELD_ID=16
 D=data_field16; R=results_field16_world_career

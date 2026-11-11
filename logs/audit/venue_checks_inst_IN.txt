@@ -1,0 +1,26 @@
+15:39:12 ../../.venv/bin/python -u venue_checks.py --treated IN --groups results_india/india_groups.csv --covered-label UGC-covered --outcomes n_institutions single_inst --tag _inst
+       outcome                    comparison         test  window     est      lo      hi
+n_institutions              treated vs FR+DE placebo 2007         -0.5017 -0.5494 -0.4540
+n_institutions              treated vs FR+DE  event study 2004-05  0.6559  0.5873  0.7246
+n_institutions              treated vs FR+DE  event study 2006-07  0.3887  0.3356  0.4418
+n_institutions              treated vs FR+DE  event study 2013-14 -1.0120 -1.0725 -0.9516
+n_institutions              treated vs FR+DE  event study 2015-16 -1.3687 -1.4351 -1.3023
+n_institutions              treated vs FR+DE  event study 2017-18 -1.7092 -1.7808 -1.6376
+n_institutions UGC-covered minus not covered placebo 2007          0.0193 -0.0541  0.0928
+n_institutions UGC-covered minus not covered  event study 2004-05  0.0098 -0.0973  0.1169
+n_institutions UGC-covered minus not covered  event study 2006-07  0.0383 -0.0371  0.1137
+n_institutions UGC-covered minus not covered  event study 2013-14  0.0596 -0.0245  0.1437
+n_institutions UGC-covered minus not covered  event study 2015-16  0.0311 -0.0626  0.1248
+n_institutions UGC-covered minus not covered  event study 2017-18 -0.0449 -0.1452  0.0554
+   single_inst              treated vs FR+DE placebo 2007         -0.0004 -0.0075  0.0068
+   single_inst              treated vs FR+DE  event study 2004-05  0.0000 -0.0088  0.0089
+   single_inst              treated vs FR+DE  event study 2006-07  0.0070 -0.0005  0.0146
+   single_inst              treated vs FR+DE  event study 2013-14 -0.0045 -0.0119  0.0029
+   single_inst              treated vs FR+DE  event study 2015-16 -0.0166 -0.0242 -0.0090
+   single_inst              treated vs FR+DE  event study 2017-18 -0.0564 -0.0643 -0.0486
+   single_inst UGC-covered minus not covered placebo 2007          0.0109 -0.0039  0.0257
+   single_inst UGC-covered minus not covered  event study 2004-05 -0.0121 -0.0304  0.0063
+   single_inst UGC-covered minus not covered  event study 2006-07 -0.0177 -0.0329 -0.0025
+   single_inst UGC-covered minus not covered  event study 2013-14  0.0191  0.0041  0.0340
+   single_inst UGC-covered minus not covered  event study 2015-16  0.0214  0.0060  0.0369
+   single_inst UGC-covered minus not covered  event study 2017-18  0.0501  0.0340  0.0663

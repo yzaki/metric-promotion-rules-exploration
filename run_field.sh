@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
+. "$(dirname "$0")/run_lib.sh"   # strict mode (set -euo pipefail) and waitall
 # Full pipeline for one OpenAlex field: download IT/FR/DE/ES (waiting out the daily API
 # budget if needed), build, estimate (FR+DE and FR+DE+ES), placebo, effect sizes.
 # Usage (from this folder): bash run_field.sh 13
-set -u
 F=$1
 export CT_FIELD_ID=$F
 P=${PYTHON:-python}
@@ -12,7 +12,7 @@ mkdir -p logs
 for attempt in 1 2 3 4 5 6 7 8; do
     rm -f $D/raw/*.part
     PYTHONUNBUFFERED=1 $P fetch_openalex.py --countries IT FR DE ES >> logs/fetch_field$F.txt 2>&1
-    n=$(ls $D/raw/*.csv.gz 2>/dev/null | wc -l)
+    n=$(ls $D/raw/*.csv.gz 2>/dev/null | wc -l || true)
     echo "attempt $attempt: $n/88 files" >> logs/fetch_field$F.txt
     [ "$n" -ge 88 ] && break
     sleep 10800   # check again in 3 h (budget resets at midnight UTC)
