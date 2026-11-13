@@ -233,6 +233,7 @@ this version.
   job). `run_career.sh` reads `career_start/career_start.tsv.gz`. `reclass_check.py` reads the original download
   from `ORIGINAL_DOWNLOAD` (default `original_download/`). `requirements.txt` lists the environment of the
   reported results.
+- **Long tables (13 November 2026).** The SI prints Tables S30 and S35 as long tables (`tab_venues_lt.tex`, `tab_downloads_lt.tex`). In v1.1 these were converted by hand and still held the values from before the corrections above; `paper_tables.py` now writes them itself (column specs and captions in `longtables.json`), so every table file the SI inputs comes from one run.
 - **Text.** Resample counts (50 per career stage; event studies use half the samples of their analysis), the
   equal-weight definition of two group contrasts, retrospective citation counts, and field-specific exit are
   stated in the paper.

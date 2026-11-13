@@ -1209,6 +1209,20 @@ def table_country_checks():
     write("tab_country_checks.tex", "\n".join(lines))
 
 
+
+def longtables():
+    """Long versions of S30 and S35 (caption on top, header repeated on each page), as printed in the SI; column
+    specs and captions in longtables.json. Written from the tables above, so they cannot fall out of date."""
+    import json
+    specs = json.load(open(os.path.join(HERE, "longtables.json")))
+    for name, s in specs.items():
+        t = open(os.path.join(OUT, name + ".tex")).read()
+        body = t.split("\\toprule", 1)[1].rsplit("\\bottomrule", 1)[0]
+        header, rest = body.split("\\midrule", 1)
+        write(name + "_lt.tex", "\\begin{longtable}{" + s["spec"] + "}\n\\caption{" + s["caption"] + "}\\\\\n\\toprule" + header
+              + "\\midrule\n\\endfirsthead\n\\toprule" + header + "\\midrule\n\\endhead\n\\bottomrule\n\\endlastfoot\n" + rest
+              + "\\end{longtable}\n")
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     for fn in (table_sector_output, table_reclass, table_country_checks, table_returns_space, table_returns_checks, table_downloads, table_timing, table_returns_countries, table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries,
@@ -1235,3 +1249,4 @@ if __name__ == "__main__":
     table_career()
     table_effects()
     table_secondary()
+    longtables()
