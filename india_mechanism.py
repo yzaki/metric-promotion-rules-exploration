@@ -1,9 +1,11 @@
 """India, hypothesis I4: was the decline larger among scientists covered by the UGC Regulations 2010?
 
-Main Indian affiliation in 2009-12 (OpenAlex dated affiliations, data_meta/affiliations_in.csv.gz; most
-frequent institution type, then institution): 'UGC-covered' = education institutions (universities and
+Main Indian affiliation in 2009-12 (OpenAlex dated affiliations, data_meta/affiliations_in.csv.gz): the
+institution with the most affiliation records over all institution types (ties to the most recent, then the
+smallest ID), as for Russia; it is then classified: 'UGC-covered' = education institutions (universities and
 colleges) except autonomous institutes matched by the name patterns fixed in the plan; 'not covered' =
-facility or government institutions and the autonomous institutes. Per field: nearby-move weight for each
+facility or government institutions and the autonomous institutes. Scientists whose main institution is of
+another type (healthcare, company, nonprofit, funder, other) are in neither group. Per field: nearby-move weight for each
 group vs France + Germany with paired scientist resamples, and the difference. Writes india_groups.csv
 (author_id, group) for the stacked model-free test in india_stacked.py.
 
@@ -40,12 +42,14 @@ def classify():
     aff["cls"] = np.select([aff.type.isin(["facility", "government"]),
                             (aff.type == "education") & aff.name.str.contains(AUTONOMOUS),
                             aff.type == "education"], ["not covered", "not covered", "UGC-covered"], "other")
-    aff = aff[aff.cls != "other"]
-    # main institution: most affiliation records in 2009-12; ties to the most recent, then the smallest ID
+    aff = aff[aff.name != ""]   # institutions without OpenAlex metadata, as for Russia
+    # main institution over all types: most affiliation records in 2009-12; ties to the most recent, then the
+    # smallest ID; classified afterwards, and scientists whose main institution is of another type are dropped
     n = aff.groupby(["author_id", "institution_id"]).agg(n=("year", "size"), last=("year", "max")).reset_index()
     n = n.sort_values(["author_id", "n", "last", "institution_id"], ascending=[True, False, False, True])
     main_inst = n.drop_duplicates("author_id").set_index("author_id").institution_id
-    return main_inst.map(aff.drop_duplicates("institution_id").set_index("institution_id").cls)
+    cls = main_inst.map(aff.drop_duplicates("institution_id").set_index("institution_id").cls)
+    return cls[cls != "other"]
 
 
 def main():

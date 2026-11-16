@@ -85,7 +85,7 @@ def did_rows(A, outcomes, treated, groups=None, covered_label="UGC-covered"):
                          "n_treated": int(s.author_id[s.group == "IT"].nunique())})
     if groups:
         g = pd.read_csv(groups).set_index("author_id").group
-        A["g"] = A.author_id.map(g)
+        A["g"] = A.author_id.map(g).where(A.group == "IT")  # labels apply to treated-country scientists only; a control scientist can share an author ID with a group file
         B = A[(A.group == "CTRL") | A.g.notna()].reset_index(drop=True)
         post = B.year.isin(config.POST_YEARS)
         B["d_cov"] = ((B.g == covered_label) & post).astype(float)

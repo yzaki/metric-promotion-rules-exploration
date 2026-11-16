@@ -1,4 +1,4 @@
-15:30:49 ../../.venv/bin/python -u russia_mechanism.py --out results_russia
+21:44:29 ../../.venv/bin/python -u russia_mechanism.py --out results_russia
 not covered    30276
 5-100           3150 
 5-100 universities (main institution of N scientists):

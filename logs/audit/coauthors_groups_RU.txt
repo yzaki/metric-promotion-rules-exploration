@@ -1,4 +1,4 @@
-15:33:33 ../../.venv/bin/python -u coauthors.py --treated RU --groups results_russia/russia_groups.csv --covered-label 5-100 --out results_coauthors_groups
+21:47:16 ../../.venv/bin/python -u coauthors.py --treated RU --groups results_russia/russia_groups.csv --covered-label 5-100 --out results_coauthors_groups
 Loaded 471,286 papers and 3,414,461 paper-author rows from 66 files
 RU Physics: 57,844 scientists, 356,945 scientist-years
 Loaded 486,364 papers and 1,911,656 paper-author rows from 66 files
@@ -28,15 +28,15 @@ treated       outcome                                    scope     did  ci_low  
      RU new_coauthors                              Engineering -0.0423 -0.0506  -0.0340            0.5844    12773.0
      RU new_coauthors                             Biochemistry -0.0407 -0.0498  -0.0316            0.5895     6673.0
      RU new_coauthors                                Chemistry -0.0087 -0.0168  -0.0005            0.4695     9910.0
-     RU     team_size                   All four fields, 5-100 -1.2979 -1.6003  -0.9955               NaN     3139.0
-     RU     team_size             All four fields, not covered -1.3743 -1.5046  -1.2441               NaN    30021.0
-     RU     team_size All four fields, 5-100 minus not covered  0.0764 -0.2352   0.3880               NaN        NaN
+     RU     team_size                   All four fields, 5-100 -1.2973 -1.5999  -0.9947               NaN     3139.0
+     RU     team_size             All four fields, not covered -1.3748 -1.5050  -1.2445               NaN    30021.0
+     RU     team_size All four fields, 5-100 minus not covered  0.0775 -0.2343   0.3893               NaN        NaN
      RU      log_team                   All four fields, 5-100 -0.1091 -0.1284  -0.0898               NaN     3139.0
      RU      log_team             All four fields, not covered -0.1187 -0.1257  -0.1117               NaN    30021.0
-     RU      log_team All four fields, 5-100 minus not covered  0.0095 -0.0103   0.0294               NaN        NaN
+     RU      log_team All four fields, 5-100 minus not covered  0.0096 -0.0103   0.0295               NaN        NaN
      RU international                   All four fields, 5-100 -0.0866 -0.1014  -0.0717               NaN     3139.0
-     RU international             All four fields, not covered -0.1098 -0.1145  -0.1051               NaN    30021.0
-     RU international All four fields, 5-100 minus not covered  0.0232  0.0080   0.0384               NaN        NaN
-     RU new_coauthors                   All four fields, 5-100 -0.0560 -0.0694  -0.0425               NaN     3093.0
+     RU international             All four fields, not covered -0.1098 -0.1145  -0.1052               NaN    30021.0
+     RU international All four fields, 5-100 minus not covered  0.0233  0.0080   0.0385               NaN        NaN
+     RU new_coauthors                   All four fields, 5-100 -0.0564 -0.0699  -0.0430               NaN     3093.0
      RU new_coauthors             All four fields, not covered -0.0298 -0.0341  -0.0255               NaN    29324.0
-     RU new_coauthors All four fields, 5-100 minus not covered -0.0262 -0.0400  -0.0123               NaN        NaN
+     RU new_coauthors All four fields, 5-100 minus not covered -0.0266 -0.0405  -0.0128               NaN        NaN

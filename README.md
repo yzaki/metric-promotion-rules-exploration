@@ -233,6 +233,16 @@ this version.
   job). `run_career.sh` reads `career_start/career_start.tsv.gz`. `reclass_check.py` reads the original download
   from `ORIGINAL_DOWNLOAD` (default `original_download/`). `requirements.txt` lists the environment of the
   reported results.
+- **Second audit of the code and data (13 November 2026).** (1) `india_stacked.py`, `coauthors.py` (also used by
+  `venues.py`) and `venue_checks.py` attached the India/Russia group labels to every author ID, including the few
+  French and German control scientists whose IDs appear in the group files (16 for India, 21 for Russia); labels now
+  apply to treated-country scientists only, as in the dynamic-model scripts. (2) India's main institution is now
+  chosen over all institution types and then classified, as for Russia; 409 scientists whose main institution is a
+  hospital, company, nonprofit or other type are in neither group. (3) `paper_tables.py` now starts from an empty
+  folder, stops on any missing input, lists every cell shown as "--" (`table_dash_cells.txt`) and checks that all
+  tables in `expected_tables.txt` were written. `run_audit_groups.sh` reruns everything that uses the groups on the
+  latest download; the original-download I4/R4 results in `results_original/` were rerun with the same scripts against
+  the original files.
 - **Long tables (13 November 2026).** The SI prints Tables S30 and S35 as long tables (`tab_venues_lt.tex`, `tab_downloads_lt.tex`). In v1.1 these were converted by hand and still held the values from before the corrections above; `paper_tables.py` now writes them itself (column specs and captions in `longtables.json`), so every table file the SI inputs comes from one run.
 - **Text.** Resample counts (50 per career stage; event studies use half the samples of their analysis), the
   equal-weight definition of two group contrasts, retrospective citation counts, and field-specific exit are

@@ -54,7 +54,7 @@ def main():
     args = ap.parse_args()
     A = pd.read_csv(os.path.join(args.out, f"panel_{args.treated}.csv.gz"))
     if args.groups:
-        A["g"] = A.author_id.map(pd.read_csv(args.groups).set_index("author_id").group)
+        A["g"] = A.author_id.map(pd.read_csv(args.groups).set_index("author_id").group).where(A.group == "IT")
     rows = []
     for oc in args.outcomes:
         base = A.dropna(subset=[oc]).reset_index(drop=True)

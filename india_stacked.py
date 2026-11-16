@@ -85,7 +85,7 @@ def main():
     if args.groups:
         g = pd.read_csv(args.groups).set_index("author_id").group
         s = T[T.year.isin(PRE + POST)].copy()
-        s["g"] = s.author_id.map(g)
+        s["g"] = s.author_id.map(g).where(s.group == "IT")  # labels apply to treated-country scientists only; a control scientist can share an author ID with a group file
         s = s[(s.group == "CTRL") | s.g.notna()].reset_index(drop=True)
         post = s.year.isin(POST)
         cov = args.covered_label

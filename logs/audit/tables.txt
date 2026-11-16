@@ -38,3 +38,6 @@ wrote tab_robustness.tex
 wrote tab_career.tex
 wrote tab_effects.tex
 wrote tab_secondary.tex
+wrote tab_venues_lt.tex
+wrote tab_downloads_lt.tex
+all 42 expected tables written; 0 cells shown as -- (listed in table_dash_cells.txt)

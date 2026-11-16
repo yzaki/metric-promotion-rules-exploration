@@ -1,4 +1,4 @@
-15:32:19 ../../.venv/bin/python -u coauthors.py --treated IN --groups results_india/india_groups.csv --covered-label UGC-covered --out results_coauthors_groups
+21:45:57 ../../.venv/bin/python -u coauthors.py --treated IN --groups results_india/india_groups.csv --covered-label UGC-covered --out results_coauthors_groups
 Loaded 421,094 papers and 3,167,123 paper-author rows from 66 files
 IN Physics: 51,076 scientists, 315,500 scientist-years
 Loaded 520,211 papers and 1,961,064 paper-author rows from 66 files
@@ -28,15 +28,15 @@ treated       outcome                                          scope     did  ci
      IN new_coauthors                                    Engineering -0.0035 -0.0123   0.0053            0.6322    12136.0
      IN new_coauthors                                   Biochemistry -0.0463 -0.0559  -0.0368            0.6837     7412.0
      IN new_coauthors                                      Chemistry -0.0368 -0.0462  -0.0275            0.5616    11230.0
-     IN     team_size                   All four fields, UGC-covered -1.3488 -1.4635  -1.2340               NaN    12928.0
-     IN     team_size                   All four fields, not covered -1.3186 -1.4445  -1.1927               NaN    15075.0
-     IN     team_size All four fields, UGC-covered minus not covered -0.0302 -0.1798   0.1194               NaN        NaN
-     IN      log_team                   All four fields, UGC-covered -0.1033 -0.1134  -0.0932               NaN    12928.0
-     IN      log_team                   All four fields, not covered -0.0842 -0.0933  -0.0752               NaN    15075.0
-     IN      log_team All four fields, UGC-covered minus not covered -0.0191 -0.0318  -0.0064               NaN        NaN
-     IN international                   All four fields, UGC-covered -0.0692 -0.0771  -0.0613               NaN    12927.0
-     IN international                   All four fields, not covered -0.0839 -0.0906  -0.0773               NaN    15075.0
-     IN international All four fields, UGC-covered minus not covered  0.0147  0.0050   0.0244               NaN        NaN
-     IN new_coauthors                   All four fields, UGC-covered -0.0503 -0.0575  -0.0430               NaN    12861.0
-     IN new_coauthors                   All four fields, not covered -0.0221 -0.0283  -0.0159               NaN    15016.0
-     IN new_coauthors All four fields, UGC-covered minus not covered -0.0281 -0.0373  -0.0189               NaN        NaN
+     IN     team_size                   All four fields, UGC-covered -1.3492 -1.4646  -1.2338               NaN    12688.0
+     IN     team_size                   All four fields, not covered -1.3043 -1.4309  -1.1776               NaN    14911.0
+     IN     team_size All four fields, UGC-covered minus not covered -0.0450 -0.1956   0.1057               NaN        NaN
+     IN      log_team                   All four fields, UGC-covered -0.1039 -0.1140  -0.0937               NaN    12688.0
+     IN      log_team                   All four fields, not covered -0.0832 -0.0922  -0.0741               NaN    14911.0
+     IN      log_team All four fields, UGC-covered minus not covered -0.0207 -0.0335  -0.0079               NaN        NaN
+     IN international                   All four fields, UGC-covered -0.0690 -0.0770  -0.0610               NaN    12687.0
+     IN international                   All four fields, not covered -0.0841 -0.0908  -0.0774               NaN    14911.0
+     IN international All four fields, UGC-covered minus not covered  0.0151  0.0053   0.0249               NaN        NaN
+     IN new_coauthors                   All four fields, UGC-covered -0.0491 -0.0564  -0.0417               NaN    12621.0
+     IN new_coauthors                   All four fields, not covered -0.0217 -0.0280  -0.0155               NaN    14852.0
+     IN new_coauthors All four fields, UGC-covered minus not covered -0.0273 -0.0366  -0.0180               NaN        NaN

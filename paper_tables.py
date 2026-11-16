@@ -4,6 +4,7 @@ Writes LaTeX tables to ../paper_overleaf/tables/ (included by supplementary.tex)
 Tables whose inputs do not exist yet are skipped with a message.
 """
 import os
+import sys
 
 import numpy as np
 import pandas as pd
@@ -34,9 +35,14 @@ def ci(r, d=2):
     return f"${r.did:+.{d}f}$ [${r.ci_low:+.{d}f}$, ${r.ci_high:+.{d}f}$]"
 
 
+WRITTEN = set()
+DASHES = []   # cells shown as "--" because a result file or row is absent (listed at the end of each run)
+
+
 def write(name, body):
     with open(os.path.join(OUT, name), "w", encoding="utf-8") as f:
         f.write(body)
+    WRITTEN.add(name)
     print("wrote", name)
 
 
@@ -104,7 +110,8 @@ def table_career():
         for f in folders:
             try:
                 out.append(fn(f))
-            except (FileNotFoundError, KeyError, IndexError):
+            except (FileNotFoundError, KeyError, IndexError) as e:
+                DASHES.append(f"{e.__class__.__name__}: {e}")
                 out.append("--")
         return " & ".join(out)
 
@@ -159,7 +166,8 @@ def table_new_countries():
             for f in folders:
                 try:
                     cells.append(fn(f))
-                except (FileNotFoundError, KeyError, IndexError):
+                except (FileNotFoundError, KeyError, IndexError) as e:
+                    DASHES.append(f"{e.__class__.__name__}: {e}")
                     cells.append("--")
             lines.append(f"{name if i == 0 else ''} & {label} & {' & '.join(cells)} \\\\")
         lines.append(r"\addlinespace")
@@ -315,7 +323,8 @@ def table_validation():
         for _, f in W3:
             try:
                 cells.append(fn(f))
-            except (FileNotFoundError, KeyError, IndexError):
+            except (FileNotFoundError, KeyError, IndexError) as e:
+                DASHES.append(f"{e.__class__.__name__}: {e}")
                 cells.append("--")
         lines.append(f"{label} & {' & '.join(cells)} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}"]
@@ -409,7 +418,8 @@ def table_controls():
                 w = ci(pd.read_csv(path(f, "did_main.csv")).set_index("parameter").loc["theta_near"])
                 r = pd.read_csv(path(f, "reduced_form.csv")).query("choice == 'near'").iloc[0]
                 cells.append(f"{w} & {_pp(r.beta_pp, r.ci_low_pp, r.ci_high_pp)}")
-            except (FileNotFoundError, KeyError, IndexError):
+            except (FileNotFoundError, KeyError, IndexError) as e:
+                DASHES.append(f"{e.__class__.__name__}: {e}")
                 cells.append("-- & --")
         lines.append(f"{label} & {' & '.join(cells)} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}"]
@@ -673,24 +683,21 @@ def table_returns_countries():
         lines.append(f"\\quad Italy minus {cname} & {cells['near_return'][3]} & {cells['near_gap_return'][3]} \\\\")
         lines.append(r"\addlinespace")
     # Italy and Russia against Spain, the Netherlands and Portugal (France and Germany left out), same construction
-    try:
-        ia, ig = get("_esnlpt", "near_return"), get("_esnlpt", "near_gap_return")
-        rr = [(n, f + "_RU_esnlpt") for n, f in FE4]
-        ra, rg = get("", "near_return", rr), get("", "near_gap_return", rr)
-        lines += [r"\multicolumn{3}{l}{\emph{Against Spain, the Netherlands and Portugal, four fields (added after the main analysis)}} \\",
-                  f"\\quad Italy & {fmt(*ia)} & {fmt(*ig)} \\\\",
-                  f"\\quad Russia & {fmt(*ra)} & {fmt(*rg)} \\\\",
-                  f"\\quad Italy minus Russia & {dif(ia, ra)} & {dif(ig, rg)} \\\\"]
-        rn = get("", "near", rr)
-        lines.append(f"\\quad Russia, nearby moves & {fmt(*rn)} & \\\\")
-        bi = [(n, f) for n, f in FE4 if n == "Biochemistry"]
-        br = [(n, f + "_RU") for n, f in FE4 if n == "Biochemistry"]
-        ba, bra = get("", "near_return", bi), get("", "near_return", br)
-        bg, brg = get("", "near_gap_return", bi), get("", "near_gap_return", br)
-        lines += [r"\addlinespace", r"\multicolumn{3}{l}{\emph{Biochemistry only, against France and Germany}} \\",
-                  f"\\quad Italy minus Russia & {dif(ba, bra)} & {dif(bg, brg)} \\\\"]
-    except (FileNotFoundError, IndexError):
-        pass
+    ia, ig = get("_esnlpt", "near_return"), get("_esnlpt", "near_gap_return")
+    rr = [(n, f + "_RU_esnlpt") for n, f in FE4]
+    ra, rg = get("", "near_return", rr), get("", "near_gap_return", rr)
+    lines += [r"\multicolumn{3}{l}{\emph{Against Spain, the Netherlands and Portugal, four fields (added after the main analysis)}} \\",
+              f"\\quad Italy & {fmt(*ia)} & {fmt(*ig)} \\\\",
+              f"\\quad Russia & {fmt(*ra)} & {fmt(*rg)} \\\\",
+              f"\\quad Italy minus Russia & {dif(ia, ra)} & {dif(ig, rg)} \\\\"]
+    rn = get("", "near", rr)
+    lines.append(f"\\quad Russia, nearby moves & {fmt(*rn)} & \\\\")
+    bi = [(n, f) for n, f in FE4 if n == "Biochemistry"]
+    br = [(n, f + "_RU") for n, f in FE4 if n == "Biochemistry"]
+    ba, bra = get("", "near_return", bi), get("", "near_return", br)
+    bg, brg = get("", "near_gap_return", bi), get("", "near_gap_return", br)
+    lines += [r"\addlinespace", r"\multicolumn{3}{l}{\emph{Biochemistry only, against France and Germany}} \\",
+              f"\\quad Italy minus Russia & {dif(ba, bra)} & {dif(bg, brg)} \\\\"]
     lines += [r"\bottomrule", r"\end{tabular}"]
     write("tab_returns_countries.tex", "\n".join(lines))
 
@@ -883,7 +890,8 @@ def table_country(code="IN", folder="results_india", name="india", covered="UGC-
         for _, b in bases:
             try:
                 cells.append(fn(b))
-            except (FileNotFoundError, KeyError, IndexError):
+            except (FileNotFoundError, KeyError, IndexError) as e:
+                DASHES.append(f"{e.__class__.__name__}: {e}")
                 cells.append("--")
         lines.append(f"{lab} & {' & '.join(cells)} \\\\")
 
@@ -1224,15 +1232,16 @@ def longtables():
               + "\\end{longtable}\n")
 
 if __name__ == "__main__":
-    os.makedirs(OUT, exist_ok=True)
+    # Start from an empty folder and stop on any missing input, so that no table can survive from an earlier run;
+    # at the end, check that every table the SI inputs (expected_tables.txt) was written in this run.
+    import shutil
+    shutil.rmtree(OUT, ignore_errors=True)
+    os.makedirs(OUT)
     for fn in (table_sector_output, table_reclass, table_country_checks, table_returns_space, table_returns_checks, table_downloads, table_timing, table_returns_countries, table_composition, table_placebo_space, table_first_entry, table_return_value, table_new_countries,
                table_stacked_rules, table_rank, table_sector_bars, table_institutions, table_chemistry, table_india, table_russia,
                table_coauthors, table_venues, table_venue_checks,
                table_collab_checks):
-        try:
-            fn()
-        except (FileNotFoundError, KeyError, IndexError) as e:
-            print("skip", fn.__name__, e)
+        fn()
     table_simulation()
     table_heterogeneity()
     table_controls()
@@ -1250,3 +1259,10 @@ if __name__ == "__main__":
     table_effects()
     table_secondary()
     longtables()
+    expected = set(open(os.path.join(HERE, "expected_tables.txt")).read().split())
+    missing, extra = expected - WRITTEN, set(os.listdir(OUT)) - expected
+    if missing or extra:
+        sys.exit(f"table set does not match expected_tables.txt: missing {sorted(missing)}, unexpected {sorted(extra)}")
+    with open(os.path.join(OUT, "..", "table_dash_cells.txt"), "w") as f:
+        f.write("\n".join(DASHES) + "\n")
+    print(f"all {len(expected)} expected tables written; {len(DASHES)} cells shown as -- (listed in table_dash_cells.txt)")

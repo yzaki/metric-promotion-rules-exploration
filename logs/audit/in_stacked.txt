@@ -1,4 +1,4 @@
-15:31:53 ../../.venv/bin/python -u india_stacked.py --out results_india --groups results_india/india_groups.csv
+21:45:31 ../../.venv/bin/python -u india_stacked.py --out results_india --groups results_india/india_groups.csv
                             test           scope  beta_pp  ci_low_pp  ci_high_pp  n_treated
                   I1 nearby move All four fields    -0.31      -1.02        0.40    34416.0
                   I1 nearby move         Physics    -1.17      -2.44        0.11     6337.0
@@ -20,6 +20,6 @@
                      I3 near new     Engineering    -1.48      -2.36       -0.59    12015.0
                      I3 near new    Biochemistry    -0.15      -1.35        1.05     7287.0
                      I3 near new       Chemistry    -3.13      -4.23       -2.04    11094.0
-     I4 nearby move, UGC-covered All four fields     0.69      -0.41        1.79    12737.0
-     I4 nearby move, not covered All four fields    -0.85      -1.76        0.07    14884.0
-I4 UGC-covered minus not covered All four fields     1.54       0.17        2.91        NaN
+     I4 nearby move, UGC-covered All four fields     0.74      -0.37        1.86    12502.0
+     I4 nearby move, not covered All four fields    -0.90      -1.82        0.02    14722.0
+I4 UGC-covered minus not covered All four fields     1.64       0.26        3.03        NaN
